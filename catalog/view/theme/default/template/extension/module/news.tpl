@@ -1,23 +1,31 @@
+<div class="col-xs-12 col-md-6 col_main">
 <?php if($show_title) { ?>
-<h3><?php echo $show_icon ? '<i class="fa fa-newspaper-o fa-3x"></i>&nbsp;' : ''; ?><?php echo $heading_title; ?></h3>
+	<p class="header1">
+		<?php echo $show_icon ? '<i class="fa fa-newspaper-o fa-3x"></i>&nbsp;' : ''; ?>
+		<?php echo $heading_title; ?>
+	</p>
 <?php } ?>
-<div class="row">
+
 	<?php foreach ($news as $news_item) { ?>
-	<div class="product-layout col-lg-4 col-md-4 col-sm-6 col-xs-12">
-		<div class="product-thumb transition">
-			<?php if($news_item['thumb']) { ?>
-			<div class="image"><a href="<?php echo $news_item['href']; ?>"><img src="<?php echo $news_item['thumb']; ?>" alt="<?php echo $news_item['title']; ?>" title="<?php echo $news_item['title']; ?>" class="img-responsive" /></a></div>
+	<a href="<?php echo $news_item['href']; ?>">
+		<div class="news">
+			<div class="news_text">
+				<div class="tag tag_cat">Наука</div>
+          		<div class="tag tag_univ">Бгту</div>
+          		<div class="tag tag_country">Россия</div>
+				<div class="news_header"><?php echo $news_item['title']; ?></div>
+				<div class="news_subheader"><?php echo $news_item['description']; ?></div>
+				<div class="news_date">25 фев.  2020</div>   <div class="news_readtime">12 минут чтения</div>
+          	</div>
+
+          	<?php if($news_item['thumb']) { ?>
+				<div class="news_image">
+					<img src="<?php echo $news_item['thumb']; ?>" alt="<?php echo $news_item['title']; ?>" title="<?php echo $news_item['title']; ?>" class="img-responsive" />
+				</div>
 			<?php } ?>
-			<div class="caption">
-				<h4><a href="<?php echo $news_item['href']; ?>"><?php echo $news_item['title']; ?></a></h4>
-				<p><?php echo $news_item['description']; ?></p>
-			</div>
-			<div class="button-group">
-				<button onclick="location.href = ('<?php echo $news_item['href']; ?>');" data-toggle="tooltip" title="<?php echo $text_more; ?>"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_more; ?></span></button>
-				<button type="button" data-toggle="tooltip" title="<?php echo $news_item['posted']; ?>"><i class="fa fa-clock-o"></i></button>
-				<button type="button" data-toggle="tooltip" title="<?php echo $news_item['viewed']; ?>"><i class="fa fa-eye"></i></button>
-			</div>
+			
 		</div>
-	</div>
+	</a>
 	<?php } ?>
+
 </div>
