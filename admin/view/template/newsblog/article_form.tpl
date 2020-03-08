@@ -46,6 +46,28 @@
                     </span></div>
                 </div>
               </div>
+            
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-date-start"><?php echo $entry_date_start; ?></label>
+                <div class="col-sm-3">
+                  <div class="input-group datetime">
+                    <input type="text" name="date_start" value="<?php echo $date_start; ?>" placeholder="<?php echo $entry_date_start; ?>" data-date-format="YYYY-MM-DD" id="input-date-start" class="form-control" />
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-date-end"><?php echo $entry_date_end; ?></label>
+                <div class="col-sm-3">
+                  <div class="input-group datetime">
+                    <input type="text" name="date_end" value="<?php echo $date_end; ?>" placeholder="<?php echo $entry_date_end; ?>" data-date-format="YYYY-MM-DD" id="input-date-end" class="form-control" />
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><i class="fa fa-calendar"></i></button>
+                    </span></div>
+                </div>
+              </div>
 
           	  <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-status"><?php echo $entry_status; ?></label>
@@ -86,7 +108,7 @@
                       <?php } ?>
                     </div>
                   </div>
-                  <div class="form-group">
+                  <div class="form-group hidden">
                     <label class="col-sm-2 control-label" for="input-preview<?php echo $language['language_id']; ?>"><?php echo $entry_preview; ?></label>
                     <div class="col-sm-10">
                       <textarea name="article_description[<?php echo $language['language_id']; ?>][preview]" placeholder="<?php echo $entry_preview; ?>" id="input-preview<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($article_description[$language['language_id']]) ? $article_description[$language['language_id']]['preview'] : ''; ?></textarea>

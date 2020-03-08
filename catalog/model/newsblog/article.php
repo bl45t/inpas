@@ -51,6 +51,8 @@ class ModelNewsBlogArticle extends Model {
 				'tag'              => $query->row['tag'],
 				'image'            => $query->row['image'],
 				'date_available'   => $query->row['date_available'],
+				'date_start'	   => $query->row['date_start'],
+				'date_end'		   => $query->row['date_end'],
 				'sort_order'       => $query->row['sort_order'],
 				'status'           => $query->row['status'],
 				'date_modified'    => $query->row['date_modified'],

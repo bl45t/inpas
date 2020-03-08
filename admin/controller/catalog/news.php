@@ -317,6 +317,8 @@ class ControllerCatalogNews extends Controller {
 		$data['entry_keyword'] = $this->language->get('entry_keyword');
 		$data['entry_image'] = $this->language->get('entry_image');
 		$data['entry_status'] = $this->language->get('entry_status');
+		$data['entry_tag'] = $this->language->get('entry_tag');
+		$data['entry_read_time'] = $this->language->get('entry_read_time');
 	
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -324,7 +326,9 @@ class ControllerCatalogNews extends Controller {
 		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_data'] = $this->language->get('tab_data');
 
-		$data['help_keyword'] = $this->language->get('help_keyword');		
+		$data['help_keyword'] = $this->language->get('help_keyword');
+		$data['help_tag'] = $this->language->get('help_tag');	
+		$data['help_read_time'] = $this->language->get('help_read_time');	
 	
 		$data['token'] = $this->session->data['token'];
 	

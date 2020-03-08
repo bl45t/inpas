@@ -2,7 +2,7 @@
 class ModelNewsBlogArticle extends Model {
 	public function addArticle($data) {
 
-		$this->db->query("INSERT INTO " . DB_PREFIX . "newsblog_article SET date_available = '" . $this->db->escape($data['date_available']) . "', status = '" . (int)$data['status'] . "', sort_order = '" . (int)$data['sort_order'] . "', date_added = NOW()");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "newsblog_article SET date_available = '" . $this->db->escape($data['date_available']) . "', date_start = '". $this->db->escape($data['date_start']) ."', date_end = '". $this->db->escape($data['date_end']) ."',status = '" . (int)$data['status'] . "', sort_order = '" . (int)$data['sort_order'] . "', date_added = NOW()");
 
 		$article_id = $this->db->getLastId();
 
@@ -85,7 +85,7 @@ class ModelNewsBlogArticle extends Model {
 
 	public function editArticle($article_id, $data) {
 
-		$this->db->query("UPDATE " . DB_PREFIX . "newsblog_article SET date_available = '" . $this->db->escape($data['date_available']) . "', status = '" . (int)$data['status'] . "', sort_order = '" . (int)$data['sort_order'] . "', date_modified = NOW() WHERE article_id = '" . (int)$article_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "newsblog_article SET date_available = '" . $this->db->escape($data['date_available']) . "', date_start = '". $this->db->escape($data['date_start']) ."', date_end = '". $this->db->escape($data['date_end']) ."', status = '" . (int)$data['status'] . "', sort_order = '" . (int)$data['sort_order'] . "', date_modified = NOW() WHERE article_id = '" . (int)$article_id . "'");
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "newsblog_article SET image = '" . $this->db->escape($data['image']) . "' WHERE article_id = '" . (int)$article_id . "'");

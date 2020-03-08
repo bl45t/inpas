@@ -12,10 +12,11 @@
         <?php echo $content_top; ?><?php echo $content_bottom; ?>        
     </div>
     <?php echo $column_right; ?>
-        <p class="header1">Опорные университеты</p>
+        
     </div>
 
     <div class="row">
+      <p class="header1">Опорные университеты</p>
         <div class="slider">
           <div class="slider__wrapper">
             <div class="slider__item">

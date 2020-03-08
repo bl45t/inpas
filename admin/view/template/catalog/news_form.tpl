@@ -87,6 +87,21 @@
 												<?php } ?>
 											</div>
 										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="input-reading-time<?php echo $language['language_id']; ?>"><span data-toggle="tooltip" title="<?php echo $help_read_time; ?>"><?php echo $entry_read_time; ?></span></label>
+											<div class="col-sm-10">
+												<input type="text" name="news_description[<?php echo $language['language_id']; ?>][read_time]" value="<?php echo isset($news_description[$language['language_id']]) ? $news_description[$language['language_id']]['read_time'] : ''; ?>" placeholder="<?php echo $entry_read_time; ?>" id="input-reading-time<?php echo $language['language_id']; ?>" class="form-control" />
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="input-tag<?php echo $language['language_id']; ?>"><span data-toggle="tooltip" title="<?php echo $help_tag; ?>"><?php echo $entry_tag; ?></span></label>
+											<div class="col-sm-10">
+												<input type="text" name="news_description[<?php echo $language['language_id']; ?>][tag]" value="<?php echo isset($news_description[$language['language_id']]) ? $news_description[$language['language_id']]['tag'] : ''; ?>" placeholder="<?php echo $entry_tag; ?>" id="input-tag<?php echo $language['language_id']; ?>" class="form-control" />
+											</div>
+										</div>
+
 									</div>
 									<?php } ?>
 								</div>

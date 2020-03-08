@@ -10,12 +10,15 @@
 	<a href="<?php echo $news_item['href']; ?>">
 		<div class="news">
 			<div class="news_text">
-				<div class="tag tag_cat">Наука</div>
-          		<div class="tag tag_univ">Бгту</div>
-          		<div class="tag tag_country">Россия</div>
+
+				<?php foreach ($news_item['tags'] as $tag) { ?>
+          			<div class="tag"><?=$tag?></div>
+          		<?php } ?>
+
 				<div class="news_header"><?php echo $news_item['title']; ?></div>
 				<div class="news_subheader"><?php echo $news_item['description']; ?></div>
-				<div class="news_date">25 фев.  2020</div>   <div class="news_readtime">12 минут чтения</div>
+				<div class="news_date"><?=$news_item['posted']?></div>
+				<div class="news_readtime"><?=$news_item['read_time']?> минут чтения</div>
           	</div>
 
           	<?php if($news_item['thumb']) { ?>
@@ -27,5 +30,7 @@
 		</div>
 	</a>
 	<?php } ?>
-
+	<div class="event_more">
+        <a href="<?=$news_list?>">Все Новости</a> 
+    </div>
 </div>

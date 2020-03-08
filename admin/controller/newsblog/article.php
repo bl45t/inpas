@@ -451,6 +451,8 @@ class ControllerNewsBlogArticle extends Controller {
 
 
 		$data['entry_date_available'] = $this->language->get('entry_date_available');
+		$data['entry_date_start'] = $this->language->get('entry_date_start');
+		$data['entry_date_end'] = $this->language->get('entry_date_end');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
@@ -579,6 +581,22 @@ class ControllerNewsBlogArticle extends Controller {
 			$data['date_available'] = ($article_info['date_available'] != '0000-00-00') ? $article_info['date_available'] : '';
 		} else {
 			$data['date_available'] = date('Y-m-d H:i:s');
+		}
+
+		if (isset($this->request->post['date_start'])) {
+			$data['date_start'] = $this->request->post['date_start'];
+		} elseif (!empty($article_info)) {
+			$data['date_start'] = (!is_null($article_info['date_start'])) ? $article_info['date_start'] : '';
+		} else {
+			$data['date_start'] = date('Y-m-d');
+		}
+
+		if (isset($this->request->post['date_end'])) {
+			$data['date_end'] = $this->request->post['date_end'];
+		} elseif (!empty($article_info)) {
+			$data['date_end'] = (!is_null($article_info['date_end'])) ? $article_info['date_end'] : '';
+		} else {
+			$data['date_end'] = date('Y-m-d');
 		}
 
 		if (isset($this->request->post['status'])) {

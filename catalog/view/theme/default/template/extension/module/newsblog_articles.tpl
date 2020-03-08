@@ -13,7 +13,8 @@
           <?php } ?>
          <span>
           <div class="header_event"><?php echo $article['name']; ?></div>
-          <div class="date_event"><span class="sub_grey"> Дата: </span> 3 марта – 7 марта 2020 </div>
+          <div class="date_event"><span class="sub_grey"> Дата начала:</span><?=$article['date_start']?></div>
+          <div class="date_event"><span class="sub_grey"> Дата окончания:</span><?=$article['date_end']?></div>
           <div class="place_event"><span class="sub_grey"> Место: </span> Бгту им. Шухова </div>
           </span>
           <!--  Анонс
@@ -22,5 +23,7 @@
         </div> 
   </div>
   <?php } ?>
-
+    <div class="event_more">
+        <a href="<?=$link_to_category?>">Все Мероприятия</a> 
+    </div>
 </div>

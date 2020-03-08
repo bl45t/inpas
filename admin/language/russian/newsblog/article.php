@@ -24,6 +24,8 @@ $_['entry_status']          	= 'Статус:';
 $_['entry_sort_order']          = 'Порядок сортировки:';
 
 $_['entry_name']          		= 'Название:';
+$_['entry_date_start']    	= 'Дата начала';
+$_['entry_date_end']    	= 'Дата окончания';
 $_['entry_preview']         	= 'Описание для анонса:';
 $_['entry_description']         = 'Полный текст материала:';
 $_['entry_meta_title']          = 'HTML-тег Title';
