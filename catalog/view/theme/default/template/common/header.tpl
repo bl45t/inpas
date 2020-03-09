@@ -82,18 +82,30 @@
 
       <ul class="container nav navbar-nav">
         <li class="menu1 active"><a href="#">Главная</a></li>
+
+        <li class="menu1 dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+              О проекте 
+              <b class="caret"></b>
+            </a>
+
+            <ul class="dropdown-menu">
+            <?php 
+              if ($informations) { 
+                foreach ($informations as $information) {
+              ?>
+                <li><a href="<?=$information['href']?>"><?=$information['title']?></a></li> 
+            <?php 
+                }
+              } 
+            ?> 
+            </ul>
+
+        </li>
+ 
         <li class="menu1"><a href="<?=$news_link?>">Новости</a></li>
         <li class="menu1"><a href="<?=$events_link?>">Мероприятия</a></li> 
         <li class="menu1"><a href="#">База данных</a></li> 
-        <?php 
-          if ($informations) { 
-            foreach ($informations as $information) {
-        ?>
-              <li class="menu1"><a href="<?=$information['href']?>"><?=$information['title']?></a></li> 
-        <?php 
-            }
-          } 
-        ?>  
       </ul> 
 
       <button class="login mobile_header">Вход</button>
