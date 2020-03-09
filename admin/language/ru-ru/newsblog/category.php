@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']          		= 'NewsBlog - Список категорий';
+$_['heading_title']          		= 'Список категорий';
 
 // Text
 $_['text_success']          		= 'Список категорий обновлен!';
