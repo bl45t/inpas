@@ -64,7 +64,8 @@ class ControllerExtensionModuleNewsBlogArticles extends Controller {
 				'date_modified'   	=> ($date_format ? date($date_format, strtotime($result['date_modified'])) : false),
 				'viewed' 			=> sprintf($this->language->get('text_viewed'), $result['viewed']),
 				'date_start'		=> $result['date_start'],
-				'date_end'			=> $result['date_end']
+				'date_end'			=> $result['date_end'],
+				'venue'				=> $result['venue']
 			);
 		}
 

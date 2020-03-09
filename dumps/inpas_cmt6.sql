@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 09 2020 г., 08:44
+-- Время создания: Мар 09 2020 г., 01:00
 -- Версия сервера: 5.7.16
 -- Версия PHP: 7.1.0
 
@@ -1080,7 +1080,7 @@ CREATE TABLE `oc_currency` (
 --
 
 INSERT INTO `oc_currency` (`currency_id`, `title`, `code`, `symbol_left`, `symbol_right`, `decimal_place`, `value`, `status`, `date_modified`) VALUES
-(1, 'Рубль', 'RUB', '', ' р.', '2', 1.00000000, 1, '2020-03-09 08:00:24'),
+(1, 'Рубль', 'RUB', '', ' р.', '2', 1.00000000, 1, '2020-03-08 23:49:05'),
 (2, 'US Dollar', 'USD', '$', '', '2', 0.01550000, 1, '2015-11-10 17:33:53'),
 (3, 'Euro', 'EUR', '', '€', '2', 0.01440000, 1, '2015-11-10 17:33:53');
 
@@ -2058,8 +2058,8 @@ CREATE TABLE `oc_newsblog_article` (
 --
 
 INSERT INTO `oc_newsblog_article` (`article_id`, `image`, `date_available`, `date_start`, `date_end`, `sort_order`, `status`, `viewed`, `date_added`, `date_modified`) VALUES
-(1, 'catalog/demo/sony_logo.jpg', '2020-03-06 00:28:41', '2020-02-27', '2020-03-11', 500, 1, 30, '2020-03-06 00:29:46', '2020-03-09 08:20:28'),
-(2, 'catalog/demo/sony_vaio_3.jpg', '2020-03-07 19:44:27', '2020-02-01', '2020-03-01', 500, 1, 14, '2020-03-07 19:45:13', '2020-03-09 08:42:03');
+(1, 'catalog/demo/sony_logo.jpg', '2020-03-06 00:28:41', '2020-02-27', '2020-03-11', 500, 1, 30, '2020-03-06 00:29:46', '2020-03-09 00:55:23'),
+(2, 'catalog/demo/sony_vaio_3.jpg', '2020-03-07 19:44:27', '2020-02-01', '2020-03-01', 500, 1, 14, '2020-03-07 19:45:13', '2020-03-09 00:53:02');
 
 -- --------------------------------------------------------
 
@@ -2084,7 +2084,6 @@ CREATE TABLE `oc_newsblog_article_description` (
   `article_id` int(11) NOT NULL,
   `language_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `venue` varchar(200) NOT NULL,
   `preview` text NOT NULL,
   `description` text NOT NULL,
   `tag` text NOT NULL,
@@ -2098,11 +2097,11 @@ CREATE TABLE `oc_newsblog_article_description` (
 -- Дамп данных таблицы `oc_newsblog_article_description`
 --
 
-INSERT INTO `oc_newsblog_article_description` (`article_id`, `language_id`, `name`, `venue`, `preview`, `description`, `tag`, `meta_title`, `meta_h1`, `meta_description`, `meta_keyword`) VALUES
-(2, 1, 'Мероприятие2', 'БГТУ им. В.Г. Шухова', '&lt;p&gt;fds&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;\r\n&lt;h2&gt;Что такое Lorem Ipsum?&lt;/h2&gt;\r\n&lt;p&gt;&lt;strong&gt;Lorem Ipsum&lt;/strong&gt; - это текст-&quot;рыба&quot;, часто используемый в\r\n печати и вэб-дизайне. Lorem Ipsum является стандартной &quot;рыбой&quot; для \r\nтекстов на латинице с начала XVI века. В то время некий безымянный \r\nпечатник создал большую коллекцию размеров и форм шрифтов, используя \r\nLorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно \r\nпережил без заметных изменений пять веков, но и перешагнул в электронный\r\n дизайн. Его популяризации в новое время послужили публикация листов \r\nLetraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время,\r\n программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых \r\nиспользуется Lorem Ipsum.&lt;/p&gt;\r\n&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'тег1, тег2, тег3', '', '', '', ''),
-(1, 2, '', '', '', '', '', '', '', '', ''),
-(1, 1, 'Мероприятие1', 'БелГу', '&lt;div&gt;\r\n&lt;h2&gt;Что такое Lorem Ipsum?&lt;/h2&gt;\r\n&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;&lt;br&gt;&lt;/p&gt;\r\n&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;\r\n&lt;h2&gt;Что такое Lorem Ipsum?&lt;/h2&gt;\r\n&lt;p&gt;&lt;strong&gt;Lorem Ipsum&lt;/strong&gt; - это текст-&quot;рыба&quot;, часто используемый в\r\n печати и вэб-дизайне. Lorem Ipsum является стандартной &quot;рыбой&quot; для \r\nтекстов на латинице с начала XVI века. В то время некий безымянный \r\nпечатник создал большую коллекцию размеров и форм шрифтов, используя \r\nLorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно \r\nпережил без заметных изменений пять веков, но и перешагнул в электронный\r\n дизайн. Его популяризации в новое время послужили публикация листов \r\nLetraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время,\r\n программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых \r\nиспользуется Lorem Ipsum.&lt;/p&gt;\r\n&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'testTag', '', '', '', ''),
-(2, 2, '', '', '', '', '', '', '', '', '');
+INSERT INTO `oc_newsblog_article_description` (`article_id`, `language_id`, `name`, `preview`, `description`, `tag`, `meta_title`, `meta_h1`, `meta_description`, `meta_keyword`) VALUES
+(1, 2, '', '', '', '', '', '', '', ''),
+(1, 1, 'Мероприятие1', '&lt;div&gt;\r\n&lt;h2&gt;Что такое Lorem Ipsum?&lt;/h2&gt;\r\n&lt;p&gt;&lt;strong&gt;&lt;/strong&gt;&lt;br&gt;&lt;/p&gt;\r\n&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;\r\n&lt;h2&gt;Что такое Lorem Ipsum?&lt;/h2&gt;\r\n&lt;p&gt;&lt;strong&gt;Lorem Ipsum&lt;/strong&gt; - это текст-&quot;рыба&quot;, часто используемый в\r\n печати и вэб-дизайне. Lorem Ipsum является стандартной &quot;рыбой&quot; для \r\nтекстов на латинице с начала XVI века. В то время некий безымянный \r\nпечатник создал большую коллекцию размеров и форм шрифтов, используя \r\nLorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно \r\nпережил без заметных изменений пять веков, но и перешагнул в электронный\r\n дизайн. Его популяризации в новое время послужили публикация листов \r\nLetraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время,\r\n программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых \r\nиспользуется Lorem Ipsum.&lt;/p&gt;\r\n&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'testTag', '', '', '', ''),
+(2, 2, '', '', '', '', '', '', '', ''),
+(2, 1, 'Мероприятие 2', '&lt;p&gt;fds&lt;br&gt;&lt;/p&gt;', '&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;div&gt;\r\n&lt;h2&gt;Что такое Lorem Ipsum?&lt;/h2&gt;\r\n&lt;p&gt;&lt;strong&gt;Lorem Ipsum&lt;/strong&gt; - это текст-&quot;рыба&quot;, часто используемый в\r\n печати и вэб-дизайне. Lorem Ipsum является стандартной &quot;рыбой&quot; для \r\nтекстов на латинице с начала XVI века. В то время некий безымянный \r\nпечатник создал большую коллекцию размеров и форм шрифтов, используя \r\nLorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно \r\nпережил без заметных изменений пять веков, но и перешагнул в электронный\r\n дизайн. Его популяризации в новое время послужили публикация листов \r\nLetraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время,\r\n программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых \r\nиспользуется Lorem Ipsum.&lt;/p&gt;\r\n&lt;/div&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;', 'тег1, тег2, тег3', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -3982,9 +3981,9 @@ INSERT INTO `oc_url_alias` (`url_alias_id`, `query`, `keyword`) VALUES
 (843, 'information_id=5', 'terms'),
 (844, 'information/news', 'news'),
 (882, 'news_id=1', 'yolo_news'),
+(886, 'newsblog_article_id=1', 'meropriyatie1'),
 (875, 'newsblog_category_id=1', 'meropriyatiya'),
-(890, 'newsblog_article_id=1', 'meropriyatie1'),
-(896, 'newsblog_article_id=2', 'meropriyatie-2');
+(885, 'newsblog_article_id=2', 'meropriyatie-2');
 
 -- --------------------------------------------------------
 
@@ -9765,7 +9764,7 @@ ALTER TABLE `oc_upload`
 -- AUTO_INCREMENT для таблицы `oc_url_alias`
 --
 ALTER TABLE `oc_url_alias`
-  MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=897;
+  MODIFY `url_alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=887;
 --
 -- AUTO_INCREMENT для таблицы `oc_user`
 --

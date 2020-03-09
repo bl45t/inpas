@@ -42,6 +42,7 @@ class ModelNewsBlogArticle extends Model {
 			return array(
 				'article_id'       => $query->row['article_id'],
 				'name'             => $query->row['name'],
+				'venue'			   => $query->row['venue'],
 				'preview'      	   => $query->row['preview'],
 				'description'      => $query->row['description'],
 				'meta_title'       => $query->row['meta_title'],
@@ -59,6 +60,7 @@ class ModelNewsBlogArticle extends Model {
 				'viewed'           => $query->row['viewed'],
 				'attributes'	   => $this->getArticleAttributes($article_id)
 			);
+
 		} else {
 			return false;
 		}

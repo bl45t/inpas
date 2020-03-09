@@ -11,7 +11,7 @@ class ModelNewsBlogArticle extends Model {
 		}
 
 		foreach ($data['article_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "newsblog_article_description SET article_id = '" . (int)$article_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', preview = '" . $this->db->escape($value['preview']) . "', description = '" . $this->db->escape($value['description']) . "', tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "newsblog_article_description SET article_id = '" . (int)$article_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', venue = '". $this->db->escape($value['venue']) ."', preview = '" . $this->db->escape($value['preview']) . "', description = '" . $this->db->escape($value['description']) . "', tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
 
 		if (isset($data['article_store'])) {
@@ -94,7 +94,7 @@ class ModelNewsBlogArticle extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "newsblog_article_description WHERE article_id = '" . (int)$article_id . "'");
 
 		foreach ($data['article_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "newsblog_article_description SET article_id = '" . (int)$article_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', preview = '" . $this->db->escape($value['preview']) . "', description = '" . $this->db->escape($value['description']) . "', tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "newsblog_article_description SET article_id = '" . (int)$article_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', venue = '". $this->db->escape($value['venue']) ."', preview = '" . $this->db->escape($value['preview']) . "', description = '" . $this->db->escape($value['description']) . "', tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "newsblog_article_to_store WHERE article_id = '" . (int)$article_id . "'");
@@ -337,7 +337,8 @@ class ModelNewsBlogArticle extends Model {
 				'meta_h1'          => $result['meta_h1'],
 				'meta_description' => $result['meta_description'],
 				'meta_keyword'     => $result['meta_keyword'],
-				'tag'              => $result['tag']
+				'tag'              => $result['tag'],
+				'venue'			   => $result['venue']
 			);
 		}
 

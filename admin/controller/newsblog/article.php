@@ -457,6 +457,7 @@ class ControllerNewsBlogArticle extends Controller {
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_venue'] = $this->language->get('entry_venue');
 		$data['entry_preview'] = $this->language->get('entry_preview');
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
@@ -508,6 +509,12 @@ class ControllerNewsBlogArticle extends Controller {
 			$data['error_name'] = $this->error['name'];
 		} else {
 			$data['error_name'] = array();
+		}
+
+		if (isset($this->error['venue'])) {
+			$data['error_venue'] = $this->error['venue'];
+		} else {
+			$data['error_venue'] = array();
 		}
 
 		if (isset($this->error['keyword'])) {

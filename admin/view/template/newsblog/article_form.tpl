@@ -108,6 +108,17 @@
                       <?php } ?>
                     </div>
                   </div>
+  
+                  <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-venue<?php echo $language['language_id']; ?>"><?php echo $entry_venue; ?></label>
+                    <div class="col-sm-10">
+                      <input type="text" name="article_description[<?php echo $language['language_id']; ?>][venue]" value="<?php echo isset($article_description[$language['language_id']]) ? $article_description[$language['language_id']]['venue'] : ''; ?>" placeholder="<?php echo $entry_venue; ?>" id="input-venue<?php echo $language['language_id']; ?>" class="form-control this-input-for-translit" />
+                      <?php if (isset($error_venue[$language['language_id']])) { ?>
+                      <div class="text-danger"><?php echo $error_venue[$language['language_id']]; ?></div>
+                      <?php } ?>
+                    </div>
+                  </div>
+
                   <div class="form-group hidden">
                     <label class="col-sm-2 control-label" for="input-preview<?php echo $language['language_id']; ?>"><?php echo $entry_preview; ?></label>
                     <div class="col-sm-10">
