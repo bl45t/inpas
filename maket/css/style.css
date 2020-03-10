@@ -27,7 +27,7 @@ body
 
 /* стили для поля ввода */
 .search .input {
-	
+
 	width: 242px;
 	padding: 8px 37px 9px 15px;
 	-moz-box-sizing: border-box;
@@ -66,7 +66,7 @@ input[type="search"] {
 
 .navbar-header
 {
-	
+
     background-color: white;
     margin-left: auto;
     float: inherit;
@@ -84,7 +84,7 @@ input[type="search"] {
 }
 .navbar-default
 	{
-     background-color: initial !important; 
+     background-color: initial !important;
      border:none  !important;
 	}
 
@@ -98,7 +98,7 @@ input[type="search"] {
 .rus
 {
 	 width:35px;
-	 height:auto;	 
+	 height:auto;
 	 margin-right:11px;
 }
 
@@ -107,11 +107,11 @@ input[type="search"] {
 	margin-top:32px;
 	background-color: #003867;
 	border:2px solid #003867;
-	border-radius: 3px;	
-    text-decoration: none; 
-    user-select: none; 
+	border-radius: 3px;
+    text-decoration: none;
+    user-select: none;
     padding: .4em 1.5em;
-    outline: none; 
+    outline: none;
 	height: 40px;
 
     color: white !important;
@@ -128,8 +128,8 @@ input[type="search"] {
    }
 
 
-   .login:hover { background-color:white; border:2px solid #003867; color: #003867 !important; } 
-   .login:active { background-color: #003867; border:2px solid #003867; color: white !important; } 
+   .login:hover { background-color:white; border:2px solid #003867; color: #003867 !important; }
+   .login:active { background-color: #003867; border:2px solid #003867; color: white !important; }
 
 
    .navbar-nav li
@@ -137,7 +137,7 @@ input[type="search"] {
    	padding: 2px 0px 0px 0px;
     width: 14.28%;
    }
-   .navbar-nav li:hover, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus 
+   .navbar-nav li:hover, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
    {
    		background-color: #002747 !important;
    		transition-duration: 0.6s;
@@ -164,7 +164,7 @@ input[type="search"] {
    }
 
 
-    .navbar-nav 
+    .navbar-nav
    {
    	margin-left:auto;
    	margin-right:auto;
@@ -183,7 +183,7 @@ input[type="search"] {
    }
 
 
-    #fixed 
+    #fixed
     {
 	background-color: #003867;
     width: 100%;
@@ -207,10 +207,15 @@ input[type="search"] {
 	}
 
 
-	.event div
+	.event_info div
 	{
-		color: white !important;
-		max-width: 85%;		
+		color: white;
+		max-width: 85%;
+	}
+
+	.event img {
+		height: 100%;
+		width: auto;
 	}
 
 	.header_event
@@ -265,7 +270,7 @@ input[type="search"] {
 	    height: 240px;
 		margin-bottom: 13px;
 		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
-		border-radius: 3px;	
+		border-radius: 3px;
 		background-color: white;
 	}
 	.news_text
@@ -284,7 +289,7 @@ input[type="search"] {
 		line-height: 25px;
 		text-transform: uppercase;
 		float: left;
-		margin-right: 13.3px;		
+		margin-right: 13.3px;
 	}
 	.tag_cat
 	{
@@ -292,7 +297,7 @@ input[type="search"] {
 	}
 	.tag_univ
 	{
-		color: #C8984D !important;		
+		color: #C8984D !important;
 	}
 	.tag_country
 	{
@@ -343,14 +348,14 @@ input[type="search"] {
 		bottom: 20px;
 	}
 
-	
+
 		.event1
 	{
-		background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%), url(../img/photo1.jpg), #FFFFFF;
+		/*background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%), #FFFFFF;*/
 	}
 		.event2
 	{
-		background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%), url(../img/photo2.jpg), #FFFFFF;
+		/*background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%), #FFFFFF;*/
 	}
 		.news1
 	{
@@ -372,16 +377,24 @@ input[type="search"] {
 	}
 		.event
 	{
-		background-position: center;
-		padding: 20px;
 	    width: 100%;
 	    height: 240px;
 		margin-top: 13px;
-		background-size: cover;
 		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
 		border-radius: 3px;
 		position: relative;
 		background-color: #003867;
+		overflow: hidden;
+		position: relative;
+	}
+	.event_info {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		padding: 20px;
+		background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%);
 	}
 
 	.publication
@@ -416,7 +429,7 @@ input[type="search"] {
 	}
 
 	.image_publication
-	{				
+	{
 		background-image: url(../img/publ.png);
 		float: left;
 		background-size: cover;
@@ -425,7 +438,7 @@ input[type="search"] {
 		height: 100%;
 		margin-right: 10px;
 	}
-	footer 
+	footer
 	{
 	    background: none repeat scroll 0 0 #003A6A;
 	    clear: both;
@@ -491,7 +504,7 @@ input[type="search"] {
 
 
 	.univ1
-	{		
+	{
 	    background-image: url(../img/univ1.png);
 	    background-repeat: no-repeat;
 	    background-size: contain;
@@ -500,14 +513,14 @@ input[type="search"] {
     	height: 200px;
 	}
 	.univ2
-	{		
+	{
 	    background-image: url(../img/univ2.png);
 	    background-repeat: no-repeat;
 	    background-size: contain;
 	    background-position: center;
 	    width: 100%;
    	 	height: 200px;
-	}	
+	}
 	.slider {
       position: relative;
       overflow: hidden;
@@ -686,7 +699,7 @@ input[type="search"] {
     {
     	font-size: 16px;
     	color: #979797;
-    	margin-right: 7px; 
+    	margin-right: 7px;
     }
     .current_page
     {
@@ -702,7 +715,7 @@ input[type="search"] {
     }
     .sub_nav
     {
-    	
+
     }
     .header2
     {
@@ -800,7 +813,7 @@ input[type="search"] {
 	    overflow: hidden;
 	    text-overflow: ellipsis;
     }
-    .publ_page 
+    .publ_page
     {
     	height: 140px;
     }
@@ -823,11 +836,11 @@ input[type="search"] {
 
 
 /*    Начало Страницы Мероприятия*/
-	
+
 	.event_page
 	{
 		width: 27%;
-		float: left;		
+		float: left;
 		box-shadow: none;
 		margin-top: 0;
 	}
@@ -926,11 +939,11 @@ input[type="search"] {
 
 	.event_main_text
 	{
-		
+
 	}
 
 	.event_main_text, .event_main_text i, .event_main_text ins, .event_main_text b
-	{		
+	{
 		font-size: 16px;
 		line-height: 160%;
 		color: #535353;
@@ -967,8 +980,8 @@ input[type="search"] {
 	}
 	.v_border
 	{
-		height: 20px; 
-		width: 1px; 
+		height: 20px;
+		width: 1px;
 		background-color: #E1E1E1;
 	}
 	.facebook
@@ -1014,7 +1027,7 @@ input[type="search"] {
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
-		margin:0px 20px;		
+		margin:0px 20px;
 		position: absolute;
 	    top: 38px;
 	    right: -53px;
@@ -1035,7 +1048,7 @@ input[type="search"] {
 	{
 		position: relative;
 	}
-	.header_of_list2 
+	.header_of_list2
 	{
     	height: 60px;
 	    width: 100%;
@@ -1053,7 +1066,7 @@ input[type="search"] {
 	}
 
 
-	
+
 
 
 
@@ -1075,7 +1088,7 @@ input[type="search"] {
       .slider__item {
         flex: 0 0 50%;
         max-width: 50%;
-      }      
+      }
     }
 
 
@@ -1087,7 +1100,7 @@ input[type="search"] {
       }
 
     }
-    @media (min-width: 580px) and (max-width: 992px) 
+    @media (min-width: 580px) and (max-width: 992px)
     {
     	.event
     	{
@@ -1098,7 +1111,7 @@ input[type="search"] {
     	{
     		margin-right: 2%;
     	}
-    	.event_m 
+    	.event_m
     	{
     		margin-top: 305px;
     	}
@@ -1107,7 +1120,7 @@ input[type="search"] {
     		width: 100%;
     	}
 
-    	
+
     }
 
 
@@ -1118,7 +1131,7 @@ input[type="search"] {
       }
     }
 
-        @media (max-width: 1200px) 
+        @media (max-width: 1200px)
     {
       .full_footer
       {
@@ -1131,7 +1144,7 @@ input[type="search"] {
       .footer_text
       {
       	margin-top: 19px;
-      	font-size: 17px !important;      	
+      	font-size: 17px !important;
       }
       .footer_text a
       {
@@ -1198,7 +1211,7 @@ input[type="search"] {
 		.navbar-brand {
     		margin-left: 0px;
     	}
-		
+
 		.navbar-default .navbar-nav>li>a {
     	font-size: 18px;
     	float: left;
@@ -1213,7 +1226,7 @@ input[type="search"] {
 			margin-top:35px;
 		}
 
-		.header2, .search_sub 
+		.header2, .search_sub
 		{
 			float:none;
 		}
@@ -1233,7 +1246,7 @@ input[type="search"] {
 		.search input
 		{width: 100% !important;}
 
-		.header_of_list 
+		.header_of_list
 		{
     		height: 130px;
     	}
@@ -1268,7 +1281,7 @@ input[type="search"] {
 		{
 			max-width: 60%;
 		}
-		.nav_pages  
+		.nav_pages
 		{
 		    width: 90%;
 		}
@@ -1300,7 +1313,7 @@ input[type="search"] {
 
     @media (max-width: 450px)
     {
-    	.reg_event 
+    	.reg_event
     	{
     		width: 100%;
     	}
@@ -1319,7 +1332,7 @@ input[type="search"] {
 		    height: 15px;
 		    top: 39px;
     		right: -44px;
-		}	
+		}
     	.full_event_page
     	{
     		padding: 18px;
@@ -1332,7 +1345,7 @@ input[type="search"] {
 		{
 			max-width: 60%
 		}
-		.navbar-brand 
+		.navbar-brand
 		{
     		padding: 15px 0px;
 		}
@@ -1385,28 +1398,3 @@ input[type="search"] {
     	max-width: 40%;
 		}
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
