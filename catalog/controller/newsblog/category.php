@@ -165,6 +165,9 @@ class ControllerNewsBlogCategory extends Controller {
 						$thumb 		= '';	//or use 'placeholder.png' if you need
 					}
 
+					$tags = [];
+ 					$tags = explode(",", $result['tag']);
+
 					$data['articles'][] = array(
 						'article_id'  		=> $result['article_id'],
 						'original'			=> $original,
@@ -175,7 +178,11 @@ class ControllerNewsBlogCategory extends Controller {
 						'href'        		=> $this->url->link('newsblog/article', 'newsblog_path=' . $this->request->get['newsblog_path'] . '&newsblog_article_id=' . $result['article_id']),
 						'date'		  		=> ($date_format ? date($date_format, strtotime($result['date_available'])) : false),
 						'date_modified'		=> ($date_format ? date($date_format, strtotime($result['date_modified'])) : false),
-						'viewed' 			=> $result['viewed']
+						'viewed' 			=> $result['viewed'],
+						'tags'				=> $tags,
+						'date_start'		=> $result['date_start'],
+						'date_end'			=> $result['date_end'],
+						'venue'				=> $result['venue']
 					);
 				}
 
@@ -210,7 +217,8 @@ class ControllerNewsBlogCategory extends Controller {
 			$data['comments_vk'] = false;
 			$data['comments_fb'] = false;
 			$data['comments_dq'] = false;
-			if ($settings && isset($settings['show_comments_vk_id'])) {				if ($settings && $settings['show_comments_vk_id'] && $settings['show_comments_vk_category']) {
+			if ($settings && isset($settings['show_comments_vk_id'])) {
+				if ($settings && $settings['show_comments_vk_id'] && $settings['show_comments_vk_category']) {
 		            $data['comments_vk'] = $settings['show_comments_vk_id'];
 		            $this->document->addScript('//vk.com/js/api/openapi.js');
 	            }

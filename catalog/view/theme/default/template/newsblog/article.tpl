@@ -14,26 +14,56 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <div class="row">
-        <div class="col-sm-8">
-        	<h1><?php echo $heading_title; ?></h1>
-          	<?php echo $preview;?>
-
-          	<?php echo $description; ?>
+      <div class="full_event_page">
+        
+        <div class="row event_block">   
+        <div class="col-md-3">       
+          <div class="event event_page text-center">
+               <?php if ($thumb) { ?>
+               <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+                <?php } ?>
+          </div>
         </div>
 
-        <div class="col-sm-4">
-        	<?php if ($thumb || $images) { ?>
-          	<ul class="thumbnails">
-	            <?php if ($thumb) { ?>
-	            <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
-	            <?php } ?>
+        <div class="col-md-9">
+          <div class="event_full">
+            <div class="news_text ">
+              <div class="tag_row">
+                <?php foreach ($tags as $tag) { ?>
+                    <div class="tag"><?=$tag?></div>
+                <?php } ?>
+              </div>
+              <div class="news_header"><?=$heading_title; ?></div>
+              <div class="news_subheader"><?=$preview?></div>
+              <div class="date_event color1">
+                <span class="sub_grey"> Дата начала: &nbsp;  </span> <?=$date_start?>
+              </div>
+              <div class="date_event color1">
+                <span class="sub_grey"> Дата окончания: &nbsp;  </span> <?=$date_end?>
+              </div>
+              <div class="place_event color1">
+                <span class="sub_grey"> Место: &nbsp;  </span> <?=$venue?>
+              </div>
+            </div>
+          </div> 
+        </div>         
+        </div>
+
+  
+        <div class="event_main_text">
+          	<?php echo $description; ?>
+   
+
+     
+        	<?php if ($images) { ?>
+          
+	         
 	            <?php if ($images) { ?>
 	            <?php foreach ($images as $image) { ?>
-	            <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+	           <a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
 	            <?php } ?>
 	            <?php } ?>
-          	</ul>
+          
           	<?php } ?>
 
           	<?php if ($attributes) { ?>
@@ -45,6 +75,57 @@
 	          	<?php } ?>
             <?php } ?>
         </div>
+
+        <hr class="hr_text_page">
+        <div class="share">
+          <div class="share_text">Поделиться</div>
+          <div class="social vk">
+            <img src="catalog/view/theme/default/image/icons/vk.svg">
+          </div>
+          <div class="v_border"></div>
+          <div class="social facebook">
+             <img src="catalog/view/theme/default/image/icons/facebook.svg">
+          </div>
+          <div class="v_border"></div>
+          <div class="social twitter">
+            <img src="catalog/view/theme/default/image/icons/twitter.svg">
+          </div>
+          <div class="v_border"></div>
+          <div class="social instagram">
+            <img src="catalog/view/theme/default/image/icons/instagram.svg">
+          </div>
+        </div>
+
+        <div class="reg_event">
+          <div class="reg_h">Регистрация на мероприятие</div>
+
+          <form action="<?=$action?>" method="POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Почта*</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">  <div class="input_icon input_right"></div>             
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Имя и фамилия*</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder=""> <div class="input_icon input_error"></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Телефон*</label>
+              <input type="tel" class="form-control" id="exampleInputPassword1" placeholder=""> <div class="input_icon input_null"></div>
+            </div>
+                        <div class="form-group">
+              <label for="exampleInputPassword1">Место работы</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder=""> <div class="input_icon input_null"></div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Должность</label>
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder=""> <div class="input_icon input_null"></div>
+            </div>
+
+            <button class="login" type="submit">Зарегистрироваться</button>
+          </form>
+
+        </div>
+     
       </div>
 
   	  <?php if ($articles) { ?>
@@ -183,17 +264,7 @@
       </div>
       <?php } ?>
 
-      <?php if ($tags) { ?>
-      <p><?php echo $text_tags; ?>
-        <?php for ($i = 0; $i < count($tags); $i++) { ?>
-        <?php if ($i < (count($tags) - 1)) { ?>
-        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>,
-        <?php } else { ?>
-        <a href="<?php echo $tags[$i]['href']; ?>"><?php echo $tags[$i]['tag']; ?></a>
-        <?php } ?>
-        <?php } ?>
-      </p>
-      <?php } ?>
+ 
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>

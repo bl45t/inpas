@@ -137,10 +137,8 @@ class ControllerNewsBlogArticle extends Controller {
 				$data['thumb'] 		= false;
 			}
 
-			if ($settings && $settings['show_preview'])
+
 			$data['preview'] = html_entity_decode($article_info['preview'], ENT_QUOTES, 'UTF-8');
-			else
-			$data['preview'] = '';
 
 			$data['description'] = html_entity_decode($article_info['description'], ENT_QUOTES, 'UTF-8');
 
@@ -250,8 +248,6 @@ class ControllerNewsBlogArticle extends Controller {
 				);
 			}
 
-			$data['tags'] = array();
-
 			if ($article_info['tag']) {
 				$tags = explode(',', $article_info['tag']);
 
@@ -281,6 +277,15 @@ class ControllerNewsBlogArticle extends Controller {
             }
 
 			$this->model_newsblog_article->updateViewed($this->request->get['newsblog_article_id']);
+
+			$tags = [];
+ 			$tags = explode(",", $article_info['tag']);
+			$data['tags'] = $tags;
+			$data['date_start'] = $article_info['date_start'];
+			$data['date_end'] = $article_info['date_end'];
+			$data['venue'] = $article_info['venue'];
+			$data['action'] = $this->url->link('newsblog/register_event', '', true);
+
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');

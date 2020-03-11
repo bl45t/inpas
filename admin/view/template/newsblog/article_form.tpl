@@ -119,7 +119,7 @@
                     </div>
                   </div>
 
-                  <div class="form-group hidden">
+                  <div class="form-group">
                     <label class="col-sm-2 control-label" for="input-preview<?php echo $language['language_id']; ?>"><?php echo $entry_preview; ?></label>
                     <div class="col-sm-10">
                       <textarea name="article_description[<?php echo $language['language_id']; ?>][preview]" placeholder="<?php echo $entry_preview; ?>" id="input-preview<?php echo $language['language_id']; ?>" class="form-control summernote"><?php echo isset($article_description[$language['language_id']]) ? $article_description[$language['language_id']]['preview'] : ''; ?></textarea>

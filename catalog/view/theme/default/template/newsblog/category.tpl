@@ -55,23 +55,54 @@
       <?php if ($articles) { ?>
       <div class="row">
         <?php foreach ($articles as $article) { ?>
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <?php if ($article['thumb']) { ?><div class="image"><a href="<?php echo $article['href']; ?>"><img src="<?php echo $article['thumb']; ?>" alt="<?php echo $article['name']; ?>" title="<?php echo $article['name']; ?>" class="img-responsive" /></a></div><?php } ?>
-            <div class="caption">
-                <h4><a href="<?php echo $article['href']; ?>"><?php echo $article['name']; ?></a></h4>
-                <p><?php echo $article['preview']; ?></p>
+        <div class="col-md-12">
+          
+            <div class="row event_block">
+              <div class="col-md-3"> 
+                <div class="event event_page">
+                  <?php if ($article['thumb']) { ?>
+                    <div class="image">
+                        <img src="<?php echo $article['thumb']; ?>" alt="<?php echo $article['name']; ?>" title="<?php echo $article['name']; ?>" />
+                    </div>
+                  <?php } ?>
+                </div>
+              </div>
 
-                <?php if ($article['attributes']) { ?>
-	                <h5><?php echo $text_attributes;?></h5>
-	                <?php foreach ($article['attributes'] as $attribute_group) { ?>
-	                	<?php foreach ($attribute_group['attribute'] as $attribute_item) { ?>
-                       	<b><?php echo $attribute_item['name'];?>:</b> <?php echo $attribute_item['text'];?><br />
-	                	<?php } ?>
-	                <?php } ?>
-                <?php } ?>
+              <div class="col-md-9">
+                <div class="event_full">
+                    <div class="news_text">
+                      <div class="tag_row">
+                       <?php foreach ($article['tags'] as $tag) { ?>
+                        <div class="tag"><?=$tag?></div>
+                       <?php } ?>
+                      </div>
+
+                       <div class="news_header"><?=$article['name']?></div>
+                       <div class="news_subheader"><?php echo $article['preview']; ?></div>
+                       <div class="date_event">
+                        <span class="sub_grey"> Дата начала: </span> <?=$article['date_start']?>
+                       </div>
+                       <div class="date_event">
+                        <span class="sub_grey"> Дата окончания: </span> <?=$article['date_end']?>
+                       </div>
+                       <div class="place_event"><span class="sub_grey"> Место:</span><?=$article['venue']?></div>
+                       <div class="eventpage_more"><a href="<?=$article['href']?>">Подробнее</a></div>
+
+                        <?php if ($article['attributes']) { ?>
+        	                <h5><?php echo $text_attributes;?></h5>
+        	                <?php foreach ($article['attributes'] as $attribute_group) { ?>
+        	                	<?php foreach ($attribute_group['attribute'] as $attribute_item) { ?>
+                               	<b><?php echo $attribute_item['name'];?>:</b> <?php echo $attribute_item['text'];?><br />
+        	                	<?php } ?>
+        	                <?php } ?>
+                        <?php } ?>
+
+
+                    </div>
+                </div>
+              </div>
             </div>
-          </div>
+
         </div>
         <?php } ?>
       </div>

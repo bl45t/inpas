@@ -5,7 +5,7 @@
 
   <?php foreach ($articles as $article) { ?>
     <div class="event_block" onclick=location.href="<?php echo $article['href']?>">
-        <div class="event">
+        <div id="event_hp" class="event">
           <?php if ($article['thumb']) { ?>
 
             <img src="<?php echo $article['thumb']; ?>" alt="<?php echo $article['name']; ?>" title="<?php echo $article['name']; ?>"/>

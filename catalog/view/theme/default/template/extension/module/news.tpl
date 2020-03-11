@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-md-6 col_main">
+<div class="col-xs-12 col-md-6">
 <?php if($show_title) { ?>
 	<p class="header1">
 		<?php echo $show_icon ? '<i class="fa fa-newspaper-o fa-3x"></i>&nbsp;' : ''; ?>
@@ -8,25 +8,36 @@
 
 	<?php foreach ($news as $news_item) { ?>
 	<a href="<?php echo $news_item['href']; ?>">
-		<div class="news">
-			<div class="news_text">
+		<div class="row news">
+			<div class="col-md-9">
+				<div class="news_text ">
+					<div class="tag_row">
+					<?php foreach ($news_item['tags'] as $tag) { ?>
+	          			<div class="tag"><?=$tag?></div>
+	          		<?php } ?>
+	          		</div>
 
-				<?php foreach ($news_item['tags'] as $tag) { ?>
-          			<div class="tag"><?=$tag?></div>
-          		<?php } ?>
-
-				<div class="news_header"><?php echo $news_item['title']; ?></div>
-				<div class="news_subheader"><?php echo $news_item['description']; ?></div>
-				<div class="news_date"><?=$news_item['posted']?></div>
-				<div class="news_readtime"><?=$news_item['read_time']?> минут чтения</div>
-          	</div>
-
+					<div class="news_header"><?php echo $news_item['title']; ?></div>
+					<div class="news_subheader"><?php echo $news_item['description']; ?></div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="news_date"><?=$news_item['posted']?></div>
+						</div>
+						<div class="col-md-6">
+							<div class="news_readtime"><?=$news_item['read_time']?> минут чтения</div>
+						</div>
+					</div>
+					
+	          	</div>
+	         </div>
+			
+			<div class="col-md-3">
           	<?php if($news_item['thumb']) { ?>
 				<div class="news_image">
-					<img src="<?php echo $news_item['thumb']; ?>" alt="<?php echo $news_item['title']; ?>" title="<?php echo $news_item['title']; ?>" class="img-responsive" />
+					<img src="<?php echo $news_item['thumb']; ?>" alt="<?php echo $news_item['title']; ?>" title="<?php echo $news_item['title']; ?>" />
 				</div>
 			<?php } ?>
-			
+			</div>
 		</div>
 	</a>
 	<?php } ?>
