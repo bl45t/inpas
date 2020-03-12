@@ -250,6 +250,11 @@ input[type="search"] {
 	{
 		margin-left: -25px;
 	}
+	.event_full .news_header
+	{
+		float: none;
+		margin-top:35px;
+	}
 
 	.event_more
 	{
@@ -280,7 +285,7 @@ input[type="search"] {
 		max-width: 70%;
     	height: 100%;
     	float: left;
-		padding: 20px;
+		padding: 15px;
 	}
 	.tag
 	{
@@ -1474,6 +1479,7 @@ input[type="search"] {
       {
       	margin: 0 auto;
       	margin-top: 20px;
+      	width: 140px;
       }
     }
 
@@ -1481,6 +1487,45 @@ input[type="search"] {
 
     @media (max-width: 767px)
     {
+    	.fn_head 
+    	{
+		    height: 410px;
+		}
+		.fn_head .news_text 
+		{
+			height: 100%;
+			float:none !important;
+			width: 100% !important;
+			max-width: 100% !important;
+			padding: 20px 0px 0px 0px;
+		}
+    	.fn_head .news_text .news_header
+		{
+			font-size: 25px;
+			line-height: 29px;
+		}
+		.fn_head .news_text .news_subheader
+		{
+			font-size: 16px;
+			line-height: 22px;
+		}
+		.fn_head .news_text .news_date
+		{
+			float: left;
+		    margin-top: 40px;
+		    position: inherit;
+		}
+		.fn_head .news_text .news_readtime
+		{
+			float: right;
+		    margin-top: 40px;
+		    position: inherit;
+		}
+    	.img_full_news {
+		    height: 190px;
+		    width: 100%;
+		    float: none;
+		}
     	.reg_m
     	{
     		padding-top: 0px;
@@ -1662,15 +1707,16 @@ input[type="search"] {
     		font-size: 22px;
     		line-height: 25px;
     	}
-    	.fn_head 
-    	{
-		    height: 280px;
-		}
+
 
     	}
 
     @media (max-width: 450px)
     {
+    	.fn_head 
+    	{
+		    min-height: 490px;
+		}
     	.reg_link
 		{
 			height: 50px;
@@ -1714,50 +1760,14 @@ input[type="search"] {
 		    font-size: 11px;
 		}
 
-    	.fn_head 
-    	{
-		    height: 500px;
-		}
-		.fn_head .news_text 
-		{
-			height: 100%;
-			float:none !important;
-			width: 100% !important;
-			max-width: 100% !important;
-			padding: 20px 0px 0px 0px;
-		}
 
-		.img_full_news {
-		    height: 190px;
-		    width: 100%;
-		    float: none;
-		}
+
+		
 		.full_news_page
 		{
 			padding: 20px;
 		}
-		.fn_head .news_text .news_header
-		{
-			font-size: 25px;
-			line-height: 29px;
-		}
-		.fn_head .news_text .news_subheader
-		{
-			font-size: 16px;
-			line-height: 22px;
-		}
-		.fn_head .news_text .news_date
-		{
-			float: left;
-		    margin-top: 40px;
-		    position: inherit;
-		}
-		.fn_head .news_text .news_readtime
-		{
-			float: right;
-		    margin-top: 40px;
-		    position: inherit;
-		}
+
     	.reg_event
     	{
     		width: 100%;
