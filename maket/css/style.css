@@ -2,7 +2,6 @@
 {
 	font-size: 18px;
 	font-family: Roboto;
-	color: #242424;
 }
 body
 {
@@ -129,8 +128,8 @@ input[type="search"] {
    }
 
 
-   .login:hover { background-color:white; border:2px solid #003867; color: #003867 !important; }
-   .login:active { background-color: #003867; border:2px solid #003867; color: white !important; }
+   .login:hover, .button1:hover { background-color:white; border:2px solid #003867; color: #003867 !important; }
+   .login:active .button1:active{ background-color: #003867; border:2px solid #003867; color: white !important; }
 
 
    .navbar-nav li
@@ -1292,6 +1291,99 @@ input[type="search"] {
 
 
 
+/*Начало Страницы Регистрации*/
+
+
+	.reg_m
+	{
+		padding-top: 35px;
+	}
+	.form_group
+	{
+		margin-top: 100px;
+		width: 700px;
+		overflow: auto;
+    	margin: 0 auto;
+	    padding: 40px 60px;
+	    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
+	    border-radius: 3px;
+	    background-color: white;
+	}
+	.dop_text
+	{
+		float: left;
+		width: 100%;
+		font-size: 12px;
+		line-height: 140%;
+		color: #A5A5A5;
+		margin-bottom: 15px;
+	}
+	.type_user
+	{
+		min-height: 110px;
+	}
+	.form_group .header1
+	{
+		margin-top: 0px !important;
+	}
+	.button1
+	{
+		float: right;
+	    margin-top: 32px;
+	    background-color: #003867;
+	    border: 2px solid #003867;
+	    border-radius: 3px;
+	    text-decoration: none;
+	    user-select: none;
+	    padding: .3em 1.5em;
+	    outline: none;
+	    height: 40px;
+	    color: white ;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    cursor: pointer;
+	    -webkit-transition-duration: 0.4s;
+	    transition-duration: 0.4s;
+	    font-family: Roboto;
+	    font-style: normal;
+	    color: #FFFFFF;
+	}
+		 .user1, .user2
+	{
+		width: 185px !important;
+		float: left;
+		margin-top: 0px !important;
+		font-weight: normal;
+		margin-bottom: 15px;
+	}
+	.user1
+	{
+		margin-right: 15px;
+	}
+	.user2
+	{
+		background-color: #CCCCCC;
+		border-color: #CCCCCC;
+	}
+	.reg_link
+	{
+		height: 75px;
+	    width: 50%;
+	    position: relative;
+	    float: left;
+	}
+	.reg_link a
+	{
+		position: absolute;
+		bottom: 0px;
+	}
+
+/*Конец Страницы Регистрации*/
+
+
+
+
 
 
 
@@ -1384,9 +1476,15 @@ input[type="search"] {
       	margin-top: 20px;
       }
     }
+
+
+
     @media (max-width: 767px)
     {
-
+    	.reg_m
+    	{
+    		padding-top: 0px;
+    	}
     	.full_width
     	{
     		padding: 0 !important;
@@ -1480,6 +1578,15 @@ input[type="search"] {
 		    overflow: hidden;
 		    text-overflow: ellipsis;
     	}
+    	    	.form_group
+    	{
+    		width: 100%;
+    	}
+
+		.button_reg
+		{
+			padding: .3em 3em;
+		}
 
 
 
@@ -1564,6 +1671,36 @@ input[type="search"] {
 
     @media (max-width: 450px)
     {
+    	.reg_link
+		{
+			height: 50px;
+		    width: 100%;
+		}
+    	.button_reg
+    	{
+    		width: 100%;
+    	}
+    	.user1, .user2
+    	{
+    		margin-right: 0px;    		
+    		width: 100% !important;
+    	}
+    	.form_group
+    	{
+    		padding: 25px;
+    	}
+    	.form_group .form-control
+    	{
+    		width: 94%;
+    	}
+    	.button_reg
+    	{
+    		padding: 0px;
+    	}
+    	.form_group .input_icon
+    	{
+    		right: -25px;
+    	}
     	.com_text
     	{
     		font-size: 14px;
@@ -1706,3 +1843,12 @@ input[type="search"] {
     	max-width: 40%;
 		}
     }
+
+    @media (max-width: 506px)
+    {
+        .type_user
+		{
+			min-height: 170px;
+		}
+
+	}
