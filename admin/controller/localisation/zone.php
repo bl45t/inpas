@@ -269,6 +269,7 @@ class ControllerLocalisationZone extends Controller {
 
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_eng_name'] = $this->language->get('entry_eng_name');
 		$data['entry_code'] = $this->language->get('entry_code');
 		$data['entry_country'] = $this->language->get('entry_country');
 
@@ -344,6 +345,14 @@ class ControllerLocalisationZone extends Controller {
 			$data['name'] = '';
 		}
 
+		if (isset($this->request->post['eng_name'])) {
+			$data['eng_name'] = $this->request->post['eng_name'];
+		} elseif (!empty($zone_info)) {
+			$data['eng_name'] = $zone_info['eng_name'];
+		} else {
+			$data['eng_name'] = '';
+		}
+
 		if (isset($this->request->post['code'])) {
 			$data['code'] = $this->request->post['code'];
 		} elseif (!empty($zone_info)) {
@@ -359,6 +368,11 @@ class ControllerLocalisationZone extends Controller {
 		} else {
 			$data['country_id'] = '';
 		}
+
+		$this->load->model('user/user_group');
+		$curUserGroupId = $this->user->user_group_id;
+		$userGroup = $this->model_user_user_group->getUserGroup($curUserGroupId);
+		$data['user_group_name'] = strtolower($userGroup['name']);
 
 		$this->load->model('localisation/country');
 

@@ -1,3 +1,7 @@
+<?php 
+  $hideClassForAdminGroup = ($user_group_name === 'admin') ? ' hidden ' : '';
+?>
+
 <?php echo $header; ?><?php echo $column_left; ?>
 <div id="content">
   <div class="page-header">
@@ -34,7 +38,15 @@
               <?php } ?>
             </div>
           </div>
+          
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-eng-name"><?php echo $entry_eng_name; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="eng_name" value="<?php echo $eng_name; ?>" placeholder="<?php echo $entry_eng_name; ?>" id="input-eng-name" class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-group <?=$hideClassForAdminGroup?>">
             <label class="col-sm-2 control-label" for="input-code"><?php echo $entry_code; ?></label>
             <div class="col-sm-10">
               <input type="text" name="code" value="<?php echo $code; ?>" placeholder="<?php echo $entry_code; ?>" id="input-code" class="form-control" />

@@ -1,3 +1,7 @@
+<?php 
+  $hideClassForAdminGroup = ($user_group_name === 'admin') ? ' hidden ' : '';
+?>
+
 <?php echo $header; ?><?php echo $column_left; ?>
 <div id="content">
   <div class="page-header">
@@ -34,25 +38,33 @@
               <?php } ?>
             </div>
           </div>
+          
           <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-eng-name"><?php echo $entry_eng_name; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="eng_name" value="<?php echo $eng_name; ?>" placeholder="<?php echo $entry_eng_name; ?>" id="input-eng-name" class="form-control" />
+            </div>
+          </div>
+
+          <div class="form-group <?=$hideClassForAdminGroup?>">
             <label class="col-sm-2 control-label" for="input-iso-code-2"><?php echo $entry_iso_code_2; ?></label>
             <div class="col-sm-10">
               <input type="text" name="iso_code_2" value="<?php echo $iso_code_2; ?>" placeholder="<?php echo $entry_iso_code_2; ?>" id="input-iso-code-2" class="form-control" />
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group <?=$hideClassForAdminGroup?>">
             <label class="col-sm-2 control-label" for="input-iso-code-3"><?php echo $entry_iso_code_3; ?></label>
             <div class="col-sm-10">
               <input type="text" name="iso_code_3" value="<?php echo $iso_code_3; ?>" placeholder="<?php echo $entry_iso_code_3; ?>" id="input-iso-code-3" class="form-control" />
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group <?=$hideClassForAdminGroup?>">
             <label class="col-sm-2 control-label" for="input-address-format"><span data-toggle="tooltip" data-html="true" title="<?php echo htmlspecialchars($help_address_format); ?>"><?php echo $entry_address_format; ?></span></label>
             <div class="col-sm-10">
               <textarea name="address_format" rows="5" placeholder="<?php echo $entry_address_format; ?>" id="input-address-format" class="form-control"><?php echo $address_format; ?></textarea>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group <?=$hideClassForAdminGroup?>">
             <label class="col-sm-2 control-label"><?php echo $entry_postcode_required; ?></label>
             <div class="col-sm-10">
               <label class="radio-inline">

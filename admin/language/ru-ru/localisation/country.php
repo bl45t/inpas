@@ -16,6 +16,7 @@ $_['column_action']          		= 'Действие';
 
 // Entry
 $_['entry_name']          			= 'Название страны:';
+$_['entry_eng_name'] = 'Название страны на английском';
 $_['entry_iso_code_2']          	= 'Код ISO (2):';
 $_['entry_iso_code_3']          	= 'Код ISO (3):';
 $_['entry_address_format']          = 'Формат адреса:';

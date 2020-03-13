@@ -263,6 +263,7 @@ class ControllerLocalisationCountry extends Controller {
 	}
 
 	protected function getForm() {
+
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_form'] = !isset($this->request->get['country_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
@@ -272,6 +273,7 @@ class ControllerLocalisationCountry extends Controller {
 		$data['text_no'] = $this->language->get('text_no');
 
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_eng_name'] = $this->language->get('entry_eng_name');
 		$data['entry_iso_code_2'] = $this->language->get('entry_iso_code_2');
 		$data['entry_iso_code_3'] = $this->language->get('entry_iso_code_3');
 		$data['entry_address_format'] = $this->language->get('entry_address_format');
@@ -341,6 +343,14 @@ class ControllerLocalisationCountry extends Controller {
 			$data['name'] = '';
 		}
 
+		if (isset($this->request->post['eng_name'])) {
+			$data['eng_name'] = $this->request->post['eng_name'];
+		} elseif (!empty($country_info)) {
+			$data['eng_name'] = $country_info['eng_name'];
+		} else {
+			$data['eng_name'] = '';
+		}
+
 		if (isset($this->request->post['iso_code_2'])) {
 			$data['iso_code_2'] = $this->request->post['iso_code_2'];
 		} elseif (!empty($country_info)) {
@@ -380,6 +390,11 @@ class ControllerLocalisationCountry extends Controller {
 		} else {
 			$data['status'] = '1';
 		}
+
+		$this->load->model('user/user_group');
+		$curUserGroupId = $this->user->user_group_id;
+		$userGroup = $this->model_user_user_group->getUserGroup($curUserGroupId);
+		$data['user_group_name'] = strtolower($userGroup['name']);
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
