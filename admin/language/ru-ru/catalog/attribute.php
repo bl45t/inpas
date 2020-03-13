@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']          	= 'Атрибуты';
+$_['heading_title']          	= 'Публикации';
 
 // Text
 $_['text_success']          	= 'Атрибуты успешно обновлены!';
@@ -16,6 +16,7 @@ $_['column_action']          	= 'Действие';
 
 // Entry
 $_['entry_name']          		= 'Название:';
+$_['entry_link']          		= 'Ссылка на публикацию:';
 $_['entry_attribute_group']     = 'Группа:';
 $_['entry_sort_order']          = 'Порядок сортировки:';
 

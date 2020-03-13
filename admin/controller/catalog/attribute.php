@@ -13,6 +13,7 @@ class ControllerCatalogAttribute extends Controller {
 	}
 
 	public function add() {
+
 		$this->load->language('catalog/attribute');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -268,6 +269,7 @@ class ControllerCatalogAttribute extends Controller {
 		$data['text_form'] = !isset($this->request->get['attribute_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 
 		$data['entry_name'] = $this->language->get('entry_name');
+		$data['entry_link'] = $this->language->get('entry_link');
 		$data['entry_attribute_group'] = $this->language->get('entry_attribute_group');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 
@@ -360,6 +362,14 @@ class ControllerCatalogAttribute extends Controller {
 			$data['sort_order'] = $attribute_info['sort_order'];
 		} else {
 			$data['sort_order'] = '';
+		}
+
+		if (isset($this->request->post['link'])) {
+			$data['link'] = $this->request->post['link'];
+		} elseif (!empty($attribute_info)) {
+			$data['link'] = $attribute_info['link'];
+		} else {
+			$data['link'] = '';
 		}
 
 		$data['header'] = $this->load->controller('common/header');

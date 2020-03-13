@@ -408,12 +408,13 @@ input[type="search"] {
 	.publication
 	{
 		width: 100%;
-		height: 83px;
+		height: 100%;
 		background: #FFFFFF;
 		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.06);
 		border-radius: 3px;
 		padding: 17px 10px 17px 10px;
 		margin-bottom: 20px;
+		padding-bottom: 5px;
 	}
 	.head_publication
 	{
@@ -427,7 +428,6 @@ input[type="search"] {
 	}
 	.date_publication
 	{
-		float: left;
 		margin-top: 5px;
 		font-style: normal;
 		font-weight: normal;
@@ -436,15 +436,6 @@ input[type="search"] {
 		color: #ADADAD !important;
 	}
 
-	.image_publication
-	{				
-		background-image: url(../img/publ.png);
-		float: left;
-		background-size: cover;
-		width: 40px;
-		height: 100%;
-		margin-right: 10px;
-	}
 	footer 
 	{
 	    background: none repeat scroll 0 0 #003A6A;
@@ -660,7 +651,18 @@ input[type="search"] {
 
 
    /*Страница Новости*/
+	
+	#publicationPage .pagination > li > a {
+		color: #ADADAD !important;
+		background-color: transparent !important;
+		border: none !important;
+	}
 
+	#publicationPage .pagination .active span{
+		background-color: transparent !important;
+		color: black !important;
+		border-color: transparent !important;
+	}
 
    .nav_pages  {
       height: 40px;

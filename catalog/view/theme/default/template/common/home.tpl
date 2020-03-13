@@ -9,10 +9,38 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
-        <?php echo $content_top; ?><?php echo $content_bottom; ?>        
+        <?php echo $content_top; ?>
+        <?php echo $content_bottom; ?>
+
+        <div class="col-xs-12 col-md-3">
+          <p class="header1">Публикации</p>
+            <?php foreach ($publications as $publication) { ?>
+              <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
+                  <div class="row publication">
+                    
+                    <div class="col-md-3">
+                      <img src="/catalog/view/theme/default/image/publ.png">
+                    </div>
+                    
+                    <div class="col-md-9">
+                      <div class="head_publication"><?=$publication['name']?></div>
+                      <div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div> 
+                    </div>       
+                    
+                  </div>
+              </a>
+            <?php } ?>
+
+            <a href="<?=$all_publications_link?>">
+              <div class="event_more">
+                Все Публикации
+              </div>
+            </a>
+        </div>
+
     </div>
     <?php echo $column_right; ?>
-        
+       
     </div>
 
     <div class="row">

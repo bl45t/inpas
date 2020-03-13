@@ -2,8 +2,8 @@
 // Text
 $_['text_affiliate']          				= 'Партнеры';
 $_['text_api']          					= 'API';
-$_['text_attribute']          				= 'Атрибуты';
-$_['text_attribute_group']          		= 'Группы атрибутов';
+$_['text_attribute']          				= 'Публикации';
+$_['text_attribute_group']          		= 'Типы публикаций';
 $_['text_backup']          					= 'Бэкап / Восстановление';
 $_['text_banner']          					= 'Баннеры';
 $_['text_catalog']          				= 'Каталог';

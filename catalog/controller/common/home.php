@@ -9,6 +9,10 @@ class ControllerCommonHome extends Controller {
 			$this->document->addLink($this->config->get('config_url'), 'canonical');
 		}
 
+		$this->load->model('catalog/attribute');
+		$data['publications'] = $this->model_catalog_attribute->getAttributes(['start' => '0' ,'limit' => '5', 'order' => 'DESC']);
+		$data['all_publications_link'] = $this->url->link('common/publications', '', true);
+
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

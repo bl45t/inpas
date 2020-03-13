@@ -38,6 +38,14 @@
               <?php } ?>
             </div>
           </div>
+          
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-link"><?php echo $entry_link; ?></label>
+            <div class="col-sm-10">
+              <input type="text" name="link" value="<?php echo $link; ?>" placeholder="<?php echo $entry_link; ?>" id="input-link" class="form-control" />
+            </div>
+          </div>
+
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-attribute-group"><?php echo $entry_attribute_group; ?></label>
             <div class="col-sm-10">
