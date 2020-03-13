@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<div class="container">
+<div id="eventPage" class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
@@ -107,8 +107,8 @@
         <?php } ?>
       </div>
       <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+        <div class="col-sm-12 text-center"><?php echo $pagination; ?></div>
+        <div class="col-sm-12 text-right"><?php echo $results; ?></div>
       </div>
       <?php } ?>
       <?php if (!$categories && !$articles) { ?>

@@ -652,13 +652,13 @@ input[type="search"] {
 
    /*Страница Новости*/
 	
-	#publicationPage .pagination > li > a {
+	#newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
 		color: #ADADAD !important;
 		background-color: transparent !important;
 		border: none !important;
 	}
 
-	#publicationPage .pagination .active span{
+	#newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
 		background-color: transparent !important;
 		color: black !important;
 		border-color: transparent !important;

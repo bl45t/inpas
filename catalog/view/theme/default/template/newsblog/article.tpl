@@ -76,8 +76,8 @@
             <?php } ?>
         </div>
 
-        <hr class="hr_text_page">
-        <div class="share">
+        <hr class="hr_text_page hidden">
+        <div class="share hidden">
           <div class="share_text">Поделиться</div>
           <div class="social vk">
             <img src="catalog/view/theme/default/image/icons/vk.svg">
@@ -96,7 +96,7 @@
           </div>
         </div>
 
-        <div class="reg_event">
+        <div class="reg_event hidden">
           <div class="reg_h">Регистрация на мероприятие</div>
 
           <form action="<?=$action?>" method="POST">
