@@ -16,8 +16,13 @@ class ControllerExtensionModuleNewsBlogArticles extends Controller {
 		}
 
 		$data['text_more'] = $this->language->get('text_more');
+		$data['button_list'] = $this->language->get('button_list');
 
 		$data['text_date_added'] = $this->language->get('text_date_added');
+
+		$data['text_date_start'] = $this->language->get('text_date_start');
+		$data['text_date_end'] = $this->language->get('text_date_end');
+		$data['text_venue'] = $this->language->get('text_venue');
 
 		$data['articles'] = array();
 

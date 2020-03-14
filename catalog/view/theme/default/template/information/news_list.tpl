@@ -63,7 +63,7 @@
 									<div class="news_header"><?php echo $news_item['title']; ?></div>
 									<div class="news_subheader"><?php echo $news_item['description']; ?></div>
 									<div class="news_date"><?=$news_item['posted']?></div>
-									<div class="news_readtime"><?=$news_item['read_time']?> минут чтения</div>
+									<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>
 		          				</div>
 		          			</div>
 							<div class="col-md-3">

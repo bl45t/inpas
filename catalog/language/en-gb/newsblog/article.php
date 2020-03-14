@@ -4,6 +4,9 @@ $_['text_related'] 			= 'Related Articles';
 $_['text_related_products'] = 'Related Products';
 $_['text_attributes'] 		= 'Custom fields';
 $_['text_tags'] 			= 'Tags';
+$_['text_date_start'] = 'Start date:';
+$_['text_date_end'] = 'Ending date:';
+$_['text_venue'] = 'Venue:';
 
 // Entry
 $_['entry_qty'] 		= 'Number';

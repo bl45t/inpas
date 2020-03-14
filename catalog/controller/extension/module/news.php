@@ -24,8 +24,10 @@ class ControllerExtensionModuleNews extends Controller {
 		$this->load->model('catalog/news');
 	
 		$data['text_more'] = $this->language->get('text_more');
+		$data['text_all_news'] = $this->language->get('text_all_news');
 
 		$data['text_date_added'] = $this->language->get('text_date_added');
+		$data['text_reading_time'] = $this->language->get('text_reading_time');
 			
 		$data['button_list'] = $this->language->get('button_list');
 	

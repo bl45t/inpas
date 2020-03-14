@@ -5,6 +5,11 @@ class ControllerCommonHome extends Controller {
 		$this->document->setDescription($this->config->get('config_meta_description'));
 		$this->document->setKeywords($this->config->get('config_meta_keyword'));
 
+		$this->load->language('common/home');
+		$data['text_publications'] = $this->language->get('text_publications');
+		$data['text_all_publications'] = $this->language->get('text_all_publications');
+		$data['text_top_university'] = $this->language->get('text_top_university');
+
 		if (isset($this->request->get['route'])) {
 			$this->document->addLink($this->config->get('config_url'), 'canonical');
 		}

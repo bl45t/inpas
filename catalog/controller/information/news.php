@@ -38,6 +38,7 @@ class ControllerInformationNews extends Controller {
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_empty'] = $this->language->get('text_empty');
+		$data['text_reading_time'] = $this->language->get('text_reading_time');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['continue'] = $this->url->link('common/home');

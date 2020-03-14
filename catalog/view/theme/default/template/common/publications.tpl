@@ -11,14 +11,14 @@
     <div id="content" class="<?php echo $class; ?>">
 		<div class="col-md-12">
 	        <div class="header_of_list">
-	            <div class="header2">Публикации</div>
+	            <div class="header2"><?=$text_publications?></div>
 
 	            <form action="" method="post" class="search search_sub">
 	              <input type="search search_sub" name="" placeholder="поиск" class="input" />
 	            </form>
 
 	            <div class="select_cat">
-	              <span class="select_label">Категория:</span>
+	              <span class="select_label"><?=$text_category?></span>
 	              <section class="cat_select">
 	                <select class="cs-select cs-skin-rotate select_style">
 	                    <option value="0">Все</option>

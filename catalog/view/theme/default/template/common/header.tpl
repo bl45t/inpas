@@ -64,15 +64,14 @@
       <a class="navbar-brand" href="#"><img src="catalog/view/theme/default/image/logo.png" 
   width="270" height="auto" alt="lorem"></a>
 
-        <button class="login">Вход</button>
+        <button class="login"><?=$text_login?></button>
 
         <form action="" method="post" class="search">
         <input type="search" name="" placeholder="поиск" class="input" />
       </form>
 
         <div class="language">
-          <img src="catalog/view/theme/default/image/icons/russia.svg " width="35" alt="ru"  class="rus">
-          <img src="catalog/view/theme/default/image/icons/united-kingdom.svg" width="35" height="auto" alt="Ru">
+         <?php echo $language; ?>
         </div>
 
     </div>
@@ -81,11 +80,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="container nav navbar-nav">
-        <li class="menu1 active"><a href="#">Главная</a></li>
+        <li class="menu1 active"><a href="#"><?=$text_home?></a></li>
 
         <li class="menu1 dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-              О проекте 
+              <?=$text_about_project?>
               <b class="caret"></b>
             </a>
 
@@ -103,9 +102,9 @@
 
         </li>
  
-        <li class="menu1"><a href="<?=$news_link?>">Новости</a></li>
-        <li class="menu1"><a href="<?=$events_link?>">Мероприятия</a></li> 
-        <li class="menu1"><a href="#">База данных</a></li> 
+        <li class="menu1"><a href="<?=$news_link?>"><?=$text_news?></a></li>
+        <li class="menu1"><a href="<?=$events_link?>"><?=$text_events?></a></li> 
+        <li class="menu1"><a href="#"><?=$text_data_base?></a></li> 
       </ul> 
 
       <button class="login mobile_header">Вход</button>
@@ -114,10 +113,6 @@
         <input type="search" name="" placeholder="поиск" class="input" />
       </form>
 
-        <div class="language mobile_header">
-          <img src="img/icons/russia.svg " width="35" alt="ru"  class="rus">
-          <img src="img/icons/united-kingdom.svg" width="35" height="auto" alt="Ru">
-        </div>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

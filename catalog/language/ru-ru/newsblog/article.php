@@ -4,6 +4,9 @@ $_['text_related']          = 'Похожие статьи';
 $_['text_related_products'] = 'Рекомендуемые товары';
 $_['text_attributes']   	= 'Дополнительные поля';
 $_['text_tags']             = 'Теги:';
+$_['text_date_start'] = 'Дата начала:';
+$_['text_date_end'] = 'Дата окончания:';
+$_['text_venue'] = 'Место:';
 
 // Entry
 $_['entry_qty']             = 'Кол-во';

@@ -13,7 +13,7 @@
         <?php echo $content_bottom; ?>
 
         <div class="col-xs-12 col-md-3">
-          <p class="header1">Публикации</p>
+          <p class="header1"><?=$text_publications?></p>
             <?php foreach ($publications as $publication) { ?>
               <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
                   <div class="row publication">
@@ -33,7 +33,7 @@
 
             <a href="<?=$all_publications_link?>">
               <div class="event_more">
-                Все Публикации
+                <?=$text_all_publications?>
               </div>
             </a>
         </div>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="row">
-      <p class="header1">Опорные университеты</p>
+      <p class="header1"><?=$text_top_university?></p>
         <div class="slider">
           <div class="slider__wrapper">
             <div class="slider__item">

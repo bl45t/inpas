@@ -13,9 +13,9 @@
           <?php } ?>
          <div class="event_info">
             <div class="header_event"><?php echo $article['name']; ?></div>
-            <div class="date_event"><span class="sub_grey"> Дата начала:</span><?=$article['date_start']?></div>
-            <div class="date_event"><span class="sub_grey"> Дата окончания:</span><?=$article['date_end']?></div>
-            <div class="place_event"><span class="sub_grey"> Место: </span><?=$article['venue']?></div>
+            <div class="date_event"><span class="sub_grey"> <?=$text_date_start?> </span><?=$article['date_start']?></div>
+            <div class="date_event"><span class="sub_grey"> <?=$text_date_end?></span><?=$article['date_end']?></div>
+            <div class="place_event"><span class="sub_grey"> <?=$text_venue?> </span><?=$article['venue']?></div>
           </div>
           <!--  Анонс
           <?php echo $article['preview'];?>
@@ -24,6 +24,6 @@
   </div>
   <?php } ?>
     <div class="event_more">
-        <a href="<?=$link_to_category?>">Все Мероприятия</a> 
+        <a href="<?=$link_to_category?>"><?=$button_list?></a> 
     </div>
 </div>

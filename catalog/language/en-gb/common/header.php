@@ -15,3 +15,7 @@ $_['text_checkout']      = 'Checkout';
 $_['text_search']        = 'Search';
 $_['text_all']           = 'Show All';
 $_['text_page']          = 'page';
+$_['text_about_project'] = 'About project';
+$_['text_news'] = 'News';
+$_['text_events'] = 'Events';
+$_['text_data_base'] = 'Data base';

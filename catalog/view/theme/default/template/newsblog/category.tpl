@@ -80,13 +80,13 @@
                        <div class="news_header"><?=$article['name']?></div>
                        <div class="news_subheader"><?php echo $article['preview']; ?></div>
                        <div class="date_event">
-                        <span class="sub_grey"> Дата начала: </span> <?=$article['date_start']?>
+                        <span class="sub_grey"> <?=$text_date_start?> </span> <?=$article['date_start']?>
                        </div>
                        <div class="date_event">
-                        <span class="sub_grey"> Дата окончания: </span> <?=$article['date_end']?>
+                        <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
                        </div>
-                       <div class="place_event"><span class="sub_grey"> Место:</span><?=$article['venue']?></div>
-                       <div class="eventpage_more"><a href="<?=$article['href']?>">Подробнее</a></div>
+                       <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
+                       <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>
 
                         <?php if ($article['attributes']) { ?>
         	                <h5><?php echo $text_attributes;?></h5>

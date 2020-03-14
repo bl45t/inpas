@@ -85,6 +85,11 @@ class ControllerNewsBlogCategory extends Controller {
 			$data['text_refine'] = $this->language->get('text_refine');
 			$data['text_attributes'] = $this->language->get('text_attributes');
 
+			$data['text_date_start'] = $this->language->get('text_date_start');
+			$data['text_date_end'] = $this->language->get('text_date_end');
+			$data['text_venue'] = $this->language->get('text_venue');
+			$data['text_read_more'] = $this->language->get('text_read_more');
+
 			$data['continue'] = $this->url->link('common/home');
 
 			// Set the last category breadcrumb

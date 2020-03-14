@@ -15,6 +15,7 @@ $_['text_title_desc']    	= 'По Названию (Я - A)';
 $_['text_date_asc']   		= 'По Дате (возрастанию)';
 $_['text_date_desc']  		= 'По Дате (убыванию)';
 $_['text_limit']        	= 'Показывать:';
+$_['text_reading_time']     = 'минут чтения';
 
 // Buttons
 $_['button_news']     		= 'Перейти к списку новостей';

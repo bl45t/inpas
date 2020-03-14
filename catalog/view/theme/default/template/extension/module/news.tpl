@@ -24,7 +24,7 @@
 							<div class="news_date"><?=$news_item['posted']?></div>
 						</div>
 						<div class="col-md-6">
-							<div class="news_readtime"><?=$news_item['read_time']?> минут чтения</div>
+							<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>
 						</div>
 					</div>
 					
@@ -42,6 +42,6 @@
 	</a>
 	<?php } ?>
 	<div class="event_more">
-        <a href="<?=$news_list?>">Все Новости</a> 
+        <a href="<?=$news_list?>"><?=$text_all_news?></a> 
     </div>
 </div>

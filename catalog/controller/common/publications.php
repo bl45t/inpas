@@ -3,6 +3,8 @@ class ControllerCommonPublications extends Controller {
 	public function index() {
 		$data = [];
 
+		$this->load->language('common/publications');
+
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
 		} else {
@@ -47,6 +49,9 @@ class ControllerCommonPublications extends Controller {
 			$this->document->addLink($this->url->link('common/publications', '&page=' . ($page + 1), true), 'next');
 		}
 
+		$data['text_publications'] = $this->language->get('text_publications');
+		$data['text_category'] = $this->language->get('text_category');
+		
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

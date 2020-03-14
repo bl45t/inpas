@@ -116,6 +116,10 @@ class ControllerNewsBlogArticle extends Controller {
 			$data['text_related_products'] = $this->language->get('text_related_products');
 			$data['text_attributes'] = $this->language->get('text_attributes');
 
+			$data['text_date_start'] = $this->language->get('text_date_start');
+			$data['text_date_end'] = $this->language->get('text_date_end');
+			$data['text_venue'] = $this->language->get('text_venue');
+
 			//for related products
 			$this->load->language('product/product');
 			$data['text_tax'] = $this->language->get('text_tax');

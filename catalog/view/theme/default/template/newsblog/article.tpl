@@ -36,13 +36,13 @@
               <div class="news_header"><?=$heading_title; ?></div>
               <div class="news_subheader"><?=$preview?></div>
               <div class="date_event color1">
-                <span class="sub_grey"> Дата начала: &nbsp;  </span> <?=$date_start?>
+                <span class="sub_grey"> <?=$text_date_start?> &nbsp;  </span> <?=$date_start?>
               </div>
               <div class="date_event color1">
-                <span class="sub_grey"> Дата окончания: &nbsp;  </span> <?=$date_end?>
+                <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
               </div>
               <div class="place_event color1">
-                <span class="sub_grey"> Место: &nbsp;  </span> <?=$venue?>
+                <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
               </div>
             </div>
           </div> 
