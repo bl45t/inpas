@@ -113,7 +113,7 @@ input[type="search"] {
 	background-color: #003867;
 	border:2px solid #003867;
 	border-radius: 3px;	
-    text-decoration: none; 
+    text-decoration: none !important; 
     user-select: none; 
     padding: .4em 1.5em;
     outline: none; 
@@ -133,14 +133,20 @@ input[type="search"] {
    }
 
 
-   .login:hover { background-color:white; border:2px solid #003867; color: #003867 !important; } 
-   .login:active { background-color: #003867; border:2px solid #003867; color: white !important; } 
+   .login:hover, .button1:hover  { background-color:white; border:2px solid #003867; color: #003867 !important; } 
+   .login:active, .button1:active { background-color: #003867; border:2px solid #003867; color: white !important; } 
 
 
    .navbar-nav li
    {
    	padding: 2px 0px 0px 0px;
     width: 14.28%;
+   }
+	
+	.navbar-nav li:hover, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
+   {
+   		background-color: #002747 !important;
+   		transition-duration: 0.6s;
    }
 
     li a
@@ -1048,16 +1054,97 @@ input[type="search"] {
 		color: white !important;
 	}
 
-
-
-
-
-
-
-
 /*Конец Страницы Описания Мероприятия*/
 
+/*Начало Страницы Регистрации*/
 
+
+	.reg_m
+	{
+		padding-top: 35px;
+	}
+	.form_group
+	{
+		margin-top: 100px;
+		width: 700px;
+		overflow: auto;
+    	margin: 0 auto;
+	    padding: 40px 60px;
+	    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
+	    border-radius: 3px;
+	    background-color: white;
+	}
+	.dop_text
+	{
+		float: left;
+		width: 100%;
+		font-size: 12px;
+		line-height: 140%;
+		color: #A5A5A5;
+		margin-bottom: 15px;
+	}
+	.type_user
+	{
+		min-height: 110px;
+	}
+	.form_group .header1
+	{
+		margin-top: 0px !important;
+	}
+	.button1
+	{
+		float: right;
+	    margin-top: 32px;
+	    background-color: #003867;
+	    border: 2px solid #003867;
+	    border-radius: 3px;
+	    text-decoration: none;
+	    user-select: none;
+	    padding: .3em 1.5em;
+	    outline: none;
+	    height: 40px;
+	    color: white ;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    cursor: pointer;
+	    -webkit-transition-duration: 0.4s;
+	    transition-duration: 0.4s;
+	    font-family: Roboto;
+	    font-style: normal;
+	    color: #FFFFFF;
+	}
+		 .user1, .user2
+	{
+		width: 185px !important;
+		float: left;
+		margin-top: 0px !important;
+		font-weight: normal;
+		margin-bottom: 15px;
+	}
+	.user1
+	{
+		margin-right: 15px;
+	}
+	.user2
+	{
+		background-color: #CCCCCC;
+		border-color: #CCCCCC;
+	}
+	.reg_link
+	{
+		height: 75px;
+	    width: 50%;
+	    position: relative;
+	    float: left;
+	}
+	.reg_link a
+	{
+		position: absolute;
+		bottom: 0px;
+	}
+
+/*Конец Страницы Регистрации*/
 
 
 

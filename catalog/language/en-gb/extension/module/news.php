@@ -7,7 +7,7 @@ $_['text_more']  		= 'Read more...';
 $_['text_date_added'] 	= 'Aded:';
 $_['text_viewed'] 		= '(%s views) ';
 $_['text_all_news'] = 'All news';
-$_['text_reading_time'] = 'reading time';
+$_['text_reading_time'] = 'minutes of reading';
 
 // Buttons
 $_['button_list']     	= 'View all';

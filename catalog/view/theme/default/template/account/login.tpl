@@ -21,35 +21,67 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="row">
-        <div class="col-sm-6">
-          <div class="well">
-            <h2><?php echo $text_new_customer; ?></h2>
-            <p><strong><?php echo $text_register; ?></strong></p>
-            <p><?php echo $text_register_account; ?></p>
-            <a href="<?php echo $register; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-        </div>
-        <div class="col-sm-6">
-          <div class="well">
-            <h2><?php echo $text_returning_customer; ?></h2>
-            <p><strong><?php echo $text_i_am_returning_customer; ?></strong></p>
-            <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label class="control-label" for="input-email"><?php echo $entry_email; ?></label>
-                <input type="text" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
-              </div>
-              <div class="form-group">
-                <label class="control-label" for="input-password"><?php echo $entry_password; ?></label>
-                <input type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
-                <a href="<?php echo $forgotten; ?>"><?php echo $text_forgotten; ?></a></div>
-              <input type="submit" value="<?php echo $button_login; ?>" class="btn btn-primary" />
-              <?php if ($redirect) { ?>
-              <input type="hidden" name="redirect" value="<?php echo $redirect; ?>" />
-              <?php } ?>
-            </form>
+        <div class="container">
+          <div class="row reg_m">
+            <div class="form_group">
+              <div class="header1"><?=$heading_title?></div>
+              <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+                    <div id="loginGroup" class="form-group">
+                      <label for="exampleInputEmail1"><?php echo $entry_email; ?></label>
+                      <input type="text" name="email" class="form-control" id="inputlogin" aria-describedby="emailHelp" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>">  <div class="input_icon input_null"></div>             
+                    </div>
+                    <div id="passGroup" class="form-group">
+                      <label for="exampleInputPassword1"><?php echo $entry_password; ?></label>
+                      <input type="password" name="password" class="form-control" id="inputpassword"  value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>"> <div class="input_icon input_null"></div>
+                    </div>
+
+                    <input type="submit" class="login button_reg" value="<?php echo $button_login; ?>" class="btn btn-primary" />
+                    <div class="reg_link"><a href="<?=$register?>"><?=$text_register?></a></div>
+                </form>
+            </div>
           </div>
         </div>
       </div>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+      <?php echo $content_bottom; ?>
+    </div>
+    <?php echo $column_right; ?>
+  </div>
+  
+  <script>
+    $("#loginGroup input").change(function(){
+
+      let loginText = $(this).val();
+      loginText = loginText.trim();
+        
+      if (!loginText || loginText.length === 0) {
+        $("#loginGroup .input_icon").removeClass('input_null');
+        $("#loginGroup .input_icon").removeClass('input_right');
+        $("#loginGroup .input_icon").addClass('input_error');
+      } else {
+        $("#loginGroup .input_icon").removeClass('input_null');
+        $("#loginGroup .input_icon").removeClass('input_error');
+        $("#loginGroup .input_icon").addClass('input_right');
+      }
+
+    });
+
+     $("#passGroup input").change(function(){
+
+      let pass = $(this).val();
+      pass = pass.trim();
+        
+      if (!pass || pass.length === 0) {
+        $("#passGroup .input_icon").removeClass('input_null');
+        $("#passGroup .input_icon").removeClass('input_right');
+        $("#passGroup .input_icon").addClass('input_error');
+      } else {
+        $("#passGroup .input_icon").removeClass('input_null');
+        $("#passGroup .input_icon").removeClass('input_error');
+        $("#passGroup .input_icon").addClass('input_right');
+      }
+
+    });
+  </script>
+
 </div>
 <?php echo $footer; ?>

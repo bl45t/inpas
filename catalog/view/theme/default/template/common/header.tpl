@@ -63,8 +63,12 @@
 
       <a class="navbar-brand" href="#"><img src="catalog/view/theme/default/image/logo.png" 
   width="270" height="auto" alt="lorem"></a>
-
-        <button class="login"><?=$text_login?></button>
+        
+          <?php if ($logged) { ?>
+            <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
+          <?php } else { ?>
+            <a href="<?=$login?>" class="login"><?=$text_login?></a>
+          <?php } ?>
 
         <form action="" method="post" class="search">
         <input type="search" name="" placeholder="поиск" class="input" />
@@ -80,7 +84,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="container nav navbar-nav">
-        <li class="menu1 active"><a href="#"><?=$text_home?></a></li>
+        <li class="menu1"><a href="#"><?=$text_home?></a></li>
 
         <li class="menu1 dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
