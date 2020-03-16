@@ -11,6 +11,9 @@ $_['text_your_address']    = 'Your Address';
 $_['text_newsletter']      = 'Newsletter';
 $_['text_your_password']   = 'Your Password';
 $_['text_agree']           = 'I have read and agree to the <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_user']   = 'User';
+$_['text_expert']   = 'Expert';
+$_['text_not_exist_organization'] = 'The organization is not in the list';
 
 // Entry
 $_['entry_customer_group'] = 'Customer Group';
@@ -29,6 +32,12 @@ $_['entry_zone']           = 'Region / State';
 $_['entry_newsletter']     = 'Subscribe';
 $_['entry_password']       = 'Password';
 $_['entry_confirm']        = 'Password Confirm';
+$_['entry_post']        = 'Post';
+$_['entry_workplace']        = 'Place of work';
+$_['entry_social_link'] = 'Link to a social network profile';
+$_['entry_interests'] = 'Field of interest';
+$_['entry_organization'] = 'Organization';
+$_['entry_name_org'] = 'Organization name';
 
 // Error
 $_['error_exists']         = 'Warning: E-Mail Address is already registered!';

@@ -12,7 +12,6 @@ body
 	background-color: white;
 }
 
-
 .search {
 	float:right;
 	position: relative;
@@ -1066,7 +1065,7 @@ input[type="search"] {
 	.form_group
 	{
 		margin-top: 100px;
-		width: 700px;
+		max-width: 700px;
 		overflow: auto;
     	margin: 0 auto;
 	    padding: 40px 60px;
@@ -1085,7 +1084,7 @@ input[type="search"] {
 	}
 	.type_user
 	{
-		min-height: 110px;
+		min-height: 80px;
 	}
 	.form_group .header1
 	{
@@ -1126,7 +1125,7 @@ input[type="search"] {
 	{
 		margin-right: 15px;
 	}
-	.user2
+	.activeUser
 	{
 		background-color: #CCCCCC;
 		border-color: #CCCCCC;

@@ -11,6 +11,9 @@ $_['text_your_address']    = 'Ваш адрес';
 $_['text_newsletter']      = 'Подписка на новости';
 $_['text_your_password']   = 'Ваш пароль';
 $_['text_agree']           = 'Мною прочитаны и я даю согласие с документом <a href="%s" class="agree"><b>%s</b></a>';
+$_['text_user']   = 'Пользователь';
+$_['text_expert']   = 'Эксперт';
+$_['text_not_exist_organization'] = 'Организация отсутствует в списке';
 
 // Entry
 $_['entry_customer_group'] = 'Группа покупателей';
@@ -29,6 +32,12 @@ $_['entry_zone']           = 'Регион / область';
 $_['entry_newsletter']     = 'Подписаться';
 $_['entry_password']       = 'Пароль';
 $_['entry_confirm']        = 'Подтвердить';
+$_['entry_post']        = 'Должность';
+$_['entry_workplace']        = 'Место работы';
+$_['entry_social_link'] = 'Ссылка на профиль соц. сети';
+$_['entry_interests'] = 'Сфера интересов';
+$_['entry_organization'] = 'Организация';
+$_['entry_name_org'] = 'Название организации';
 
 // Error
 $_['error_exists']         = 'Этот E-Mail уже зарегистрирован!';

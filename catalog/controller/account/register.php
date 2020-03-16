@@ -72,7 +72,10 @@ class ControllerAccountRegister extends Controller {
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_loading'] = $this->language->get('text_loading');
-
+		$data['text_user'] = $this->language->get('text_user');
+		$data['text_expert'] = $this->language->get('text_expert');
+		$data['text_not_exist_organization'] = $this->language->get('text_not_exist_organization');
+		
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
@@ -89,6 +92,14 @@ class ControllerAccountRegister extends Controller {
 		$data['entry_newsletter'] = $this->language->get('entry_newsletter');
 		$data['entry_password'] = $this->language->get('entry_password');
 		$data['entry_confirm'] = $this->language->get('entry_confirm');
+		$data['entry_post'] = $this->language->get('entry_post');
+		$data['entry_workplace'] = $this->language->get('entry_workplace');
+		$data['entry_social_link'] = $this->language->get('entry_social_link');
+		$data['entry_interests'] = $this->language->get('entry_interests');
+		$data['entry_organization'] = $this->language->get('entry_organization');
+		$data['entry_name_org'] = $this->language->get('entry_name_org');
+
+		
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
@@ -187,6 +198,17 @@ class ControllerAccountRegister extends Controller {
 			}
 		}
 
+		//Создаем новую организацию
+		if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
+			
+		}
+		
+		if (isset($this->request->post['new_organization_name'])) {
+			$data['new_organization_name'] = $this->request->post['new_organization_name'];
+		} else {
+			$data['new_organization_name'] = '';
+		}
+
 		if (isset($this->request->post['customer_group_id'])) {
 			$data['customer_group_id'] = $this->request->post['customer_group_id'];
 		} else {
@@ -215,6 +237,42 @@ class ControllerAccountRegister extends Controller {
 			$data['telephone'] = $this->request->post['telephone'];
 		} else {
 			$data['telephone'] = '';
+		}
+
+		if (isset($this->request->post['is_expert'])) {
+			$data['is_expert'] = $this->request->post['is_expert'];
+		} else {
+			$data['is_expert'] = 0;
+		}
+
+		if (isset($this->request->post['workplace'])) {
+			$data['workplace'] = $this->request->post['workplace'];
+		} else {
+			$data['workplace'] = '';
+		}
+
+		if (isset($this->request->post['post'])) {
+			$data['post'] = $this->request->post['post'];
+		} else {
+			$data['post'] = '';
+		}
+
+		if (isset($this->request->post['social_link'])) {
+			$data['social_link'] = $this->request->post['social_link'];
+		} else {
+			$data['social_link'] = '';
+		}
+
+		if (isset($this->request->post['field_of_interest'])) {
+			$data['field_of_interest'] = $this->request->post['field_of_interest'];
+		} else {
+			$data['field_of_interest'] = '';
+		}
+
+		if (isset($this->request->post['id_organization'])) {
+			$data['id_organization'] = $this->request->post['id_organization'];
+		} else {
+			$data['id_organization'] = 0;
 		}
 
 		if (isset($this->request->post['fax'])) {
@@ -274,6 +332,10 @@ class ControllerAccountRegister extends Controller {
 		$this->load->model('localisation/country');
 
 		$data['countries'] = $this->model_localisation_country->getCountries();
+
+		$this->load->model('catalog/manufacturer');
+
+		$data['organizations'] = $this->model_catalog_manufacturer->getManufacturers();
 
 		// Custom Fields
 		$this->load->model('account/custom_field');
@@ -372,30 +434,6 @@ class ControllerAccountRegister extends Controller {
 
 		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 			$this->error['telephone'] = $this->language->get('error_telephone');
-		}
-
-		if ((utf8_strlen(trim($this->request->post['address_1'])) < 3) || (utf8_strlen(trim($this->request->post['address_1'])) > 128)) {
-			$this->error['address_1'] = $this->language->get('error_address_1');
-		}
-
-		if ((utf8_strlen(trim($this->request->post['city'])) < 2) || (utf8_strlen(trim($this->request->post['city'])) > 128)) {
-			$this->error['city'] = $this->language->get('error_city');
-		}
-
-		$this->load->model('localisation/country');
-
-		$country_info = $this->model_localisation_country->getCountry($this->request->post['country_id']);
-
-		if ($country_info && $country_info['postcode_required'] && (utf8_strlen(trim($this->request->post['postcode'])) < 2 || utf8_strlen(trim($this->request->post['postcode'])) > 10)) {
-			$this->error['postcode'] = $this->language->get('error_postcode');
-		}
-
-		if ($this->request->post['country_id'] == '') {
-			$this->error['country'] = $this->language->get('error_country');
-		}
-
-		if (!isset($this->request->post['zone_id']) || $this->request->post['zone_id'] == '' || !is_numeric($this->request->post['zone_id'])) {
-			$this->error['zone'] = $this->language->get('error_zone');
 		}
 
 		// Customer Group

@@ -8,7 +8,8 @@
   <?php if ($error_warning) { ?>
   <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> <?php echo $error_warning; ?></div>
   <?php } ?>
-  <div class="row"><?php echo $column_left; ?>
+  <div class="row reg_m"><?php echo $column_left; ?>
+    <div class="form_group">
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
     <?php } elseif ($column_left || $column_right) { ?>
@@ -17,11 +18,31 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <p><?php echo $text_account_already; ?></p>
+      <div class="header1"><?php echo $heading_title; ?></div>
+
+      <div class="type_user">
+        <?php 
+          $expertActiveClass = '';
+          $userActiveClass = '';
+
+          if ($is_expert == 1) {
+            $expertActiveClass = 'activeUser';
+          } else if ($is_expert == 0) {
+            $userActiveClass = 'activeUser';
+          }
+        ?> 
+          <button class="button1 user1 <?=$expertActiveClass?>" data-role="role_expert"><?=$text_expert?></button> 
+          <button class="button1 user1 <?=$userActiveClass?>" data-role="role_user"><?=$text_user?></button>
+      </div>
+      
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+        <?php 
+            $valExpField = isset($is_expert) ? $is_expert : 0;
+        ?>
+          <input id="is_expert_input" type="hidden" name="is_expert" value="<?=$valExpField?>">
+
         <fieldset id="account">
-          <legend><?php echo $text_your_details; ?></legend>
+      
           <div class="form-group required" style="display: <?php echo (count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
             <label class="col-sm-2 control-label"><?php echo $entry_customer_group; ?></label>
             <div class="col-sm-10">
@@ -43,47 +64,94 @@
             </div>
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
-            <div class="col-sm-10">
-              <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+            <label class="" for="input-firstname"><?php echo $entry_firstname; ?></label>
+            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
               <?php if ($error_firstname) { ?>
               <div class="text-danger"><?php echo $error_firstname; ?></div>
               <?php } ?>
-            </div>
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
-            <div class="col-sm-10">
+              <label class="" for="input-lastname"><?php echo $entry_lastname; ?></label>
+            
               <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
               <?php if ($error_lastname) { ?>
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
-            </div>
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
-            <div class="col-sm-10">
+              <label class="" for="input-email"><?php echo $entry_email; ?></label>
+           
               <input type="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
               <?php if ($error_email) { ?>
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
-            </div>
+           
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
-            <div class="col-sm-10">
+              <label class="" for="input-telephone"><?php echo $entry_telephone; ?></label>
+            
               <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
               <?php if ($error_telephone) { ?>
               <div class="text-danger"><?php echo $error_telephone; ?></div>
               <?php } ?>
-            </div>
+           
           </div>
-          <div class="form-group">
+          
+          <div class="form-group ">
+              <label class="" for="input-post"><?php echo $entry_post; ?></label>
+              <input type="text" name="post" value="<?php echo $post; ?>" placeholder="<?php echo $entry_post; ?>" id="input-post" class="form-control" />
+          </div>
+
+          <div id="form_group_workplace" class="form-group ">
+              <label class="" for="input-workplace"><?php echo $entry_workplace; ?></label>
+              <input type="text" name="workplace" value="<?php echo $workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" id="input-workplace" class="form-control" />
+          </div>
+
+          <div id="form_group_interests" class="form-group hidden">
+              <label class="" for="input-interests"><?php echo $entry_interests; ?></label>
+              <input type="text" name="field_of_interest" value="<?php echo $field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" id="input-interests" class="form-control" />
+          </div>
+
+          <div id="form_group_social_link" class="form-group hidden">
+            <label class="" for="input-social-link"><?php echo $entry_social_link; ?></label>
+            <input type="text" name="social_link" value="<?php echo $social_link; ?>" placeholder="<?php echo $entry_social_link; ?>" id="input-social-link" class="form-control" />
+          </div>
+
+          <div id="form_group_organozation" class="form-group hidden">
+              <label class="" for="input-id-organization"><?php echo $entry_organization; ?></label>
+              <select name="id_organization" id="input-id-organization" class="form-control">
+                    <option value="0"><?=$text_select?></option>
+                  <?php foreach ($organizations as $org) { ?>
+                      <?php if (isset($id_organization) && $id_organization == $org['manufacturer_id']) { ?>
+                        <option value="<?=$org['manufacturer_id']?>" selected="selected"><?=$org['name']?></option>
+                      <?php } else { ?>
+                        <option value="<?=$org['manufacturer_id']?>"><?=$org['name']?></option>
+                      <?php } ?>
+                  <?php } ?>
+              </select>
+          </div>
+
+          <div id="form_group_not_exist_org" class="form-group hidden">
+            <label class="" for="input-empty-org"><?=$text_not_exist_organization?></label>
+            <input id="input-empty-org" name="is_exist_org" type="checkbox" class="form-check-input">
+          </div>
+
+          <fieldset id="newOrganization" class="hidden">
+            
+            <div class="form-group">
+              <label class="" for="input-ogr-name"><?php echo $entry_name_org; ?></label>
+              <input type="text" name="new_organization_name" value="<?php echo $new_organization_name; ?>" placeholder="<?php echo $entry_name_org; ?>" id="input-ogr-name" class="form-control" />
+            </div>
+
+          </fieldset>
+
+          <div class="form-group hidden">
             <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
             <div class="col-sm-10">
               <input type="text" name="fax" value="<?php echo $fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
             </div>
           </div>
+
           <?php foreach ($custom_fields as $custom_field) { ?>
           <?php if ($custom_field['location'] == 'account') { ?>
           <?php if ($custom_field['type'] == 'select') { ?>
@@ -238,7 +306,7 @@
           <?php } ?>
           <?php } ?>
         </fieldset>
-        <fieldset id="address">
+        <fieldset id="address" class="hidden">
           <legend><?php echo $text_your_address; ?></legend>
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-company"><?php echo $entry_company; ?></label>
@@ -286,7 +354,7 @@
                 <option value=""><?php echo $text_select; ?></option>
                 <?php foreach ($countries as $country) { ?>
                 <?php if ($country['country_id'] == $country_id) { ?>
-                <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+                <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
                 <?php } else { ?>
                 <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
                 <?php } ?>
@@ -462,27 +530,26 @@
           <?php } ?>
         </fieldset>
         <fieldset>
-          <legend><?php echo $text_your_password; ?></legend>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-password"><?php echo $entry_password; ?></label>
-            <div class="col-sm-10">
+              <label class="" for="input-password"><?php echo $entry_password; ?></label>
+            
               <input type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
               <?php if ($error_password) { ?>
               <div class="text-danger"><?php echo $error_password; ?></div>
               <?php } ?>
-            </div>
+
           </div>
           <div class="form-group required">
-            <label class="col-sm-2 control-label" for="input-confirm"><?php echo $entry_confirm; ?></label>
-            <div class="col-sm-10">
+              <label class="" for="input-confirm"><?php echo $entry_confirm; ?></label>
+         
               <input type="password" name="confirm" value="<?php echo $confirm; ?>" placeholder="<?php echo $entry_confirm; ?>" id="input-confirm" class="form-control" />
               <?php if ($error_confirm) { ?>
               <div class="text-danger"><?php echo $error_confirm; ?></div>
               <?php } ?>
-            </div>
+           
           </div>
         </fieldset>
-        <fieldset>
+        <fieldset class="hidden">
           <legend><?php echo $text_newsletter; ?></legend>
           <div class="form-group">
             <label class="col-sm-2 control-label"><?php echo $entry_newsletter; ?></label>
@@ -515,19 +582,24 @@
             <input type="checkbox" name="agree" value="1" />
             <?php } ?>
             &nbsp;
-            <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
+            <div class="row">
+              <div class="pull-right">
+                <input class="login button_reg" type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
+              </div>
+            </div>
           </div>
         </div>
         <?php } else { ?>
         <div class="buttons">
           <div class="pull-right">
-            <input type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
+            <input class="login button_reg" type="submit" value="<?php echo $button_continue; ?>" class="btn btn-primary" />
           </div>
         </div>
         <?php } ?>
       </form>
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
+    </div>
 </div>
 <script type="text/javascript"><!--
 // Sort the custom fields
@@ -705,5 +777,61 @@ $('select[name=\'country_id\']').on('change', function() {
 });
 
 $('select[name=\'country_id\']').trigger('change');
+
+$('.type_user button').click(function() {
+  $('.type_user').find('.activeUser').removeClass('activeUser');
+  $(this).addClass('activeUser');
+
+  let userRole = $(this).attr('data-role');
+
+  if (userRole === 'role_expert') {
+    $("#is_expert_input").val(1);
+    getExpertRegistrationFormState();
+  } else if (userRole === 'role_user') {
+    $("#is_expert_input").val(0);
+    getUserRegistrationFormState();
+  }
+
+});
+
+  let userRole = $("#is_expert_input").val();
+  let expert = 1;
+  let user = 0;
+
+  if (userRole == expert) {
+    getExpertRegistrationFormState();
+  } else if (userRole == user) {
+    getUserRegistrationFormState();
+  }
+
+  function getExpertRegistrationFormState() {
+    $("#form_group_workplace").addClass('hidden');
+    $("#form_group_social_link").removeClass('hidden');
+    $("#form_group_interests").removeClass('hidden');
+    $("#form_group_organozation").removeClass('hidden');
+    $("#form_group_not_exist_org").removeClass('hidden');
+
+    
+  }
+
+  function getUserRegistrationFormState() {
+    $("#form_group_workplace").removeClass('hidden');
+    $("#form_group_social_link").addClass('hidden');
+    $("#form_group_interests").addClass('hidden');
+    $("#form_group_organozation").addClass('hidden');
+    $("#form_group_not_exist_org").addClass('hidden');
+    
+  }
+
+  $("#form_group_not_exist_org #input-empty-org").change(function() {
+    if ($(this).is(':checked') == true) {
+        $("#newOrganization").removeClass('hidden');
+    } else {
+        $("#newOrganization").addClass('hidden');
+    }
+
+  });
+
+
 //--></script>
 <?php echo $footer; ?>
