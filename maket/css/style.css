@@ -1390,6 +1390,181 @@ input[type="search"] {
 
 
 
+/*БД Начало*/
+
+	.bd_block
+	{
+	    min-height: 60vh;
+	}
+	.organization
+	{
+		width: 100%;
+		height: auto;
+		overflow: auto;
+		margin-bottom: 13px;
+		border-bottom: 1px solid #eaeaea;
+		padding: 15px 0px 0px 0px;
+		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
+	    border-radius: 3px;
+	    background-color: white;
+	}
+	.org_img
+	{
+		height: 83px;
+    	width: 76px;
+		padding: 0px;
+		float: left;
+	}
+	.org_img img
+	{
+		object-fit: contain;
+	    width: 100%;
+	    padding: 0px 7px;
+	}
+	.org_text
+	{
+		float: left;
+		padding: 0px 10px;
+		width: 100%;
+	}
+	.org_name
+	{
+		font-weight: bold;
+		font-size: 18px;
+		margin-bottom: 0px;
+	}
+	.org_adress, .org_phone
+	{
+		color: #838383;
+		font-size: 14px;
+	}
+	.org_phone
+	{
+		margin-left: 17px;
+	}
+
+	.org_text p
+	{
+		margin: 0px ;
+	}
+	.org_desc
+	{
+		font-size: 14px;
+		color: #535353;
+		margin: 6px 0px !important;
+	}
+
+	.org_text a .less_org
+	{
+		font-size: 14px;
+		width: 100%;
+    	margin: 7px 0px;
+    	display: none;
+	}
+	.open
+	{
+		height: auto;
+		overflow: auto;
+	}
+	.open .org_img img
+	{
+		object-position: top;
+	}
+	.open .org_text a div
+	{
+		display: none !important;
+	}
+
+
+	.org_full div 
+	{
+		padding: 0px !important;
+		margin-bottom: 5px;
+	}
+	.org_full
+	{
+		margin: 15px 0px;
+		overflow: auto;
+		display: none;
+	}
+	.org_full div, .org_full a
+	{
+		font-size: 16px;
+	}
+	.org_full span
+	{
+		font-size: 14px;
+		/*color: #838383;*/
+		font-weight: 600;
+	}
+	.less_org
+	{
+		display: none;
+	}
+	.open .org_desc
+	{
+		font-size: 16px;
+		margin-top: 7px !important;
+	}
+	.open .org_adress, .open .org_phone, .open .more_org
+	{
+		display: none;
+	}
+	.open .org_full
+	{
+		display: block;
+		margin-left: 76px;
+	}
+
+	
+	.less_org, .less_org a, .more_org, .more_org a
+	{
+		margin-top: 6px;
+		font-size: 14px !important;
+		color:#003568;;
+		line-height: 31px;
+	}
+	.open .less_org, .more_org
+	{
+		text-align: center;
+		border-top: 1px solid #ececec;
+		height: 31px;
+		display: flow-root;
+	}
+	.open .less_org
+	{
+		display: flow-root;
+	}
+	.bd_filtr
+	{
+		float: none;
+	    border-radius: 22px;
+	    background-color: #3D65A0;
+	    border: 0px;
+	    margin: 0px 13px 0px 0px;
+	    font-size: 14px;
+	    font-weight: normal;
+	    padding: .6em 1.4em;
+	    color: white;
+	    text-decoration: none;
+	}
+	.bd_filtr:active
+	{
+		background-color: #003867;
+		outline: none;
+	}
+	.bd_filtr:hover
+	{
+		background-color: #003867;
+		outline: none;
+	}
+
+
+
+
+
+/*БД Конец*/
+
 
 
 
@@ -1438,6 +1613,12 @@ input[type="search"] {
     	{
     		width: 100%;
     	}
+    	.bd_search .input 
+    	{
+		    width: 50%;
+		    float: right;
+		}
+
 
 
     }
@@ -1485,8 +1666,122 @@ input[type="search"] {
 
 
 
-    @media (max-width: 767px)
+
+    @media (min-width: 768px) and (max-width: 1200px)
     {
+    	.navbar-default .navbar-nav>li>a {
+		    font-size: 14px;
+		}
+
+
+    }
+    @media (max-width: 992px)
+    	{
+
+    	.open .org_full
+    	{
+    		margin-left: 0px !important;
+    	}
+
+    	.org_img img 
+    	{
+    		object-position: top;
+		}
+
+
+    	.com_input textarea, .com_float 
+    	{
+    		width:  calc(100% - 50px);;
+		}
+		.com_img
+		{
+			width: 40px;
+			margin-right: 10px;
+		}
+    	.com_avatar
+		{
+			width: 40px;
+			height: 40px;
+		}
+		.new_comment .login
+		{
+    		padding: .3em 3em;
+		}
+		
+
+    	.navbar-brand img
+		{
+			max-width: 100%;
+		}
+		.navbar-brand
+		{
+			max-width: 60%;
+		}
+		.nav_pages
+		{
+		    width: 90%;
+		}
+			.open
+		{
+			height: auto;
+			overflow: auto;
+		}
+
+		.header1
+		{
+			margin-bottom: 20px;
+			margin-top: 40px;
+		}
+		.event_page
+    	{
+    		width: 25%;
+    	}
+    	.event_page .header_event
+    	{
+    		display: none;
+    	}
+    	.event_full div .date_event, .event_full div .place_event, .event_full div .sub_grey
+    	{
+    		font-size: 16px;
+
+    	}
+    	.event_block, .event_page
+    	{
+    		height: 300px;
+    	}
+    	.fn_head .news_text .news_header
+    	{
+    		font-size: 22px;
+    		line-height: 25px;
+    	}
+    	.bd_search .bd_filtr
+		{
+			float: right;
+			margin: 0px 0px 0px 13px;
+			font-size: 14px;
+		}
+
+
+    	}
+
+    	@media (max-width: 767px)
+    {
+
+    	.open .org_full 
+    	{
+		    margin-left: 0px;
+		}
+    	.org_img
+    	{
+    		width: 55px;
+    		height: 55px;
+    	}
+
+	    .open
+		{
+			height: auto;
+			overflow: auto;
+		}
     	.fn_head 
     	{
 		    height: 410px;
@@ -1632,87 +1927,28 @@ input[type="search"] {
 		{
 			padding: .3em 3em;
 		}
+		.bd_search
+    	{
+    		margin-top: 30px !important;
+    	}
+    	.bd_search input
+    	{
+    		width: 60% !important;
+    		float: left !important;
+    	}
 
 
 
     }
 
-    @media (min-width: 768px) and (max-width: 1200px)
-    {
-    	.navbar-default .navbar-nav>li>a {
-		    font-size: 14px;
-		}
-
-
-    }
-    @media (max-width: 992px)
-    	{
-    	.com_input textarea, .com_float 
-    	{
-    		width:  calc(100% - 50px);;
-		}
-		.com_img
-		{
-			width: 40px;
-			margin-right: 10px;
-		}
-    	.com_avatar
-		{
-			width: 40px;
-			height: 40px;
-		}
-		.new_comment .login
-		{
-    		padding: .3em 3em;
-		}
-		
-
-    	.navbar-brand img
-		{
-			max-width: 100%;
-		}
-		.navbar-brand
-		{
-			max-width: 60%;
-		}
-		.nav_pages
-		{
-		    width: 90%;
-		}
-
-		.header1
-		{
-			margin-bottom: 20px;
-			margin-top: 40px;
-		}
-		.event_page
-    	{
-    		width: 25%;
-    	}
-    	.event_page .header_event
-    	{
-    		display: none;
-    	}
-    	.event_full div .date_event, .event_full div .place_event, .event_full div .sub_grey
-    	{
-    		font-size: 16px;
-
-    	}
-    	.event_block, .event_page
-    	{
-    		height: 300px;
-    	}
-    	.fn_head .news_text .news_header
-    	{
-    		font-size: 22px;
-    		line-height: 25px;
-    	}
-
-
-    	}
 
     @media (max-width: 450px)
     {
+    	.org_name
+    	{
+    		font-size: 14px;
+
+    	}
     	.fn_head 
     	{
 		    min-height: 490px;
@@ -1849,9 +2085,15 @@ input[type="search"] {
 		{
 			max-width: 20%;
 		}
-		.navbar-brand {
-    	max-width: 40%;
+		.navbar-brand 
+		{
+    		max-width: 40%;
 		}
+		.bd_search
+    	{
+    		max-width: 90%; 
+    	}
+
     }
 
     @media (max-width: 506px)
