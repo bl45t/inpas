@@ -38,6 +38,15 @@ $_['entry_social_link'] = 'Link to a social network profile';
 $_['entry_interests'] = 'Field of interest';
 $_['entry_organization'] = 'Organization';
 $_['entry_name_org'] = 'Organization name';
+$_['entry_org_address'] = 'Organization address';
+$_['entry_post_code'] = 'Organization post code';
+$_['entry_org_city'] = 'Organization city';
+$_['entry_org_country'] = 'Organization сountry';
+$_['entry_org_phone'] = 'Organization phone';
+$_['entry_org_email'] = 'Organization Email';
+$_['entry_org_fax'] = 'Organization fax';
+$_['entry_org_site'] = 'Organization web site';
+$_['entry_org_zone'] = 'Organization region';
 
 // Error
 $_['error_exists']         = 'Warning: E-Mail Address is already registered!';

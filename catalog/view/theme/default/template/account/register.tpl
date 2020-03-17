@@ -143,6 +143,62 @@
               <input type="text" name="new_organization_name" value="<?php echo $new_organization_name; ?>" placeholder="<?php echo $entry_name_org; ?>" id="input-ogr-name" class="form-control" />
             </div>
 
+            <div class="form-group">
+              <label class="" for="input-ogr-address"><?php echo $entry_org_address; ?></label>
+              <input type="text" name="new_organization_address" value="<?php echo $new_organization_address; ?>" placeholder="<?php echo $entry_org_address; ?>" id="input-ogr-address" class="form-control" />
+            </div>
+  
+            <div class="form-group">
+              <label class="" for="input-ogr-post-code"><?php echo $entry_post_code; ?></label>
+              <input type="text" name="new_organization_post_code" value="<?php echo $new_organization_post_code; ?>" placeholder="<?php echo $entry_post_code; ?>" id="input-ogr-post-code" class="form-control" />
+            </div>
+
+            <div class="form-group">
+            <label class="" for="input-new-org-country"><?php echo $entry_org_country; ?></label>
+              <select id="new_org_country_select" name="new_organization_country_id" id="input-new-org-country" class="form-control">
+                <option value=""><?php echo $text_select; ?></option>
+                <?php foreach ($countries as $country) { ?>
+                <?php if ($country['country_id'] == $new_organization_country_id) { ?>
+                <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name'];?></option>
+                <?php } else { ?>
+                <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-org-region"><?php echo $entry_org_zone; ?></label>
+                <select id="new_org_region_select" name="new_organization_region_id" id="input-org-region" class="form-control">
+                  <option val=""><?=$text_select?></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-ogr-city"><?php echo $entry_org_city; ?></label>
+              <input type="text" name="new_organization_city" value="<?php echo $new_organization_city; ?>" placeholder="<?php echo $entry_org_city; ?>" id="input-ogr-city" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-ogr-phone"><?php echo $entry_org_phone; ?></label>
+              <input type="text" name="new_organization_phone" value="<?php echo $new_organization_phone; ?>" placeholder="<?php echo $entry_org_phone; ?>" id="input-ogr-phone" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-ogr-email"><?php echo $entry_org_email; ?></label>
+              <input type="text" name="new_organization_email" value="<?php echo $new_organization_email; ?>" placeholder="<?php echo $entry_org_email; ?>" id="input-ogr-email" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-ogr-fax"><?php echo $entry_org_fax; ?></label>
+              <input type="text" name="new_organization_fax" value="<?php echo $new_organization_fax; ?>" placeholder="<?php echo $entry_org_fax; ?>" id="input-ogr-fax" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-ogr-site"><?php echo $entry_org_site; ?></label>
+              <input type="text" name="new_organization_site" value="<?php echo $new_organization_site; ?>" placeholder="<?php echo $entry_org_site; ?>" id="input-ogr-site" class="form-control" />
+            </div>
+
           </fieldset>
 
           <div class="form-group hidden">
@@ -369,6 +425,7 @@
             <label class="col-sm-2 control-label" for="input-zone"><?php echo $entry_zone; ?></label>
             <div class="col-sm-10">
               <select name="zone_id" id="input-zone" class="form-control">
+                <option value=""></option>
               </select>
               <?php if ($error_zone) { ?>
               <div class="text-danger"><?php echo $error_zone; ?></div>
@@ -735,30 +792,24 @@ $('.datetime').datetimepicker({
 });
 //--></script>
 <script type="text/javascript"><!--
-$('select[name=\'country_id\']').on('change', function() {
+$('#new_org_country_select').on('change', function() {
 	$.ajax({
 		url: 'index.php?route=account/account/country&country_id=' + this.value,
 		dataType: 'json',
 		beforeSend: function() {
-			$('select[name=\'country_id\']').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
+			$('#new_org_country_select').after(' <i class="fa fa-circle-o-notch fa-spin"></i>');
 		},
 		complete: function() {
 			$('.fa-spin').remove();
 		},
 		success: function(json) {
-			if (json['postcode_required'] == '1') {
-				$('input[name=\'postcode\']').parent().parent().addClass('required');
-			} else {
-				$('input[name=\'postcode\']').parent().parent().removeClass('required');
-			}
-
 			html = '<option value=""><?php echo $text_select; ?></option>';
 
 			if (json['zone'] && json['zone'] != '') {
 				for (i = 0; i < json['zone'].length; i++) {
 					html += '<option value="' + json['zone'][i]['zone_id'] + '"';
 
-					if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
+					if (json['zone'][i]['zone_id'] == '<?php echo $new_organization_region_id; ?>') {
 						html += ' selected="selected"';
 					}
 
@@ -768,7 +819,7 @@ $('select[name=\'country_id\']').on('change', function() {
 				html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
 			}
 
-			$('select[name=\'zone_id\']').html(html);
+			$('#new_org_region_select').html(html);
 		},
 		error: function(xhr, ajaxOptions, thrownError) {
 			alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -776,7 +827,7 @@ $('select[name=\'country_id\']').on('change', function() {
 	});
 });
 
-$('select[name=\'country_id\']').trigger('change');
+$('#new_org_country_select').trigger('change');
 
 $('.type_user button').click(function() {
   $('.type_user').find('.activeUser').removeClass('activeUser');

@@ -20,6 +20,7 @@ class ControllerCatalogManufacturer extends Controller {
 		$this->load->model('catalog/manufacturer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
 			$this->model_catalog_manufacturer->addManufacturer($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -279,6 +280,8 @@ class ControllerCatalogManufacturer extends Controller {
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_percent'] = $this->language->get('text_percent');
 		$data['text_amount'] = $this->language->get('text_amount');
+		$data['text_select'] = $this->language->get('text_select');
+		$data['text_none'] = $this->language->get('text_none');
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_country'] = $this->language->get('entry_country');
@@ -422,6 +425,24 @@ class ControllerCatalogManufacturer extends Controller {
 		} else {
 			$data['status'] = '';
 		}
+
+		if (isset($this->request->post['id_country'])) {
+			$data['id_country'] = $this->request->post['id_country'];
+		} elseif (!empty($manufacturer_info)) {
+			$data['id_country'] = $manufacturer_info['id_country'];
+		} else {
+			$data['id_country'] = '';
+		}
+
+
+		if (isset($this->request->post['id_region'])) {
+			$data['id_region'] = $this->request->post['id_region'];
+		} elseif (!empty($manufacturer_info)) {
+			$data['id_region'] = $manufacturer_info['id_region'];
+		} else {
+			$data['id_region'] = '';
+		}
+
 
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];

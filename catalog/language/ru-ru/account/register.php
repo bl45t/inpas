@@ -38,6 +38,15 @@ $_['entry_social_link'] = 'Ссылка на профиль соц. сети';
 $_['entry_interests'] = 'Сфера интересов';
 $_['entry_organization'] = 'Организация';
 $_['entry_name_org'] = 'Название организации';
+$_['entry_org_address'] = 'Адрес организации';
+$_['entry_post_code'] = 'Почтовый индекс организации';
+$_['entry_org_city'] = 'Город организации';
+$_['entry_org_country'] = 'Страна организации';
+$_['entry_org_phone'] = 'Телефон организации';
+$_['entry_org_email'] = 'Email организации';
+$_['entry_org_fax'] = 'Факс организации';
+$_['entry_org_site'] = 'Сайт организации';
+$_['entry_org_zone'] = 'Регион организации';
 
 // Error
 $_['error_exists']         = 'Этот E-Mail уже зарегистрирован!';

@@ -2,6 +2,9 @@
 class ControllerAccountRegister extends Controller {
 	private $error = array();
 
+	const RU = 1;
+	const EN = 2;
+
 	public function index() {
 		if ($this->customer->isLogged()) {
 			$this->response->redirect($this->url->link('account/account', '', true));
@@ -17,6 +20,31 @@ class ControllerAccountRegister extends Controller {
 		$this->document->addStyle('catalog/view/javascript/jquery/datetimepicker/bootstrap-datetimepicker.min.css');
 
 		$this->load->model('account/customer');
+
+		//Создаем новую организацию
+		if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
+			$arNewOrg = [];
+			$arNewOrg['id_country'] = $this->request->post['new_organization_country_id'];
+			$arNewOrg['id_region'] = $this->request->post['new_organization_region_id'];
+			$arNewOrg['sort_order'] = 0;
+			$arNewOrg['status'] = 0;
+
+			$curLang = $this->language->get('code');
+
+			if ($curLang === 'ru') {
+				$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
+			} else if ($curLang === 'en') {
+				$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForEng($this->request->post);
+			} else {
+				$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
+			}
+
+			$this->load->model('catalog/manufacturer');
+
+			$idNewOrg = $this->model_catalog_manufacturer->addManufacturer($arNewOrg);
+
+			$this->request->post['id_organization'] = $idNewOrg;
+		}
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$customer_id = $this->model_account_customer->addCustomer($this->request->post);
@@ -98,8 +126,15 @@ class ControllerAccountRegister extends Controller {
 		$data['entry_interests'] = $this->language->get('entry_interests');
 		$data['entry_organization'] = $this->language->get('entry_organization');
 		$data['entry_name_org'] = $this->language->get('entry_name_org');
-
-		
+		$data['entry_org_address'] = $this->language->get('entry_org_address');
+		$data['entry_post_code'] = $this->language->get('entry_post_code');
+		$data['entry_org_city'] = $this->language->get('entry_org_city');
+		$data['entry_org_country'] = $this->language->get('entry_org_country');
+		$data['entry_org_phone'] = $this->language->get('entry_org_phone');
+		$data['entry_org_email'] = $this->language->get('entry_org_email');
+		$data['entry_org_fax'] = $this->language->get('entry_org_fax');
+		$data['entry_org_site'] = $this->language->get('entry_org_site');
+		$data['entry_org_zone'] = $this->language->get('entry_org_zone');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
@@ -197,16 +232,65 @@ class ControllerAccountRegister extends Controller {
 				}
 			}
 		}
-
-		//Создаем новую организацию
-		if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
-			
-		}
 		
 		if (isset($this->request->post['new_organization_name'])) {
 			$data['new_organization_name'] = $this->request->post['new_organization_name'];
 		} else {
 			$data['new_organization_name'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_address'])) {
+			$data['new_organization_address'] = $this->request->post['new_organization_address'];
+		} else {
+			$data['new_organization_address'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_post_code'])) {
+			$data['new_organization_post_code'] = $this->request->post['new_organization_post_code'];
+		} else {
+			$data['new_organization_post_code'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_city'])) {
+			$data['new_organization_city'] = $this->request->post['new_organization_city'];
+		} else {
+			$data['new_organization_city'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_country_id'])) {
+			$data['new_organization_country_id'] = $this->request->post['new_organization_country_id'];
+		} else {
+			$data['new_organization_country_id'] = '';
+		}
+		
+		if (isset($this->request->post['new_organization_region_id'])) {
+			$data['new_organization_region_id'] = $this->request->post['new_organization_region_id'];
+		} else {
+			$data['new_organization_region_id'] = '';
+		}
+		
+		if (isset($this->request->post['new_organization_phone'])) {
+			$data['new_organization_phone'] = $this->request->post['new_organization_phone'];
+		} else {
+			$data['new_organization_phone'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_email'])) {
+			$data['new_organization_email'] = $this->request->post['new_organization_email'];
+		} else {
+			$data['new_organization_email'] = '';
+		}
+		
+		if (isset($this->request->post['new_organization_fax'])) {
+			$data['new_organization_fax'] = $this->request->post['new_organization_fax'];
+		} else {
+			$data['new_organization_fax'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_site'])) {
+			$data['new_organization_site'] = $this->request->post['new_organization_site'];
+		} else {
+			$data['new_organization_site'] = '';
 		}
 
 		if (isset($this->request->post['customer_group_id'])) {
@@ -511,4 +595,139 @@ class ControllerAccountRegister extends Controller {
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}
+
+	private function manufacturerDescriptionForRus($arData) {
+		$result = [];
+
+		$result[self::RU]['name'] = $arData['new_organization_name'];
+		$result[self::EN]['name'] = $this->translitToEng($arData['new_organization_name']);
+
+		$result[self::RU]['city'] = $arData['new_organization_city'];
+		$result[self::EN]['city'] = $this->translitToEng($arData['new_organization_city']);
+
+		$result[self::RU]['phone'] = $arData['new_organization_phone'];
+		$result[self::EN]['phone'] = $arData['new_organization_phone'];
+
+		$result[self::RU]['email'] = $arData['new_organization_email'];
+		$result[self::EN]['email'] = $arData['new_organization_email'];
+
+		$result[self::RU]['fax'] = $arData['new_organization_fax'];
+		$result[self::EN]['fax'] = $arData['new_organization_fax'];
+
+		$result[self::RU]['address'] = $arData['new_organization_address'];
+		$result[self::EN]['address'] = $this->translitToEng($arData['new_organization_address']);
+
+		$result[self::RU]['post_code'] = $arData['new_organization_post_code'];
+		$result[self::EN]['post_code'] = $arData['new_organization_post_code'];
+
+		$result[self::RU]['site_address'] = $arData['new_organization_site'];
+		$result[self::EN]['site_address'] = $arData['new_organization_site'];
+
+		$result[self::RU]['description'] = '';
+		$result[self::EN]['description'] = '';
+
+		$result[self::RU]['educational_program'] = '';
+		$result[self::EN]['educational_program'] = '';
+
+		$result[self::RU]['meta_title'] = '';
+		$result[self::EN]['meta_title'] = '';
+
+		$result[self::RU]['meta_h1'] = '';
+		$result[self::EN]['meta_h1'] = '';
+
+		$result[self::RU]['meta_description'] = '';
+		$result[self::EN]['meta_description'] = '';
+
+		$result[self::RU]['meta_keyword'] = '';
+		$result[self::EN]['meta_keyword'] = '';
+
+		return $result;
+	} 
+
+	private function manufacturerDescriptionForEng($arData) {
+		$result = [];
+
+		$result[self::RU]['name'] = $this->translitToRus($arData['new_organization_name']);
+		$result[self::EN]['name'] = $arData['new_organization_name'];
+
+		$result[self::RU]['city'] = $this->translitToRus($arData['new_organization_city']);
+		$result[self::EN]['city'] = $arData['new_organization_city'];
+
+		$result[self::RU]['phone'] = $arData['new_organization_phone'];
+		$result[self::EN]['phone'] = $arData['new_organization_phone'];
+
+		$result[self::RU]['email'] = $arData['new_organization_email'];
+		$result[self::EN]['email'] = $arData['new_organization_email'];
+
+		$result[self::RU]['fax'] = $arData['new_organization_fax'];
+		$result[self::EN]['fax'] = $arData['new_organization_fax'];
+
+		$result[self::RU]['address'] = $this->translitToRus($arData['new_organization_address']);
+		$result[self::EN]['address'] = $arData['new_organization_address'];
+
+		$result[self::RU]['post_code'] = $arData['new_organization_post_code'];
+		$result[self::EN]['post_code'] = $arData['new_organization_post_code'];
+
+		$result[self::RU]['site_address'] = $arData['new_organization_site'];
+		$result[self::EN]['site_address'] = $arData['new_organization_site'];
+
+		$result[self::RU]['description'] = '';
+		$result[self::EN]['description'] = '';
+
+		$result[self::RU]['educational_program'] = '';
+		$result[self::EN]['educational_program'] = '';
+
+		$result[self::RU]['meta_title'] = '';
+		$result[self::EN]['meta_title'] = '';
+
+		$result[self::RU]['meta_h1'] = '';
+		$result[self::EN]['meta_h1'] = '';
+
+		$result[self::RU]['meta_description'] = '';
+		$result[self::EN]['meta_description'] = '';
+
+		$result[self::RU]['meta_keyword'] = '';
+		$result[self::EN]['meta_keyword'] = '';
+
+		return $result;
+	}
+
+	private function translitToRus($string) {
+		$cyr=array(
+		     "Щ", "Ш", "Ч","Ц", "Ю", "Я", "Ж","А","Б","В",
+		     "Г","Д","Е","Ё","З","И","Й","К","Л","М","Н",
+		     "О","П","Р","С","Т","У","Ф","Х","Ь","Ы","Ъ",
+		     "Э","Є", "Ї","І",
+		     "щ", "ш", "ч","ц", "ю", "я", "ж","а","б","в",
+		     "г","д","е","ё","з","и","й","к","л","м","н",
+		     "о","п","р","с","т","у","ф","х","ь","ы","ъ",
+		     "э","є", "ї","і"
+		  );
+		  $lat=array(
+		     "Shch","Sh","Ch","C","Yu","Ya","J","A","B","V",
+		     "G","D","E","E","Z","I","y","K","L","M","N",
+		     "O","P","R","S","T","U","F","H","", 
+		     "Y","" ,"E","E","Yi","I",
+		     "shch","sh","ch","c","Yu","Ya","j","a","b","v",
+		     "g","d","e","e","z","i","y","k","l","m","n",
+		     "o","p","r","s","t","u","f","h",
+		     "", "y","" ,"e","e","yi","i"
+		  );
+		$string = str_replace($lat,$cyr,$string);
+
+		return $string;
+	}
+
+	private function translitToEng($string) {
+        $rus = [
+            'А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я',
+            'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'
+        ];
+        $lat = [
+            'A', 'B', 'V', 'G', 'D', 'E', 'Yo', 'Zh', 'Z', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Shch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya',
+            'a', 'b', 'v', 'g', 'd', 'e', 'yo', 'zh', 'z', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'shch', 'y', 'y', 'y', 'e', 'yu', 'ya'
+        ];
+        return str_replace($rus, $lat, $string);
+	}
+
 }

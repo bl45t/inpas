@@ -31,6 +31,31 @@
             <?php } ?>
           </ul>
           <div class="tab-content">
+
+               <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-country"><?php echo $entry_country; ?></label>
+                <div class="col-sm-10">
+                  <select name="id_country" id="input-country" class="form-control country_select">
+                    <?php foreach ($countries as $country) { ?>
+                    <?php if ($country['country_id'] == $id_country) {  ?>
+                    <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
+                    <?php } ?>
+                    <?php } ?>
+                  </select>
+                </div>
+                </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-region"><?php echo $entry_region; ?></label>
+                <div class="col-sm-10">
+                  <select name="id_region" id="input-region" class="form-control region_select">
+                   <!-- ajax -->
+                  </select>
+                </div>
+              </div>
+
           <?php foreach ($languages as $language) { ?>
             <div class="tab-pane" id="language<?php echo $language['language_id']; ?>">
               <div class="form-group required">
@@ -40,36 +65,6 @@
                   <?php if (isset($error_name[$language['language_id']])) { ?>
                   <div class="text-danger"><?php echo $error_name[$language['language_id']]; ?></div>
                   <?php } ?>
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-country<?php echo $language['language_id']; ?>"><?php echo $entry_country; ?></label>
-                <div class="col-sm-10">
-                  <select name="manufacturer_description[<?php echo $language['language_id']; ?>][country_id]" id="input-country" class="form-control">
-                    <?php foreach ($countries as $country) { ?>
-                    <?php if ($country['country_id'] == $manufacturer_description[$language['language_id']]['country_id']) {  ?>
-                    <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name']; ?></option>
-                    <?php } else { ?>
-                    <option value="<?php echo $country['country_id']; ?>"><?php echo $country['name']; ?></option>
-                    <?php } ?>
-                    <?php } ?>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-region<?php echo $language['language_id']; ?>"><?php echo $entry_region; ?></label>
-                <div class="col-sm-10">
-                  <select name="manufacturer_description[<?php echo $language['language_id']; ?>][id_region]" id="input-region" class="form-control">
-                    <?php foreach ($regions as $region) { ?>
-                    <?php if ($region['zone_id'] == $manufacturer_description[$language['language_id']]['id_region']) {  ?>
-                    <option value="<?php echo $region['zone_id']; ?>" selected="selected"><?php echo $region['name']; ?></option>
-                    <?php } else { ?>
-                    <option value="<?php echo $region['zone_id']; ?>"><?php echo $region['name']; ?></option>
-                    <?php } ?>
-                    <?php } ?>
-                  </select>
                 </div>
               </div>
               
@@ -280,6 +275,46 @@
     let str = $(this).val();
     $("#input-site-address2").val(str);
   });
+
+
+$('.country_select').on('change', function() {
+  $.ajax({
+    url: '/index.php?route=account/account/country&country_id=' + this.value,
+    dataType: 'json',
+    beforeSend: function() {
+     
+    },
+    complete: function() {
+      $('.fa-spin').remove();
+    },
+    success: function(json) {
+
+      html = '<option value=""><?php echo $text_select; ?></option>';
+
+      if (json['zone'] && json['zone'] != '') {
+        for (i = 0; i < json['zone'].length; i++) {
+          html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+
+          if (json['zone'][i]['zone_id'] == '<?php echo $id_region; ?>') {
+            html += ' selected="selected"';
+          }
+
+          html += '>' + json['zone'][i]['name'] + '</option>';
+        }
+      } else {
+        html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
+      }
+
+      $('.region_select').html(html);
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+});
+
+$('.country_select').trigger('change');
+
 
 </script>
 

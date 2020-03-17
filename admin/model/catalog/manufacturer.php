@@ -6,7 +6,7 @@ class ModelCatalogManufacturer extends Model {
     $front_language_id = $language_info['language_id'];
 		$data['name'] = $data['manufacturer_description'][$front_language_id ]['name'];
 		
-		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "', created = ".time());
+		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "', id_country = ". $this->db->escape($data['id_country']) .", id_region = ". $this->db->escape($data['id_region']) .", created = ".time());
 
 		$manufacturer_id = $this->db->getLastId();
 
@@ -19,7 +19,7 @@ class ModelCatalogManufacturer extends Model {
 		}
 
 		foreach ($data['manufacturer_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET manufacturer_id = '" . (int)$manufacturer_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', id_country = ".$this->db->escape($value['country_id']).", id_region = ".$this->db->escape($value['id_region']).", city = '".$this->db->escape($value['city'])."', phone = '".$this->db->escape($value['phone'])."', fax = '".$this->db->escape($value['fax'])."', email = '".$this->db->escape($value['email'])."', address = '".$this->db->escape($value['address'])."', post_code = '".$this->db->escape($value['post_code'])."', site_address = '".$this->db->escape($value['site_address'])."', description = '" . $this->db->escape($value['description']) . "', educational_program = '" . $this->db->escape($value['educational_program']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET manufacturer_id = '" . (int)$manufacturer_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', city = '".$this->db->escape($value['city'])."', phone = '".$this->db->escape($value['phone'])."', fax = '".$this->db->escape($value['fax'])."', email = '".$this->db->escape($value['email'])."', address = '".$this->db->escape($value['address'])."', post_code = '".$this->db->escape($value['post_code'])."', site_address = '".$this->db->escape($value['site_address'])."', description = '" . $this->db->escape($value['description']) . "', educational_program = '" . $this->db->escape($value['educational_program']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
 
 		if (isset($data['manufacturer_store'])) {
@@ -45,7 +45,7 @@ class ModelCatalogManufacturer extends Model {
     $front_language_id = $language_info['language_id'];
 		$data['name'] = $data['manufacturer_description'][$front_language_id ]['name'];
 
-		$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "', updated = ".time()." WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "', id_country = ". $this->db->escape($data['id_country']) .", id_region = ". $this->db->escape($data['id_region']) .", updated = ".time()." WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "manufacturer SET image = '" . $this->db->escape($data['image']) . "' WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
@@ -58,7 +58,7 @@ class ModelCatalogManufacturer extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "manufacturer_description WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
 
 		foreach ($data['manufacturer_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET manufacturer_id = '" . (int)$manufacturer_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', id_country = ".$this->db->escape($value['country_id']).", id_region = ".$this->db->escape($value['id_region']).", city = '".$this->db->escape($value['city'])."',phone = '".$this->db->escape($value['phone'])."', email = '".$this->db->escape($value['email'])."', fax = '".$this->db->escape($value['fax'])."', address = '".$this->db->escape($value['address'])."', post_code = '".$this->db->escape($value['post_code'])."', site_address = '".$this->db->escape($value['site_address'])."', description = '" . $this->db->escape($value['description']) . "', educational_program = '" . $this->db->escape($value['educational_program']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_description SET manufacturer_id = '" . (int)$manufacturer_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', city = '".$this->db->escape($value['city'])."',phone = '".$this->db->escape($value['phone'])."', email = '".$this->db->escape($value['email'])."', fax = '".$this->db->escape($value['fax'])."', address = '".$this->db->escape($value['address'])."', post_code = '".$this->db->escape($value['post_code'])."', site_address = '".$this->db->escape($value['site_address'])."', description = '" . $this->db->escape($value['description']) . "', educational_program = '" . $this->db->escape($value['educational_program']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_h1 = '" . $this->db->escape($value['meta_h1']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "manufacturer_to_store WHERE manufacturer_id = '" . (int)$manufacturer_id . "'");
@@ -106,8 +106,6 @@ class ModelCatalogManufacturer extends Model {
 				'meta_description' => $result['meta_description'],
 				'meta_keyword'     => $result['meta_keyword'],
 				'description'      => $result['description'],
-				'country_id'	   => $result['id_country'],
-				'id_region'		   => $result['id_region'],
 				'city'			   => $result['city'],
 				'phone'			   => $result['phone'],
 				'email'			   => $result['email'],
