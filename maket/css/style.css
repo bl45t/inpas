@@ -1408,19 +1408,7 @@ input[type="search"] {
 	    border-radius: 3px;
 	    background-color: white;
 	}
-	.org_img
-	{
-		height: 83px;
-    	width: 76px;
-		padding: 0px;
-		float: left;
-	}
-	.org_img img
-	{
-		object-fit: contain;
-	    width: 100%;
-	    padding: 0px 7px;
-	}
+
 	.org_text
 	{
 		float: left;
@@ -1429,11 +1417,11 @@ input[type="search"] {
 	}
 	.org_name
 	{
-		font-weight: bold;
+		font-weight: 500;
 		font-size: 18px;
 		margin-bottom: 0px;
 	}
-	.org_adress, .org_phone
+	.org_adress, .org_phone, .expert_position
 	{
 		color: #838383;
 		font-size: 14px;
@@ -1479,11 +1467,11 @@ input[type="search"] {
 	.org_full div 
 	{
 		padding: 0px !important;
-		margin-bottom: 5px;
+		margin-bottom: 9px;
 	}
 	.org_full
 	{
-		margin: 15px 0px;
+		margin: 8px 0px;
 		overflow: auto;
 		display: none;
 	}
@@ -1558,8 +1546,60 @@ input[type="search"] {
 		background-color: #003867;
 		outline: none;
 	}
+	.org_img
+	{
+		height:80px;
+    	width: 63px;
+		margin-right: 10px;
+		padding: 0px;
+		float: left;
+	}
+	.expert_img
+	{
+		height: 63px;
+		position: relative;
+	}
+	.org_img img
+	{
+		object-fit: contain;
+	    width: 99%;
+	    height: 99%;
+	    padding: 0px !important;
+	}
+	.expert_img img
+	{
+		border-radius: 50%;	
+	}
 
-
+	.expert_name
+	{
+		font-weight: 500;
+	}
+	.exp_full
+	{
+		float: left;
+	}
+	.flag_exp
+	{
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		right: -2px;
+		bottom: 0px;
+		border:2px solid white;
+	}
+	.flag_rus
+	{
+		background-image: url(../img/icons/flag_rus.svg );
+	}
+	.flag_kaz
+	{
+		background-image: url(../img/icons/flag_kaz.svg );
+	}
 
 
 
@@ -1683,10 +1723,6 @@ input[type="search"] {
     		margin-left: 0px !important;
     	}
 
-    	.org_img img 
-    	{
-    		object-position: top;
-		}
 
 
     	.com_input textarea, .com_float 
@@ -1773,8 +1809,8 @@ input[type="search"] {
 		}
     	.org_img
     	{
-    		width: 55px;
-    		height: 55px;
+    		width: 62px;
+    		height: 62px;
     	}
 
 	    .open
@@ -1944,6 +1980,19 @@ input[type="search"] {
 
     @media (max-width: 450px)
     {
+    	.expert_position
+    	{
+    		float: left;
+    		margin-top: 5px;
+    	}
+    	.expert_img 
+    	{
+    		margin-right: 10px;
+    	}
+    	.expert_img img
+    	{
+    		padding: 0px !important;
+    	}
     	.org_name
     	{
     		font-size: 14px;
