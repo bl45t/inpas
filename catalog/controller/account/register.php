@@ -21,32 +21,34 @@ class ControllerAccountRegister extends Controller {
 
 		$this->load->model('account/customer');
 
-		//Создаем новую организацию
-		if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
-			$arNewOrg = [];
-			$arNewOrg['id_country'] = $this->request->post['new_organization_country_id'];
-			$arNewOrg['id_region'] = $this->request->post['new_organization_region_id'];
-			$arNewOrg['sort_order'] = 0;
-			$arNewOrg['status'] = 0;
+		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 
-			$curLang = $this->language->get('code');
+			//Создаем новую организацию
+			if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
+				$arNewOrg = [];
+				$arNewOrg['id_country'] = $this->request->post['new_organization_country_id'];
+				$arNewOrg['id_region'] = $this->request->post['new_organization_region_id'];
+				$arNewOrg['sort_order'] = 0;
+				$arNewOrg['status'] = 0;
 
-			if ($curLang === 'ru') {
-				$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
-			} else if ($curLang === 'en') {
-				$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForEng($this->request->post);
-			} else {
-				$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
+				$curLang = $this->language->get('code');
+
+				if ($curLang === 'ru') {
+					$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
+				} else if ($curLang === 'en') {
+					$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForEng($this->request->post);
+				} else {
+					$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
+				}
+
+				$this->load->model('catalog/manufacturer');
+
+				$idNewOrg = $this->model_catalog_manufacturer->addManufacturer($arNewOrg);
+
+				$this->request->post['id_organization'] = $idNewOrg;
 			}
 
-			$this->load->model('catalog/manufacturer');
 
-			$idNewOrg = $this->model_catalog_manufacturer->addManufacturer($arNewOrg);
-
-			$this->request->post['id_organization'] = $idNewOrg;
-		}
-
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$customer_id = $this->model_account_customer->addCustomer($this->request->post);
 
 			// Clear any previous login attempts for unregistered accounts.
