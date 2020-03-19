@@ -87,8 +87,8 @@
       <ul class="container nav navbar-nav">
         <li class="menu1"><a href="#"><?=$text_home?></a></li>
 
-        <li class="menu1 dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+        <li class="menu1 dropdown" >
+            <a>
               <?=$text_about_project?>
               <b class="caret"></b>
             </a>
@@ -109,7 +109,16 @@
  
         <li class="menu1"><a href="<?=$news_link?>"><?=$text_news?></a></li>
         <li class="menu1"><a href="<?=$events_link?>"><?=$text_events?></a></li> 
-        <li class="menu1"><a href="#"><?=$text_data_base?></a></li> 
+        <li class="menu1 dropdown">
+          <a>
+            <?=$text_data_base?>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="<?=$bd_organizations_link?>"><?=$text_organization?></a></li>
+            <li><a href=""><?=$text_expert?></a></li>
+          </ul>
+        </li> 
       </ul> 
 
       <button class="login mobile_header">Вход</button>

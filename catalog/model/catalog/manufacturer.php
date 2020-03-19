@@ -48,8 +48,23 @@ class ModelCatalogManufacturer extends Model {
 	}
 
 	public function getManufacturers($data = array()) {
-		if ($data) {
-			$sql = "SELECT * FROM " . DB_PREFIX . "manufacturer m LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+			$sql = "SELECT md.name as org_name, md.manufacturer_id as manufacturer_id, md.name as name_desc_org, md.city as org_city, md.phone as org_phone, md.email as org_email, md.fax as org_fax, md.address as org_address, md.post_code as org_post_code, md.site_address as org_site_address, md.description as org_description, md.educational_program as org_educational_program, c.name as country_name, z.name as region_name, c.eng_name as country_name_eng, z.eng_name as region_name_eng FROM " . DB_PREFIX . "manufacturer m LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND m.status = 1";
+
+			if (isset($data['id_country'])) {
+				$sql .= " AND m.id_country = ".$data['id_country'];
+			}
+
+			if (isset($data['id_region'])) {
+				$sql .= " AND m.id_region = ".$data['id_region'];
+			}
+
+			if (isset($data['name_city'])) {
+				$sql .= " AND md.city LIKE '%".$this->db->escape($data['name_city'])."%'";
+			}
+
+			if (isset($data['search_field'])) {
+				$sql .= " AND ( md.description LIKE '%".$this->db->escape($data['search_field'])."%' OR md.name LIKE '%".$this->db->escape($data['search_field'])."%')";
+			}
 
 			$sort_data = array(
 				'name',
@@ -82,19 +97,31 @@ class ModelCatalogManufacturer extends Model {
 
 			$query = $this->db->query($sql);
 
-			return $query->rows;
-		} else {
-			$manufacturer_data = $this->cache->get('manufacturer.' . (int)$this->config->get('config_language_id').'.'. (int)$this->config->get('config_store_id'));
+			return $query->rows;	
+	}//public function getManufacturers
 
-			if (!$manufacturer_data) {
-				$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer m LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m2s.store_id = '" . (int)$this->config->get('config_store_id') . "' ORDER BY md.name");
+	public function getTotalActiveManufacturers($data = []) {
+		$sql = "SELECT COUNT(*) AS total FROM " . DB_PREFIX . "manufacturer m LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m2s.store_id = '" . (int)$this->config->get('config_store_id') . "' AND m.status = 1";
 
-				$manufacturer_data = $query->rows;
-
-				$this->cache->set('manufacturer.' . (int)$this->config->get('config_language_id') . '.'. (int)$this->config->get('config_store_id'), $manufacturer_data);
-			}
-
-			return $manufacturer_data;
+		if (isset($data['id_country'])) {
+			$sql .= " AND m.id_country = ".$data['id_country'];
 		}
-	}
-}
+
+		if (isset($data['id_region'])) {
+			$sql .= " AND m.id_region = ".$data['id_region'];
+		}
+	
+		if (isset($data['name_city'])) {
+			$sql .= " AND md.city LIKE '%".$this->db->escape($data['name_city'])."%'";
+		}
+
+		if (isset($data['search_field'])) {
+			$sql .= " AND ( md.description LIKE '%".$this->db->escape($data['search_field'])."%' OR md.name LIKE '%".$this->db->escape($data['search_field'])."%')";
+		}
+
+		$query = $this->db->query($sql);
+
+		return $query->row['total'];
+	}//public function getTotalActiveManufacturers
+
+}//class ModelCatalogManufacturer

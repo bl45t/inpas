@@ -93,6 +93,10 @@ input[type="search"] {
     display: block; 
 } 
 
+.dropdown li a:hover {
+	background-color: #002747;
+}
+
 .language
 {
 	float: right;
@@ -657,13 +661,13 @@ input[type="search"] {
 
    /*Страница Новости*/
 	
-	#newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
+	#bd_organizations_page .pagination > li > a, #newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
 		color: #ADADAD !important;
 		background-color: transparent !important;
 		border: none !important;
 	}
 
-	#newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
+	#bd_organizations_page .pagination .active span, #newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
 		background-color: transparent !important;
 		color: black !important;
 		border-color: transparent !important;
@@ -1145,7 +1149,217 @@ input[type="search"] {
 
 /*Конец Страницы Регистрации*/
 
+/*БД Начало*/
 
+	.bd_block
+	{
+	    min-height: 60vh;
+	}
+
+	.organization
+	{
+		width: 100%;
+		height: auto;
+		overflow: auto;
+		margin-bottom: 13px;
+		border-bottom: 1px solid #eaeaea;
+		padding: 15px;
+		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
+	    border-radius: 3px;
+	    background-color: white;
+	}
+
+	.org_text
+	{
+		float: left;
+		padding: 0px 10px;
+		width: 100%;
+	}
+	.org_name
+	{
+		font-weight: 500;
+		font-size: 18px;
+		margin-bottom: 0px;
+	}
+	.org_adress, .org_phone, .expert_position
+	{
+		color: #838383;
+		font-size: 14px;
+	}
+	.org_phone
+	{
+		margin-left: 17px;
+	}
+
+	.org_text p
+	{
+		margin: 0px ;
+	}
+	.org_desc
+	{
+		font-size: 14px;
+		color: #535353;
+		margin: 6px 0px !important;
+	}
+
+	 .less_org
+	{	
+		cursor: pointer;
+		font-size: 14px;
+		width: 100%;
+    	margin: 7px 0px;
+    	display: none;
+	}
+
+	.org_full div 
+	{
+		padding: 0px !important;
+		margin-bottom: 9px;
+	}
+	.org_full
+	{
+		margin: 8px 0px;
+		overflow: auto;
+		display: none;
+	}
+	.org_full div, .org_full a
+	{
+		font-size: 16px;
+	}
+	.org_full span
+	{
+		font-size: 14px;
+		/*color: #838383;*/
+		font-weight: 600;
+	}
+	.less_org
+	{
+		display: none;
+	}
+	.open .org_desc
+	{
+		font-size: 16px;
+		margin-top: 7px !important;
+	}
+	.open .org_adress, .open .org_phone, .open .more_org
+	{
+		display: none;
+	}
+	.open .org_full
+	{
+		display: block;
+		margin-left: 76px;
+	}
+
+	
+	.less_org, .less_org a, .more_org, .more_org a
+	{
+		margin-top: 6px;
+		font-size: 14px !important;
+		color:#003568;;
+		line-height: 31px;
+	}
+	
+	.more_org {
+		cursor: pointer;
+	}
+
+	.open .less_org, .more_org
+	{
+		text-align: center;
+		border-top: 1px solid #ececec;
+		height: 31px;
+		display: flow-root;
+	}
+	.open .less_org
+	{
+		display: flow-root;
+	}
+	.bd_filtr
+	{
+		float: none;
+	    border-radius: 22px;
+	    background-color: #3D65A0;
+	    border: 0px;
+	    margin: 0px 13px 0px 0px;
+	    font-size: 14px;
+	    font-weight: normal;
+	    padding: .6em 1.4em;
+	    color: white;
+	    text-decoration: none;
+	}
+	.bd_filtr:active, .bd_search_btn:active
+	{
+		background-color: #003867;
+		outline: none;
+	}
+	.bd_filtr:hover, .bd_search_btn:hover
+	{
+		background-color: #003867;
+		outline: none;
+	}
+	
+	.bd_search_btn {
+		border-radius: 22px;
+	    background-color: #3D65A0;
+	    border: 0px;
+	    margin: 0px 13px 0px 0px;
+	    font-size: 14px;
+	    font-weight: normal;
+	    padding: .6em 1.4em;
+	    color: white;
+	    margin-top: 25px;
+	}
+
+	.org_img
+	{
+		height:80px;
+    	width: 63px;
+		margin-right: 10px;
+		padding: 0px;
+		float: left;
+	}
+	.expert_img
+	{
+		height: 63px;
+		position: relative;
+	}
+	.org_img img
+	{
+		object-fit: contain;
+	    width: 99%;
+	    height: 99%;
+	    padding: 0px !important;
+	}
+	.expert_img img
+	{
+		border-radius: 50%;	
+	}
+
+	.expert_name
+	{
+		font-weight: 500;
+	}
+	.exp_full
+	{
+		float: left;
+	}
+	.flag_exp
+	{
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		border-radius: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		right: -2px;
+		bottom: 0px;
+		border:2px solid white;
+	}
+
+
+/*БД Конец*/
 
 
 

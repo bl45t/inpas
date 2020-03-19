@@ -125,7 +125,7 @@
                       <?php if (isset($id_organization) && $id_organization == $org['manufacturer_id']) { ?>
                         <option value="<?=$org['manufacturer_id']?>" selected="selected"><?=$org['name']?></option>
                       <?php } else { ?>
-                        <option value="<?=$org['manufacturer_id']?>"><?=$org['name']?></option>
+                        <option value="<?=$org['manufacturer_id']?>"><?=$org['org_name']?></option>
                       <?php } ?>
                   <?php } ?>
               </select>

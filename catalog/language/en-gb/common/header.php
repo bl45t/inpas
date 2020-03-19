@@ -19,3 +19,5 @@ $_['text_about_project'] = 'About project';
 $_['text_news'] = 'News';
 $_['text_events'] = 'Events';
 $_['text_data_base'] = 'Data base';
+$_['text_organization'] = 'Organizations';
+$_['text_expert'] = 'Experts';

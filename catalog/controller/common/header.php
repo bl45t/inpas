@@ -76,6 +76,8 @@ class ControllerCommonHeader extends Controller {
 		$data['text_news'] = $this->language->get('text_news');
 		$data['text_events'] = $this->language->get('text_events');
 		$data['text_data_base'] = $this->language->get('text_data_base');
+		$data['text_organization'] = $this->language->get('text_organization');
+		$data['text_expert'] = $this->language->get('text_expert');
 
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);
@@ -150,6 +152,7 @@ class ControllerCommonHeader extends Controller {
 
 		$data['news_link'] = $this->url->link('information/news');
 		$data['events_link']=$this->url->link('newsblog/category', 'newsblog_path=1');
+		$data['bd_organizations_link'] = $this->url->link('information/bd_organizations');
 
 		// For page specific css
 		if (isset($this->request->get['route'])) {

@@ -19,3 +19,5 @@ $_['text_about_project'] = 'О проекте';
 $_['text_news'] = 'Новости';
 $_['text_events'] = 'Мероприятия';
 $_['text_data_base'] = 'База данных';
+$_['text_organization'] = 'Организации';
+$_['text_expert'] = 'Эксперты';
