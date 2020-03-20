@@ -1,15 +1,14 @@
 <?php
-$_['text_heading_title'] = 'Data base: Organizations';
+$_['text_heading_title'] = 'Data base: Experts';
 $_['text_address'] = 'Address:';
 $_['text_country'] = 'Country';
 $_['text_city'] = 'City';
 $_['text_region'] = 'Region';
 $_['text_phone'] = 'Phone:';
-$_['text_post_code'] = 'Post code:';
-$_['text_fax'] = 'Fax:';
 $_['text_email'] = 'Email:';
-$_['text_site'] = 'Web site:';
-$_['text_educational_program'] = 'Educational program:';
+$_['text_post'] = 'Post';
+$_['text_organization'] = 'Organization';
+$_['text_interests'] = 'Field of interest:';
 $_['text_hide'] = 'Hide';
 $_['text_open'] = 'Open';
 $_['text_sorry_not_found'] = 'Sorry, data not found!';

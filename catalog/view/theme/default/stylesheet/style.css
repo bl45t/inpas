@@ -7,6 +7,7 @@ body
 {
 	background-color: #F5F7F8;
 }
+
 .head_all
 {
 	background-color: white;
@@ -95,6 +96,10 @@ input[type="search"] {
 
 .dropdown li a:hover {
 	background-color: #002747;
+}
+
+.autocompleate_group .dropdown-menu li a {
+	color: black !important;
 }
 
 .language
@@ -661,13 +666,13 @@ input[type="search"] {
 
    /*Страница Новости*/
 	
-	#bd_organizations_page .pagination > li > a, #newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
+	#bd_expert_page .pagination > li > a, #bd_organizations_page .pagination > li > a, #newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
 		color: #ADADAD !important;
 		background-color: transparent !important;
 		border: none !important;
 	}
 
-	#bd_organizations_page .pagination .active span, #newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
+	#bd_expert_page .pagination .active span, #bd_organizations_page .pagination .active span, #newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
 		background-color: transparent !important;
 		color: black !important;
 		border-color: transparent !important;
@@ -1310,6 +1315,7 @@ input[type="search"] {
 	    color: white;
 	    margin-top: 25px;
 	}
+
 
 	.org_img
 	{

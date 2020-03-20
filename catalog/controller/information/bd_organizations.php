@@ -21,7 +21,10 @@ class ControllerInformationBdOrganizations extends Controller
 		$data['text_select'] = $this->language->get('text_select');
 		$data['text_none'] = $this->language->get('text_none');
 		$data['text_sorry_not_found'] = $this->language->get('text_sorry_not_found');
-		
+		$data['text_filters'] = $this->language->get('text_filters');
+		$data['text_country'] = $this->language->get('text_country');
+		$data['text_city'] = $this->language->get('text_city');
+		$data['text_search'] = $this->language->get('text_search');
 
 		$optionQuery = [];
 
@@ -89,6 +92,10 @@ class ControllerInformationBdOrganizations extends Controller
 
 		$optionQuery['limit'] = $limit;
 		$optionQuery['start'] = ($page - 1) * $limit;
+
+		if (isset($this->request->get['organization'])) {
+			$optionQuery['id_organization'] = $this->request->get['organization'];
+		}
 
 		$org_total = $this->model_catalog_manufacturer->getTotalActiveManufacturers($optionQuery);
 		$organizations = $this->model_catalog_manufacturer->getManufacturers($optionQuery);

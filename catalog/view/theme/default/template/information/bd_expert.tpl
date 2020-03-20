@@ -1,5 +1,5 @@
 <?php echo $header; ?>
-<div id="bd_organizations_page" class="container">
+<div id="bd_expert_page" class="container">
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -19,7 +19,7 @@
 	    	</div>
 
 	    	<?php 
-				$isHiddenFilter = (!empty($id_country) || !empty($id_region) || !empty($name_city) || !empty($search_field)) ? "" : " hidden ";
+				$isHiddenFilter = (!empty($id_country) || !empty($id_region) || !empty($name_city) || !empty($search_field) || !empty($name_organization) || !empty($name_post)) ? "" : " hidden ";
 	    	?>
 
     		<div id="filter_param" class="col-md-12 <?=$isHiddenFilter?>">
@@ -56,33 +56,46 @@
 				</div>
 
 				<div class="col-sm-3">
-					<button type="submit" class=" bd_search_btn"><?=$text_search?></button>
+					<div class="form-group autocompleate_group">
+						<label><?=$text_organization?></label>
+						<input class="form-control" type="text" name="name_organization" value="<?=$name_organization?>">
+					</div>
+				</div>
+
+				<div class="col-sm-3">
+					<div class="form-group autocompleate_group">
+						<label><?=$text_post?></label>
+						<input class="form-control" type="text" name="name_post" value="<?=$name_post?>">
+					</div>
+				</div>
+
+				<div class="col-sm-3 pull-right">
+					<button type="submit" class=" bd_search_btn pull-right"><?=$text_search?></button>
 				</div>
 
 			</div>
 							</form>
-		<?php if (count($organizations)) { ?>
-			<?php foreach ($organizations as $organization) { ?>
-		    	<div class="organization">
+		<?php if (count($experts)) { ?>
+			<?php foreach ($experts as $expert) { ?>
+			 	<div class="organization">      
 			      <div class="org_text">
-			        <div class="org_img hidden"><img src="img/logo1.png"></div>
-			        <p class="org_name"><?=$organization['name']?></p>
-			        <span class="org_adress"><?=$organization['country_name']?>, <?=$organization['city']?></span><span class="org_phone"><?=$organization['phone']?></span>
-			        <p class="org_desc"><?=$organization['description']?></p>
-			        <div class="org_full">
-			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$organization['country_name']?>, <?=$organization['region_name']?>, <?=$organization['address']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$organization['region_name']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$organization['phone']?></div>          
-			          <div class="col-md-6 col-sm-12"><span><?=$text_post_code?></span> <?=$organization['post_code']?></div>        
-			          <div class="col-md-6 col-sm-12"><span><?=$text_fax?></span> <?=$organization['fax']?></div>    
-			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$organization['email']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_site?></span> <a href=""><?=$organization['site_address']?></a></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_educational_program?></span><?=$organization['educational_program']?></div>     
+			        <div class="org_img"><img src="catalog/view/theme/default/image/user.png"><div class="flag_exp flag_kaz"></div></div>
+			        <p class="expert_name"><?=$expert['name']?></p>
+			        <span class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></span>        
+			        <div class="org_full exp_full">
+			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$expert['country_name']?>,<?=$expert['region_name']?>, <?=$expert['org_address']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$expert['region_name']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$expert['telephone']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$expert['email']?></div>          
+			          <div class="col-md-6 col-sm-12"><span><?=$text_post?>:</span> <?=$expert['post']?></div>        
+			          <div class="col-md-6 col-sm-12"><span><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
+			          <div class="col-md-12"><span><?=$text_interests?></span><?=$expert['field_of_interest']?></div>            
+			          
 			        </div>                
 			      </div>
 			      <div class="col-md-12 less_org"><?=$text_hide?></div>
 			      <div class="col-md-12 more_org"><?=$text_open?></div>
-		    	</div>
+			    </div>
 	    	<?php } ?>
 	    <?php } else { ?>
 			<h2><?=$text_sorry_not_found?></h2>
@@ -151,6 +164,57 @@
 	});
 
 	$('#country_select').trigger('change');
+
+
+	// Manufacturer
+	$('input[name=\'name_organization\']').autocomplete({
+		'source': function(request, response) {
+			$.ajax({
+				url: 'index.php?route=catalog/manufacturer/autocomplete&filter_name=' +  encodeURIComponent(request),
+				dataType: 'json',
+				success: function(json) {
+					json.unshift({
+						name: '<?php echo $text_none; ?>'
+					});
+
+					response($.map(json, function(item) {
+						return {
+							label: item['name'],
+							value: item['manufacturer_id']
+						}
+					}));
+				}
+			});
+		},
+		'select': function(item) {
+			$('input[name=\'name_organization\']').val(item['label']);
+		}
+	});
+
+	// Manufacturer
+	$('input[name=\'name_post\']').autocomplete({
+		'source': function(request, response) {
+			$.ajax({
+				url: 'index.php?route=information/bd_expert/autocompletePost&name_post=' +  encodeURIComponent(request),
+				dataType: 'json',
+				success: function(json) {
+					json.unshift({
+						name: '<?php echo $text_none; ?>'
+					});
+
+					response($.map(json, function(item) {
+						return {
+							label: item['name'],
+							value: item['name']
+						}
+					}));
+				}
+			});
+		},
+		'select': function(item) {
+			$('input[name=\'name_post\']').val(item['label']);
+		}
+	});
 
 </script>
 

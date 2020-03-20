@@ -153,6 +153,7 @@ class ControllerCommonHeader extends Controller {
 		$data['news_link'] = $this->url->link('information/news');
 		$data['events_link']=$this->url->link('newsblog/category', 'newsblog_path=1');
 		$data['bd_organizations_link'] = $this->url->link('information/bd_organizations');
+		$data['bd_expert_link'] = $this->url->link('information/bd_expert');
 
 		// For page specific css
 		if (isset($this->request->get['route'])) {
