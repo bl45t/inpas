@@ -65,15 +65,39 @@
           </div>
           <div class="form-group required">
             <label class="" for="input-firstname"><?php echo $entry_firstname; ?></label>
-            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+            <div class="input-group">
+	            <span class="input-group-addon">
+	            	<img src="/catalog/language/ru-ru/ru-ru.png">
+	            </span>
+	            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" class="form-control" />
+            </div>
+            <div id="input_group_eng_firstname" class="input-group">
+	            <span class="input-group-addon">
+	            	<img src="/catalog/language/en-gb/en-gb.png">
+	            </span>
+	            <input type="text" name="eng_firstname" value="<?php echo $eng_firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" class="form-control" />
+            </div>
               <?php if ($error_firstname) { ?>
               <div class="text-danger"><?php echo $error_firstname; ?></div>
               <?php } ?>
           </div>
+			
+
           <div class="form-group required">
               <label class="" for="input-lastname"><?php echo $entry_lastname; ?></label>
-            
+            <div class="input-group">
+            	<span class="input-group-addon">
+	            	<img src="/catalog/language/ru-ru/ru-ru.png">
+	            </span>
               <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
+            </div>
+
+            <div id="input_group_eng_lastname" class="input-group">
+	            <span class="input-group-addon">
+	            	<img src="/catalog/language/en-gb/en-gb.png">
+	            </span>
+	            <input type="text" name="eng_lastname" value="<?php echo $eng_lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" class="form-control" />
+            </div>
               <?php if ($error_lastname) { ?>
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
@@ -99,17 +123,50 @@
           
           <div class="form-group ">
               <label class="" for="input-post"><?php echo $entry_post; ?></label>
-              <input type="text" name="post" value="<?php echo $post; ?>" placeholder="<?php echo $entry_post; ?>" id="input-post" class="form-control" />
+              <div class="input-group">
+              	<span class="input-group-addon">
+	            	<img src="/catalog/language/ru-ru/ru-ru.png">
+	            </span>
+              	<input type="text" name="post" value="<?php echo $post; ?>" placeholder="<?php echo $entry_post; ?>" id="input-post" class="form-control" />
+              </div>
+              <div id="input_group_eng_post" class="input-group">
+              	<span class="input-group-addon">
+	            	<img src="/catalog/language/en-gb/en-gb.png">
+	            </span>
+	            <input type="text" name="eng_post" value="<?php echo $eng_post; ?>" placeholder="<?php echo $entry_post; ?>" class="form-control" />
+              </div>
           </div>
 
           <div id="form_group_workplace" class="form-group ">
-              <label class="" for="input-workplace"><?php echo $entry_workplace; ?></label>
-              <input type="text" name="workplace" value="<?php echo $workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" id="input-workplace" class="form-control" />
+             <label class="" for="input-workplace"><?php echo $entry_workplace; ?></label>
+			<div class="input-group">
+				<span class="input-group-addon">
+	            	<img src="/catalog/language/ru-ru/ru-ru.png">
+	            </span>
+              	<input type="text" name="workplace" value="<?php echo $workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" id="input-workplace" class="form-control" />
+            </div>
+            <div class="input-group">
+				<span class="input-group-addon">
+	            	<img src="/catalog/language/en-gb/en-gb.png">
+	            </span>
+	            <input type="text" name="eng_workplace" value="<?php echo $eng_workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" class="form-control" />
+           	</div>
           </div>
 
           <div id="form_group_interests" class="form-group hidden">
               <label class="" for="input-interests"><?php echo $entry_interests; ?></label>
-              <input type="text" name="field_of_interest" value="<?php echo $field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" id="input-interests" class="form-control" />
+              <div class="input-group">
+              	<span class="input-group-addon">
+	            	<img src="/catalog/language/ru-ru/ru-ru.png">
+	            </span>
+              	<input type="text" name="field_of_interest" value="<?php echo $field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" id="input-interests" class="form-control" />
+              </div>
+              <div class="input-group">
+				<span class="input-group-addon">
+	            	<img src="/catalog/language/en-gb/en-gb.png">
+	            </span>
+	            <input type="text" name="eng_field_of_interest" value="<?php echo $eng_field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" class="form-control" />
+              </div>
           </div>
 
           <div id="form_group_social_link" class="form-group hidden">
@@ -861,8 +918,6 @@ $('.type_user button').click(function() {
     $("#form_group_interests").removeClass('hidden');
     $("#form_group_organozation").removeClass('hidden');
     $("#form_group_not_exist_org").removeClass('hidden');
-
-    
   }
 
   function getUserRegistrationFormState() {
@@ -871,7 +926,6 @@ $('.type_user button').click(function() {
     $("#form_group_interests").addClass('hidden');
     $("#form_group_organozation").addClass('hidden');
     $("#form_group_not_exist_org").addClass('hidden');
-    
   }
 
   $("#form_group_not_exist_org #input-empty-org").change(function() {

@@ -307,10 +307,22 @@ class ControllerAccountRegister extends Controller {
 			$data['firstname'] = '';
 		}
 
+		if (isset($this->request->post['eng_firstname'])) {
+			$data['eng_firstname'] = $this->request->post['eng_firstname'];
+		} else {
+			$data['eng_firstname'] = '';
+		}
+
 		if (isset($this->request->post['lastname'])) {
 			$data['lastname'] = $this->request->post['lastname'];
 		} else {
 			$data['lastname'] = '';
+		}
+
+		if (isset($this->request->post['eng_lastname'])) {
+			$data['eng_lastname'] = $this->request->post['eng_lastname'];
+		} else {
+			$data['eng_lastname'] = '';
 		}
 
 		if (isset($this->request->post['email'])) {
@@ -337,10 +349,22 @@ class ControllerAccountRegister extends Controller {
 			$data['workplace'] = '';
 		}
 
+		if (isset($this->request->post['eng_workplace'])) {
+			$data['eng_workplace'] = $this->request->post['eng_workplace'];
+		} else {
+			$data['eng_workplace'] = '';
+		}
+
 		if (isset($this->request->post['post'])) {
 			$data['post'] = $this->request->post['post'];
 		} else {
 			$data['post'] = '';
+		}
+
+		if (isset($this->request->post['eng_post'])) {
+			$data['eng_post'] = $this->request->post['eng_post'];
+		} else {
+			$data['eng_post'] = '';
 		}
 
 		if (isset($this->request->post['social_link'])) {
@@ -353,6 +377,12 @@ class ControllerAccountRegister extends Controller {
 			$data['field_of_interest'] = $this->request->post['field_of_interest'];
 		} else {
 			$data['field_of_interest'] = '';
+		}
+
+		if (isset($this->request->post['eng_field_of_interest'])) {
+			$data['eng_field_of_interest'] = $this->request->post['eng_field_of_interest'];
+		} else {
+			$data['eng_field_of_interest'] = '';
 		}
 
 		if (isset($this->request->post['id_organization'])) {
