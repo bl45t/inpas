@@ -265,7 +265,7 @@
       <?php } ?>
 
  
-      <?php echo $content_bottom; ?></div>
+      </div>
     <?php echo $column_right; ?></div>
 </div>
 
@@ -280,4 +280,5 @@ $(document).ready(function() {
 	});
 });
 //--></script>
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>

@@ -96,7 +96,7 @@
 			<div class="col-sm-12 text-right"><?php echo $results; ?></div>
 		</div>
       
-      <?php echo $content_bottom; ?>
+      
   	</div>
     <?php echo $column_right; ?>
 	</div>
@@ -153,5 +153,5 @@
 	$('#country_select').trigger('change');
 
 </script>
-
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>

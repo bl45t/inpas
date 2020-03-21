@@ -8,6 +8,10 @@ body
 	background-color: #F5F7F8;
 }
 
+#information_page{
+	min-height: 530px;
+}
+
 .head_all
 {
 	background-color: white;
@@ -23,6 +27,7 @@ body
 .search input {
 	border: none;
 }
+
 
 /* стили для поля ввода */
 .search .input {
@@ -1065,7 +1070,9 @@ input[type="search"] {
 /*Конец Страницы Описания Мероприятия*/
 
 /*Начало Страницы Регистрации*/
-
+	#loginPage {
+		min-height: 530px;
+	}
 
 	.reg_m
 	{

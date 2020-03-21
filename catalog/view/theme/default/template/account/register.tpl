@@ -711,7 +711,7 @@
         </div>
         <?php } ?>
       </form>
-      <?php echo $content_bottom; ?></div>
+      </div>
     <?php echo $column_right; ?></div>
     </div>
 </div>
@@ -989,4 +989,5 @@ $('.type_user button').click(function() {
   }
 
 //--></script>
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>

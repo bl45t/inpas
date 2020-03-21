@@ -109,7 +109,7 @@
 			<div class="col-sm-12 text-right"><?php echo $results; ?></div>
 		</div>
       
-      <?php echo $content_bottom; ?>
+     
   	</div>
     <?php echo $column_right; ?>
 	</div>
@@ -217,5 +217,5 @@
 	});
 
 </script>
-
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>

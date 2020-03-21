@@ -62,7 +62,7 @@
 					</div>
 				</div>
 			</div>
-		<?php echo $content_bottom; ?></div>
+		</div>
 	<?php echo $column_right; ?></div>
 	<script type="text/javascript"><!--
 		$(document).ready(function () {
@@ -73,4 +73,5 @@
 		});
 	//--></script>
 </div>
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>

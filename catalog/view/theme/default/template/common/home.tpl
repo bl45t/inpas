@@ -10,7 +10,7 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
         <?php echo $content_top; ?>
-        <?php echo $content_bottom; ?>
+    
 
         <div class="col-xs-12 col-md-3">
           <p class="header1"><?=$text_publications?></p>
@@ -314,6 +314,7 @@
   </script>
     </div>
 </div>
+    <?php echo $content_bottom; ?>
 <?php echo $footer; ?>
 
 
