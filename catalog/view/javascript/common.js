@@ -22,6 +22,30 @@ function getURLVar(key) {
 	}
 }
 
+function translitRusToEng(str) {
+    arrru = new Array ("А", "а", "Б", "б", "В", "в", "Г", "г", "Д", "д", "Е", "е", "Ё", "ё", "Ж" ,"ж", "З", "з", "И", "и", "Й", "й", "К", "к", "Л", "л", "М", "м", "Н", "н", "О", "о", "П", "п", "Р", "р", "С", "с", "Т", "т", "У", "у", "Ф", "ф", "Х", "х", "Ц", "ц", "Ч", "ч", "Ш", "ш", "Щ", "щ", "Ъ", "ъ", "Ы", "ы", "Ь", "ь", "Э", "э", "Ю", "ю", "Я", "я");
+    arren = new Array ("A", "a", "B", "b", "V", "v", "G", "g", "D", "d", "E", "e", "E", "e", "Zh", "zh", "Z", "z", "I", "i", "Y", "y", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "R", "r", "S", "s", "T", "t", "U", "u", "Ph", "f", "H", "h", "C", "c", "Ch", "ch", "Sh", "sh", "Sh", "sh", "", "", "I", "i", "", "'", "E", "e", "Yu", "yu", "Ya", "ya");
+
+    for(var i=0; i<arrru.length; i++){
+        var litnow = new RegExp(arrru[i], "g");
+        str = str.replace(litnow, arren[i]);
+    }
+
+    return str;
+}//function translitRusToEng
+
+function translitEngToRus(str) {
+    arrru = new Array ("Ж" ,"ж","Ф", "ф", "Ч", "ч", "Ш", "ш", "Щ", "щ",  "Ю", "ю", "Я", "я", "А", "а", "Б", "б", "В", "в", "Г", "г", "Д", "д", "Е", "е", "Ё", "ё",  "З", "з", "И", "и", "Й", "й", "К", "к", "Л", "л", "М", "м", "Н", "н", "О", "о", "П", "п", "Р", "р", "С", "с", "Т", "т", "У", "у",  "Х", "х", "Ц", "ц", "Ъ", "ы", "Ь", "ь", "Э", "э");
+    arren = new Array ("Zh","zh", "Ph", "f", "Ch", "ch", "Sh", "sh", "Sh", "sh", "Yu", "yu", "Ya", "ya", "A", "a", "B", "b", "V", "v", "G", "g", "D", "d", "E", "e", "E", "e",   "Z", "z", "I", "i", "Y", "y", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "R", "r", "S", "s", "T", "t", "U", "u",  "H", "h", "C", "c", "I", "i", "'", "'", "E", "e");
+
+    for(var i=0; i<arren.length; i++){
+        var litnow = new RegExp(arren[i], "g");
+        str = str.replace(litnow, arrru[i]);
+    }
+
+    return str;
+}//function translitRusToEng
+
 $(document).ready(function() {
 	// Highlight any found errors
 	$('.text-danger').each(function() {

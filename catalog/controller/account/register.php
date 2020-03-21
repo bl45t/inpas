@@ -21,6 +21,10 @@ class ControllerAccountRegister extends Controller {
 
 		$this->load->model('account/customer');
 
+		$curLang = $this->language->get('code');
+
+		$data['cur_lang'] = $curLang;
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 
 			//Создаем новую организацию
@@ -31,7 +35,7 @@ class ControllerAccountRegister extends Controller {
 				$arNewOrg['sort_order'] = 0;
 				$arNewOrg['status'] = 0;
 
-				$curLang = $this->language->get('code');
+				
 
 				if ($curLang === 'ru') {
 					$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);

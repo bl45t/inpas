@@ -473,7 +473,8 @@ class ControllerCatalogManufacturer extends Controller {
 		}
 
 		$this->load->model('localisation/country');
-		$data['countries'] = $this->model_localisation_country->getCountries();
+		$option_filter = ["status" => 1];
+		$data['countries'] = $this->model_localisation_country->getCountries($option_filter);
 
 		$this->load->model('localisation/zone');
 		$data['regions'] = $this->model_localisation_zone->getZones();

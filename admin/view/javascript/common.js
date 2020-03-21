@@ -22,40 +22,17 @@ function getURLVar(key) {
 	}
 }
 
-function translit(str) {
-    var space = '-';
-    var link = '';
-    var transl = {
-        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
-        'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
-        'о': 'o', 'п': 'p', 'р': 'r','с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h',
-        'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'sh','ъ': space,
-        'ы': 'y', 'ь': space, 'э': 'e', 'ю': 'yu', 'я': 'ya'
+function translitRusToEng(str) {
+    arrru = new Array ("А", "а", "Б", "б", "В", "в", "Г", "г", "Д", "д", "Е", "е", "Ё", "ё", "Ж" ,"ж", "З", "з", "И", "и", "Й", "й", "К", "к", "Л", "л", "М", "м", "Н", "н", "О", "о", "П", "п", "Р", "р", "С", "с", "Т", "т", "У", "у", "Ф", "ф", "Х", "х", "Ц", "ц", "Ч", "ч", "Ш", "ш", "Щ", "щ", "Ъ", "ъ", "Ы", "ы", "Ь", "ь", "Э", "э", "Ю", "ю", "Я", "я");
+    arren = new Array ("A", "a", "B", "b", "V", "v", "G", "g", "D", "d", "E", "e", "E", "e", "Zh", "zh", "Z", "z", "I", "i", "Y", "y", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "R", "r", "S", "s", "T", "t", "U", "u", "Ph", "f", "H", "h", "C", "c", "Ch", "ch", "Sh", "sh", "Sh", "sh", "", "", "I", "i", "", "'", "E", "e", "Yu", "yu", "Ya", "ya");
+
+    for(var i=0; i<arrru.length; i++){
+        var $litnow = new RegExp(arrru[i], "g");
+        str = str.replace($litnow, arren[i]);
     }
 
-	if (str != '') {
-		str = str.toLowerCase();
-	}//if
- 
-	for (var i = 0; i < str.length; i++){
-
-    	if (/[а-яё]/.test(str.charAt(i))){ // заменяем символы на русском
-        	link += transl[str.charAt(i)];
-    	} else if (/[a-z0-9]/.test(str.charAt(i))){ // символы на анг. оставляем как есть
-       		link += str.charAt(i);
-    	} else {
-
-        	if (link.slice(-1) !== space) {
-        		link += space; // прочие символы заменяем на space
-        	}//if
-
-    	}//else
-
-	}//for
-
-	return link;
-
-}//function translit
+    return str;
+}//function translitRusToEng
 
 $(document).ready(function() {
 	//Form Submit for IE Browser

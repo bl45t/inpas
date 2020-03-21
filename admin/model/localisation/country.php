@@ -30,6 +30,11 @@ class ModelLocalisationCountry extends Model {
 		if ($data) {
 			$sql = "SELECT * FROM " . DB_PREFIX . "country";
 
+
+			if (isset($data['status'])) {
+				$sql .= " WHERE status = ".$data['status'];
+			}
+
 			$sort_data = array(
 				'name',
 				'eng_name',

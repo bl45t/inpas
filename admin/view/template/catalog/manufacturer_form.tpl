@@ -234,19 +234,19 @@
 <script>
   $("#input-name1").change(function(){
     let str = $(this).val();
-    let transiltName = translit(str);
+    let transiltName = translitRusToEng(str);
     $("#input-name2").val(transiltName);
   });
 
   $("#input-city1").change(function(){
     let str = $(this).val();
-    let transiltName = translit(str);
+    let transiltName = translitRusToEng(str);
     $("#input-city2").val(transiltName);
   });
 
   $("#input-address1").change(function(){
     let str = $(this).val();
-    let transiltName = translit(str);
+    let transiltName = translitRusToEng(str);
     $("#input-address2").val(transiltName);
   });
   
