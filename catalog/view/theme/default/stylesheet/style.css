@@ -13,8 +13,12 @@ body
 	content: "*";
 }
 
-#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page, #successPage{
+#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page, #successPage, #accountPage{
 	min-height: 530px;
+}
+
+#accountPage .menu_list li a{
+	color: black !important;
 }
 
 .head_all
@@ -136,7 +140,7 @@ input[type="search"] {
     padding: .4em 1.5em;
     outline: none; 
 	height: 40px;
-
+	margin-right: 2px;
     color: white !important;
     text-align: center;
     text-decoration: none;

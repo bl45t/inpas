@@ -67,6 +67,7 @@
         
           <?php if ($logged) { ?>
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
+            <a href="<?=$account?>" class="login"><?=$text_account?></a>
           <?php } else { ?>
             <a href="<?=$login?>" class="login"><?=$text_login?></a>
           <?php } ?>

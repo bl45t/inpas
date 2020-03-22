@@ -142,14 +142,14 @@
 
           <div id="form_group_workplace" class="form-group ">
              <label class="" for="input-workplace"><?php echo $entry_workplace; ?></label>
-			<div class="input-group">
-				<span class="input-group-addon">
+			       <div class="input-group">
+				      <span class="input-group-addon">
 	            	<img src="/catalog/language/ru-ru/ru-ru.png">
 	            </span>
               	<input type="text" name="workplace" value="<?php echo $workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" id="input-workplace" class="form-control" />
             </div>
             <div class="input-group">
-				<span class="input-group-addon">
+				      <span class="input-group-addon">
 	            	<img src="/catalog/language/en-gb/en-gb.png">
 	            </span>
 	            <input type="text" name="eng_workplace" value="<?php echo $eng_workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" class="form-control" />
@@ -183,7 +183,7 @@
                     <option value="0"><?=$text_select?></option>
                   <?php foreach ($organizations as $org) { ?>
                       <?php if (isset($id_organization) && $id_organization == $org['manufacturer_id']) { ?>
-                        <option value="<?=$org['manufacturer_id']?>" selected="selected"><?=$org['name']?></option>
+                        <option value="<?=$org['manufacturer_id']?>" selected="selected"><?=$org['org_name']?></option>
                       <?php } else { ?>
                         <option value="<?=$org['manufacturer_id']?>"><?=$org['org_name']?></option>
                       <?php } ?>

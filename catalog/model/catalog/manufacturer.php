@@ -42,7 +42,14 @@ class ModelCatalogManufacturer extends Model {
 	}
 
 	public function getManufacturer($manufacturer_id) {
-		$query = $this->db->query("SELECT DISTINCT *, md.name AS name FROM " . DB_PREFIX . "manufacturer m LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m.manufacturer_id = '" . (int)$manufacturer_id . "' AND m2s.store_id = '" . (int)$this->config->get('config_store_id') . "'");
+		$query = $this->db->query("
+			SELECT md.name as org_name, md.manufacturer_id as manufacturer_id, md.name as name_desc_org, md.city as org_city, md.phone as org_phone, md.email as org_email, md.fax as org_fax, md.address as org_address, md.post_code as org_post_code, md.site_address as org_site_address, md.description as org_description, md.educational_program as org_educational_program, c.name as country_name, z.name as region_name, c.eng_name as country_name_eng, z.eng_name as region_name_eng, m.status
+			FROM " . DB_PREFIX . "manufacturer m 
+			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) 
+			LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) 
+			LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country 
+			LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region 
+			WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m.manufacturer_id = '" . (int)$manufacturer_id . "'");
 
 		return $query->row;
 	}
