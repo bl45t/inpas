@@ -455,6 +455,16 @@ input[type="search"] {
 		color: #ADADAD !important;
 	}
 
+	.publication_image img{
+		max-width: 50px;
+		max-height: 50px;
+	}
+	
+	.publication_image {
+		text-align: center;
+	}
+	
+
 	footer 
 	{
 	    background: none repeat scroll 0 0 #003A6A;
@@ -836,11 +846,10 @@ input[type="search"] {
 	    line-height: 15px;
 	    letter-spacing: 0.005em;
 	    color: #838383;
-	    float: left;
 	    margin-top: 9px;
-	    height: 46px;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
+		padding-bottom: 10px;
     }
     .publ_page
     {

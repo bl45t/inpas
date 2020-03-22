@@ -266,6 +266,8 @@ class ControllerCatalogAttributeGroup extends Controller {
 
 		$data['entry_name'] = $this->language->get('entry_name');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
+		$data['entry_image'] = $this->language->get('entry_image');
+
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -339,6 +341,26 @@ class ControllerCatalogAttributeGroup extends Controller {
 		} else {
 			$data['sort_order'] = '';
 		}
+
+		if (isset($this->request->post['image'])) {
+			$data['image'] = $this->request->post['image'];
+		} elseif (!empty($attribute_group_info)) {
+			$data['image'] = $attribute_group_info['image'];
+		} else {
+			$data['image'] = '';
+		}
+
+		$this->load->model('tool/image');
+
+		if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
+			$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 40, 40);
+		} elseif (!empty($attribute_group_info) && is_file(DIR_IMAGE . $attribute_group_info['image'])) {
+			$data['thumb'] = $this->model_tool_image->resize($attribute_group_info['image'], 40, 40);
+		} else {
+			$data['thumb'] = $this->model_tool_image->resize('no_image.png', 40, 40);
+		}
+
+		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 40, 40);
 
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');

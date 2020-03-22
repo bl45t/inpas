@@ -35,16 +35,20 @@
 		              <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
 		                  <div class="row publication">
 		                    
-		                    <div class="col-md-2">
-		                      <img src="/catalog/view/theme/default/image/publ.png">
+		                    <div class="col-md-2 publication_image">
+		                      <img src="/image/<?=$publication['image']?>">
 		                    </div>
 		                    
 		                    <div class="col-md-10">
 		                      <div class="head_publication"><?=$publication['name']?></div>
 		                      <div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div> 
-		                    </div>       
-		                    
+		                    </div>
+							
+							<div class="col-md-12">
+							 <div class="publ_description">﻿<?=$publication['preview']?></div>
+		                    </div>
 		                  </div>
+
 		              </a>
 		          	</div>
             	<?php } ?>

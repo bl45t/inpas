@@ -38,6 +38,20 @@
               <?php } ?>
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label"><?php echo $entry_preview; ?></label>
+            <div class="col-sm-10">
+              <?php foreach ($languages as $language) { ?>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" />
+                </span>
+                <input type="text" name="attribute_description[<?php echo $language['language_id']; ?>][preview]" value="<?php echo isset($attribute_description[$language['language_id']]) ? $attribute_description[$language['language_id']]['preview'] : ''; ?>" placeholder="<?php echo $entry_preview; ?>" class="form-control" />
+              </div>
+              <?php } ?>
+            </div>
+          </div>
           
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-link"><?php echo $entry_link; ?></label>

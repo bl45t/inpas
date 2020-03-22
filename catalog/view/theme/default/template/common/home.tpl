@@ -18,8 +18,8 @@
               <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
                   <div class="row publication">
                     
-                    <div class="col-md-3">
-                      <img src="/catalog/view/theme/default/image/publ.png">
+                    <div class="col-md-3 publication_image">
+                      <img src="/image/<?=$publication['image']?>">
                     </div>
                     
                     <div class="col-md-9">

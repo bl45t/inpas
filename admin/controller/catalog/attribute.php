@@ -272,6 +272,7 @@ class ControllerCatalogAttribute extends Controller {
 		$data['entry_link'] = $this->language->get('entry_link');
 		$data['entry_attribute_group'] = $this->language->get('entry_attribute_group');
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
+		$data['entry_preview'] = $this->language->get('entry_preview');
 
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
@@ -343,6 +344,7 @@ class ControllerCatalogAttribute extends Controller {
 		} else {
 			$data['attribute_description'] = array();
 		}
+
 
 		if (isset($this->request->post['attribute_group_id'])) {
 			$data['attribute_group_id'] = $this->request->post['attribute_group_id'];
