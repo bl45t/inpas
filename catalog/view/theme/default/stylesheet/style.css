@@ -8,7 +8,7 @@ body
 	background-color: #F5F7F8;
 }
 
-#information_page{
+#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page{
 	min-height: 530px;
 }
 
