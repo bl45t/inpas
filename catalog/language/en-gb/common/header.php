@@ -21,3 +21,4 @@ $_['text_events'] = 'Events';
 $_['text_data_base'] = 'Data base';
 $_['text_organization'] = 'Organizations';
 $_['text_expert'] = 'Experts';
+$_['text_contact'] = 'Contacts';

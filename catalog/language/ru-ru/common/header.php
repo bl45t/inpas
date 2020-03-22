@@ -21,3 +21,4 @@ $_['text_events'] = 'Мероприятия';
 $_['text_data_base'] = 'База данных';
 $_['text_organization'] = 'Организации';
 $_['text_expert'] = 'Эксперты';
+$_['text_contact'] = 'Контакты';

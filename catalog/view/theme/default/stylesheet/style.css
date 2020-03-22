@@ -1438,7 +1438,63 @@ input[type="search"] {
 
 /*БД Конец*/
 
+/*Начало Страницы Контактов*/
 
+	.с_subheader
+	{
+		font-size: 18px;
+		line-height: 21px;
+		color: #ADADAD;
+		margin-top: 37px;
+		margin-bottom: 1px !important;
+	}
+	.с_subheader1
+	{
+		font-size: 18px;
+		line-height: 21px;
+		color: #ADADAD;
+		margin-top: 0px;
+		margin-bottom: 1px !important;
+	}
+
+	.c_icon
+	{
+		width: 36px;
+		height: 36px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: 99%;
+		margin-right: 12px; 
+		float: left;
+		margin-top: 5px;
+	}
+	.vk_icon
+	{
+		background-image: url("/catalog/view/theme/default/image/icons/social/VK.svg");
+	}
+		.ok_icon
+	{
+		background-image: url("/catalog/view/theme/default/image/icons/social/OK.svg");
+	}
+		.fb_icon
+	{
+		background-image: url("/catalog/view/theme/default/image/icons/social/Facebook.svg");
+	}
+		.tw_icon
+	{
+		background-image: url("/catalog/view/theme/default/image/icons/social/Twitter.svg");
+	}
+		.yt_icon
+	{
+		background-image: url("/catalog/view/theme/default/image/icons/social/Youtube.svg");
+	}
+	.map
+	{
+		width: 100%;
+		height: 500px;
+		background-color: #003867;
+	}
+/*Конец Страницы Контактов*/
 
 
        @media (min-width: 576px) {

@@ -78,6 +78,7 @@ class ControllerCommonHeader extends Controller {
 		$data['text_data_base'] = $this->language->get('text_data_base');
 		$data['text_organization'] = $this->language->get('text_organization');
 		$data['text_expert'] = $this->language->get('text_expert');
+		$data['text_contact'] = $this->language->get('text_contact');
 
 		$data['home'] = $this->url->link('common/home');
 		$data['wishlist'] = $this->url->link('account/wishlist', '', true);

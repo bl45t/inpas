@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.2'; ?>
+  <?php $assets_version = '?v=1.0.3'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -119,7 +119,8 @@
             <li><a href="<?=$bd_organizations_link?>"><?=$text_organization?></a></li>
             <li><a href="<?=$bd_expert_link?>"><?=$text_expert?></a></li>
           </ul>
-        </li> 
+        </li>
+        <li class="menu1"><a href="<?=$contact?>"><?=$text_contact?></a></li>
       </ul> 
 
       <button class="login mobile_header">Вход</button>
