@@ -63,8 +63,8 @@
               <?php } ?>
             </div>
           </div>
-          <div class="form-group required">
-            <label class="" for="input-firstname"><?php echo $entry_firstname; ?></label>
+          <div class="form-group">
+            <label class="required" for="input-firstname"><?php echo $entry_firstname; ?></label>
             <div class="input-group">
 	            <span class="input-group-addon">
 	            	<img src="/catalog/language/ru-ru/ru-ru.png">
@@ -83,8 +83,8 @@
           </div>
 			
 
-          <div class="form-group required">
-              <label class="" for="input-lastname"><?php echo $entry_lastname; ?></label>
+          <div class="form-group ">
+              <label class="required" for="input-lastname"><?php echo $entry_lastname; ?></label>
             <div class="input-group">
             	<span class="input-group-addon">
 	            	<img src="/catalog/language/ru-ru/ru-ru.png">
@@ -102,8 +102,8 @@
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
           </div>
-          <div class="form-group required">
-              <label class="" for="input-email"><?php echo $entry_email; ?></label>
+          <div class="form-group ">
+              <label class="required" for="input-email"><?php echo $entry_email; ?></label>
            
               <input type="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
               <?php if ($error_email) { ?>
@@ -111,7 +111,7 @@
               <?php } ?>
            
           </div>
-          <div class="form-group required">
+          <div class="form-group ">
               <label class="" for="input-telephone"><?php echo $entry_telephone; ?></label>
             
               <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
@@ -121,7 +121,7 @@
            
           </div>
           
-          <div class="form-group ">
+          <div id="form_group_post" class="form-group ">
               <label class="" for="input-post"><?php echo $entry_post; ?></label>
               <div class="input-group">
               	<span class="input-group-addon">
@@ -135,6 +135,9 @@
 	            </span>
 	            <input type="text" name="eng_post" value="<?php echo $eng_post; ?>" placeholder="<?php echo $entry_post; ?>" class="form-control" />
               </div>
+              <?php if ($error_post) { ?>
+                <div class="text-danger"><?php echo $error_post; ?></div>
+              <?php } ?>
           </div>
 
           <div id="form_group_workplace" class="form-group ">
@@ -196,8 +199,11 @@
           <fieldset id="newOrganization" class="hidden">
             
             <div class="form-group">
-              <label class="" for="input-ogr-name"><?php echo $entry_name_org; ?></label>
+              <label class="required" for="input-ogr-name"><?php echo $entry_name_org; ?></label>
               <input type="text" name="new_organization_name" value="<?php echo $new_organization_name; ?>" placeholder="<?php echo $entry_name_org; ?>" id="input-ogr-name" class="form-control" />
+              <?php if ($error_new_organization_name) { ?>
+                <div class="text-danger"><?php echo $error_new_organization_name; ?></div>
+              <?php } ?>
             </div>
 
             <div class="form-group">
@@ -213,7 +219,7 @@
             <div class="form-group">
             <label class="" for="input-new-org-country"><?php echo $entry_org_country; ?></label>
               <select id="new_org_country_select" name="new_organization_country_id" id="input-new-org-country" class="form-control">
-                <option value=""><?php echo $text_select; ?></option>
+                <option value="0"><?php echo $text_select; ?></option>
                 <?php foreach ($countries as $country) { ?>
                 <?php if ($country['country_id'] == $new_organization_country_id) { ?>
                 <option value="<?php echo $country['country_id']; ?>" selected="selected"><?php echo $country['name'];?></option>
@@ -227,7 +233,7 @@
             <div class="form-group">
               <label class="" for="input-org-region"><?php echo $entry_org_zone; ?></label>
                 <select id="new_org_region_select" name="new_organization_region_id" id="input-org-region" class="form-control">
-                  <option val=""><?=$text_select?></option>
+                  <option value="0"><?=$text_select?></option>
                 </select>
             </div>
 
@@ -237,13 +243,19 @@
             </div>
 
             <div class="form-group">
-              <label class="" for="input-ogr-phone"><?php echo $entry_org_phone; ?></label>
+              <label class="required" for="input-ogr-phone"><?php echo $entry_org_phone; ?></label>
               <input type="text" name="new_organization_phone" value="<?php echo $new_organization_phone; ?>" placeholder="<?php echo $entry_org_phone; ?>" id="input-ogr-phone" class="form-control" />
+              <?php if ($error_new_organization_phone) { ?>
+                <div class="text-danger"><?php echo $error_new_organization_phone; ?></div>
+              <?php } ?>
             </div>
 
             <div class="form-group">
-              <label class="" for="input-ogr-email"><?php echo $entry_org_email; ?></label>
+              <label class="required" for="input-ogr-email"><?php echo $entry_org_email; ?></label>
               <input type="text" name="new_organization_email" value="<?php echo $new_organization_email; ?>" placeholder="<?php echo $entry_org_email; ?>" id="input-ogr-email" class="form-control" />
+              <?php if ($error_new_organization_email) { ?>
+                <div class="text-danger"><?php echo $error_new_organization_email; ?></div>
+              <?php } ?>
             </div>
 
             <div class="form-group">
@@ -427,7 +439,7 @@
               <input type="text" name="company" value="<?php echo $company; ?>" placeholder="<?php echo $entry_company; ?>" id="input-company" class="form-control" />
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group ">
             <label class="col-sm-2 control-label" for="input-address-1"><?php echo $entry_address_1; ?></label>
             <div class="col-sm-10">
               <input type="text" name="address_1" value="<?php echo $address_1; ?>" placeholder="<?php echo $entry_address_1; ?>" id="input-address-1" class="form-control" />
@@ -442,7 +454,7 @@
               <input type="text" name="address_2" value="<?php echo $address_2; ?>" placeholder="<?php echo $entry_address_2; ?>" id="input-address-2" class="form-control" />
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group ">
             <label class="col-sm-2 control-label" for="input-city"><?php echo $entry_city; ?></label>
             <div class="col-sm-10">
               <input type="text" name="city" value="<?php echo $city; ?>" placeholder="<?php echo $entry_city; ?>" id="input-city" class="form-control" />
@@ -451,7 +463,7 @@
               <?php } ?>
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group ">
             <label class="col-sm-2 control-label" for="input-postcode"><?php echo $entry_postcode; ?></label>
             <div class="col-sm-10">
               <input type="text" name="postcode" value="<?php echo $postcode; ?>" placeholder="<?php echo $entry_postcode; ?>" id="input-postcode" class="form-control" />
@@ -460,7 +472,7 @@
               <?php } ?>
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group ">
             <label class="col-sm-2 control-label" for="input-country"><?php echo $entry_country; ?></label>
             <div class="col-sm-10">
               <select name="country_id" id="input-country" class="form-control">
@@ -478,7 +490,7 @@
               <?php } ?>
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group ">
             <label class="col-sm-2 control-label" for="input-zone"><?php echo $entry_zone; ?></label>
             <div class="col-sm-10">
               <select name="zone_id" id="input-zone" class="form-control">
@@ -644,8 +656,8 @@
           <?php } ?>
         </fieldset>
         <fieldset>
-          <div class="form-group required">
-              <label class="" for="input-password"><?php echo $entry_password; ?></label>
+          <div class="form-group ">
+              <label class="required" for="input-password"><?php echo $entry_password; ?></label>
             
               <input type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
               <?php if ($error_password) { ?>
@@ -653,8 +665,8 @@
               <?php } ?>
 
           </div>
-          <div class="form-group required">
-              <label class="" for="input-confirm"><?php echo $entry_confirm; ?></label>
+          <div class="form-group ">
+              <label class="required" for="input-confirm"><?php echo $entry_confirm; ?></label>
          
               <input type="password" name="confirm" value="<?php echo $confirm; ?>" placeholder="<?php echo $entry_confirm; ?>" id="input-confirm" class="form-control" />
               <?php if ($error_confirm) { ?>
@@ -918,6 +930,8 @@ $('.type_user button').click(function() {
     $("#form_group_interests").removeClass('hidden');
     $("#form_group_organozation").removeClass('hidden');
     $("#form_group_not_exist_org").removeClass('hidden');
+    $("#form_group_post label").addClass('required');
+    
   }
 
   function getUserRegistrationFormState() {
@@ -926,6 +940,9 @@ $('.type_user button').click(function() {
     $("#form_group_interests").addClass('hidden');
     $("#form_group_organozation").addClass('hidden');
     $("#form_group_not_exist_org").addClass('hidden');
+    $("#form_group_post label").removeClass('required');
+    $("#input-empty-org").removeAttr('checked');
+    $("#input-empty-org").trigger('change');
   }
 
   $("#form_group_not_exist_org #input-empty-org").change(function() {
@@ -934,8 +951,14 @@ $('.type_user button').click(function() {
     } else {
         $("#newOrganization").addClass('hidden');
     }
-
   });
+ 
+  let is_checked_new_org = "<?=$is_checked_new_org?>";
+
+  if (is_checked_new_org == 1) {
+    $("#input-empty-org").attr('checked', 'checked');
+    $("#input-empty-org").trigger('change');
+  }
 
   //Транслитерация полей в зависимости от текущей локали
   let curLang = "<?=$cur_lang?>";

@@ -47,7 +47,8 @@
       <ul class="list-unstyled">
         <li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>
       </ul>
-      <?php echo $content_bottom; ?></div>
+      </div>
     <?php echo $column_right; ?></div>
 </div>
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?> 

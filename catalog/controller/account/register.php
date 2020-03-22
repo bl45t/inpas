@@ -30,12 +30,13 @@ class ControllerAccountRegister extends Controller {
 			//Создаем новую организацию
 			if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
 				$arNewOrg = [];
-				$arNewOrg['id_country'] = $this->request->post['new_organization_country_id'];
-				$arNewOrg['id_region'] = $this->request->post['new_organization_region_id'];
+				$id_country = (empty(trim($this->request->post['new_organization_country_id']))) ? 0 : $this->request->post['new_organization_country_id'];
+				$id_region = (empty(trim($this->request->post['new_organization_region_id']))) ? 0 : $this->request->post['new_organization_region_id']; 
+				$arNewOrg['id_country'] = $id_country;
+				$arNewOrg['id_region'] = $id_region;
+
 				$arNewOrg['sort_order'] = 0;
 				$arNewOrg['status'] = 0;
-
-				
 
 				if ($curLang === 'ru') {
 					$arNewOrg['manufacturer_description'] = $this->manufacturerDescriptionForRus($this->request->post);
@@ -163,6 +164,13 @@ class ControllerAccountRegister extends Controller {
 			$data['error_lastname'] = '';
 		}
 
+
+		if (isset($this->error['post'])) {
+			$data['error_post'] = $this->error['post'];
+		} else {
+			$data['error_post'] = '';
+		}
+
 		if (isset($this->error['email'])) {
 			$data['error_email'] = $this->error['email'];
 		} else {
@@ -173,6 +181,24 @@ class ControllerAccountRegister extends Controller {
 			$data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$data['error_telephone'] = '';
+		}
+
+		if (isset($this->error['new_organization_name'])) {
+			$data['error_new_organization_name'] = $this->error['new_organization_name'];
+		} else {
+			$data['error_new_organization_name'] = '';
+		}
+
+		if (isset($this->error['new_organization_phone'])) {
+			$data['error_new_organization_phone'] = $this->error['new_organization_phone'];
+		} else {
+			$data['error_new_organization_phone'] = '';
+		}
+
+		if (isset($this->error['new_organization_email'])) {
+			$data['error_new_organization_email'] = $this->error['new_organization_email'];
+		} else {
+			$data['error_new_organization_email'] = '';
 		}
 
 		if (isset($this->error['address_1'])) {
@@ -449,6 +475,12 @@ class ControllerAccountRegister extends Controller {
 			$data['zone_id'] = '';
 		}
 
+		if (isset($this->request->post['is_expert'] ) && $this->request->post['is_expert'] == 1 && isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
+			$data['is_checked_new_org'] = 1;
+		} else {
+			$data['is_checked_new_org'] = 0;
+		}
+
 		$this->load->model('localisation/country');
 
 		$data['countries'] = $this->model_localisation_country->getCountries();
@@ -536,11 +568,11 @@ class ControllerAccountRegister extends Controller {
 	}
 
 	private function validate() {
-		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['eng_firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32) || (utf8_strlen(trim($this->request->post['eng_firstname'])) > 32)) {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
-		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['eng_lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32) || (utf8_strlen(trim($this->request->post['eng_lastname'])) > 32)) {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
 
@@ -548,12 +580,38 @@ class ControllerAccountRegister extends Controller {
 			$this->error['email'] = $this->language->get('error_email');
 		}
 
-		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
-			$this->error['warning'] = $this->language->get('error_exists');
+		if ($this->request->post['is_expert'] == 1 && (
+			(utf8_strlen(trim($this->request->post['post'])) < 1) || 
+			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) || 
+			(utf8_strlen(trim($this->request->post['post'])) > 128) || 
+			(utf8_strlen(trim($this->request->post['eng_post'])) > 128))){
+			$this->error['post'] = $this->language->get('error_post');
 		}
 
-		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
-			$this->error['telephone'] = $this->language->get('error_telephone');
+		if (isset($this->request->post['is_exist_org']) &&
+			$this->request->post['is_exist_org'] == 'on' && (
+			(utf8_strlen(trim($this->request->post['new_organization_name'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['new_organization_name'])) > 64))) {
+			$this->error['new_organization_name'] = $this->language->get('error_new_organization_name');
+		}
+
+		if (isset($this->request->post['is_exist_org']) &&
+			$this->request->post['is_exist_org'] == 'on' && (
+			(utf8_strlen(trim($this->request->post['new_organization_phone'])) < 6) ||
+			(utf8_strlen(trim($this->request->post['new_organization_phone'])) > 20))) {
+			$this->error['new_organization_phone'] = $this->language->get('error_new_organization_phone');
+		}
+
+		if (isset($this->request->post['is_exist_org']) &&
+			$this->request->post['is_exist_org'] == 'on' && (
+			(utf8_strlen($this->request->post['new_organization_email']) > 96) || 
+			!preg_match($this->config->get('config_mail_regexp'), $this->request->post['new_organization_email']))) {
+			$this->error['new_organization_email'] = $this->language->get('error_new_organization_email');
+		}
+
+		
+		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+			$this->error['warning'] = $this->language->get('error_exists');
 		}
 
 		// Customer Group

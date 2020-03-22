@@ -224,7 +224,7 @@
           </div>
         </div>
       </form>
-      <?php echo $content_bottom; ?></div>
+      </div>
     <?php echo $column_right; ?></div>
 </div>
 <script type="text/javascript"><!--
@@ -314,4 +314,5 @@ $('.time').datetimepicker({
 	pickDate: false
 });
 //--></script>
+<?php echo $content_bottom; ?>
 <?php echo $footer; ?>
