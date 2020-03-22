@@ -44,12 +44,12 @@ class ControllerExtensionModuleNewsBlogArticles extends Controller {
 
 		$results = $this->model_newsblog_article->getArticles($filter_data);
 
-		$this->load->model('tool/image');
+		$this->load->model('tool/imagecrop');
 
 		foreach ($results as $result) {
 			if ($result['image']) {
 				$original	= HTTP_SERVER.'image/'.$result['image'];
- 				$thumb 		= $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+ 				$thumb 		= $this->model_tool_imagecrop->resize($result['image'], $setting['width'], 0);
  			} else {
  				$original 	= false;
  				$thumb 		= false;

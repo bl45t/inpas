@@ -8,15 +8,14 @@
 
 	<?php foreach ($news as $news_item) { ?>
 	<a href="<?php echo $news_item['href']; ?>">
-		<div class="row news">
-			<div class="col-md-9">
+		<div class="news" style='background-image: url("<?=$news_item["thumb"]?>")'>
 				<div class="news_text ">
 					<div class="tag_row">
 					<?php foreach ($news_item['tags'] as $tag) { ?>
-	          			<div class="tag"><?=$tag?></div>
+	          			<div class="white_tag"><?=$tag?></div>
 	          		<?php } ?>
 	          		</div>
-
+					
 					<div class="news_header"><?php echo $news_item['title']; ?></div>
 					<div class="news_subheader"><?php echo $news_item['description']; ?></div>
 					<div class="row">
@@ -28,16 +27,8 @@
 						</div>
 					</div>
 					
-	          	</div>
-	         </div>
+	          	</div>		
 			
-			<div class="col-md-3">
-          	<?php if($news_item['thumb']) { ?>
-				<div class="news_image">
-					<img src="<?php echo $news_item['thumb']; ?>" alt="<?php echo $news_item['title']; ?>" title="<?php echo $news_item['title']; ?>" />
-				</div>
-			<?php } ?>
-			</div>
 		</div>
 	</a>
 	<?php } ?>

@@ -64,6 +64,9 @@ class ControllerNewsBlogArticle extends Controller {
 			}
 		}
 
+		$images_size_articles_big[0] = 555;
+		$images_size_articles_small[0] = 555;
+
 		if (isset($this->request->get['newsblog_article_id'])) {
 			$newsblog_article_id = (int)$this->request->get['newsblog_article_id'];
 		} else {
@@ -129,12 +132,12 @@ class ControllerNewsBlogArticle extends Controller {
 
 			$data['article_id'] = $newsblog_article_id;
 
-			$this->load->model('tool/image');
+			$this->load->model('tool/imagecrop');
 
 			if ($article_info['image']) {
 				$data['original']	= HTTP_SERVER.'image/'.$article_info['image'];
-				$data['popup'] 		= $this->model_tool_image->resize($article_info['image'], $images_size_articles_big[0], $images_size_articles_big[1]);
-				$data['thumb'] 		= $this->model_tool_image->resize($article_info['image'], $images_size_articles_small[0], $images_size_articles_small[1]);
+				$data['popup'] 		= $this->model_tool_imagecrop->resize($article_info['image'], $images_size_articles_big[0], 0);
+				$data['thumb'] 		= $this->model_tool_imagecrop->resize($article_info['image'], $images_size_articles_small[0], 0);
 			} else {
 				$data['original'] 	= false;
 				$data['popup'] 		= false;
@@ -153,8 +156,8 @@ class ControllerNewsBlogArticle extends Controller {
 			foreach ($results as $result) {
 				$data['images'][] = array(
 					'original'	=> HTTP_SERVER.'image/'.$result['image'],
-					'popup' 	=> $this->model_tool_image->resize($result['image'], $images_size_articles_big[0], $images_size_articles_big[1]),
-					'thumb' 	=> $this->model_tool_image->resize($result['image'], $images_size_articles_small[0], $images_size_articles_small[1])
+					'popup' 	=> $this->model_tool_imagecrop->resize($result['image'], $images_size_articles_big[0], 0),
+					'thumb' 	=> $this->model_tool_imagecrop->resize($result['image'], $images_size_articles_small[0], 0)
 				);
 			}
 
@@ -179,7 +182,7 @@ class ControllerNewsBlogArticle extends Controller {
 
 				if ($result['image']) {
 					$original 	= HTTP_SERVER.'image/'.$result['image'];
-					$thumb = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_related_width'), $this->config->get($this->config->get('config_theme') . '_image_related_height'));
+					$thumb = $this->model_tool_imagecrop->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_related_width'), 0);
 				} else {
 					$original = false;
 					$thumb = false;
@@ -209,9 +212,9 @@ class ControllerNewsBlogArticle extends Controller {
 
             foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_related_width'), $this->config->get($this->config->get('config_theme') . '_image_related_height'));
+					$image = $this->model_tool_imagecrop->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_related_width'), 0);
 				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_related_width'), $this->config->get($this->config->get('config_theme') . '_image_related_height'));
+					$image = $this->model_tool_imagecrop->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_related_width'), 0);
 				}
 
 				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {

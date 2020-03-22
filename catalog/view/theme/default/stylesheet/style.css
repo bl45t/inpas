@@ -300,15 +300,30 @@ input[type="search"] {
 	}
 	.news
 	{
+		background-size: cover;
 	    width: 100%;
-		margin-top:13px;
-		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
-		border-radius: 3px;	
-		background-color: white;
+		height: 240px;
+		margin-bottom: 13px;
+		box-shadow: 3px 3px 10px
+		rgba(0, 0, 0, 0.11);
+		border-radius: 3px;
+		background-position: center;
+		background-repeat: no-repeat;
 	}
+	
+	.news_text .news_subheader {
+		color:white;
+	}
+
 	.news_text
 	{
-		padding: 20px;
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
+		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.95) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 )
+		position: relative;
+		height: 100%;
+		float: left;
+		padding: 15px;
 	}
 	
 	.tag_row{
@@ -325,6 +340,7 @@ input[type="search"] {
 		margin-right: 13.3px;
 	}
 
+
 	.tag:nth-child(1n)
 	{
 		color: #0067BE !important;
@@ -338,17 +354,31 @@ input[type="search"] {
 		color: #979797 !important;
 	}
 
+	.white_tag {
+		font-style: normal;
+		font-weight: normal;
+		font-size: 10px;
+		line-height: 25px;
+		text-transform: uppercase;
+		margin-right: 13.3px;
+		color: white;
+	}
+
 	.news_header
 	{
-		margin-top: 19px;
+		margin-top: 10px;
 		font-style: normal;
 		font-weight: normal;
 		font-size: 21px;
 		line-height: 25px;
 		text-align: center;
-		color: #181818 !important;
 		font-family: Roboto Slab;
 	}
+
+	.news .news_header {
+		color:white;
+	}
+
 	.news_subheader
 	{
 		font-style: normal;
@@ -356,7 +386,6 @@ input[type="search"] {
 		font-size: 13px;
 		line-height: 15px;
 		letter-spacing: 0.005em;
-		color: #838383;
 		margin-top: 9px;
 		margin-bottom: 10px;
 	}
@@ -370,7 +399,7 @@ input[type="search"] {
 		font-size: 12px;
 		line-height: 14px;
 		letter-spacing: 0.005em;
-		color: #ADADAD;
+		color: white;
 	}
 		.news_readtime
 	{
@@ -378,7 +407,7 @@ input[type="search"] {
 		font-size: 12px;
 		line-height: 14px;
 		letter-spacing: 0.005em;
-		color: #ADADAD;
+		color: white;
 		text-align: right;
 	}
 
@@ -400,17 +429,26 @@ input[type="search"] {
 		background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%), url(../img/photo4.jpg), #FFFFFF;
 	}
 
-	.news_image img
-	{
-		width: 100%;
-		height: auto;
-		border-radius: 0px 3px 3px 0px;
-	}
-	
 	#event_hp {
 		cursor: pointer;
+		widows: 100%;
+		height: 240px;
+		background-position: center;
+		-webkit-background-size: cover;
+		background-size: cover;
+		background-repeat: no-repeat;
+		margin-right: 5px; 
 	}
-	
+		
+	.event_text {
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
+		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.95) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 )
+		position: relative;
+		height: 100%;
+		padding: 15px;
+	}
+
 	.event
 	{
 		width: 100%;
@@ -887,13 +925,21 @@ input[type="search"] {
 	.event_page
 	{
 		box-shadow: none;
-		margin-top: 0;
+		margin: 0;
+		margin-left: -15px;
+		margin-right: -15px; 
 	}
 	
 	.event_page .image
 	{
-		height: 100%;
-		text-align: center;
+		background-size: cover;
+		width: 100%;
+		height: 240px;
+		box-shadow: 3px 3px 10px
+		rgba(0, 0, 0, 0.11);
+		border-radius: 3px;
+		background-position: center;
+		background-repeat: no-repeat
 	}
 
 
@@ -910,13 +956,7 @@ input[type="search"] {
 	.event_full
 	{
 		height: 100%;
-	}
-	.event_block
-	{
-		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
-	    border-radius: 3px;
-	    background-color: white;
-	    margin-bottom: 20px;
+
 	}
 
 	.event_full .news_subheader
@@ -934,6 +974,13 @@ input[type="search"] {
 		color: #242424;
 	}
 
+	
+	.event_list_text {
+		height: 240px;
+		background-color: white;
+		margin-bottom: 10px;
+		padding: 10px; 
+	}
 /*    Конец Страницы Мероприятия*/
 
 
@@ -948,7 +995,7 @@ input[type="search"] {
 
 /*Начало Страницы Описания Мероприятия*/
 
-
+	
 	.full_event_page
 	{
 		overflow: auto;
@@ -962,19 +1009,18 @@ input[type="search"] {
 	{
 		    background-color: #013D70;
 	}
-	.full_event_page div .news_text .tag, .full_event_page div .news_text  .news_header
+	.full_event_page div .news_text .tag, .full_event_page  .news_header, .full_event_page .sub_grey
 	{
 		color: white !important;
 	}
-	.full_event_page div .news_text .news_subheader
+	.full_event_page .news_subheader
 	{
 		color: #BDC9D3 !important;
 	}
 
 
-	.event_main_text
-	{
-
+	.event_article_header_text {
+		padding:10px;
 	}
 
 	.event_main_text, .event_main_text i, .event_main_text ins, .event_main_text b

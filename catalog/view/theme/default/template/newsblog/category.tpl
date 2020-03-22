@@ -55,22 +55,19 @@
       <?php if ($articles) { ?>
       <div class="row">
         <?php foreach ($articles as $article) { ?>
-        <div class="col-md-12">
+        <div class="event_category" class="col-md-12">
           
-            <div class="row event_block">
+            <div class="event_block">
               <div class="col-md-3"> 
-                <div class="event event_page">
-                  <?php if ($article['thumb']) { ?>
-                    <div class="image">
-                        <img src="<?php echo $article['thumb']; ?>" alt="<?php echo $article['name']; ?>" title="<?php echo $article['name']; ?>" />
+                <div class=" event_page">
+                    <div class="image" style='background-image: url("<?=$article["thumb"]?>")'>
                     </div>
-                  <?php } ?>
                 </div>
               </div>
 
               <div class="col-md-9">
                 <div class="event_full">
-                    <div class="news_text">
+                    <div class="event_list_text">
                       <div class="tag_row">
                        <?php foreach ($article['tags'] as $tag) { ?>
                         <div class="tag"><?=$tag?></div>
@@ -79,11 +76,17 @@
 
                        <div class="news_header"><?=$article['name']?></div>
                        <div class="news_subheader"><?php echo $article['preview']; ?></div>
-                       <div class="date_event">
-                        <span class="sub_grey"> <?=$text_date_start?> </span> <?=$article['date_start']?>
-                       </div>
-                       <div class="date_event">
-                        <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
+                       <div class="row">
+                          <div class="col-lg-6">
+                             <div class="date_event">
+                              <span class="sub_grey"> <?=$text_date_start?> </span> <?=$article['date_start']?>
+                             </div>
+                          </div>
+                          <div class="col-lg-6">
+                           <div class="date_event">
+                            <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
+                           </div>
+                          </div>
                        </div>
                        <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
                        <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>

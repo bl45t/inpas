@@ -49,30 +49,21 @@
 
 			<div class="row">
 				<?php foreach ($news_list as $news_item) { ?>
-				<div class="col-xs-12 col-md-6 col_main">
+				<div class="col-xs-12 col-sm-6 col_main">
 					<a href="<?php echo $news_item['href']; ?>">
-						<div class="row news">
-							<div class="col-md-9">
-								<div class="news_text">
-									<div class="tag_row">
-									<?php foreach ($news_item['tags'] as $tag) { ?>
-					          			<div class="tag"><?=$tag?></div>
-					          		<?php } ?>
-					          		</div>
+						<div class="news" style='background-image: url("<?=$news_item["thumb"]?>")'>
+							<div class="news_text">
+								<div class="tag_row">
+								<?php foreach ($news_item['tags'] as $tag) { ?>
+					          		<div class="white_tag"><?=$tag?></div>
+					          	<?php } ?>
+					          	</div>
 
-									<div class="news_header"><?php echo $news_item['title']; ?></div>
-									<div class="news_subheader"><?php echo $news_item['description']; ?></div>
-									<div class="news_date"><?=$news_item['posted']?></div>
-									<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>
-		          				</div>
+								<div class="news_header"><?php echo $news_item['title']; ?></div>
+								<div class="news_subheader"><?php echo $news_item['description']; ?></div>
+								<div class="news_date"><?=$news_item['posted']?></div>
+								<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>
 		          			</div>
-							<div class="col-md-3">
-				          	<?php if($news_item['thumb']) { ?>
-								<div class="news_image">
-									<img src="<?php echo $news_item['thumb']; ?>" alt="<?php echo $news_item['title']; ?>" title="<?php echo $news_item['title']; ?>" class="img-responsive" />
-								</div>
-							<?php } ?>
-							</div>
 
 						</div>
 					</a>

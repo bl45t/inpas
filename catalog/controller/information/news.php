@@ -7,7 +7,7 @@ class ControllerInformationNews extends Controller {
 
 		$this->load->model('catalog/news');
 
-		$this->load->model('tool/image');
+		$this->load->model('tool/imagecrop');
 
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
@@ -118,7 +118,7 @@ class ControllerInformationNews extends Controller {
 			foreach ($news_list as $result) {
 
 				if($result['image']){
-					$image = $this->model_tool_image->resize($result['image'], $news_setting['news_thumb_width'], $news_setting['news_thumb_height']);
+					$image = $this->model_tool_imagecrop->resize($result['image'], $news_setting['news_thumb_width'], 0);
 				}else{
 					$image = false;
 				}
@@ -322,7 +322,7 @@ class ControllerInformationNews extends Controller {
 				$data['news_share'] = false;
 			}
 
-			$this->load->model('tool/image');
+			$this->load->model('tool/imagecrop');
 
 			if ($news_info['image']) {
 				$data['image'] = true;
@@ -330,10 +330,8 @@ class ControllerInformationNews extends Controller {
 				$data['image'] = false;
 			}
 			if($news_info['image']){
-				$data['thumb'] = $this->model_tool_image->resize($news_info['image'], $news_setting['news_thumb_width'],
-				$news_setting['news_thumb_height']);
-				$data['popup'] = $this->model_tool_image->resize($news_info['image'], $news_setting['news_popup_width'],
-				$news_setting['news_popup_height']);
+				$data['thumb'] = $this->model_tool_imagecrop->resize($news_info['image'], $news_setting['news_thumb_width'],0);
+				$data['popup'] = $this->model_tool_imagecrop->resize($news_info['image'], $news_setting['news_popup_width'],0);
 			}else{
 				$data['thumb'] = false;
 				$data['popup'] = false;

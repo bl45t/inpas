@@ -4,19 +4,15 @@
   <?php } ?>
 
   <?php foreach ($articles as $article) { ?>
-    <div class="event_block" onclick=location.href="<?php echo $article['href']?>">
-        <div id="event_hp" class="event">
-          <?php if ($article['thumb']) { ?>
-
-            <img src="<?php echo $article['thumb']; ?>" alt="<?php echo $article['name']; ?>" title="<?php echo $article['name']; ?>"/>
-
-          <?php } ?>
-         <div class="event_info">
+    <div onclick=location.href="<?php echo $article['href']?>">
+        <div id="event_hp" class="event" style='background-image: url("<?=$article["thumb"]?>")'>
+          <div class="event_text">
+         
             <div class="header_event"><?php echo $article['name']; ?></div>
             <div class="date_event"><span class="sub_grey"> <?=$text_date_start?> </span><?=$article['date_start']?></div>
             <div class="date_event"><span class="sub_grey"> <?=$text_date_end?></span><?=$article['date_end']?></div>
             <div class="place_event"><span class="sub_grey"> <?=$text_venue?> </span><?=$article['venue']?></div>
-          </div>
+         </div>
           <!--  Анонс
           <?php echo $article['preview'];?>
           -->

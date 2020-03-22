@@ -6,7 +6,7 @@ class ControllerNewsBlogCategory extends Controller {
 		$this->load->model('newsblog/category');
 		$this->load->model('newsblog/article');
 
-		$this->load->model('tool/image');
+		$this->load->model('tool/imagecrop');
 
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
@@ -65,6 +65,8 @@ class ControllerNewsBlogCategory extends Controller {
 	            $date_format=$settings['date_format'];
             }
 
+            $articles_image_size[0] = 555;
+
 			if ($category_info['meta_title']) {
 				$this->document->setTitle($category_info['meta_title']);
 			} else {
@@ -100,7 +102,7 @@ class ControllerNewsBlogCategory extends Controller {
 
 			if ($category_info['image']) {
 				$data['original']	= HTTP_SERVER.'image/'.$category_info['image'];
-				$data['thumb'] 		= $this->model_tool_image->resize($category_info['image'], $category_image_size[0], $category_image_size[1]);
+				$data['thumb'] 		= $this->model_tool_imagecrop->resize($category_info['image'], $category_image_size[0], 0);
 			} else {
 				$data['original'] 	= '';
 				$data['thumb'] 		= '';
@@ -115,7 +117,7 @@ class ControllerNewsBlogCategory extends Controller {
 			foreach ($categories as $category) {
 				if ($category['image']) {
 					$original 	= HTTP_SERVER.'image/'.$category['image'];
-					$thumb 		= $this->model_tool_image->resize($category['image'], $articles_image_size[0], $articles_image_size[1]);
+					$thumb 		= $this->model_tool_imagecrop->resize($category['image'], $articles_image_size[0], 0);
 				} else {
 					$original 	= false;
 					$thumb 		= false;
@@ -164,7 +166,7 @@ class ControllerNewsBlogCategory extends Controller {
 
 					if ($result['image']) {
 						$original 	= HTTP_SERVER.'image/'.$result['image'];
-						$thumb 		= $this->model_tool_image->resize($result['image'], $articles_image_size[0], $articles_image_size[1]);
+						$thumb 		= $this->model_tool_imagecrop->resize($result['image'], $articles_image_size[0], 0);
 					} else {
 						$original 	= '';
 						$thumb 		= '';	//or use 'placeholder.png' if you need

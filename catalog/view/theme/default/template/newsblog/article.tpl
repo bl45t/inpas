@@ -14,23 +14,22 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <div class="full_event_page">
+      <div class=" full_event_page">
         
         <div class="row event_block">   
-        <div class="col-md-3">       
-          <div class="event event_page text-center">
-               <?php if ($thumb) { ?>
-               <img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
-                <?php } ?>
+          <div class="col-md-3"> 
+                <div class=" event_page">
+                    <div class="image" style='background-image: url("<?=$thumb?>")'>
+                    </div>
+                </div>
           </div>
-        </div>
 
         <div class="col-md-9">
           <div class="event_full">
-            <div class="news_text ">
+            <div class="event_article_header_text ">
               <div class="tag_row">
                 <?php foreach ($tags as $tag) { ?>
-                    <div class="tag"><?=$tag?></div>
+                    <div class="white_tag "><?=$tag?></div>
                 <?php } ?>
               </div>
               <div class="news_header"><?=$heading_title; ?></div>

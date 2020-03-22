@@ -40,11 +40,11 @@ class ControllerExtensionModuleNews extends Controller {
 
 		$results = $this->model_catalog_news->getNewsShorts($setting['limit']);
 		
-		$this->load->model('tool/image');
+		$this->load->model('tool/imagecrop');
 	
 		foreach ($results as $result) {
 			if ($result['image']) {
- 				$image = $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height']);
+ 				$image = $this->model_tool_imagecrop->resize($result['image'], $setting['width'], 0);
  			} else {
  				$image = false;
  			}
