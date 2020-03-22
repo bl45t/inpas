@@ -279,6 +279,23 @@ input[type="search"] {
 		border-radius: 3px;
 		background-color: white;
 	}
+	.news:hover, .event:hover, .publication:hover, .event_block:hover
+	{
+		-webkit-transform: scale(1.02);
+		-moz-transform: scale(1.02);
+	    -ms-transform: scale(1.02);
+	    transform: scale(1.02);
+	    transition-duration: 0.4s;
+	}
+	.news:not(:hover), .event:not(:hover), .publication:not(:hover), .event_block:not(:hover)
+	{
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+	    -ms-transform: scale(1);
+	    transform: scale(1);
+	    transition-duration: 0.4s;
+	}
+
 	.news_text
 	{
 		position: relative;
@@ -436,13 +453,28 @@ input[type="search"] {
 
 	.image_publication
 	{
-		background-image: url(../img/publ.png);
+		background-image: url(../img/icons/publication.svg);
 		float: left;
-		background-size: cover;
+		background-size: contain;
 		background-position: center;
 		width: 40px;
 		height: 100%;
 		margin-right: 10px;
+		background-repeat: no-repeat;
+		background-size: 90%;
+	}
+	.svg_publication
+	{
+		background-image: url(../img/icons/publication.svg);
+	}
+
+	.svg_media
+	{
+		background-image: url(../img/icons/media.svg);
+	}
+	.svg_journal
+	{
+		background-image: url(../img/icons/journal.svg);
 	}
 	footer
 	{
