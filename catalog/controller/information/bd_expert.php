@@ -126,15 +126,31 @@ class ControllerInformationBdExpert extends Controller
 		$arExperts = [];
 
 		foreach ($experts as $e) {
-			$arExperts[$e['customer_id']]['name'] = $e['expert_name'];
-			$arExperts[$e['customer_id']]['post'] = $e['post'];
+			$addrInfo = [];
+
+			if (!empty($e['country_name'])) {
+				$addrInfo[] = ($curLang == 'ru') ? $e['country_name'] : $e['country_eng_name'];
+			}
+
+			if (!empty($e['region_name'])) {
+				$addrInfo[] = ($curLang == 'ru') ? $e['region_name'] : $e['region_eng_name'];
+			}
+
+			if (!empty($e['org_address'])) {
+				$addrInfo[] = $e['org_address'];
+			}
+
+			
+
+			$arExperts[$e['customer_id']]['name'] = ($curLang == 'ru') ? $e['expert_name'] : $e['eng_expert_name'];
+			$arExperts[$e['customer_id']]['post'] = ($curLang == 'ru') ? $e['post'] : $e['eng_post'];
 			$arExperts[$e['customer_id']]['telephone'] = $e['telephone'];
 			$arExperts[$e['customer_id']]['email'] = $e['email'];
-			$arExperts[$e['customer_id']]['field_of_interest'] = $e['field_of_interest'];
+			$arExperts[$e['customer_id']]['field_of_interest'] = ($curLang == 'ru') ? $e['field_of_interest'] : $e['eng_field_of_interest'];
 			$arExperts[$e['customer_id']]['org_name'] = $e['org_name'];
-			$arExperts[$e['customer_id']]['country_name'] = $e['country_name'];
-			$arExperts[$e['customer_id']]['region_name'] = $e['region_name'];
-			$arExperts[$e['customer_id']]['org_address'] = $e['org_address'];
+			$arExperts[$e['customer_id']]['country_name'] = ($curLang == 'ru') ? $e['country_name'] : $e['country_eng_name'];
+			$arExperts[$e['customer_id']]['region_name'] = ($curLang == 'ru') ? $e['region_name'] : $e['region_eng_name'];
+			$arExperts[$e['customer_id']]['address'] = implode(', ', $addrInfo);
 			$arExperts[$e['customer_id']]['link_to_org'] = $this->url->link('information/bd_organizations','&organization='.$e['id_org']);
 		}
 

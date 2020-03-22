@@ -81,9 +81,9 @@
 			      <div class="org_text">
 			        <div class="org_img"><img src="catalog/view/theme/default/image/user.png"><div class="flag_exp flag_kaz"></div></div>
 			        <p class="expert_name"><?=$expert['name']?></p>
-			        <span class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></span>        
+			        <div class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></div>        
 			        <div class="org_full exp_full">
-			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$expert['country_name']?>,<?=$expert['region_name']?>, <?=$expert['org_address']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$expert['address']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$expert['region_name']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$expert['telephone']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$expert['email']?></div>          

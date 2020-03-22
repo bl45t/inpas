@@ -3,8 +3,9 @@ class ModelCustomerCustomer extends Model
 {
 	public function getExperts($data = []) {
 		$sql = "
-			SELECT c.customer_id, c.post, c.telephone, c.email, c.field_of_interest,
-			 CONCAT(c.firstname, ' ', c.lastname) AS expert_name, 
+			SELECT c.customer_id, c.post, c.eng_post, c.telephone, c.email, c.field_of_interest,
+			c.eng_field_of_interest,CONCAT(c.firstname, ' ', c.lastname) AS expert_name, 
+			 CONCAT(c.eng_firstname, ' ', c.eng_lastname) AS eng_expert_name,
 			cgd.name AS customer_group, md.name AS org_name, cntry.name as country_name, 
 			cntry.eng_name as country_eng_name, z.name as region_name, z.eng_name as region_eng_name,
 			 md.address as org_address, md.manufacturer_id as id_org 
@@ -14,7 +15,7 @@ class ModelCustomerCustomer extends Model
 			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON md.manufacturer_id = m.manufacturer_id
 			LEFT JOIN " . DB_PREFIX . "country cntry ON cntry.country_id = m.id_country
 			LEFT JOIN " . DB_PREFIX . "zone z ON z.zone_id = m.id_region
-			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
+			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND md.language_id = '". (int)$this->config->get('config_language_id') ."' AND c.is_expert = 1
 		";
 
 		$implode = array();
