@@ -34,10 +34,10 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
+<link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet">
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
@@ -62,9 +62,9 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="#"><img src="catalog/view/theme/default/image/logo.png" 
+      <a class="navbar-brand" href="#"><img src="catalog/view/theme/default/image/logo.png"
   width="270" height="auto" alt="lorem"></a>
-        
+
           <?php if ($logged) { ?>
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
             <a href="<?=$account?>" class="login"><?=$text_account?></a>
@@ -82,7 +82,7 @@
 
     </div>
 
-    
+
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="container nav navbar-nav">
@@ -95,21 +95,21 @@
             </a>
 
             <ul class="dropdown-menu">
-            <?php 
-              if ($informations) { 
+            <?php
+              if ($informations) {
                 foreach ($informations as $information) {
               ?>
-                <li><a href="<?=$information['href']?>"><?=$information['title']?></a></li> 
-            <?php 
+                <li><a href="<?=$information['href']?>"><?=$information['title']?></a></li>
+            <?php
                 }
-              } 
-            ?> 
+              }
+            ?>
             </ul>
 
         </li>
- 
+
         <li class="menu1"><a href="<?=$news_link?>"><?=$text_news?></a></li>
-        <li class="menu1"><a href="<?=$events_link?>"><?=$text_events?></a></li> 
+        <li class="menu1"><a href="<?=$events_link?>"><?=$text_events?></a></li>
         <li class="menu1 dropdown">
           <a>
             <?=$text_data_base?>
@@ -121,7 +121,7 @@
           </ul>
         </li>
         <li class="menu1"><a href="<?=$contact?>"><?=$text_contact?></a></li>
-      </ul> 
+      </ul>
 
       <button class="login mobile_header">Вход</button>
 

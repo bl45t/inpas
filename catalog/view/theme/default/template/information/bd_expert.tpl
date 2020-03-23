@@ -18,7 +18,7 @@
 		        </div>
 	    	</div>
 
-	    	<?php 
+	    	<?php
 				$isHiddenFilter = (!empty($id_country) || !empty($id_region) || !empty($name_city) || !empty($search_field) || !empty($name_organization) || !empty($name_post)) ? "" : " hidden ";
 	    	?>
 
@@ -38,7 +38,7 @@
 						</select>
 					</div>
 				</div>
-						
+
 				<div class="col-sm-3">
 					<div class="form-group">
 						<label><?=$text_region?></label>
@@ -75,23 +75,24 @@
 
 			</div>
 							</form>
+        <div class="col-md-12">
 		<?php if (count($experts)) { ?>
 			<?php foreach ($experts as $expert) { ?>
-			 	<div class="organization">      
+			 	<div class="organization">
 			      <div class="org_text">
 			        <div class="org_img"><img src="catalog/view/theme/default/image/user.png"><div class="flag_exp flag_kaz"></div></div>
 			        <p class="expert_name"><?=$expert['name']?></p>
-			        <div class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></div>        
+			        <div class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></div>
 			        <div class="org_full exp_full">
 			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$expert['address']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$expert['region_name']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$expert['telephone']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$expert['email']?></div>          
-			          <div class="col-md-6 col-sm-12"><span><?=$text_post?>:</span> <?=$expert['post']?></div>        
+			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$expert['email']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_post?>:</span> <?=$expert['post']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
-			          <div class="col-md-12"><span><?=$text_interests?></span><?=$expert['field_of_interest']?></div>            
-			          
-			        </div>                
+			          <div class="col-md-12"><span><?=$text_interests?></span><?=$expert['field_of_interest']?></div>
+
+			        </div>
 			      </div>
 			      <div class="col-md-12 less_org"><?=$text_hide?></div>
 			      <div class="col-md-12 more_org"><?=$text_open?></div>
@@ -100,6 +101,7 @@
 	    <?php } else { ?>
 			<h2><?=$text_sorry_not_found?></h2>
 	    <?php } ?>
+        </div>
 
 
     	<div class="row">
@@ -108,8 +110,8 @@
 			</div>
 			<div class="col-sm-12 text-right"><?php echo $results; ?></div>
 		</div>
-      
-     
+
+
   	</div>
     <?php echo $column_right; ?>
 	</div>

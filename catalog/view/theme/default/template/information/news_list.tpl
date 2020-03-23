@@ -30,7 +30,7 @@
 						<?php } ?>
 					</select>
 				</div>
-				
+
 				<div class="select_cat">
 					<label class="select_label" for="input-sort"><?php echo $text_sort; ?></label>
 					<select id="input-sort" class="cs-select cs-skin-rotate select_style" onchange="location = this.value;">
@@ -43,7 +43,7 @@
 						<?php } ?>
 					</select>
 				</div>
-			
+
 			</div>
 			<br />
 
@@ -62,7 +62,7 @@
 								<div class="news_header"><?php echo $news_item['title']; ?></div>
 								<div class="news_subheader"><?php echo $news_item['description']; ?></div>
 								<div class="news_date"><?=$news_item['posted']?></div>
-								<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>
+								<!--<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>-->
 		          			</div>
 
 						</div>

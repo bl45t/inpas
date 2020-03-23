@@ -18,7 +18,7 @@
 		        </div>
 	    	</div>
 
-	    	<?php 
+	    	<?php
 				$isHiddenFilter = (!empty($id_country) || !empty($id_region) || !empty($name_city) || !empty($search_field)) ? "" : " hidden ";
 	    	?>
 
@@ -38,7 +38,7 @@
 						</select>
 					</div>
 				</div>
-						
+
 				<div class="col-sm-3">
 					<div class="form-group">
 						<label><?=$text_region?></label>
@@ -61,6 +61,7 @@
 
 			</div>
 							</form>
+        <div class="col-md-12">
 		<?php if (count($organizations)) { ?>
 			<?php foreach ($organizations as $organization) { ?>
 		    	<div class="organization">
@@ -72,13 +73,13 @@
 			        <div class="org_full">
 			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$organization['country_name']?>, <?=$organization['region_name']?>, <?=$organization['address']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$organization['region_name']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$organization['phone']?></div>          
-			          <div class="col-md-6 col-sm-12"><span><?=$text_post_code?></span> <?=$organization['post_code']?></div>        
-			          <div class="col-md-6 col-sm-12"><span><?=$text_fax?></span> <?=$organization['fax']?></div>    
+			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$organization['phone']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_post_code?></span> <?=$organization['post_code']?></div>
+			          <div class="col-md-6 col-sm-12"><span><?=$text_fax?></span> <?=$organization['fax']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$organization['email']?></div>
 			          <div class="col-md-6 col-sm-12"><span><?=$text_site?></span> <a href=""><?=$organization['site_address']?></a></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_educational_program?></span><?=$organization['educational_program']?></div>     
-			        </div>                
+			          <div class="col-md-6 col-sm-12"><span><?=$text_educational_program?></span><?=$organization['educational_program']?></div>
+			        </div>
 			      </div>
 			      <div class="col-md-12 less_org"><?=$text_hide?></div>
 			      <div class="col-md-12 more_org"><?=$text_open?></div>
@@ -87,6 +88,7 @@
 	    <?php } else { ?>
 			<h2><?=$text_sorry_not_found?></h2>
 	    <?php } ?>
+        </div>
 
 
     	<div class="row">
@@ -95,8 +97,8 @@
 			</div>
 			<div class="col-sm-12 text-right"><?php echo $results; ?></div>
 		</div>
-      
-      
+
+
   	</div>
     <?php echo $column_right; ?>
 	</div>

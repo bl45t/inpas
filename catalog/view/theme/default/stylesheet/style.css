@@ -8,7 +8,6 @@ body
 	background-color: #F5F7F8;
 }
 
-
 .required:after {
 	color:red;
 	content: "*";
@@ -41,7 +40,7 @@ body
 
 /* стили для поля ввода */
 .search .input {
-	
+
 	width: 242px;
 	padding: 8px 37px 9px 15px;
 	-moz-box-sizing: border-box;
@@ -75,7 +74,7 @@ input[type="search"] {
 
 .navbar-header
 {
-	
+
     background-color: white;
     margin-left: auto;
     float: inherit;
@@ -88,7 +87,7 @@ input[type="search"] {
 }
 .navbar-default
 	{
-     background-color: initial !important; 
+     background-color: initial !important;
      border:none  !important;
 	}
 
@@ -105,9 +104,9 @@ input[type="search"] {
 	text-align: left;
 }
 
-.dropdown:hover > .dropdown-menu { 
-    display: block; 
-} 
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
 
 .dropdown li a:hover {
 	background-color: #002747;
@@ -126,7 +125,7 @@ input[type="search"] {
 .rus
 {
 	 width:35px;
-	 height:auto;	 
+	 height:auto;
 	 margin-right:11px;
 }
 
@@ -135,11 +134,11 @@ input[type="search"] {
 	margin-top:32px;
 	background-color: #003867;
 	border:2px solid #003867;
-	border-radius: 3px;	
-    text-decoration: none !important; 
-    user-select: none; 
+	border-radius: 3px;
+    text-decoration: none !important;
+    user-select: none;
     padding: .4em 1.5em;
-    outline: none; 
+    outline: none;
 	height: 40px;
 	margin-right: 2px;
     color: white !important;
@@ -156,8 +155,8 @@ input[type="search"] {
    }
 
 
-   .login:hover, .button1:hover  { background-color:white; border:2px solid #003867; color: #003867 !important; } 
-   .login:active, .button1:active { background-color: #003867; border:2px solid #003867; color: white !important; } 
+   .login:hover, .button1:hover  { background-color:white; border:2px solid #003867; color: #003867 !important; }
+   .login:active, .button1:active { background-color: #003867; border:2px solid #003867; color: white !important; }
 
 
    .navbar-nav li
@@ -165,7 +164,7 @@ input[type="search"] {
    	padding: 2px 0px 0px 0px;
     width: 14.28%;
    }
-	
+
 	.navbar-nav li:hover, .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus
    {
    		background-color: #002747 !important;
@@ -193,7 +192,7 @@ input[type="search"] {
    }
 
 
-    .navbar-nav 
+    .navbar-nav
    {
    	margin-left:auto;
    	margin-right:auto;
@@ -214,9 +213,9 @@ input[type="search"] {
 	background-color: rgb(0, 56, 103);
 }
 
-#bs-example-navbar-collapse-1 
+#bs-example-navbar-collapse-1
 {
-	margin-top: 25px; 
+	margin-top: 25px;
 	background-color: #003867;
     width: 100%;
     height: 54px;
@@ -241,7 +240,7 @@ input[type="search"] {
 	.event div
 	{
 		color: white !important;
-		max-width: 100%;		
+		max-width: 100%;
 	}
 
 	.event_info div
@@ -272,8 +271,8 @@ input[type="search"] {
 	{
 		font-weight: 400;
 		font-size: 12px;
-		bottom: 55px;
-		height: 15%;
+		/*bottom: 55px;*/
+		/*height: 15%;*/
 
 	}
 	.sub_grey
@@ -311,7 +310,7 @@ input[type="search"] {
 		background-position: center;
 		background-repeat: no-repeat;
 	}
-	
+
 	.news_text .news_subheader {
 		color:white;
 	}
@@ -323,10 +322,13 @@ input[type="search"] {
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 )
 		position: relative;
 		height: 100%;
-		float: left;
+		/*float: left;*/
 		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
 	}
-	
+
 	.tag_row{
 		display: flex;
 	}
@@ -348,7 +350,7 @@ input[type="search"] {
 	}
 	.tag:nth-child(2n)
 	{
-		color: #C8984D !important;		
+		color: #C8984D !important;
 	}
 	.tag:nth-child(3n)
 	{
@@ -412,7 +414,7 @@ input[type="search"] {
 		text-align: right;
 	}
 
-	
+
 		.event1
 	{
 		background: linear-gradient(180deg, rgba(0, 56, 103, 0.01) 0%, #010E18 100%), url(../img/photo1.jpg), #FFFFFF;
@@ -438,16 +440,19 @@ input[type="search"] {
 		-webkit-background-size: cover;
 		background-size: cover;
 		background-repeat: no-repeat;
-		margin-right: 5px; 
+		margin-right: 5px;
 	}
-		
+
 	.event_text {
 		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
 		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.95) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 )
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 );
 		position: relative;
 		height: 100%;
 		padding: 15px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
 	}
 
 	.event
@@ -457,7 +462,7 @@ input[type="search"] {
 		background-size: cover;
 		box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
 		border-radius: 3px;
-		background-color: #003867;
+		/*background-color: #003867;*/
 		overflow: hidden;
 		position: relative;
 	}
@@ -507,13 +512,13 @@ input[type="search"] {
 		max-width: 50px;
 		max-height: 50px;
 	}
-	
+
 	.publication_image {
 		text-align: center;
 	}
-	
 
-	footer 
+
+	footer
 	{
 	    background: none repeat scroll 0 0 #003A6A;
 	    clear: both;
@@ -579,7 +584,7 @@ input[type="search"] {
 
 
 	.univ1
-	{		
+	{
 	    background-image: url(/catalog/view/theme/default/image/univ1.png);
 	    background-repeat: no-repeat;
 	    background-size: contain;
@@ -588,29 +593,15 @@ input[type="search"] {
     	height: 200px;
 	}
 	.univ2
-	{		
+	{
 	    background-image: url(/catalog/view/theme/default/image/univ2.png);
 	    background-repeat: no-repeat;
 	    background-size: contain;
 	    background-position: center;
 	    width: 100%;
    	 	height: 200px;
-	}	
-	
-	.owl-carousel {
-		max-width:1170px;
-		margin: 0 auto !important;
-		margin-top: 40px !important; 
 	}
 
-	.owl-item .item img {
-	  	margin-left: auto;
-	  	margin-right: auto;
-	}
-
-	.owl-controls {
-		background-color: #F5F7F8 !important;
-	}
 
 	.slider {
       position: relative;
@@ -742,7 +733,7 @@ input[type="search"] {
 
 
    /*Страница Новости*/
-	
+
 	#bd_expert_page .pagination > li > a, #bd_organizations_page .pagination > li > a, #newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
 		color: #ADADAD !important;
 		background-color: transparent !important;
@@ -970,7 +961,7 @@ input[type="search"] {
 		font-weight: bold;
 		font-size: 18px;
 		line-height: 25px;
-		margin-bottom: 3px;	
+		margin-bottom: 3px;
 	}
 	.com_name span
 	{
@@ -999,7 +990,7 @@ input[type="search"] {
 		font-weight: 500 !important;
 		font-size: 16px;
 		line-height: 21px;
-		color: #004885 !important; 
+		color: #004885 !important;
 	}
 	.more_comments
 	{
@@ -1090,9 +1081,9 @@ input[type="search"] {
 		box-shadow: none;
 		margin: 0;
 		margin-left: -15px;
-		margin-right: -15px; 
+		margin-right: -15px;
 	}
-	
+
 	.event_page .image
 	{
 		background-size: cover;
@@ -1137,12 +1128,12 @@ input[type="search"] {
 		color: #242424;
 	}
 
-	
+
 	.event_list_text {
 		height: 240px;
 		background-color: white;
 		margin-bottom: 10px;
-		padding: 10px; 
+		padding: 10px;
 	}
 /*    Конец Страницы Мероприятия*/
 
@@ -1158,7 +1149,7 @@ input[type="search"] {
 
 /*Начало Страницы Описания Мероприятия*/
 
-	
+
 	.full_event_page
 	{
 		overflow: auto;
@@ -1171,6 +1162,11 @@ input[type="search"] {
 	.full_event_page .event_block
 	{
 		    background-color: #013D70;
+			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
+		    border-radius: 3px;
+		    /*height: 240px;
+		    background-color: white;*/
+		    margin-bottom: 20px;
 	}
 	.full_event_page div .news_text .tag, .full_event_page  .news_header, .full_event_page .sub_grey
 	{
@@ -1228,7 +1224,7 @@ input[type="search"] {
 		width: 1px;
 		background-color: #E1E1E1;
 	}
-	
+
 	.hr_text_page
 	{
 		border-top: 1px solid #d4d4d4;
@@ -1442,7 +1438,7 @@ input[type="search"] {
 	}
 
 	 .less_org
-	{	
+	{
 		cursor: pointer;
 		font-size: 14px;
 		width: 100%;
@@ -1450,7 +1446,7 @@ input[type="search"] {
     	display: none;
 	}
 
-	.org_full div 
+	.org_full div
 	{
 		padding: 0px !important;
 		margin-bottom: 9px;
@@ -1490,7 +1486,7 @@ input[type="search"] {
 		margin-left: 76px;
 	}
 
-	
+
 	.less_org, .less_org a, .more_org, .more_org a
 	{
 		margin-top: 6px;
@@ -1498,7 +1494,7 @@ input[type="search"] {
 		color:#003568;;
 		line-height: 31px;
 	}
-	
+
 	.more_org {
 		cursor: pointer;
 	}
@@ -1537,7 +1533,7 @@ input[type="search"] {
 		background-color: #003867;
 		outline: none;
 	}
-	
+
 	.bd_search_btn {
 		border-radius: 22px;
 	    background-color: #3D65A0;
@@ -1573,7 +1569,7 @@ input[type="search"] {
 	}
 	.expert_img img
 	{
-		border-radius: 50%;	
+		border-radius: 50%;
 	}
 
 	.expert_name
@@ -1627,7 +1623,7 @@ input[type="search"] {
 		background-position: center;
 		background-repeat: no-repeat;
 		background-size: 99%;
-		margin-right: 12px; 
+		margin-right: 12px;
 		float: left;
 		margin-top: 5px;
 	}
@@ -1664,7 +1660,7 @@ input[type="search"] {
       .slider__item {
         flex: 0 0 50%;
         max-width: 50%;
-      }      
+      }
     }
 
 
@@ -1676,7 +1672,7 @@ input[type="search"] {
       }
 
     }
-    @media (min-width: 580px) and (max-width: 992px) 
+    @media (min-width: 580px) and (max-width: 992px)
     {
     	.event
     	{
@@ -1687,7 +1683,7 @@ input[type="search"] {
     	{
     		margin-right: 2%;
     	}
-    	.event_m 
+    	.event_m
     	{
     		margin-top: 305px;
     	}
@@ -1695,7 +1691,7 @@ input[type="search"] {
     	{
     		width: 100%;
     	}
-    	
+
     }
 
 
@@ -1706,7 +1702,7 @@ input[type="search"] {
       }
     }
 
-        @media (max-width: 1200px) 
+        @media (max-width: 1200px)
     {
       .full_footer
       {
@@ -1719,7 +1715,7 @@ input[type="search"] {
       .footer_text
       {
       	margin-top: 19px;
-      	font-size: 17px !important;      	
+      	font-size: 17px !important;
       }
       .footer_text a
       {
@@ -1780,7 +1776,7 @@ input[type="search"] {
 		.navbar-brand {
     		margin-left: 0px;
     	}
-		
+
 		.navbar-default .navbar-nav>li>a {
     	font-size: 18px;
     	float: left;
@@ -1847,27 +1843,10 @@ input[type="search"] {
 		}
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	.owl-carousel {
+		background: transparent;
+	}
+	.owl-wrapper-outer {
+		border: none;
+		box-shadow: none;
+	}

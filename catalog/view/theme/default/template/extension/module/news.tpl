@@ -15,24 +15,24 @@
 	          			<div class="white_tag"><?=$tag?></div>
 	          		<?php } ?>
 	          		</div>
-					
+
 					<div class="news_header"><?php echo $news_item['title']; ?></div>
 					<div class="news_subheader"><?php echo $news_item['description']; ?></div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="news_date"><?=$news_item['posted']?></div>
 						</div>
-						<div class="col-md-6">
+						<!--<div class="col-md-6">
 							<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>
-						</div>
+						</div>-->
 					</div>
-					
-	          	</div>		
-			
+
+	          	</div>
+
 		</div>
 	</a>
 	<?php } ?>
 	<div class="event_more">
-        <a href="<?=$news_list?>"><?=$text_all_news?></a> 
+        <a href="<?=$news_list?>"><?=$text_all_news?></a>
     </div>
 </div>

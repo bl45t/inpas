@@ -9,44 +9,40 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
-        <div class="col-md-12">
-            <?php echo $content_top; ?>
-            <div class="col-xs-12 col-md-3">
-            <p class="header1"><?=$text_publications?></p>
-              <?php foreach ($publications as $publication) { ?>
-                <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
-                    <div class="row publication">
-                      
-                      <div class="col-md-3 publication_image">
-                        <img src="/image/<?=$publication['image']?>">
-                      </div>
-                      
-                      <div class="col-md-9">
-                        <div class="head_publication"><?=$publication['name']?></div>
-                        <div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div> 
-                      </div>       
-                      
+        <?php echo $content_top; ?>
+
+
+        <div class="col-xs-12 col-md-3">
+          <p class="header1"><?=$text_publications?></p>
+            <?php foreach ($publications as $publication) { ?>
+              <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
+                  <div class="row publication">
+
+                    <div class="col-md-3 publication_image">
+                      <img src="/image/<?=$publication['image']?>">
                     </div>
-                </a>
-              <?php } ?>
 
-              <a href="<?=$all_publications_link?>">
-                <div class="event_more">
-                  <?=$text_all_publications?>
-                </div>
+                    <div class="col-md-9">
+                      <div class="head_publication"><?=$publication['name']?></div>
+                      <div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div>
+                    </div>
+
+                  </div>
               </a>
-          </div>
+            <?php } ?>
+
+            <a href="<?=$all_publications_link?>">
+              <div class="event_more">
+                <?=$text_all_publications?>
+              </div>
+            </a>
         </div>
-        
-
-    </div>
-    <?php echo $column_right; ?>
-       
+        <?php echo $column_right; ?>
     </div>
 
-  
+
+    </div>
+
 </div>
     <?php echo $content_bottom; ?>
 <?php echo $footer; ?>
-
-
