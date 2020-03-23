@@ -53,18 +53,8 @@
 					<a href="<?php echo $news_item['href']; ?>">
 						<div class="news" style='background-image: url("<?=$news_item["thumb"]?>")'>
 							<div class="news_text">
-								<div class="tag_row">
-								<?php foreach ($news_item['tags'] as $tag) { ?>
-					          		<div class="white_tag"><?=$tag?></div>
-					          	<?php } ?>
-					          	</div>
-
 								<div class="news_header"><?php echo $news_item['title']; ?></div>
-								<div class="news_subheader"><?php echo $news_item['description']; ?></div>
-								<div class="news_date"><?=$news_item['posted']?></div>
-								<!--<div class="news_readtime"><?=$news_item['read_time']?> <?=$text_reading_time?></div>-->
 		          			</div>
-
 						</div>
 					</a>
 				</div>

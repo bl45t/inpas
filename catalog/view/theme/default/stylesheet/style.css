@@ -372,9 +372,9 @@ input[type="search"] {
 		margin-top: 10px;
 		font-style: normal;
 		font-weight: normal;
-		font-size: 21px;
+		font-size: 18px;
 		line-height: 25px;
-		text-align: center;
+		text-align: left;
 		font-family: Roboto Slab;
 	}
 
