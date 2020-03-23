@@ -4,7 +4,7 @@ class ControllerExtensionModuleSlideshow extends Controller {
 		static $module = 0;		
 
 		$this->load->model('design/banner');
-		$this->load->model('tool/image');
+		$this->load->model('tool/imagecrop');
 
 		$this->document->addStyle('catalog/view/javascript/jquery/owl-carousel/owl.carousel.css');
 		$this->document->addScript('catalog/view/javascript/jquery/owl-carousel/owl.carousel.min.js');
@@ -18,7 +18,7 @@ class ControllerExtensionModuleSlideshow extends Controller {
 				$data['banners'][] = array(
 					'title' => $result['title'],
 					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+					'image' => $this->model_tool_imagecrop->resize($result['image'], $setting['width'], 0)
 				);
 			}
 		}

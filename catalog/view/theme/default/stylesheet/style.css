@@ -8,6 +8,7 @@ body
 	background-color: #F5F7F8;
 }
 
+
 .required:after {
 	color:red;
 	content: "*";
@@ -596,6 +597,20 @@ input[type="search"] {
    	 	height: 200px;
 	}	
 	
+	.owl-carousel {
+		max-width:1170px;
+		margin: 0 auto !important;
+		margin-top: 40px !important; 
+	}
+
+	.owl-item .item img {
+	  	margin-left: auto;
+	  	margin-right: auto;
+	}
+
+	.owl-controls {
+		background-color: #F5F7F8 !important;
+	}
 
 	.slider {
       position: relative;
