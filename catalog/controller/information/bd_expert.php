@@ -140,8 +140,6 @@ class ControllerInformationBdExpert extends Controller
 				$addrInfo[] = $e['org_address'];
 			}
 
-			
-
 			$arExperts[$e['customer_id']]['name'] = ($curLang == 'ru') ? $e['expert_name'] : $e['eng_expert_name'];
 			$arExperts[$e['customer_id']]['post'] = ($curLang == 'ru') ? $e['post'] : $e['eng_post'];
 			$arExperts[$e['customer_id']]['telephone'] = $e['telephone'];
@@ -152,6 +150,7 @@ class ControllerInformationBdExpert extends Controller
 			$arExperts[$e['customer_id']]['region_name'] = ($curLang == 'ru') ? $e['region_name'] : $e['region_eng_name'];
 			$arExperts[$e['customer_id']]['address'] = implode(', ', $addrInfo);
 			$arExperts[$e['customer_id']]['link_to_org'] = $this->url->link('information/bd_organizations','&organization='.$e['id_org']);
+			$arExperts[$e['customer_id']]['country_iso_code_2'] = strtolower($e['country_iso_code_2']);
 		}
 
 		$data['experts'] = $arExperts;

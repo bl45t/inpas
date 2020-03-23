@@ -80,7 +80,14 @@
 			<?php foreach ($experts as $expert) { ?>
 			 	<div class="organization">
 			      <div class="org_text">
-			        <div class="org_img"><img src="catalog/view/theme/default/image/user.png"><div class="flag_exp flag_kaz"></div></div>
+			        <div class="org_img expert_img">
+			        	<img src="catalog/view/theme/default/image/user.png">
+						<?php if (!empty($expert['country_iso_code_2'])) { ?>
+				        	<div class="flag_exp">
+				        		<span class="flag-icon-squared  flag-icon-<?=$expert['country_iso_code_2']?>"></span>
+				        	</div>
+				        <?php } ?>
+			        </div>
 			        <p class="expert_name"><?=$expert['name']?></p>
 			        <div class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></div>
 			        <div class="org_full exp_full">
