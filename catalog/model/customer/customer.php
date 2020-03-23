@@ -12,10 +12,11 @@ class ModelCustomerCustomer extends Model
 			FROM " . DB_PREFIX . "customer c 
 			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id) 
 			LEFT JOIN " . DB_PREFIX . "manufacturer m ON m.manufacturer_id = c.id_organization
-			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON md.manufacturer_id = m.manufacturer_id
+			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON md.manufacturer_id = m.manufacturer_id 
+				AND md.language_id = '". (int)$this->config->get('config_language_id') ."' 
 			LEFT JOIN " . DB_PREFIX . "country cntry ON cntry.country_id = m.id_country
 			LEFT JOIN " . DB_PREFIX . "zone z ON z.zone_id = m.id_region
-			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND md.language_id = '". (int)$this->config->get('config_language_id') ."' AND c.is_expert = 1
+			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
 		";
 
 		$implode = array();
