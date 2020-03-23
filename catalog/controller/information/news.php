@@ -355,6 +355,14 @@ class ControllerInformationNews extends Controller {
 
 			$data['description'] = html_entity_decode($news_info['description'], ENT_QUOTES, 'UTF-8');
 
+			$tags = [];
+ 			$tags = explode(",", $news_info['tag']);
+
+			$data['tags'] = $tags;
+			$data['read_time'] = $news_info['read_time'];
+
+			$data['text_reading_time'] = $this->language->get('text_reading_time');
+
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');

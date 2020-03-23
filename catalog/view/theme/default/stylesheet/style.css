@@ -867,7 +867,155 @@ input[type="search"] {
     /*Конец Страницы Новости*/
 
 
+/*Начало Страницы Текста Новости*/
 
+	.full_news_page
+	{
+		overflow: auto;
+	    height: auto;
+	    padding: 28px;
+	    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
+	    border-radius: 3px;
+	    background-color: white;
+	}
+	.img_full_news
+	{
+		background-size: cover;
+		width: 100%;
+		height: 240px;
+		box-shadow: 3px 3px 10px
+		rgba(0, 0, 0, 0.11);
+		border-radius: 3px;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+
+	.fn_head
+	{
+		margin-bottom: 50px;
+		min-height: 240px;
+	}
+	.fn_head .news_header
+	{
+		font-size: 30px;
+    	line-height: 35px;
+    	text-align: left;
+
+	}
+	.fn_head .tag
+	{
+		font-size: 13px;
+	}
+	.news_p p
+	{
+		color: #242424 !important;
+	}
+
+	.comments
+	{
+		margin-top:100px;
+		height: auto;
+		width: 100%;
+	}
+	.comments_header
+	{
+		font-size: 22px;
+		line-height: 25px;
+		margin-bottom: 27px;
+	}
+	.comments_header span
+	{
+		color: #A7A7A7;
+		font-size: 18px;
+		margin-left: 5px;
+
+	}
+	.comment_block
+	{
+		width: 100%;
+		margin-top: 20px;
+		overflow: auto;
+	}
+	.com_img
+	{
+		height: 100%;
+		width: 50px;
+		float: left;
+		margin-right: 20px;
+	}
+	.com_avatar
+	{
+		border-radius: 100px;
+		width: 50px;
+		height: 50px;
+		object-fit: cover;
+	}
+	.com_name
+	{
+		font-weight: bold;
+		font-size: 18px;
+		line-height: 25px;
+		margin-bottom: 3px;	
+	}
+	.com_name span
+	{
+		color: #A7A7A7;
+		font-size: 15px;
+		margin-left: 10px;
+		font-weight: normal;
+	}
+	.com_text
+	{
+		font-size: 16px;
+		margin-top: 5px;
+	}
+	.comments hr
+	{
+		margin: 15px 0px 0px 0px;
+		border-top: 1px solid #e0e0e0;
+	}
+	.com_float
+	{
+		float: left;
+		width: calc(100% - 70px);
+	}
+	.more_comments a
+	{
+		font-weight: 500 !important;
+		font-size: 16px;
+		line-height: 21px;
+		color: #004885 !important; 
+	}
+	.more_comments
+	{
+		margin:20px 0px;
+	}
+	.com_input textarea
+	{
+		width: calc(100% - 70px);
+		min-height: 70px;
+		resize: none;
+	}
+	.new_comment
+	{
+		margin-top: 34px;
+	}
+	.fn_head .news_subheader
+	{
+		font-size: 16px;
+		line-height: 20px;
+		color: #838383;
+	}
+
+	.fn_head .news_date, .fn_head .news_readtime {
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 14px;
+		letter-spacing: 0.005em;
+		color:#ADADAD;
+	}
+
+/*Конец Страницы Текста Новости*/
 
 
 
