@@ -29,18 +29,18 @@
             <div class="event_article_header_text ">
               <div class="tag_row">
                 <?php foreach ($tags as $tag) { ?>
-                    <div class="white_tag "><?=$tag?></div>
+                    <div class="tag "><?=$tag?></div>
                 <?php } ?>
               </div>
               <div class="news_header"><?=$heading_title; ?></div>
               <div class="news_subheader"><?=$preview?></div>
-              <div class="date_event color1">
+              <div class="date_event ">
                 <span class="sub_grey"> <?=$text_date_start?> &nbsp;  </span> <?=$date_start?>
               </div>
-              <div class="date_event color1">
+              <div class="date_event ">
                 <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
               </div>
-              <div class="place_event color1">
+              <div class="place_event ">
                 <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
               </div>
             </div>

@@ -1165,20 +1165,18 @@ input[type="search"] {
 	}
 	.full_event_page .event_block
 	{
-		    background-color: #013D70;
-			box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.11);
 		    border-radius: 3px;
 		    /*height: 240px;
 		    background-color: white;*/
 		    margin-bottom: 20px;
 	}
-	.full_event_page div .news_text .tag, .full_event_page  .news_header, .full_event_page .sub_grey
+	.full_event_page div .news_text .tag
 	{
 		color: white !important;
 	}
 	.full_event_page .news_subheader
 	{
-		color: #BDC9D3 !important;
+		color: #515151 !important;
 	}
 
 
