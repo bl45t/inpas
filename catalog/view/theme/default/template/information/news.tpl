@@ -29,15 +29,8 @@
 	                					<?php } ?>
 	              					</div>
 					            <div class="news_header"><?php echo $heading_title; ?></div>
-					            <div class="news_subheader"></div>
-					            <div class="row">
-					            	<div class="col-md-6">
-					             		<div class="news_date"><?=$posted?></div>
-					             	</div>
-					             	<div class="col-md-6">
-					            		<div class="news_readtime"><?=$read_time?> <?=$text_reading_time?></div>
-					            	</div>
-					            </div>
+					            <div class="news_subheader"></div>		         
+					            <div class="news_date"><?=$posted?></div>
 					          </div>
 					        </div>
 	        			</div>
