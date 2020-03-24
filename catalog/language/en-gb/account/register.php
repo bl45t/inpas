@@ -47,6 +47,7 @@ $_['entry_org_email'] = 'Organization Email';
 $_['entry_org_fax'] = 'Organization fax';
 $_['entry_org_site'] = 'Organization web site';
 $_['entry_org_zone'] = 'Organization region';
+$_['entry_about_me'] = 'About me';
 
 // Error
 $_['error_exists']         = 'Warning: E-Mail Address is already registered!';

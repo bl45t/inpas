@@ -1335,8 +1335,8 @@ input[type="search"] {
 	{
 		float: right;
 	    margin-top: 32px;
-	    background-color: #003867;
-	    border: 2px solid #003867;
+	    background-color: #CCCCCC;
+		border: 2px solid #CCCCCC;
 	    border-radius: 3px;
 	    text-decoration: none;
 	    user-select: none;
@@ -1368,8 +1368,8 @@ input[type="search"] {
 	}
 	.activeUser
 	{
-		background-color: #CCCCCC;
-		border-color: #CCCCCC;
+	    background-color: #003867;
+	    border: 2px solid #003867;
 	}
 	.reg_link
 	{

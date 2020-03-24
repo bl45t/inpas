@@ -47,6 +47,7 @@ $_['entry_org_email'] = 'Email организации';
 $_['entry_org_fax'] = 'Факс организации';
 $_['entry_org_site'] = 'Сайт организации';
 $_['entry_org_zone'] = 'Регион организации';
+$_['entry_about_me'] = 'О себе';
 
 // Error
 $_['error_exists']         = 'Этот E-Mail уже зарегистрирован!';

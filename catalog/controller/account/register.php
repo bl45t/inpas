@@ -142,6 +142,7 @@ class ControllerAccountRegister extends Controller {
 		$data['entry_org_fax'] = $this->language->get('entry_org_fax');
 		$data['entry_org_site'] = $this->language->get('entry_org_site');
 		$data['entry_org_zone'] = $this->language->get('entry_org_zone');
+		$data['entry_about_me'] = $this->language->get('entry_about_me');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
@@ -413,6 +414,18 @@ class ControllerAccountRegister extends Controller {
 			$data['eng_field_of_interest'] = $this->request->post['eng_field_of_interest'];
 		} else {
 			$data['eng_field_of_interest'] = '';
+		}
+
+		if (isset($this->request->post['about_me'])) {
+			$data['about_me'] = $this->request->post['about_me'];
+		} else {
+			$data['about_me'] = '';
+		}
+
+		if (isset($this->request->post['eng_about_me'])) {
+			$data['eng_about_me'] = $this->request->post['eng_about_me'];
+		} else {
+			$data['eng_about_me'] = '';
 		}
 
 		if (isset($this->request->post['id_organization'])) {

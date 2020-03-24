@@ -74,6 +74,7 @@ class ControllerAccountEdit extends Controller {
 		$data['entry_interests'] = $this->language->get('entry_interests');
 		$data['entry_social_link'] = $this->language->get('entry_social_link');
 		$data['entry_organization'] = $this->language->get('entry_organization');
+		$data['entry_about_me'] = $this->language->get('entry_about_me');
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
@@ -237,6 +238,22 @@ class ControllerAccountEdit extends Controller {
 			$data['eng_field_of_interest'] = $customer_info['eng_field_of_interest'];
 		} else {
 			$data['eng_field_of_interest'] = '';
+		}
+
+		if (isset($this->request->post['about_me'])) {
+			$data['about_me'] = $this->request->post['about_me'];
+		} elseif (!empty($customer_info)) {
+			$data['about_me'] = $customer_info['about_me'];
+		} else {
+			$data['about_me'] = '';
+		}
+
+		if (isset($this->request->post['eng_about_me'])) {
+			$data['eng_about_me'] = $this->request->post['eng_about_me'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_about_me'] = $customer_info['eng_about_me'];
+		} else {
+			$data['eng_about_me'] = '';
 		}
 
 		if (isset($this->request->post['id_organization'])) {

@@ -155,6 +155,22 @@
               </select>
           </div>
 
+          <div id="form_group_about_me" class="form-group">
+              <label class="" for="input-about-me"><?php echo $entry_about_me; ?></label>
+              <div class="input-group">
+                <span class="input-group-addon">
+                <img src="/catalog/language/ru-ru/ru-ru.png">
+              </span>
+                <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>  
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <img src="/catalog/language/en-gb/en-gb.png">
+                </span>
+                <textarea type="text" name="eng_about_me"  placeholder="<?php echo $entry_about_me; ?>" class="form-control"><?php echo $eng_about_me; ?></textarea>
+              </div>
+          </div>
+
           <?php foreach ($custom_fields as $custom_field) { ?>
           <?php if ($custom_field['location'] == 'account') { ?>
           <?php if ($custom_field['type'] == 'select') { ?>
@@ -330,7 +346,7 @@
     $("#form_group_interests").addClass("hidden");
     $("#form_group_social_link").addClass("hidden");
     $("#form_group_organozation").addClass("hidden");
-
+    $("#form_group_about_me").addClass("hidden");
   }
 
 // Sort the custom fields

@@ -165,7 +165,7 @@
               	<input type="text" name="field_of_interest" value="<?php echo $field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" id="input-interests" class="form-control" />
               </div>
               <div class="input-group">
-				<span class="input-group-addon">
+				      <span class="input-group-addon">
 	            	<img src="/catalog/language/en-gb/en-gb.png">
 	            </span>
 	            <input type="text" name="eng_field_of_interest" value="<?php echo $eng_field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" class="form-control" />
@@ -269,6 +269,22 @@
             </div>
 
           </fieldset>
+
+          <div id="form_group_about_me" class="form-group hidden">
+              <label class="" for="input-about-me"><?php echo $entry_about_me; ?></label>
+              <div class="input-group">
+                <span class="input-group-addon">
+                <img src="/catalog/language/ru-ru/ru-ru.png">
+              </span>
+                <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>  
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon">
+                  <img src="/catalog/language/en-gb/en-gb.png">
+                </span>
+                <textarea type="text" name="eng_about_me"  placeholder="<?php echo $entry_about_me; ?>" class="form-control"><?php echo $eng_about_me; ?></textarea>
+              </div>
+          </div>
 
           <div class="form-group hidden">
             <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
@@ -930,6 +946,7 @@ $('.type_user button').click(function() {
     $("#form_group_interests").removeClass('hidden');
     $("#form_group_organozation").removeClass('hidden');
     $("#form_group_not_exist_org").removeClass('hidden');
+    $("#form_group_about_me").removeClass('hidden');
     $("#form_group_post label").addClass('required');
     
   }
@@ -940,6 +957,7 @@ $('.type_user button').click(function() {
     $("#form_group_interests").addClass('hidden');
     $("#form_group_organozation").addClass('hidden');
     $("#form_group_not_exist_org").addClass('hidden');
+     $("#form_group_about_me").addClass('hidden');
     $("#form_group_post label").removeClass('required');
     $("#input-empty-org").removeAttr('checked');
     $("#input-empty-org").trigger('change');

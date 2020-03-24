@@ -22,6 +22,7 @@ $_['entry_workplace']        = 'Place of work';
 $_['entry_social_link'] = 'Link to a social network profile';
 $_['entry_interests'] = 'Field of interest';
 $_['entry_organization'] = 'Organization';
+$_['entry_about_me'] = 'About me';
 
 // Error
 $_['error_exists']                = 'Warning: E-Mail address is already registered!';
