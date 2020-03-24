@@ -70,6 +70,7 @@
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
             <a href="<?=$account?>" class="login"><?=$text_account?></a>
           <?php } else { ?>
+            <a href="<?=$register?>" class="login"><?=$text_register?></a>
             <a href="<?=$login?>" class="login"><?=$text_login?></a>
           <?php } ?>
 
