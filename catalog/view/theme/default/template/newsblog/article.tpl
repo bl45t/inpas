@@ -49,7 +49,7 @@
         </div>
 
   
-        <div class="event_main_text">
+        <div class="">
           	<?php echo $description; ?>
    
 
