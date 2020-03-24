@@ -294,10 +294,12 @@ class ControllerInformationNews extends Controller {
 				$data['heading_title'] = $news_info['title'];
 			}
 
+			/*
 			$data['breadcrumbs'][] = array(
 				'text' => $news_info['title'],
 				'href' => $this->url->link('information/news/info', 'news_id=' . $news_id)
 			);
+			*/
 
 			$this->document->addLink($this->url->link('information/news', 'news_id=' . $this->request->get['news_id']),
 				'canonical');

@@ -88,10 +88,12 @@ class ControllerNewsBlogArticle extends Controller {
 				$url .= '&tag=' . $this->request->get['tag'];
 			}
 
+			/*
 			$data['breadcrumbs'][] = array(
 				'text' => $article_info['name'],
 				'href' => $this->url->link('newsblog/article', $url . '&newsblog_article_id=' . $newsblog_article_id)
 			);
+			*/
 
 			if ($article_info['meta_title']) {
 				$this->document->setTitle($article_info['meta_title']);
