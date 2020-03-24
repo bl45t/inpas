@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-md-6">
+<div class="col-xs-12 col-md-5">
 <?php if($show_title) { ?>
 	<p class="header1">
 		<?php echo $show_icon ? '<i class="fa fa-newspaper-o fa-3x"></i>&nbsp;' : ''; ?>

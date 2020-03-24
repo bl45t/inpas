@@ -247,6 +247,10 @@ input[type="search"] {
 		max-width: 100%;
 	}
 
+	.event_link {
+		display: block;
+	}
+
 	.event_info div
 	{
 		color: white;
@@ -306,7 +310,7 @@ input[type="search"] {
 	{
 		background-size: cover;
 	    width: 100%;
-		height: 240px;
+		height: 300px;
 		margin-bottom: 13px;
 		box-shadow: 3px 3px 10px
 		rgba(0, 0, 0, 0.11);
@@ -439,7 +443,7 @@ input[type="search"] {
 	#event_hp {
 		cursor: pointer;
 		widows: 100%;
-		height: 240px;
+		height: 300px;
 		background-position: center;
 		-webkit-background-size: cover;
 		background-size: cover;
