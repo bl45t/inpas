@@ -37,9 +37,11 @@
               <div class="date_event ">
                 <span class="sub_grey"> <?=$text_date_start?> &nbsp;  </span> <?=$date_start?>
               </div>
-              <div class="date_event ">
-                <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
-              </div>
+                <?php if (strtotime($date_end) != strtotime('0000-00-00')) { ?>
+                  <div class="date_event ">
+                    <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
+                  </div>
+                <?php } ?>
               <div class="place_event ">
                 <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
               </div>

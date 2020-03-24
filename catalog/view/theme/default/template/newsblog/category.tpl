@@ -78,9 +78,11 @@
                              </div>
                           </div>
                           <div class="col-lg-6">
-                           <div class="date_event">
-                            <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
-                           </div>
+                            <?php if (strtotime($article['date_end']) != strtotime('0000-00-00')) { ?>
+                               <div class="date_event">
+                                <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
+                               </div>
+                            <?php } ?>
                           </div>
                        </div>
                        <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
