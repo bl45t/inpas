@@ -12,6 +12,6 @@ $_['text_site'] = 'Сайт:';
 $_['text_educational_program'] = 'Образовательная программа:';
 $_['text_hide'] = 'Скрыть';
 $_['text_open'] = 'Раскрыть';
-$_['text_sorry_not_found'] = 'Извините, данные не найдны!';
+$_['text_sorry_not_found'] = 'Извините, данные не найдены!';
 $_['text_filters'] = 'Фильтры';
 $_['text_search'] = 'Поиск';
