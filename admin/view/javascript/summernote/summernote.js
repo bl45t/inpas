@@ -3940,6 +3940,7 @@
       this[commands[idx]] = (function (sCmd) {
         return function (value) {
           beforeCommand();
+          document.execCommand("styleWithCSS", false, null);
           document.execCommand(sCmd, false, value);
           afterCommand(true);
         };

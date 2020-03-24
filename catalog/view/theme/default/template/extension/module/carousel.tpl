@@ -1,5 +1,4 @@
 <div class="container">
-    <p class="header1">Опорные университеты</p>
 <div id="carousel<?php echo $module; ?>" class="owl-carousel">
   <?php foreach ($banners as $banner) { ?>
   <div class="item text-center">
