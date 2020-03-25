@@ -319,6 +319,22 @@ input[type="search"] {
 		background-repeat: no-repeat;
 	}
 
+	.news:hover, .event:hover, .publication:hover, .event_block:hover {
+	    -webkit-transform: scale(1.02);
+	    -moz-transform: scale(1.02);
+	    -ms-transform: scale(1.02);
+	    transform: scale(1.02);
+	    transition-duration: 0.4s;
+	}
+
+	.news:not(:hover), .event:not(:hover), .publication:not(:hover), .event_block:not(:hover) {
+	    -webkit-transform: scale(1);
+	    -moz-transform: scale(1);
+	    -ms-transform: scale(1);
+	    transform: scale(1);
+	    transition-duration: 0.4s;
+	}
+
 	.news_text .news_subheader {
 		color:white;
 	}
@@ -495,6 +511,7 @@ input[type="search"] {
 		padding: 17px 10px 17px 10px;
 		margin-bottom: 20px;
 		padding-bottom: 5px;
+		overflow: hidden;
 	}
 	.head_publication
 	{

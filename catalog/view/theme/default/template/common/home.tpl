@@ -16,7 +16,7 @@
           <p class="header1"><?=$text_publications?></p>
             <?php foreach ($publications as $publication) { ?>
               <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
-                  <div class="row publication">
+                  <div class="publication">
 
                     <div class="col-md-3 publication_image">
                       <img src="/image/<?=$publication['image']?>">
