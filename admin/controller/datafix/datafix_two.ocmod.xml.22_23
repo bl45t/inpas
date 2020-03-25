@@ -1,0 +1,19 @@
+<file path="catalog/controller/startup/seo_pro.php" error="skip">
+	<operation error="skip">
+        <search position="after"><![CDATA[private function validate() {]]></search>
+        <add position="after"><![CDATA[
+		if (isset($this->request->server['REQUEST_URI'][0]) && $this->request->server['REQUEST_URI'][0] == '/') {
+			$df_request_uri = substr($this->request->server['REQUEST_URI'], 1);
+		} else {
+			$df_request_uri = $this->request->server['REQUEST_URI'];
+		}
+        ]]></add>
+	</operation>
+</file>
+
+<file path="catalog/controller/startup/seo_pro.php" error="skip">
+	<operation error="skip">
+        <search position="replace"><![CDATA[ltrim($this->request->server['REQUEST_URI'], '/')]]></search>
+        <add position="replace"><![CDATA[$df_request_uri]]></add>
+	</operation>
+</file>

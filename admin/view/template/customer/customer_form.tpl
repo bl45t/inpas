@@ -25,30 +25,21 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-customer" class="form-horizontal">
+          
+          <input id="is_expert_input" type="hidden" name="is_expert" value="<?=$is_expert?>">
+
           <ul class="nav nav-tabs">
             <li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $tab_general; ?></a></li>
             <?php if ($customer_id) { ?>
-            <li><a href="#tab-history" data-toggle="tab"><?php echo $tab_history; ?></a></li>
-            <li><a href="#tab-transaction" data-toggle="tab"><?php echo $tab_transaction; ?></a></li>
-            <li><a href="#tab-reward" data-toggle="tab"><?php echo $tab_reward; ?></a></li>
+
             <li><a href="#tab-ip" data-toggle="tab"><?php echo $tab_ip; ?></a></li>
             <?php } ?>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
               <div class="row">
-                <div class="col-sm-2">
-                  <ul class="nav nav-pills nav-stacked" id="address">
-                    <li class="active"><a href="#tab-customer" data-toggle="tab"><?php echo $tab_general; ?></a></li>
-                    <?php $address_row = 1; ?>
-                    <?php foreach ($addresses as $address) { ?>
-                    <li><a href="#tab-address<?php echo $address_row; ?>" data-toggle="tab"><i class="fa fa-minus-circle" onclick="$('#address a:first').tab('show'); $('#address a[href=\'#tab-address<?php echo $address_row; ?>\']').parent().remove(); $('#tab-address<?php echo $address_row; ?>').remove();"></i> <?php echo $tab_address . ' ' . $address_row; ?></a></li>
-                    <?php $address_row++; ?>
-                    <?php } ?>
-                    <li id="address-add"><a onclick="addAddress();"><i class="fa fa-plus-circle"></i> <?php echo $button_address_add; ?></a></li>
-                  </ul>
-                </div>
-                <div class="col-sm-10">
+                
+                <div class="col-sm-12">
                   <div class="tab-content">
                     <div class="tab-pane active" id="tab-customer">
                       <div class="form-group">
@@ -68,7 +59,19 @@
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-firstname"><?php echo $entry_firstname; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" id="input-firstname" class="form-control" />
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                            <input type="text" name="firstname" value="<?php echo $firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" class="form-control" />
+                          </div>
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/en-gb/en-gb.png">
+                            </span>
+                            <input type="text" name="eng_firstname" value="<?php echo $eng_firstname; ?>" placeholder="<?php echo $entry_firstname; ?>" class="form-control" />
+                          </div>
+
                           <?php if ($error_firstname) { ?>
                           <div class="text-danger"><?php echo $error_firstname; ?></div>
                           <?php } ?>
@@ -77,7 +80,20 @@
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-lastname"><?php echo $entry_lastname; ?></label>
                         <div class="col-sm-10">
-                          <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                            <input type="text" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />
+                          </div>
+
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/en-gb/en-gb.png">
+                            </span>
+                            <input type="text" name="eng_lastname" value="<?php echo $eng_lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" class="form-control" />
+                          </div>
+
                           <?php if ($error_lastname) { ?>
                           <div class="text-danger"><?php echo $error_lastname; ?></div>
                           <?php } ?>
@@ -92,7 +108,7 @@
                           <?php  } ?>
                         </div>
                       </div>
-                      <div class="form-group required">
+                      <div class="form-group">
                         <label class="col-sm-2 control-label" for="input-telephone"><?php echo $entry_telephone; ?></label>
                         <div class="col-sm-10">
                           <input type="text" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
@@ -101,12 +117,111 @@
                           <?php  } ?>
                         </div>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group hidden">
                         <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
                         <div class="col-sm-10">
                           <input type="text" name="fax" value="<?php echo $fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
                         </div>
                       </div>
+                        
+                      <div id="form_group_post" class="form-group ">
+                        <label class="col-sm-2 control-label" for="input-post"><?php echo $entry_post; ?></label>
+                        <div class="col-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                            <img src="/catalog/language/ru-ru/ru-ru.png">
+                          </span>
+                            <input type="text" name="post" value="<?php echo $post; ?>" placeholder="<?php echo $entry_post; ?>" id="input-post" class="form-control" />
+                          </div>
+                          <div id="input_group_eng_post" class="input-group">
+                            <span class="input-group-addon">
+                            <img src="/catalog/language/en-gb/en-gb.png">
+                          </span>
+                          <input type="text" name="eng_post" value="<?php echo $eng_post; ?>" placeholder="<?php echo $entry_post; ?>" class="form-control" />
+                        </div>
+                        <?php if ($error_post) { ?>
+                          <div class="text-danger"><?php echo $error_post; ?></div>
+                        <?php } ?>
+                        </div>
+                      </div>
+
+                      <div id="form_group_workplace" class="form-group ">
+                         <label class="col-sm-2 control-label" for="input-workplace"><?php echo $entry_workplace; ?></label>
+                         <div class="col-sm-10">
+                           <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                              <input type="text" name="workplace" value="<?php echo $workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" id="input-workplace" class="form-control" />
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                               <img src="/catalog/language/en-gb/en-gb.png">
+                              </span>
+                              <input type="text" name="eng_workplace" value="<?php echo $eng_workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" class="form-control" />
+                            </div>
+                          </div>
+                      </div>
+
+                      <div id="form_group_interests" class="form-group">
+                          <label class="col-sm-2 control-label" for="input-interests"><?php echo $entry_interests; ?></label>
+                          <div class="col-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                              <input type="text" name="field_of_interest" value="<?php echo $field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" id="input-interests" class="form-control" />
+                            </div>
+                            <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/en-gb/en-gb.png">
+                            </span>
+                            <input type="text" name="eng_field_of_interest" value="<?php echo $eng_field_of_interest; ?>" placeholder="<?php echo $entry_interests; ?>" class="form-control" />
+                            </div>
+                          </div>
+                      </div>
+
+                      <div id="form_group_social_link" class="form-group">
+                        <label class="col-sm-2 control-label" for="input-social-link"><?php echo $entry_social_link; ?></label>
+                        <div class="col-sm-10">
+                          <input type="text" name="social_link" value="<?php echo $social_link; ?>" placeholder="<?php echo $entry_social_link; ?>" id="input-social-link" class="form-control" />
+                        </div>
+                      </div>
+
+                      <div id="form_group_organozation" class="form-group">
+                          <label class="col-sm-2 control-label" for="input-id-organization"><?php echo $entry_organization; ?></label>
+                          <div class="col-sm-10">
+                            <select name="id_organization" id="input-id-organization" class="form-control">
+                                  <option value="0"><?=$text_select?></option>
+                                <?php foreach ($organizations as $org) { ?>
+                                    <?php if (isset($id_organization) && $id_organization == $org['manufacturer_id']) { ?>
+                                      <option value="<?=$org['manufacturer_id']?>" selected="selected"><?=$org['name']?></option>
+                                    <?php } else { ?>
+                                      <option value="<?=$org['manufacturer_id']?>"><?=$org['name']?></option>
+                                    <?php } ?>
+                                <?php } ?>
+                            </select>
+                          </div>
+                      </div>
+
+                      <div id="form_group_about_me" class="form-group">
+                          <label class="col-sm-2 control-label" for="input-about-me"><?php echo $entry_about_me; ?></label>
+                          <div class="col-sm-10">
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                              <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>  
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <img src="/catalog/language/en-gb/en-gb.png">
+                              </span>
+                              <textarea type="text" name="eng_about_me"  placeholder="<?php echo $entry_about_me; ?>" class="form-control"><?php echo $eng_about_me; ?></textarea>
+                            </div>
+                          </div>
+                      </div>
+
                       <?php foreach ($custom_fields as $custom_field) { ?>
                       <?php if ($custom_field['location'] == 'account') { ?>
                       <?php if ($custom_field['type'] == 'select') { ?>
@@ -278,7 +393,7 @@
                           <?php  } ?>
                         </div>
                       </div>
-                      <div class="form-group">
+                      <div class="form-group hidden">
                         <label class="col-sm-2 control-label" for="input-newsletter"><?php echo $entry_newsletter; ?></label>
                         <div class="col-sm-10">
                           <select name="newsletter" id="input-newsletter" class="form-control">
@@ -658,6 +773,41 @@
     </div>
   </div>
   <script type="text/javascript"><!--
+$('select[name=\'customer_group_id\']').on('change', function() {
+  let selGroupId = $(this).val();
+  let newIsExpertVal = 0;
+  let expertGroup = 2;
+  let userGroup = 1;
+
+  if (selGroupId == expertGroup) {
+    newIsExpertVal = 1;
+    getExpertStateForm();
+  } else if (selGroupId == userGroup) {
+    newIsExpertVal = 0;
+    getUserStateForm();
+  }
+
+  $("#is_expert_input").val(newIsExpertVal);
+});
+
+function getExpertStateForm () {
+  $('#form_group_workplace').addClass('hidden');
+  $('#form_group_post').addClass('required');
+  $('#form_group_interests').removeClass('hidden');
+  $('#form_group_social_link').removeClass('hidden');
+  $('#form_group_organozation').removeClass('hidden');
+  $('#form_group_about_me').removeClass('hidden');
+}
+
+function getUserStateForm() {
+  $('#form_group_workplace').removeClass('hidden');
+  $('#form_group_post').removeClass('required');
+  $('#form_group_interests').addClass('hidden');
+  $('#form_group_social_link').addClass('hidden');
+  $('#form_group_organozation').addClass('hidden');
+  $('#form_group_about_me').addClass('hidden');
+}
+
 $('select[name=\'customer_group_id\']').on('change', function() {
 	$.ajax({
 		url: 'index.php?route=customer/customer/customfield&token=<?php echo $token; ?>&customer_group_id=' + this.value,

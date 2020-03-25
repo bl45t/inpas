@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>{NAME}</name>
+    <code>{MOD}</code>
+    <id>{MOD}</id>
+    <version>{VERSION}</version>
+    <vqmver required="true">2.4.0</vqmver>
+    <author>{AUTHOR}</author>
+    <link>https://opencartadmin.com</link>
+
+<file path="catalog/controller/startup/maintenance.php" error="skip">
+	<operation error="skip">
+        <search position="before"><![CDATA[if ($this->config->get('config_maintenance')]]></search>
+        <add position="before"><![CDATA[
+			if (!is_object($this->model_datafix_datafix)) {
+				$this->load->model('datafix/datafix');
+			}
+			if (!is_object($this->controller_datafix_datafixlib)) {
+				$this->model_datafix_datafix->control('datafix/datafixlib');
+			}
+    ]]></add>
+	</operation>
+</file>
+
+<file path="catalog/controller/common/maintenance.php" error="skip">
+	<operation error="skip">
+        <search position="before"><![CDATA[if ($this->config->get('config_maintenance')]]></search>
+        <add position="before"><![CDATA[
+			if (!is_object($this->model_datafix_datafix)) {
+				$this->load->model('datafix/datafix');
+			}
+			if (!is_object($this->controller_datafix_datafixlib)) {
+				$this->model_datafix_datafix->control('datafix/datafixlib');
+			}
+    ]]></add>
+	</operation>
+</file>
+</modification>

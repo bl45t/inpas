@@ -1,0 +1,13 @@
+<file path="{ADMIN}/controller/common/column_left.php">
+    <operation error="skip">
+        <search  position="before"><![CDATA[return $this->load->view]]></search>
+        <add position="before"><![CDATA[
+					$this->load->model('datafix/datafix');
+			        $this->model_datafix_datafix->control('datafix/datafix');
+			        if (is_callable(array($this->controller_datafix_datafix, 'datafix_menu'))) {
+			        	$data['datafix_menus'] = $this->controller_datafix_datafix->datafix_menu();
+			        	if (!$data['datafix_menus']) unset($data['datafix_menus']);
+			        }
+    ]]></add>
+    </operation>
+</file>

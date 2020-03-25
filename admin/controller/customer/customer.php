@@ -80,6 +80,7 @@ class ControllerCustomerCustomer extends Controller {
 		$this->load->model('customer/customer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validateForm()) {
+
 			$this->model_customer_customer->editCustomer($this->request->get['customer_id'], $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -706,6 +707,12 @@ class ControllerCustomerCustomer extends Controller {
 		$data['entry_description'] = $this->language->get('entry_description');
 		$data['entry_amount'] = $this->language->get('entry_amount');
 		$data['entry_points'] = $this->language->get('entry_points');
+		$data['entry_post'] = $this->language->get('entry_post');
+		$data['entry_workplace'] = $this->language->get('entry_workplace');
+		$data['entry_social_link'] = $this->language->get('entry_social_link');
+		$data['entry_interests'] = $this->language->get('entry_interests');
+		$data['entry_organization'] = $this->language->get('entry_organization');
+		$data['entry_about_me'] = $this->language->get('entry_about_me');
 
 		$data['help_safe'] = $this->language->get('help_safe');
 		$data['help_points'] = $this->language->get('help_points');
@@ -762,6 +769,12 @@ class ControllerCustomerCustomer extends Controller {
 			$data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$data['error_telephone'] = '';
+		}
+
+		if (isset($this->error['post'])) {
+			$data['error_post'] = $this->error['post'];
+		} else {
+			$data['error_post'] = '';
 		}
 
 		if (isset($this->error['password'])) {
@@ -866,6 +879,14 @@ class ControllerCustomerCustomer extends Controller {
 			$data['customer_group_id'] = $this->config->get('config_customer_group_id');
 		}
 
+		if (isset($this->request->post['is_expert'])) {
+			$data['is_expert'] = $this->request->post['is_expert'];
+		} elseif (!empty($customer_info)) {
+			$data['is_expert'] = $customer_info['is_expert'];
+		} else {
+			$data['is_expert'] = 0;
+		}
+
 		if (isset($this->request->post['firstname'])) {
 			$data['firstname'] = $this->request->post['firstname'];
 		} elseif (!empty($customer_info)) {
@@ -874,12 +895,28 @@ class ControllerCustomerCustomer extends Controller {
 			$data['firstname'] = '';
 		}
 
+		if (isset($this->request->post['eng_firstname'])) {
+			$data['eng_firstname'] = $this->request->post['eng_firstname'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_firstname'] = $customer_info['eng_firstname'];
+		} else {
+			$data['eng_firstname'] = '';
+		}
+
 		if (isset($this->request->post['lastname'])) {
 			$data['lastname'] = $this->request->post['lastname'];
 		} elseif (!empty($customer_info)) {
 			$data['lastname'] = $customer_info['lastname'];
 		} else {
 			$data['lastname'] = '';
+		}
+
+		if (isset($this->request->post['eng_lastname'])) {
+			$data['eng_lastname'] = $this->request->post['eng_lastname'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_lastname'] = $customer_info['eng_lastname'];
+		} else {
+			$data['eng_lastname'] = '';
 		}
 
 		if (isset($this->request->post['email'])) {
@@ -898,6 +935,86 @@ class ControllerCustomerCustomer extends Controller {
 			$data['telephone'] = '';
 		}
 
+		if (isset($this->request->post['post'])) {
+			$data['post'] = $this->request->post['post'];
+		} elseif (!empty($customer_info)) {
+			$data['post'] = $customer_info['post'];
+		} else {
+			$data['post'] = '';
+		}
+
+		if (isset($this->request->post['eng_post'])) {
+			$data['eng_post'] = $this->request->post['eng_post'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_post'] = $customer_info['eng_post'];
+		} else {
+			$data['eng_post'] = '';
+		}
+
+		if (isset($this->request->post['workplace'])) {
+			$data['workplace'] = $this->request->post['workplace'];
+		} elseif (!empty($customer_info)) {
+			$data['workplace'] = $customer_info['workplace'];
+		} else {
+			$data['workplace'] = '';
+		}
+
+		if (isset($this->request->post['eng_workplace'])) {
+			$data['eng_workplace'] = $this->request->post['eng_workplace'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_workplace'] = $customer_info['eng_workplace'];
+		} else {
+			$data['eng_workplace'] = '';
+		}
+
+		if (isset($this->request->post['field_of_interest'])) {
+			$data['field_of_interest'] = $this->request->post['field_of_interest'];
+		} elseif (!empty($customer_info)) {
+			$data['field_of_interest'] = $customer_info['field_of_interest'];
+		} else {
+			$data['field_of_interest'] = '';
+		}
+
+		if (isset($this->request->post['eng_field_of_interest'])) {
+			$data['eng_field_of_interest'] = $this->request->post['eng_field_of_interest'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_field_of_interest'] = $customer_info['eng_field_of_interest'];
+		} else {
+			$data['eng_field_of_interest'] = '';
+		}
+
+		if (isset($this->request->post['social_link'])) {
+			$data['social_link'] = $this->request->post['social_link'];
+		} elseif (!empty($customer_info)) {
+			$data['social_link'] = $customer_info['social_link'];
+		} else {
+			$data['social_link'] = '';
+		}
+
+		if (isset($this->request->post['id_organization'])) {
+			$data['id_organization'] = $this->request->post['id_organization'];
+		} elseif (!empty($customer_info)) {
+			$data['id_organization'] = $customer_info['id_organization'];
+		} else {
+			$data['id_organization'] = 0;
+		}
+
+		if (isset($this->request->post['about_me'])) {
+			$data['about_me'] = $this->request->post['about_me'];
+		} elseif (!empty($customer_info)) {
+			$data['about_me'] = $customer_info['about_me'];
+		} else {
+			$data['about_me'] = '';
+		}
+
+		if (isset($this->request->post['eng_about_me'])) {
+			$data['eng_about_me'] = $this->request->post['eng_about_me'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_about_me'] = $customer_info['eng_about_me'];
+		} else {
+			$data['eng_about_me'] = '';
+		}
+
 		if (isset($this->request->post['fax'])) {
 			$data['fax'] = $this->request->post['fax'];
 		} elseif (!empty($customer_info)) {
@@ -905,6 +1022,9 @@ class ControllerCustomerCustomer extends Controller {
 		} else {
 			$data['fax'] = '';
 		}
+
+		$this->load->model('catalog/manufacturer');
+		$data['organizations'] = $this->model_catalog_manufacturer->getManufacturers();
 
 		// Custom Fields
 		$this->load->model('customer/custom_field');
@@ -1014,11 +1134,11 @@ class ControllerCustomerCustomer extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 
-		if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32)) {
+		if ((utf8_strlen(trim($this->request->post['firstname'])) < 1) || (utf8_strlen(trim($this->request->post['eng_firstname'])) < 1) || (utf8_strlen(trim($this->request->post['firstname'])) > 32) || (utf8_strlen(trim($this->request->post['eng_firstname'])) > 32)) {
 			$this->error['firstname'] = $this->language->get('error_firstname');
 		}
 
-		if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32)) {
+		if ((utf8_strlen(trim($this->request->post['lastname'])) < 1) || (utf8_strlen(trim($this->request->post['eng_lastname'])) < 1) || (utf8_strlen(trim($this->request->post['lastname'])) > 32) || (utf8_strlen(trim($this->request->post['eng_lastname'])) > 32)) {
 			$this->error['lastname'] = $this->language->get('error_lastname');
 		}
 
@@ -1038,9 +1158,14 @@ class ControllerCustomerCustomer extends Controller {
 			}
 		}
 
-		if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
-			$this->error['telephone'] = $this->language->get('error_telephone');
+		if ($this->request->post['is_expert'] == 1 && (
+			(utf8_strlen(trim($this->request->post['post'])) < 1) || 
+			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) || 
+			(utf8_strlen(trim($this->request->post['post'])) > 128) || 
+			(utf8_strlen(trim($this->request->post['eng_post'])) > 128))){
+			$this->error['post'] = $this->language->get('error_post');
 		}
+
 
 		// Custom field validation
 		$this->load->model('customer/custom_field');
@@ -1062,50 +1187,6 @@ class ControllerCustomerCustomer extends Controller {
 
 			if ($this->request->post['password'] != $this->request->post['confirm']) {
 				$this->error['confirm'] = $this->language->get('error_confirm');
-			}
-		}
-
-		if (isset($this->request->post['address'])) {
-			foreach ($this->request->post['address'] as $key => $value) {
-				if ((utf8_strlen($value['firstname']) < 1) || (utf8_strlen($value['firstname']) > 32)) {
-					$this->error['address'][$key]['firstname'] = $this->language->get('error_firstname');
-				}
-
-				if ((utf8_strlen($value['lastname']) < 1) || (utf8_strlen($value['lastname']) > 32)) {
-					$this->error['address'][$key]['lastname'] = $this->language->get('error_lastname');
-				}
-
-				if ((utf8_strlen($value['address_1']) < 3) || (utf8_strlen($value['address_1']) > 128)) {
-					$this->error['address'][$key]['address_1'] = $this->language->get('error_address_1');
-				}
-
-				if ((utf8_strlen($value['city']) < 2) || (utf8_strlen($value['city']) > 128)) {
-					$this->error['address'][$key]['city'] = $this->language->get('error_city');
-				}
-
-				$this->load->model('localisation/country');
-
-				$country_info = $this->model_localisation_country->getCountry($value['country_id']);
-
-				if ($country_info && $country_info['postcode_required'] && (utf8_strlen($value['postcode']) < 2 || utf8_strlen($value['postcode']) > 10)) {
-					$this->error['address'][$key]['postcode'] = $this->language->get('error_postcode');
-				}
-
-				if ($value['country_id'] == '') {
-					$this->error['address'][$key]['country'] = $this->language->get('error_country');
-				}
-
-				if (!isset($value['zone_id']) || $value['zone_id'] == '') {
-					$this->error['address'][$key]['zone'] = $this->language->get('error_zone');
-				}
-
-				foreach ($custom_fields as $custom_field) {
-					if (($custom_field['location'] == 'address') && $custom_field['required'] && empty($value['custom_field'][$custom_field['custom_field_id']])) {
-						$this->error['address'][$key]['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
-					} elseif (($custom_field['location'] == 'address') && ($custom_field['type'] == 'text') && !empty($custom_field['validation']) && !filter_var($value['custom_field'][$custom_field['custom_field_id']], FILTER_VALIDATE_REGEXP, array('options' => array('regexp' => $custom_field['validation'])))) {
-						$this->error['address'][$key]['custom_field'][$custom_field['custom_field_id']] = sprintf($this->language->get('error_custom_field'), $custom_field['name']);
-                    }
-				}
 			}
 		}
 

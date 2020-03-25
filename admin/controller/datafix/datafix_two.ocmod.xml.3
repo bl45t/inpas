@@ -1,0 +1,17 @@
+<file path="system/library/seopro.php" error="skip">
+	<operation error="skip">
+        <search position="before"><![CDATA[$url = str_replace('&amp;', '&', $host]]></search>
+        <add position="before"><![CDATA[
+		if (isset($uri[0]) && $uri[0] == '/') {
+			$uri = substr($uri, 1);
+		}
+        ]]></add>
+	</operation>
+</file>
+
+<file path="system/library/seopro.php" error="skip">
+	<operation error="skip">
+        <search position="replace"><![CDATA[ltrim($uri, '/')]]></search>
+        <add position="replace"><![CDATA[$uri]]></add>
+	</operation>
+</file>

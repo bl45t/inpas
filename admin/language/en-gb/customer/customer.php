@@ -53,6 +53,13 @@ $_['entry_name']            = 'Customer Name';
 $_['entry_ip']              = 'IP';
 $_['entry_date_added']      = 'Date Added';
 
+$_['entry_post']        = 'Post';
+$_['entry_workplace']        = 'Place of work';
+$_['entry_social_link'] = 'Link to a social network profile';
+$_['entry_interests'] = 'Field of interest';
+$_['entry_organization'] = 'Organization';
+$_['entry_about_me'] = 'About me';
+
 // Help
 $_['help_safe']             = 'Set to true to avoid this customer from being caught by the anti-fraud system';
 $_['help_points']           = 'Use minus to remove points';
@@ -72,3 +79,4 @@ $_['error_city']            = 'City must be between 2 and 128 characters!';
 $_['error_postcode']        = 'Postcode must be between 2 and 10 characters for this country!';
 $_['error_country']         = 'Please select a country!';
 $_['error_zone']            = '%s required!';
+$_['error_post']          = 'Post must be between 1 and 128 characters!';
