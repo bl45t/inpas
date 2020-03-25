@@ -43,7 +43,7 @@
 
         <fieldset id="account">
       
-          <div class="form-group required" style="display: <?php echo (count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
+          <div class="form-group hidden" style="display: <?php echo (count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
             <label class="col-sm-2 control-label"><?php echo $entry_customer_group; ?></label>
             <div class="col-sm-10">
               <?php foreach ($customer_groups as $customer_group) { ?>
@@ -948,7 +948,7 @@ $('.type_user button').click(function() {
     $("#form_group_not_exist_org").removeClass('hidden');
     $("#form_group_about_me").removeClass('hidden');
     $("#form_group_post label").addClass('required');
-    
+    $('input[name="customer_group_id"][value="2"]').prop('checked', true);
   }
 
   function getUserRegistrationFormState() {
@@ -961,6 +961,7 @@ $('.type_user button').click(function() {
     $("#form_group_post label").removeClass('required');
     $("#input-empty-org").removeAttr('checked');
     $("#input-empty-org").trigger('change');
+     $('input[name="customer_group_id"][value="1"]').prop('checked', true);
   }
 
   $("#form_group_not_exist_org #input-empty-org").change(function() {
