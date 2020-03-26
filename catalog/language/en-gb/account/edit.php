@@ -23,6 +23,7 @@ $_['entry_social_link'] = 'Link to a social network profile';
 $_['entry_interests'] = 'Field of interest';
 $_['entry_organization'] = 'Organization';
 $_['entry_about_me'] = 'About me';
+$_['entry_profile_image'] = 'Profile photo';
 
 // Error
 $_['error_exists']                = 'Warning: E-Mail address is already registered!';

@@ -125,6 +125,8 @@ class ControllerInformationBdExpert extends Controller
 
 		$arExperts = [];
 
+		$this->load->model('tool/imagecrop');
+
 		foreach ($experts as $e) {
 			$addrInfo = [];
 
@@ -151,6 +153,11 @@ class ControllerInformationBdExpert extends Controller
 			$arExperts[$e['customer_id']]['address'] = implode(', ', $addrInfo);
 			$arExperts[$e['customer_id']]['link_to_org'] = $this->url->link('information/bd_organizations','&organization='.$e['id_org']);
 			$arExperts[$e['customer_id']]['country_iso_code_2'] = strtolower($e['country_iso_code_2']);
+
+			if (!empty($e['avatar'])) {
+				$arExperts[$e['customer_id']]['avatar'] = $this->model_tool_imagecrop->resize($e['avatar'], 0, 83);
+			}
+			
 		}
 
 		$data['experts'] = $arExperts;

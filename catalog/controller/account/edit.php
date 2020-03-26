@@ -21,6 +21,30 @@ class ControllerAccountEdit extends Controller {
 		$this->load->model('account/customer');
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+
+			if(isset($_FILES) && $_FILES['avatar']['error'] == 0){
+				$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+
+				if (!empty($customer_info['avatar']) && file_exists(DIR_IMAGE.$customer_info['avatar'])) {
+					unlink(DIR_IMAGE.$customer_info['avatar']);
+					$this->request->post['avatar'] = '';
+				}
+				
+				$imageinfo = getimagesize($_FILES['avatar']['tmp_name']);
+
+				if ($imageinfo) {
+					$fileName = 'catalog/users/'.$this->customer->getId().'_'.$_FILES['avatar']['name'];
+					$destiation_dir = DIR_IMAGE.$fileName;
+					$isUpload = move_uploaded_file($_FILES['avatar']['tmp_name'], $destiation_dir );
+
+					if ($isUpload) {
+						$this->request->post['avatar'] = $fileName;
+					}
+
+				}
+				
+			}
+
 			$this->model_account_customer->editCustomer($this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
@@ -75,6 +99,8 @@ class ControllerAccountEdit extends Controller {
 		$data['entry_social_link'] = $this->language->get('entry_social_link');
 		$data['entry_organization'] = $this->language->get('entry_organization');
 		$data['entry_about_me'] = $this->language->get('entry_about_me');
+		$data['entry_profile_image'] = $this->language->get('entry_profile_image');
+		
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
@@ -270,6 +296,14 @@ class ControllerAccountEdit extends Controller {
 			$data['is_expert'] = $customer_info['is_expert'];
 		} else {
 			$data['is_expert'] = 0;
+		}
+
+		$this->load->model('tool/imagecrop');
+
+		if (!empty($customer_info) && is_file(DIR_IMAGE .$customer_info['avatar'])) {
+			$data['thumb'] = $this->model_tool_imagecrop->resize($customer_info['avatar'], 0, 83);
+		} else {
+			$data['thumb'] = $this->model_tool_imagecrop->resize('user.png', 0, 83);
 		}
 
 		$this->load->model('catalog/manufacturer');

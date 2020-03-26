@@ -98,6 +98,13 @@ class ModelAccountCustomer extends Model {
 		$customer_id = $this->customer->getId();
 
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET firstname = '" . $this->db->escape($data['firstname']) . "', eng_firstname = '". $this->db->escape($data['eng_firstname']) ."', lastname = '" . $this->db->escape($data['lastname']) . "', eng_lastname = '". $this->db->escape($data['eng_lastname']) ."', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', is_expert = ". $this->db->escape($data['is_expert']) .", workplace = '". $this->db->escape($data['workplace']) ."', eng_workplace = '". $this->db->escape($data['eng_workplace']) ."', post = '". $this->db->escape($data['post']) ."', eng_post = '". $this->db->escape($data['eng_post']) ."', social_link = '". $this->db->escape($data['social_link']) ."', fax = '" . $this->db->escape($data['fax']) . "', field_of_interest = '". $this->db->escape($data['field_of_interest']) ."',  eng_field_of_interest = '". $this->db->escape($data['eng_field_of_interest']) ."', about_me = '". $this->db->escape($data['about_me']) ."', eng_about_me = '". $this->db->escape($data['eng_about_me']) ."', id_organization = ". $this->db->escape($data['id_organization']) .", custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "' WHERE customer_id = '" . (int)$customer_id . "'");
+
+		if (isset($data['avatar'])) {
+			$this->db->query("
+				UPDATE ". DB_PREFIX ."customer SET avatar = '". $this->db->escape($data['avatar']) ."'
+				WHERE customer_id = '" . (int)$customer_id . "'
+			");
+		}
 	}
 
 	public function editPassword($email, $password) {

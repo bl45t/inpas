@@ -8,7 +8,7 @@ class ModelCustomerCustomer extends Model
 			 CONCAT(c.eng_firstname, ' ', c.eng_lastname) AS eng_expert_name,
 			cgd.name AS customer_group, md.name AS org_name, cntry.name as country_name, 
 			cntry.eng_name as country_eng_name, z.name as region_name, z.eng_name as region_eng_name,
-			 md.address as org_address, md.manufacturer_id as id_org, cntry.iso_code_2 as country_iso_code_2
+			 md.address as org_address, md.manufacturer_id as id_org, cntry.iso_code_2 as country_iso_code_2, c.avatar
 			FROM " . DB_PREFIX . "customer c 
 			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id) 
 			LEFT JOIN " . DB_PREFIX . "manufacturer m ON m.manufacturer_id = c.id_organization

@@ -81,7 +81,13 @@
 			 	<div class="organization">
 			      <div class="org_text">
 			        <div class="org_img expert_img">
-			        	<img src="catalog/view/theme/default/image/user.png">
+			        	<?php if (isset($expert['avatar'])) { ?>
+			        		<img src="<?=$expert['avatar']?>">
+						<?php } else { ?>
+							<img src="catalog/view/theme/default/image/user.png">
+						<?php } ?>
+
+
 						<?php if (!empty($expert['country_iso_code_2'])) { ?>
 				        	<div class="flag_exp">
 				        		<span class="flag-icon-squared  flag-icon-<?=$expert['country_iso_code_2']?>"></span>

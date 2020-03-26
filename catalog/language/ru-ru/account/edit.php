@@ -23,6 +23,7 @@ $_['entry_social_link'] = 'Ссылка на профиль соц. сети';
 $_['entry_interests'] = 'Сфера интересов';
 $_['entry_organization'] = 'Организация';
 $_['entry_about_me'] = 'О себе';
+$_['entry_profile_image'] = 'Аватар:';
 
 // Error
 $_['error_exists']        = 'Такой E-Mail уже зарегистрирован!';

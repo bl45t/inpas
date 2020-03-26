@@ -171,6 +171,16 @@
               </div>
           </div>
 
+           <div class="form-group">
+                <label class="col-sm-2"><?php echo $entry_profile_image; ?></label>
+                <div class="col-sm-10">
+                  <div href="" id="thumb-image"  class="img-thumbnail">
+                    <img src="<?php echo $thumb; ?>" alt="" title="" />
+                  </div>
+                  <input type="file" name="avatar" value="<?php echo $avatar; ?>"/>
+                </div>
+            </div>
+
           <?php foreach ($custom_fields as $custom_field) { ?>
           <?php if ($custom_field['location'] == 'account') { ?>
           <?php if ($custom_field['type'] == 'select') { ?>
