@@ -63,31 +63,31 @@
               <div class="col-md-9">
                 <div class="event_full">
                     <div class="event_list_text">
-                      <div class="tag_row">
-                       <?php foreach ($article['tags'] as $tag) { ?>
-                        <div class="tag"><?=$tag?></div>
-                       <?php } ?>
-                      </div>
+                      <div>
+                        <div class="tag_row">
+                         <?php foreach ($article['tags'] as $tag) { ?>
+                          <div class="tag"><?=$tag?></div>
+                         <?php } ?>
+                        </div>
 
-                       <div class="news_header"><?=$article['name']?></div>
-                       <div class="news_subheader"><?php echo $article['preview']; ?></div>
-                       <div class="row">
-                          <div class="col-lg-6">
-                             <div class="date_event">
+                         <div class="news_header"><?=$article['name']?></div>
+                         <div class="news_subheader"><?php echo $article['preview']; ?></div>
+                       </div>
+                       <div class="">
+
+                          <div class="date_event">
                               <span class="sub_grey"> <?=$text_date_start?> </span> <?=$article['date_start']?>
-                             </div>
                           </div>
-                          <div class="col-lg-6">
+                       
                             <?php if (strtotime($article['date_end']) != strtotime('0000-00-00')) { ?>
                                <div class="date_event">
                                 <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
                                </div>
                             <?php } ?>
-                          </div>
-                       </div>
-                       <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
-                       <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>
-
+                       
+                          <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
+                          <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>
+                        </div>
                         <?php if ($article['attributes']) { ?>
         	                <h5><?php echo $text_attributes;?></h5>
         	                <?php foreach ($article['attributes'] as $attribute_group) { ?>

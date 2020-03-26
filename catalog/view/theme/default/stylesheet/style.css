@@ -319,7 +319,7 @@ input[type="search"] {
 		background-repeat: no-repeat;
 	}
 
-	.news:hover, .event:hover, .publication:hover, .event_block:hover {
+	.news:hover, #eventPage .event:hover, .publication:hover, #eventPage .event_block:hover, #event_hp:hover {
 	    -webkit-transform: scale(1.02);
 	    -moz-transform: scale(1.02);
 	    -ms-transform: scale(1.02);
@@ -327,7 +327,7 @@ input[type="search"] {
 	    transition-duration: 0.4s;
 	}
 
-	.news:not(:hover), .event:not(:hover), .publication:not(:hover), .event_block:not(:hover) {
+	.news:not(:hover), #eventPage .event:not(:hover), .publication:not(:hover), #eventPage .event_block:not(:hover), #event_hp:not(:hover) {
 	    -webkit-transform: scale(1);
 	    -moz-transform: scale(1);
 	    -ms-transform: scale(1);
@@ -418,7 +418,6 @@ input[type="search"] {
 	}
 	.eventpage_more{
 		text-align: right;
-		padding-bottom: 10px;
 	}
 	.news_date
 	{
@@ -1138,11 +1137,12 @@ input[type="search"] {
 
 	}
 
-	.event_full .news_subheader
-	{
-		font-size: 16px;
-		line-height: 19px;
+	#eventPage .news_subheader p{
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 	}
+
 	.event_full .date_event, .event_full .place_event, .event_full div .sub_grey
 	{
 		font-size: 18px;
@@ -1159,6 +1159,9 @@ input[type="search"] {
 		background-color: white;
 		margin-bottom: 10px;
 		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 	}
 /*    Конец Страницы Мероприятия*/
 
