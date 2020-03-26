@@ -402,6 +402,11 @@ input[type="search"] {
 		font-family: Roboto Slab;
 	}
 
+	.news_header a{
+		color:black;
+		text-decoration: none;
+	}
+
 	.news .news_header {
 		color:white;
 	}
@@ -1136,10 +1141,9 @@ input[type="search"] {
 		height: 100%;
 	}
 
-	#eventPage .news_subheader p{
-		overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;
+	#eventPage .top_block_content {
+    	flex-basis: 240px;
+    	overflow: hidden;
 	}
 
 	.event_full .date_event, .event_full .place_event, .event_full div .sub_grey

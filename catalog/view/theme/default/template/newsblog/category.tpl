@@ -55,8 +55,10 @@
             <div class="event_block">
               <div class="col-md-3"> 
                 <div class=" event_page">
+                  <a href="<?=$article['href']?>">
                     <div class="image" style='background-image: url("<?=$article["thumb"]?>")'>
                     </div>
+                  </a>
                 </div>
               </div>
 
@@ -70,7 +72,7 @@
                          <?php } ?>
                         </div>
 
-                         <div class="news_header"><?=$article['name']?></div>
+                         <div class="news_header"><a href="<?=$article['href']?>"><?=$article['name']?></a></div>
                          <div class="news_subheader"><?php echo $article['preview']; ?></div>
                        </div>
                        <div class="bot_block_content">
