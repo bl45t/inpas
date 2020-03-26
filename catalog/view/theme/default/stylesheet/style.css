@@ -255,6 +255,7 @@ input[type="search"] {
 		margin-top: 7px;
 		display: flex;
 		justify-content: space-between;
+		align-items: flex-end;
 	}
 
 	.event_link {
@@ -1159,7 +1160,7 @@ input[type="search"] {
 		height: 100%;
 	}
 
-	#eventPage .top_block_content {
+	#eventPage .top_block_content, .full_event_page .top_block_content {
     	flex-basis: 240px;
     	overflow: hidden;
 	}

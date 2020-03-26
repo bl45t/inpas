@@ -16,7 +16,7 @@
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class=" full_event_page">
         
-        <div class="row event_block">   
+        <div class=" event_block">   
           <div class="col-md-3"> 
                 <div class=" event_page">
                     <div class="image" style='background-image: url("<?=$thumb?>")'>
@@ -26,24 +26,28 @@
 
         <div class="col-md-9">
           <div class="event_full">
-            <div class="event_article_header_text ">
-              <div class="tag_row">
-                <?php foreach ($tags as $tag) { ?>
-                    <div class="tag "><?=$tag?></div>
-                <?php } ?>
+            <div class="event_list_text ">
+              <div class="top_block_content">
+                <div class="tag_row">
+                  <?php foreach ($tags as $tag) { ?>
+                      <div class="tag "><?=$tag?></div>
+                  <?php } ?>
+                </div>
+                <div class="news_header"><?=$heading_title; ?></div>
+                <div class="news_subheader"><?=$preview?></div>
               </div>
-              <div class="news_header"><?=$heading_title; ?></div>
-              <div class="news_subheader"><?=$preview?></div>
-              <div class="date_event ">
-                <span class="sub_grey"> <?=$text_date_start?> &nbsp;  </span> <?=$date_start?>
-              </div>
-                <?php if (strtotime($date_end) != strtotime('0000-00-00')) { ?>
-                  <div class="date_event ">
-                    <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
-                  </div>
-                <?php } ?>
-              <div class="place_event ">
-                <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
+              <div class="bot_block_content">
+                <div class="date_event ">
+                  <span class="sub_grey"> <?=$text_date_start?> &nbsp;  </span> <?=$date_start?>
+                </div>
+                  <?php if (strtotime($date_end) != strtotime('0000-00-00')) { ?>
+                    <div class="date_event ">
+                      <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
+                    </div>
+                  <?php } ?>
+                <div class="place_event ">
+                  <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
+                </div>
               </div>
             </div>
           </div> 
