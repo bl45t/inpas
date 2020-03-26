@@ -63,7 +63,7 @@
               <div class="col-md-9">
                 <div class="event_full">
                     <div class="event_list_text">
-                      <div>
+                      <div class="top_block_content">
                         <div class="tag_row">
                          <?php foreach ($article['tags'] as $tag) { ?>
                           <div class="tag"><?=$tag?></div>
@@ -73,7 +73,7 @@
                          <div class="news_header"><?=$article['name']?></div>
                          <div class="news_subheader"><?php echo $article['preview']; ?></div>
                        </div>
-                       <div class="">
+                       <div class="bot_block_content">
 
                           <div class="date_event">
                               <span class="sub_grey"> <?=$text_date_start?> </span> <?=$article['date_start']?>
