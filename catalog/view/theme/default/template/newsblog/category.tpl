@@ -87,8 +87,10 @@
                                </div>
                             <?php } ?>
                        
-                          <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
-                          <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>
+                          <div class="bottom_row">
+                            <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
+                            <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>
+                          </div>
                         </div>
                         <?php if ($article['attributes']) { ?>
         	                <h5><?php echo $text_attributes;?></h5>
