@@ -68,17 +68,20 @@
 			      <div class="org_text">
 			        <div class="org_img hidden"><img src="img/logo1.png"></div>
 			        <p class="org_name"><?=$organization['name']?></p>
-			        <span class="org_adress"><?=$organization['country_name']?>, <?=$organization['city']?></span><span class="org_phone"><?=$organization['phone']?></span>
-			        <p class="org_desc"><?=$organization['description']?></p>
+			        <span class="short_data"><?=$organization['short_data']?></span>
+			       
 			        <div class="org_full">
-			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$organization['country_name']?>, <?=$organization['region_name']?>, <?=$organization['address']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$organization['region_name']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$organization['phone']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_post_code?></span> <?=$organization['post_code']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_fax?></span> <?=$organization['fax']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$organization['email']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_site?></span> <a href=""><?=$organization['site_address']?></a></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_educational_program?></span><?=$organization['educational_program']?></div>
+			          
+			          <div class="col-sm-12">
+			          	<span class="label_description"><?=$text_educational_program?></span>
+			          	<?=$organization['educational_program']?>
+			          </div>
+					
+						 <div class="col-sm-12">
+						 	<span class="label_description"><?=$text_description?></span>
+			           		<?=$organization['description']?>
+			           	</div>
+
 			        </div>
 			      </div>
 			      <div class="col-md-12 less_org"><?=$text_hide?></div>

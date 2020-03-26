@@ -15,3 +15,4 @@ $_['text_open'] = 'Open';
 $_['text_sorry_not_found'] = 'Sorry, data not found!';
 $_['text_filters'] = 'Filters';
 $_['text_search'] = 'Search';
+$_['text_description'] = 'Description:';

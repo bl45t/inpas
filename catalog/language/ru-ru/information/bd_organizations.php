@@ -15,3 +15,4 @@ $_['text_open'] = 'Раскрыть';
 $_['text_sorry_not_found'] = 'Извините, данные не найдены!';
 $_['text_filters'] = 'Фильтры';
 $_['text_search'] = 'Поиск';
+$_['text_description'] = 'Описание:';

@@ -1441,7 +1441,7 @@ input[type="search"] {
 		font-size: 18px;
 		margin-bottom: 0px;
 	}
-	.org_adress, .org_phone, .expert_position
+	.expert_position, .short_data
 	{
 		color: #838383;
 		font-size: 14px;
@@ -1486,7 +1486,7 @@ input[type="search"] {
 	{
 		font-size: 16px;
 	}
-	.org_full span
+	.org_full .label_description
 	{
 		font-size: 14px;
 		/*color: #838383;*/
@@ -1501,7 +1501,7 @@ input[type="search"] {
 		font-size: 16px;
 		margin-top: 7px !important;
 	}
-	.open .org_adress, .open .org_phone, .open .more_org
+	.open .short_data, .open .more_org
 	{
 		display: none;
 	}
