@@ -39,7 +39,7 @@
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
 <link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet" type="text/css">
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/common.js<?=$assets_version?>" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" type="text/css"/>
 <?php } ?>
@@ -52,19 +52,12 @@
 
 </head>
 <body class="<?php echo $class; ?>">
-<nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="head_all">
+    <div class="container navbar-header ">
 
-  <div class="head_all">
-        <div class="container navbar-header ">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <a class="navbar-brand" href="#"><img src="catalog/view/theme/default/image/logo.png"
-  width="270" height="auto" alt="lorem"></a>
+        <a class="navbar-brand" href="#">
+          <img src="catalog/view/theme/default/image/logo.png" width="270" height="auto" alt="lorem"></a>
 
           <?php if ($logged) { ?>
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
@@ -83,57 +76,37 @@
         </div>
 
     </div>
-
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="container nav navbar-nav">
-        <li class="menu1"><a href="#"><?=$text_home?></a></li>
-
-        <li class="menu1 dropdown" >
-            <a>
-              <?=$text_about_project?>
-              <b class="caret"></b>
-            </a>
-
-            <ul class="dropdown-menu">
-            <?php
-              if ($informations) {
-                foreach ($informations as $information) {
-              ?>
-                <li><a href="<?=$information['href']?>"><?=$information['title']?></a></li>
-            <?php
-                }
-              }
-            ?>
-            </ul>
-
+  
+<?php if ($categories) { ?>
+<div class="container">
+  <nav id="menu" class="navbar">
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        <?php foreach ($categories as $category) { ?>
+        <?php if ($category['children']) { ?>
+        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
+              <ul class="list-unstyled">
+                <?php foreach ($children as $child) { ?>
+                <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+                <?php } ?>
+              </ul>
+              <?php } ?>
+            </div>
+            <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
         </li>
-
-        <li class="menu1"><a href="<?=$news_link?>"><?=$text_news?></a></li>
-        <li class="menu1"><a href="<?=$events_link?>"><?=$text_events?></a></li>
-        <li class="menu1 dropdown">
-          <a>
-            <?=$text_data_base?>
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="<?=$bd_organizations_link?>"><?=$text_organization?></a></li>
-            <li><a href="<?=$bd_expert_link?>"><?=$text_expert?></a></li>
-          </ul>
-        </li>
-        <li class="menu1"><a href="<?=$contact?>"><?=$text_contact?></a></li>
+        <?php } else { ?>
+        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+        <?php } ?>
+        <?php } ?>
       </ul>
-
-      <button class="login mobile_header">Вход</button>
-
-        <form action="" method="post" class="search mobile_header">
-        <input type="search" name="" placeholder="поиск" class="input" />
-      </form>
-
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
+    </div>
+  </nav>
+</div>
+<?php } ?>
+</div>
 </nav>
 
 <script type="text/javascript">

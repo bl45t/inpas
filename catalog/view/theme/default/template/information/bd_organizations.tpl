@@ -9,14 +9,14 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-	        <div class="col-md-12">
+	        <div class="row">
 		        <div class="header_of_list ">
 		            <div class="header2"><?=$text_heading_title?></div>
 		            <form action="<?=$search_link?>" method="post" class="search search_sub bd_search">
 		            	<button type="button" id="filter_btn" class="bd_filtr"><?=$text_filters?></button>
 		            	<input id="search_field_input" type="text" name="search_field" placeholder="<?=$text_search?>" class="input" value="<?=$search_field?>"/>
 		        </div>
-	    	</div>
+	    	
 
 	    	<?php
 				$isHiddenFilter = (!empty($id_country) || !empty($id_region) || !empty($name_city) || !empty($search_field)) ? "" : " hidden ";
@@ -59,9 +59,10 @@
 					<button type="submit" class=" bd_search_btn"><?=$text_search?></button>
 				</div>
 
+				</form>
 			</div>
-							</form>
-        <div class="col-md-12">
+		</div>
+        <div class="row">
 		<?php if (count($organizations)) { ?>
 			<?php foreach ($organizations as $organization) { ?>
 		    	<div class="organization">

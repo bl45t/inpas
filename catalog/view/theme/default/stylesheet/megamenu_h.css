@@ -75,10 +75,8 @@
 }
 #horizontal-menu.navbar {border-radius:0;border:0px;}
 #horizontal-menu .nav > li > a {
-	color: #fff;
-	padding:12px 10px;
-	font-size:14px;
-	background:transparent;
+	text-align: center;
+	display: block;
 }
 
 #horizontal-menu .toggle-child {display:none;}
@@ -88,7 +86,6 @@
 #horizontal-menu .arrow {
 	color: #fff;
 	line-height: 20px;
-	float: right;
 	padding-left:5px;
 	font-size: 16px;
 }
@@ -133,9 +130,8 @@ padding-bottom: 0;
 }
 #horizontal-menu .nsmenu-type-information,
 #horizontal-menu .nsmenu-type-category-simple {
-	background-color: #fff;
 	font-size: 14px;
-	min-width: 200px;
+	min-width: 100%;
 	z-index: 1001;
 	padding-top: 0px;
 	margin-left:-1px;
@@ -148,7 +144,7 @@ padding-bottom: 0;
 #horizontal-menu .nsmenu-type-information .nsmenu-haschild > li > a:hover,
 #horizontal-menu .nsmenu-type-category-simple .nsmenu-haschild > li > a.hover,
 #horizontal-menu .nsmenu-type-category-simple .nsmenu-haschild > li > a:hover {
-	background:#f5f5f5;
+	background:#003867;
 }
 #horizontal-menu .nsmenu-type-information ul a,
 #horizontal-menu .nsmenu-type-category-simple ul a {
@@ -403,16 +399,16 @@ padding-bottom: 0;
 	}
 	#horizontal-menu .nav > li > a:focus,
 	#horizontal-menu .nav > li > a:hover {
-		background-color: #eee;
+		background-color: #002747;
 	}
 	#horizontal-menu .nav > li.active > a, #horizontal-menu .nav > li.open > a {
-		background-color: #eee;
+		background-color: #002747;
 	}
 	#horizontal-menu .nav > li > a {
 		position: relative;
 		display: block;
 		padding: 10px 40px 10px 10px;
-		color: #333;
+		color: white;
 		font-size:14px;
 	}
 	#horizontal-menu .dropdown-menu .nsmenu-html-block {
@@ -451,9 +447,7 @@ padding-bottom: 0;
 	#horizontal-menu .nsmenu-type-category-simple .nsmenu-ischild-simple > li {
 		border-top:1px solid #eee;
 	}
-	#horizontal-menu .dropdown-inner {
-		background:#fff;
-	}
+
 	#horizontal-menu .nsmenu-parent-block {
 		padding:0px;
 	}

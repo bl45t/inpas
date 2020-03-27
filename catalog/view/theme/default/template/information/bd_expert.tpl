@@ -9,7 +9,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-	        <div class="col-md-12">
+	        <div class="row">
 		        <div class="header_of_list ">
 		            <div class="header2"><?=$text_heading_title?></div>
 		            <form action="<?=$search_link?>" method="post" class="search search_sub bd_search">
@@ -75,7 +75,7 @@
 
 			</div>
 							</form>
-        <div class="col-md-12">
+        <div class="row">
 		<?php if (count($experts)) { ?>
 			<?php foreach ($experts as $expert) { ?>
 			 	<div class="organization">
