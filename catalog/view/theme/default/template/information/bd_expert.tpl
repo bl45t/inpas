@@ -97,12 +97,12 @@
 			        <p class="expert_name"><?=$expert['name']?></p>
 			        <div class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></div>
 			        <div class="org_full exp_full">
-			          <div class="col-md-6 col-sm-12"><span><?=$text_address?></span> <?=$expert['address']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_region?>:</span> <?=$expert['region_name']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_phone?></span> <?=$expert['telephone']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_email?></span> <?=$expert['email']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_post?>:</span> <?=$expert['post']?></div>
-			          <div class="col-md-6 col-sm-12"><span><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
+			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_address?></span> <?=$expert['address']?></div>
+			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_region?>:</span> <?=$expert['region_name']?></div>
+			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_phone?></span> <?=$expert['telephone']?></div>
+			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_email?></span> <?=$expert['email']?></div>
+			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_post?>:</span> <?=$expert['post']?></div>
+			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
 			          <div class="col-md-12"><span><?=$text_interests?></span><?=$expert['field_of_interest']?></div>
 
 			        </div>

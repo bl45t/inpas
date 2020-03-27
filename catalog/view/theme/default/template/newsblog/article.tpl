@@ -45,8 +45,10 @@
                       <span class="sub_grey"> <?=$text_date_end?> &nbsp;  </span> <?=$date_end?>
                     </div>
                   <?php } ?>
-                <div class="place_event ">
-                  <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
+                <div class="bottom_row">
+                  <div class="place_event ">
+                    <span class="sub_grey"> <?=$text_venue?> &nbsp;  </span> <?=$venue?>
+                  </div>
                 </div>
               </div>
             </div>

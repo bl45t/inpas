@@ -292,8 +292,12 @@ input[type="search"] {
 		font-size: 12px;
 		/*bottom: 55px;*/
 		/*height: 15%;*/
-
 	}
+	
+	.date_event {
+		margin-top: 7px;
+	}
+
 	.sub_grey
 	{
 		font-size: 12px;

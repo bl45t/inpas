@@ -28,20 +28,20 @@
 <?php } ?>
 <meta property="og:site_name" content="<?php echo $name; ?>" />
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css"/>
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://bootstraptema.ru/_sf/7/729.css" />
+<link rel="stylesheet" href="https://bootstraptema.ru/_sf/7/729.css" type="text/css"/>
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
-<link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet">
+<link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet" type="text/css">
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
-<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
+<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" type="text/css"/>
 <?php } ?>
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script; ?>" type="text/javascript"></script>
