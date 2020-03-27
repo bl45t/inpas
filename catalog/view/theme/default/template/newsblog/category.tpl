@@ -83,12 +83,12 @@
                        
                             <?php if (strtotime($article['date_end']) != strtotime('0000-00-00')) { ?>
                                <div class="date_event">
-                                <span class="sub_grey"> <?=$text_date_end?> </span> <?=$article['date_end']?>
+                                <span class="sub_grey"><?=$text_date_end?> </span> <?=$article['date_end']?>
                                </div>
                             <?php } ?>
                        
                           <div class="bottom_row">
-                            <div class="place_event"><span class="sub_grey"> <?=$text_venue?></span><?=$article['venue']?></div>
+                            <div class="place_event"><span class="sub_grey"><?=$text_venue?></span> <?=$article['venue']?></div>
                             <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>
                           </div>
                         </div>

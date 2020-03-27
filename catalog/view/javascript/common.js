@@ -425,7 +425,11 @@ $(document).delegate('.agree', 'click', function(e) {
 
 			// Click
 			this.click = function(event) {
-				event.preventDefault();
+				curHref = event.currentTarget.attributes.href.nodeValue;
+				
+				if (curHref == '#') {
+					event.preventDefault();
+				}
 
 				value = $(event.target).parent().attr('data-value');
 
@@ -470,8 +474,14 @@ $(document).delegate('.agree', 'click', function(e) {
 					}
 
 					for (i = 0; i < json.length; i++) {
+						var href = '#';
+
+						if (undefined != json[i]['link']) {
+							href = json[i]['link'];
+						}
+
 						if (!json[i]['category']) {
-							html += '<li data-value="' + json[i]['value'] + '"><a href="#">' + json[i]['label'] + '</a></li>';
+							html += '<li data-value="' + json[i]['value'] + '"><a href="'+href+'">' + json[i]['label'] + '</a></li>';
 						}
 					}
 

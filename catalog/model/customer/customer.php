@@ -116,7 +116,7 @@ class ModelCustomerCustomer extends Model
 		return $query->rows;
 	}//public function getExperts
 
-	public function getExpertPositions() {
+	public function getExpertPositions($data = []) {
 		$sql = "
 			SELECT DISTINCT c.post
 			FROM " . DB_PREFIX . "customer c 

@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.16'; ?>
+  <?php $assets_version = '?v=1.0.17'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,9 +74,9 @@
             <a href="<?=$login?>" class="login"><?=$text_login?></a>
           <?php } ?>
 
-        <form action="" method="post" class="search">
-        <input type="search" name="" placeholder="поиск" class="input" />
-      </form>
+        <div class="search autocompleate_group">
+          <input id="header_search" type="search" placeholder="поиск" class="input" />
+        </div>
 
         <div class="language">
          <?php echo $language; ?>
@@ -135,3 +135,34 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
 </nav>
+
+<script type="text/javascript">
+
+    $('#header_search').autocomplete({
+    'source': function(request, response) {
+      $.ajax({
+        url: 'index.php?route=common/header/autocomplete&filter_name=' +  encodeURIComponent(request),
+        dataType: 'json',
+        success: function(json) {
+          json.unshift({
+            name: '<?php echo $text_none; ?>'
+          });
+
+          response($.map(json, function(item) {
+            labelContent = '<strong>'+item['name']+'</strong>';
+
+            if (item['description'] != undefined && item['description'].trim() != '') {
+              labelContent += '<br/>'+item['description']+'...';
+            }
+
+            return {
+              label: labelContent,
+              link: item['link']
+            }
+          }));
+        }
+      });
+    }
+  });
+
+</script>
