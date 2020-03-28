@@ -183,14 +183,16 @@ class ControllerCommonHeader extends Controller {
 		$json = array();
 
 		if (isset($this->request->get['filter_name'])) {
-			$this->load->model('common/header');
+			$this->load->model('information/search');
 			$this->load->model('newsblog/article');
 
 			$filter_data = array(
 				'filter_name' => $this->request->get['filter_name'],
+				'start'       => 0,
+				'limit'       => 5
 			);
 
-			$results = $this->model_common_header->getNewsAndEvents($filter_data);
+			$results = $this->model_information_search->getNewsAndEvents($filter_data);
 
 			foreach ($results as $result) {
 				$name = strip_tags(html_entity_decode($result['title'], ENT_QUOTES, 'UTF-8'));

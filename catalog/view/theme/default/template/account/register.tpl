@@ -20,7 +20,7 @@
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class="header1"><?php echo $heading_title; ?></div>
 
-      <div class="type_user">
+      <div class="row type_user">
         <?php 
           $expertActiveClass = '';
           $userActiveClass = '';

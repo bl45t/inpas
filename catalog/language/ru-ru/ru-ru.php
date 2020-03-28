@@ -19,6 +19,7 @@ $_['text_all_zones']        = 'Все регионы';
 $_['text_pagination']       = 'Показано с %d по %d из %d (всего %d страниц)';
 $_['text_loading']          = 'Загрузка...';
 $_['text_no_results']       = 'Нет результатов!';
+$_['text_access_only_auth'] = 'Страница доступна только авторизованным пользователям!';
 
 // Buttons
 $_['button_address_add']    = 'Добавить адрес';

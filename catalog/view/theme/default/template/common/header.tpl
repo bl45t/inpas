@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.17'; ?>
+  <?php $assets_version = '?v=1.0.18'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,10 +41,10 @@
 <link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet" type="text/css">
 <script src="catalog/view/javascript/common.js<?=$assets_version?>" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
-<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" type="text/css"/>
+<link href="<?php echo $link['href'].$assets_version; ?>" rel="<?php echo $link['rel']; ?>" type="text/css"/>
 <?php } ?>
 <?php foreach ($scripts as $script) { ?>
-<script src="<?php echo $script; ?>" type="text/javascript"></script>
+<script src="<?php echo $script.$assets_version; ?>" type="text/javascript"></script>
 <?php } ?>
 <?php foreach ($analytics as $analytic) { ?>
 <?php echo $analytic; ?>
@@ -55,10 +55,25 @@
   <nav class="navbar navbar-default" role="navigation">
     <div class="head_all">
     <div class="container navbar-header ">
-
+      <div id="header_logo_block"> 
         <a class="navbar-brand" href="#">
-          <img src="catalog/view/theme/default/image/logo.png" width="270" height="auto" alt="lorem"></a>
+          <img src="catalog/view/theme/default/image/logo.png" width="270" height="auto" alt="lorem">
+        </a>
+      </div>
 
+      <div id="header_functional_buttons">
+        <div id="btn_lang_and_search">
+          <div class="language">
+           <?php echo $language; ?>
+          </div>
+
+          <div class="search autocompleate_group">
+            <input id="header_search" type="search" placeholder="поиск" class="input" />
+            <i id="search_fa_btn" class="fa fa-search"></i>
+          </div>
+        </div>
+        
+        <div id="btn_account">
           <?php if ($logged) { ?>
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
             <a href="<?=$account?>" class="login"><?=$text_account?></a>
@@ -66,14 +81,9 @@
             <a href="<?=$register?>" class="login"><?=$text_register?></a>
             <a href="<?=$login?>" class="login"><?=$text_login?></a>
           <?php } ?>
-
-        <div class="search autocompleate_group">
-          <input id="header_search" type="search" placeholder="поиск" class="input" />
         </div>
 
-        <div class="language">
-         <?php echo $language; ?>
-        </div>
+      </div>
 
     </div>
   
@@ -130,7 +140,7 @@
 
             return {
               label: labelContent,
-              link: item['link']
+              link: item['link'],
             }
           }));
         }

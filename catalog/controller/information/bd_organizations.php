@@ -26,7 +26,8 @@ class ControllerInformationBdOrganizations extends Controller
 		$data['text_city'] = $this->language->get('text_city');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_description'] = $this->language->get('text_description');
-
+		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
+		 
 		$optionQuery = [];
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
@@ -193,6 +194,12 @@ class ControllerInformationBdOrganizations extends Controller
 
 		if ($limit && ceil($org_total / $limit) > $page) {
 			$this->document->addLink($this->url->link('information/bd_organizations', '&page=' . ($page + 1), true), 'next');
+		}
+
+		if ($this->customer->isLogged()) {
+			$data['is_logged'] = 1;
+		} else {
+			$data['is_logged'] = 0;
 		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');

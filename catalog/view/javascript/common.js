@@ -93,6 +93,26 @@ $(document).ready(function() {
 		}
 	});
 
+
+	$('#search_fa_btn').on('click', function() {
+		var url = $('base').attr('href') + 'index.php?route=information/search';
+
+		var value = $('#header_search').val();
+
+		if (value) {
+			url += '&search=' + encodeURIComponent(value);
+		}
+
+		location = url;
+	});
+
+
+	$('#header_search').on('keydown', function(e) {
+		if (e.keyCode == 13) {
+			$('#search_fa_btn').trigger('click');
+		}
+	});
+
 	// Menu
 	$('#menu .dropdown-menu').each(function() {
 		var menu = $('#menu').offset();

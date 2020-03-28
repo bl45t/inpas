@@ -8,7 +8,7 @@
   	<?php if($hmenu_type =='0') { ?>
 		<nav id="horizontal-menu" class="navbar hmenu_type">
 	<?php } ?>
-		<div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
+		<div class="navbar-header">
 		  <button type="button" class="btn btn-navbar navbar-toggle" <?php if(isset($type_mobile_menu) && ($type_mobile_menu == '1')){ ?>data-toggle="open_mob_menu_left"<?php } else { ?>data-toggle="collapse" data-target=".navbar-ex1-collapse"<?php } ?>><i class="fa fa-bars"></i></button>
 		</div>
 		<div class="collapse navbar-collapse navbar-ex1-collapse <?php if(isset($type_mobile_menu) && ($type_mobile_menu == 1)) { ?>hidden-xs hidden-sm<?php } ?>">

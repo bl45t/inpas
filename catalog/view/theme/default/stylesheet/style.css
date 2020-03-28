@@ -13,7 +13,15 @@ body
 	content: "*";
 }
 
-#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page, #successPage, #accountPage{
+.autocompleate_group .dropdown-menu a {
+	font-size: 14px;
+}
+
+.autocompleate_group .dropdown-menu strong {
+	font-size: 16px;
+}
+
+#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page, #successPage, #accountPage, #searchPage{
 	min-height: 530px;
 }
 
@@ -26,22 +34,43 @@ body
 	background-color: white;
 }
 
-.search {
+nav .search {
 	float:right;
-	position: relative;
 	margin-right: 48px;
 	margin-top: 32px;
+	position: relative;
+ 	width: 200px;
 }
 
-.search input {
-	border: none;
+nav .search input, #search_field_input {
+	width: 200px;
+    height: 42.5px;
+    line-height: 30px;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+    background: #F5F7F8;
+    border: none;
 }
 
-
+nav .search .fa{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 42.5px;
+    height: 42.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: #07051a;
+    text-align: center;
+    font-size: 1.2em;
+    cursor: pointer;
+}
 /* стили для поля ввода */
-.search .input {
+nav .search .input {
 
-	width: 242px;
+	width: 200px;
 	padding: 8px 37px 9px 15px;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -51,7 +80,7 @@ body
 	outline: none;
 }
 
-.search .input:focus {
+nav .search .input:focus {
 	background: #F5F7F8;
 	color: #242424;
 }
@@ -65,11 +94,32 @@ body
 	cursor: pointer;
 	opacity: 0.5;
 }
+
+#bd_expert_page .header_of_list, #bd_organizations_page .header_of_list{
+	display: flex;
+	justify-content: space-between;
+}
+
+#bd_expert_page .search_block, #bd_organizations_page .search_block {
+	display: flex;
+}
+
+#bd_expert_page .title_search_block, #bd_organizations_page .title_search_block {
+	display: flex;
+}
+
 .search .submit:hover {
 	opacity: 0.8;
 }
 input[type="search"] {
 	-webkit-appearance: none;
+}
+
+.searched_item_block {
+	height: 100%;
+	background-color: white;
+	padding: 15px;
+	margin-bottom: 10px;
 }
 
 .navbar-header
@@ -104,16 +154,27 @@ input[type="search"] {
 	text-align: left;
 }
 
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-
 .dropdown li a:hover {
 	background-color: #002747;
 }
 
 .autocompleate_group .dropdown-menu li a {
 	color: black !important;
+}
+
+#header_functional_buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+#header_functional_buttons #btn_lang_and_search {
+	display: flex;
+	flex-direction: row;
+}
+
+#header_functional_buttons #btn_account {
+	display: flex;
+	flex-direction: row-reverse;
 }
 
 .language
@@ -781,13 +842,13 @@ input[type="search"] {
 
    /*Страница Новости*/
 
-	#bd_expert_page .pagination > li > a, #bd_organizations_page .pagination > li > a, #newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
+	#searchPage .pagination > li > a, #bd_expert_page .pagination > li > a, #bd_organizations_page .pagination > li > a, #newsPage .pagination > li > a, #eventPage .pagination > li > a, #publicationPage .pagination > li > a {
 		color: #ADADAD !important;
 		background-color: transparent !important;
 		border: none !important;
 	}
 
-	#bd_expert_page .pagination .active span, #bd_organizations_page .pagination .active span, #newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
+	#searchPage .pagination .active span, #bd_expert_page .pagination .active span, #bd_organizations_page .pagination .active span, #newsPage .pagination .active span, #eventPage .pagination .active span, #publicationPage .pagination .active span{
 		background-color: transparent !important;
 		color: black !important;
 		border-color: transparent !important;
@@ -870,9 +931,7 @@ input[type="search"] {
     }
     .search_sub
     {
-    	float: right;
-   		position: relative;
-   		margin: 0 !important
+
     }
     .search_sub input
     {
@@ -880,9 +939,8 @@ input[type="search"] {
     }
     .header_of_list
     {
-    	height: 60px;
-    	width: 100%;
-	    margin-top: 27px;
+    	display: flex;
+		margin-bottom:10px;
     }
     .select_cat
     {
@@ -1788,12 +1846,13 @@ input[type="search"] {
       	margin-top: 20px;
       }
     }
-    @media (max-width: 768px)
+    @media (max-width: 767px)
     {
-    	.navbar-header .language, .navbar-header .search,.navbar-header .login
-    	{
-			display: none;
-		}
+
+    	#horizontal-menu.navbar {
+    		margin-top: 0px;
+    	}
+
 		.mobile_header
 		{
 			display: block;
@@ -1804,15 +1863,54 @@ input[type="search"] {
     	{
     		display: none;
     	}
+
+    	#header_logo_block {
+    		display: flex;
+    		min-height: 60px;
+    	}
+	
+		#header_functional_buttons {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+		}
+
+		#header_functional_buttons #btn_lang_and_search {
+			display: flex;
+			flex-direction: row;
+		}
+
+		#header_functional_buttons #btn_account {
+			display: flex;
+			flex-direction: row-reverse;
+		}
+
+		#bd_expert_page .header_of_list, #bd_organizations_page .header_of_list {
+			flex-wrap: wrap;
+		}
+
+		#bd_expert_page .search_block, #bd_organizations_page .search_block {
+			margin-bottom: 10px;
+			margin-top: 10px
+		}
+
     	.login
     	{
     		font-size: 15px;
-    		height: 40px;
-    		padding: .3em 6em;
+    		padding: 8px 30px;
     		color: #003867 !important;
     		background-color: white;
+    		margin-top: 15px;
     	}
 
+    	.language,nav .search {
+    		margin-top: 15px;
+    		margin-right: 0px;
+    	}
+
+		.navbar-nav li{
+			padding:0px;
+		}	
 
     	.navbar-nav
     	{
@@ -1832,8 +1930,7 @@ input[type="search"] {
     	}
 
 		.navbar-default .navbar-nav>li>a {
-    	font-size: 18px;
-    	float: left;
+    		font-size: 18px;
 		}
 		.navbar-nav>li {
 			width: 100%;
@@ -1842,9 +1939,12 @@ input[type="search"] {
 		}
 		.navbar-toggle
 		{
-			margin-top:35px;
+			margin-top: 15px;
 		}
-
+		
+		.dropdown:hover > .dropdown-menu {
+    		display: block;
+		}
     }
 
     @media (min-width: 768px) and (max-width: 1200px)
@@ -1877,10 +1977,7 @@ input[type="search"] {
 
     @media (max-width: 450px)
     {
-    	.navbar-header .login
-		{
-			display: none;
-		}
+
 		.navbar-brand
 		{
 			max-width: 70%
@@ -1888,13 +1985,19 @@ input[type="search"] {
     }
     @media (min-width: 768px) and (max-width: 992px)
     {
-    	.search
+    	nav .search
 		{
-			max-width: 20%;
+			width: 180px;
+			margin-right:10px;
 		}
 		.navbar-brand {
-    	max-width: 40%;
+    		max-width: 40%;
 		}
+		
+		.language {
+			margin-right:10px;
+		}
+
     }
 
 	.owl-carousel {

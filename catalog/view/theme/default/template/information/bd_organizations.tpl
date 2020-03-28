@@ -1,5 +1,8 @@
 <?php echo $header; ?>
 <div id="bd_organizations_page" class="container">
+<?php if ($is_logged == '0') {?>
+	<strong><?=$text_access_only_auth?></strong>
+<?php } else { ?>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -9,12 +12,16 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-	        <div class="row">
+    	<form action="<?=$search_link?>" method="post" class="search search_sub bd_search">
+	        <div class="">
 		        <div class="header_of_list ">
-		            <div class="header2"><?=$text_heading_title?></div>
-		            <form action="<?=$search_link?>" method="post" class="search search_sub bd_search">
+		        	<div class="title_search_block">
+		            	<div class="header2"><?=$text_heading_title?></div>
+		            </div>
+		            <div class="search_block">
 		            	<button type="button" id="filter_btn" class="bd_filtr"><?=$text_filters?></button>
 		            	<input id="search_field_input" type="text" name="search_field" placeholder="<?=$text_search?>" class="input" value="<?=$search_field?>"/>
+		            </div>
 		        </div>
 	    	
 
@@ -59,9 +66,10 @@
 					<button type="submit" class=" bd_search_btn"><?=$text_search?></button>
 				</div>
 
-				</form>
+				
 			</div>
 		</div>
+		</form>
         <div class="row">
 		<?php if (count($organizations)) { ?>
 			<?php foreach ($organizations as $organization) { ?>
@@ -106,6 +114,7 @@
   	</div>
     <?php echo $column_right; ?>
 	</div>
+	<?php } ?>
 </div>
 
 <script>

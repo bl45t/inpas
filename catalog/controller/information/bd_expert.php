@@ -24,6 +24,8 @@ class ControllerInformationBdExpert extends Controller
 		$data['text_country'] = $this->language->get('text_country');
 		$data['text_city'] = $this->language->get('text_city');
 		$data['text_search'] = $this->language->get('text_search');
+		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
+		
 
 		$optionQuery = [];
 
@@ -200,6 +202,12 @@ class ControllerInformationBdExpert extends Controller
 
 		if ($limit && ceil($exprts_total / $limit) > $page) {
 			$this->document->addLink($this->url->link('information/bd_expert', '&page=' . ($page + 1), true), 'next');
+		}
+
+		if ($this->customer->isLogged()) {
+			$data['is_logged'] = 1;
+		} else {
+			$data['is_logged'] = 0;
 		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');
