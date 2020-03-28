@@ -95,16 +95,16 @@ nav .search .input:focus {
 	opacity: 0.5;
 }
 
-#bd_expert_page .header_of_list, #bd_organizations_page .header_of_list{
+#bd_expert_page .header_of_list, #bd_organizations_page .header_of_list, #publicationPage .header_of_list{
 	display: flex;
 	justify-content: space-between;
 }
 
-#bd_expert_page .search_block, #bd_organizations_page .search_block {
+#bd_expert_page .search_block, #bd_organizations_page .search_block, #publicationPage .search_block{
 	display: flex;
 }
 
-#bd_expert_page .title_search_block, #bd_organizations_page .title_search_block {
+#bd_expert_page .title_search_block, #bd_organizations_page .title_search_block, #publicationPage .title_search_block {
 	display: flex;
 }
 
@@ -947,6 +947,10 @@ input[type="search"] {
     	float: right;
     	line-height: 34px;
     	margin-right: 30px;
+    }
+    #publicationPage .select_cat {
+    	float: left;
+    	margin-top: 4px;
     }
     .select_label, .cat_select
     {
@@ -1885,11 +1889,11 @@ input[type="search"] {
 			flex-direction: row-reverse;
 		}
 
-		#bd_expert_page .header_of_list, #bd_organizations_page .header_of_list {
+		#bd_expert_page .header_of_list, #bd_organizations_page .header_of_list, #publicationPage .header_of_list {
 			flex-wrap: wrap;
 		}
 
-		#bd_expert_page .search_block, #bd_organizations_page .search_block {
+		#bd_expert_page .search_block, #bd_organizations_page .search_block, #publicationPage .search_block {
 			margin-bottom: 10px;
 			margin-top: 10px
 		}

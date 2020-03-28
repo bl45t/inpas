@@ -19,10 +19,21 @@ class ControllerCommonPublications extends Controller {
 			'limit' => $limit
 		);
 
+		if (!empty($this->request->post['search_field'])) {
+			$filter_data['filter_name'] = $this->request->post['search_field'];
+		}
+
+		if (!empty($this->request->post['type_publ'])) {
+			$filter_data['filter_attribute_group_id'] = $this->request->post['type_publ'];
+		}
+
 		$this->load->model('catalog/attribute');
 		$data['publications'] = $this->model_catalog_attribute->getAttributes($filter_data);
 
-		$publications_total = $this->model_catalog_attribute->getTotalAttributes();
+		unset($filter_data['limit']);
+		unset($filter_data['start']);
+
+		$publications_total = count($this->model_catalog_attribute->getAttributes($filter_data));
 
 		$this->load->model('catalog/attribute_group');
 		$data['attribute_groups'] = $this->model_catalog_attribute_group->getAttributeGroups();
@@ -51,6 +62,21 @@ class ControllerCommonPublications extends Controller {
 
 		$data['text_publications'] = $this->language->get('text_publications');
 		$data['text_category'] = $this->language->get('text_category');
+		$data['text_search'] = $this->language->get('text_search');
+
+		$data['search_link'] = $this->url->link('common/publications', '', true);
+
+		if (isset($this->request->post['search_field'])) {
+			$data['search_field'] = $this->request->post['search_field'];
+		} else {
+			$data['search_field'] = '';
+		}
+
+		if (isset($this->request->post['type_publ'])) {
+			$data['type_publ'] = $this->request->post['type_publ'];
+		} else {
+			$data['type_publ'] = 0;
+		}
 		
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');

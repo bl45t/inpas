@@ -9,25 +9,36 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
-		<div class="col-md-12">
+		<div class="">
 	        <div class="header_of_list">
-	            <div class="header2"><?=$text_publications?></div>
-
-	            <form action="" method="post" class="search search_sub">
-	              <input type="search search_sub" name="" placeholder="поиск" class="input" />
-	            </form>
-
-	            <div class="select_cat">
-	              <span class="select_label"><?=$text_category?></span>
-	              <section class="cat_select">
-	                <select class="cs-select cs-skin-rotate select_style">
-	                    <option value="0">Все</option>
-	                    <?php foreach ($attribute_groups as $ag) { ?>
-							<option value="<?=$ag['attribute_group_id']?>"><?=$ag['name']?></option>
-	                    <?php } ?>
-	                </select>
-	              </section>
+	        	<div class="title_search_block">
+	            	<div class="header2"><?=$text_publications?></div>
 	            </div>
+				
+				<div class="search_block">
+		            <form action="<?=$search_link?>" method="post" class="search search_sub">
+		              <input id="search_field_input" type="search search_sub" name="search_field" placeholder="поиск" class="input" value='<?=$search_field?>' />
+		              <button type="submit" id="filter_btn" class="bd_filtr"><?=$text_search?></button>
+			          <div class="select_cat">
+			              	<span class="select_label"><?=$text_category?></span>
+			              	<section class="cat_select">
+			                	<select class="cs-select cs-skin-rotate select_style" name="type_publ">
+			                 	   <option value="0">Все</option>
+			                  	  	<?php foreach ($attribute_groups as $ag) { ?>
+			                  	  		<?php if ($ag['attribute_group_id'] == $type_publ) { ?>
+											<option value="<?=$ag['attribute_group_id']?>" selected="selected"><?=$ag['name']?></option>
+			                  	  		<?php } else { ?>
+											<option value="<?=$ag['attribute_group_id']?>"><?=$ag['name']?></option>
+										<?php } ?>
+			                    	<?php } ?>
+			                	</select>
+			              	</section>
+		            	</div>
+		            	
+		            </form>
+		        </div>
+
+
 	        </div>
 					
 				<?php foreach ($publications as $publication) { ?>
