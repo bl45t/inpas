@@ -118,6 +118,7 @@ class ControllerInformationBdExpert extends Controller
 
 		$optionQuery['limit'] = $limit;
 		$optionQuery['start'] = ($page - 1) * $limit;
+		$optionQuery['filter_approved'] = 1;
 
 		$experts = $this->model_customer_customer->getExperts($optionQuery);
 
