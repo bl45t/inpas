@@ -153,6 +153,7 @@ padding-bottom: 0;
 	position: relative;
 	display: block;
 	color: #333;
+	white-space: nowrap;
 }
 @media (min-width: 768px) {
 	#horizontal-menu .nsmenu-type-manufacturer,
@@ -164,7 +165,7 @@ padding-bottom: 0;
 		border-top:0px;
 		margin-top:0px;
 		box-shadow:0px 4px 4px rgba(0, 0, 0, 0.05);
-	} 
+	}
 	#horizontal-menu .nav > li.dropdown.open:before, #horizontal-menu .nav > li.dropdown:hover:before {
 		position: absolute;
 		width: 0;
@@ -313,7 +314,7 @@ padding-bottom: 0;
 		padding:5px;
 	}
 	#horizontal-menu .nsmenu-type-product .price{
-	  font-size:14px;  
+	  font-size:14px;
 	}
 	#horizontal-menu .nsmenu-type-product .price .price-old{
 	  color: #666;
@@ -346,7 +347,7 @@ padding-bottom: 0;
 		padding-left: 15px;
 		padding-right: 15px;
 	}
-	#horizontal-menu .navbar-nav > li a > .show-sc-mobile.open-sc-mobile > i.plus { 
+	#horizontal-menu .navbar-nav > li a > .show-sc-mobile.open-sc-mobile > i.plus {
 		transform:rotate(45deg);
 		-webkit-transition: rotate 0.3s ease 0s;
 		-moz-transition: rotate 0.3s ease 0s;
@@ -369,7 +370,7 @@ padding-bottom: 0;
 	#horizontal-menu .navbar-nav > li {
 		border-bottom: 1px solid #d9d9d9;
 	}
-	
+
 	#horizontal-menu .navbar-nav {
 		margin-top:0px;
 		margin-bottom:0px;
@@ -409,7 +410,11 @@ padding-bottom: 0;
 		padding: 10px 40px 10px 10px;
 		color: white;
 		font-size:14px;
+		text-align: left;
 	}
+	#horizontal-menu .nsmenu-type-information .nsmenu-haschild li a {
+		border-top: 1px solid #ddd;
+	}	
 	#horizontal-menu .dropdown-menu .nsmenu-html-block {
 		padding:3px 10px;
 		background:#ffffff;
@@ -442,7 +447,7 @@ padding-bottom: 0;
 	#horizontal-menu .nsmenu-type-information li a {
 		padding:10px 40px 10px 20px
 	}
- 
+
 	#horizontal-menu .nsmenu-type-category-simple .nsmenu-ischild-simple > li {
 		border-top:1px solid #eee;
 	}
@@ -513,6 +518,7 @@ padding-bottom: 0;
 	}
 	#horizontal-menu li.dropdown .toggle-child .fa.fa-plus.plus{
 		font-size:12px;
+		color: #fff;
 	}
 	#horizontal-menu li.dropdown.open .toggle-child .fa.fa-plus.plus{
 		transform: rotate(45deg);
@@ -523,30 +529,30 @@ padding-bottom: 0;
 		transition: rotate 0.3s ease 0s;
 		font-size: 12px;
 	}
-	
+
 	#horizontal-menu .nsmenu-type-category-simple ul.nsmenu-ischild-simple li a {
 		padding: 10px 40px 10px 35px;
 	}
 	#horizontal-menu .nsmenu-type-category-full-image .menu-add-html img {
 		max-width:100%;
 	}
-	
+
 	#menu-mobile-ns .navbar-nav > li > .dropdown-menu li a:hover{
 		color: #2B8CDB;
 		background:#fff;
 	}
-	
+
 	#horizontal-menu .nsmenu-type-category-full-image .nsmenu-ischild,
 	#horizontal-menu .nsmenu-type-category-full .nsmenu-ischild,
 	#horizontal-menu .nsmenu-type-category-simple .nsmenu-ischild {
 		display:block;
 	}
-	
+
 #horizontal-menu .name-manuf-a,
 #horizontal-menu .nsmenu-parent-img,
 #horizontal-menu .dropdown-menu.nsmenu-type-product .price{
 	display:none !important;
-}	
+}
 }
 
 
@@ -598,7 +604,7 @@ padding-bottom: 0;
 }
 #menu-mobile-ns .navbar-nav > li > button > i { float:right; font-size:14px; margin-top:2px; }
 #menu-mobile-ns.menu-collapse-down > .collapse { width: 100%; border-color: #ddd; padding: 0; margin: 0px; }
-#menu-mobile-ns.menu-collapse-down > .collapsing, 
+#menu-mobile-ns.menu-collapse-down > .collapsing,
 #menu-mobile-ns.menu-collapse-down > .collapse.in { background-color: #fff; height: calc(100% - 50px); bottom: 0; left: 0; right: 0; top: 50px; min-height: calc(100% - 50px); overflow-x: hidden !important; overflow-y: scroll !important; position: fixed; z-index: 9999; display:block !important; }
 #menu-mobile-ns.offcanvas .navbar-collapse { padding: 0; display: block; overflow-x: hidden; }
 #menu-mobile-ns.offcanvas.in .navbar-collapse { padding: 0; display: block; overflow-x: hidden;visibility:visible; }
@@ -619,7 +625,7 @@ padding-bottom: 0;
 #menu-mobile-ns .navbar-nav > li { float: none; position: relative; }
 #menu-mobile-ns .navbar-nav > li { border-bottom: 1px solid #d9d9d9; }
 #menu-mobile-ns .navbar-nav > li > .mob-submenu-list li a > .show-sc-mobile,
-#menu-mobile-ns .navbar-nav > li a > .show-sc-mobile { 
+#menu-mobile-ns .navbar-nav > li a > .show-sc-mobile {
 	position: absolute;
 	right: 0px;
 	width: 40px;
@@ -634,8 +640,8 @@ padding-bottom: 0;
 	bottom: 0;
 	color:#333;
 	cursor:pointer;
-	font-size: 12px; 
-	border-left: 1px solid #d9d9d9; 	
+	font-size: 12px;
+	border-left: 1px solid #d9d9d9;
 	padding: 0;
 }
 #menu-mobile-ns .navbar-nav > li > .mob-submenu-list li a > .show-sc-mobile > i,

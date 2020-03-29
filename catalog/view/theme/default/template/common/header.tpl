@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.19'; ?>
+  <?php $assets_version = '?v=1.0.20'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,20 +28,20 @@
 <?php } ?>
 <meta property="og:site_name" content="<?php echo $name; ?>" />
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css"/>
+<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css">
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://bootstraptema.ru/_sf/7/729.css" type="text/css"/>
+<link rel="stylesheet" href="https://bootstraptema.ru/_sf/7/729.css" type="text/css">
 <?php foreach ($styles as $style) { ?>
-<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
+<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" >
 <?php } ?>
 <link href="catalog/view/theme/default/stylesheet/style.css<?=$assets_version?>" rel="stylesheet" type="text/css">
 <script src="catalog/view/javascript/common.js<?=$assets_version?>" type="text/javascript"></script>
 <?php foreach ($links as $link) { ?>
-<link href="<?php echo $link['href'].$assets_version; ?>" rel="<?php echo $link['rel']; ?>" type="text/css"/>
+<link href="<?php echo $link['href'].$assets_version; ?>" rel="<?php echo $link['rel']; ?>" type="text/css">
 <?php } ?>
 <?php foreach ($scripts as $script) { ?>
 <script src="<?php echo $script.$assets_version; ?>" type="text/javascript"></script>
@@ -55,7 +55,7 @@
   <nav class="navbar navbar-default" role="navigation">
     <div class="head_all">
     <div class="container navbar-header ">
-      <div id="header_logo_block"> 
+      <div id="header_logo_block">
         <a class="navbar-brand" href="#">
           <img src="catalog/view/theme/default/image/logo.png" width="270" height="auto" alt="lorem">
         </a>
@@ -72,7 +72,7 @@
             <i id="search_fa_btn" class="fa fa-search"></i>
           </div>
         </div>
-        
+
         <div id="btn_account">
           <?php if ($logged) { ?>
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
@@ -86,7 +86,7 @@
       </div>
 
     </div>
-  
+
 <?php if ($categories) { ?>
 <div class="container">
   <nav id="menu" class="navbar">

@@ -264,7 +264,7 @@ var cart = {
 				setTimeout(function () {
 					$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
 				}, 100);
-				
+
 				var now_location = String(document.location.pathname);
 
 				if ((now_location == '/cart/') || (now_location == '/checkout/') || (getURLVar('route') == 'checkout/cart') || (getURLVar('route') == 'checkout/checkout')) {
@@ -446,7 +446,7 @@ $(document).delegate('.agree', 'click', function(e) {
 			// Click
 			this.click = function(event) {
 				curHref = event.currentTarget.attributes.href.nodeValue;
-				
+
 				if (curHref == '#') {
 					event.preventDefault();
 				}
@@ -460,11 +460,18 @@ $(document).delegate('.agree', 'click', function(e) {
 
 			// Show
 			this.show = function() {
-				var pos = $(this).position();
-
+				var pos = $(this).offset();
+				if ($(window).width() > 767) {
+					aw = 'calc(100vw - '+pos.left+'px + 63px)';
+					al = -63;
+				} else {
+					aw = '100vw';
+					al = -pos.left;
+				}
 				$(this).siblings('ul.dropdown-menu').css({
-					top: pos.top + $(this).outerHeight(),
-					left: pos.left
+					top: $(this).outerHeight(),
+					left: al, /*pos.left*/
+					width: aw
 				});
 
 				$(this).siblings('ul.dropdown-menu').show();

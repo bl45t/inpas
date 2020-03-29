@@ -28,7 +28,7 @@
 						<?php } ?>
 						<span class="toggle-child" data-toggle="collapse"><i class="fa fa-plus plus"></i></span>
 						<?php echo $item['name']; ?>
-						<i class="fa fa-angle-down arrow"></i>
+						<i class="fa fa-caret-down arrow"></i>
 					</a>
 					<?php if($item['type']=="freelink"){ ?>
 					<?php if($item['subtype']=="simple"){ ?>
@@ -37,18 +37,18 @@
 							<ul class="list-unstyled nsmenu-haschild">
 								<?php foreach ($item['children'] as $child) { ?>
 								<li class="<?php if(count($child['children'])){ ?> nsmenu-issubchild<?php } ?>">
-									<a href="<?php echo $child['href']; ?>"><?php if(!empty($child['children'])){ ?><i class="fa fa-angle-down arrow"></i><?php } ?><?php echo $child['name']; ?></a>
+									<a href="<?php echo $child['href']; ?>"><?php if(!empty($child['children'])){ ?><i class="fa fa-caret-down arrow"></i><?php } ?><?php echo $child['name']; ?></a>
 									<?php if(count($child['children'])){ ?>
 										<ul class="list-unstyled nsmenu-ischild nsmenu-ischild-simple">
 											<?php foreach ($child['children'] as $subchild) { ?>
-												<li><a href="<?php echo $subchild['link']; ?>"><?php echo $subchild['title']; ?></a></li>				
+												<li><a href="<?php echo $subchild['link']; ?>"><?php echo $subchild['title']; ?></a></li>
 											<?php } ?>
 										</ul>
-									<?php } ?>				
+									<?php } ?>
 								</li>
 								<?php } ?>
 							</ul>
-						</div>            
+						</div>
 					   </div>
 					<?php } ?>
 					<?php } ?>
@@ -69,45 +69,45 @@
 											<?php if(!empty($child['children'])){ ?>
 												<ul class="list-unstyled nsmenu-ischild">
 													<?php foreach ($child['children'] as $subchild) { ?>
-													<li><a href="<?php echo $subchild['link']; ?>"><?php echo $subchild['title']; ?></a></li>				
+													<li><a href="<?php echo $subchild['link']; ?>"><?php echo $subchild['title']; ?></a></li>
 													<?php } ?>
 												</ul>
-											<?php } ?>	
+											<?php } ?>
 										</div>
-										<?php } ?>	
+										<?php } ?>
 									</div>
-									<?php } ?>	
+									<?php } ?>
 								</div>
 								<?php if($item['add_html']){ ?>
 								<div class="col-sm-4 menu-add-html">
 									<?php echo $item['add_html']; ?>
 								</div>
 								<?php } ?>
-							</div>             
+							</div>
 						</div>
 					<?php } ?>
-					<?php } ?>	
+					<?php } ?>
 					<?php if($item['type']=="category"){ ?>
 					<?php if($item['subtype']=="simple"){ ?>
 					  <div class="dropdown-menu nsmenu-type-category-simple">
 							<ul class="list-unstyled nsmenu-haschild">
 								<?php foreach ($item['children'] as $child) { ?>
 								<li class="<?php if(!empty($child['children'])){ ?> nsmenu-issubchild<?php } ?>">
-									<a href="<?php echo $child['href']; ?>"><?php if(!empty($child['children'])){ ?><i class="fa fa-angle-down arrow"></i><?php } ?>
+									<a href="<?php echo $child['href']; ?>"><?php if(!empty($child['children'])){ ?><i class="fa fa-caret-down arrow"></i><?php } ?>
 									<?php echo $child['name']; ?>
 									</a>
 									<?php if(!empty($child['children'])){ ?>
 									<ul class="list-unstyled nsmenu-ischild nsmenu-ischild-simple">
 									 <?php foreach ($child['children'] as $subchild) { ?>
-									<li><a href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a></li>				
+									<li><a href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a></li>
 									<?php } ?>
 									</ul>
-									<?php } ?>				
+									<?php } ?>
 								</li>
 								<?php } ?>
 							</ul>
 						</div>
-						<?php } ?>	
+						<?php } ?>
 						<?php } ?>
 						<?php if($item['type']=="category"){ ?>
 						<?php if(($item['subtype']=="full_image") || ($item['subtype']=="full")){ ?>
@@ -121,19 +121,19 @@
 												<a class="nsmenu-parent-img" href="<?php echo $child['href']; ?>"><img src="<?php echo $child['thumb']; ?>" alt="<?php echo $child['name']; ?>" title="<?php echo $child['name']; ?>"/></a>
 												<?php } ?>
 												<a class="nsmenu-parent-title" href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
-												
+
 												<?php if(!empty($child['children'])){ ?>
 													<ul class="list-unstyled nsmenu-ischild">
 														<?php foreach ($child['children'] as $subchild) { ?>
-														<li><a href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a></li>				
+														<li><a href="<?php echo $subchild['href']; ?>"><?php echo $subchild['name']; ?></a></li>
 														<?php } ?>
 													</ul>
-												<?php } ?>	
-												
+												<?php } ?>
+
 											</div>
-											<?php } ?>	
+											<?php } ?>
 										</div>
-										<?php } ?>	
+										<?php } ?>
 									</div>
 									<?php if($item['add_html']){ ?>
 									<div class="col-sm-4 menu-add-html">
@@ -141,7 +141,7 @@
 									</div>
 									<?php } ?>
 							</div>
-							<?php } ?>	
+							<?php } ?>
 							<?php } ?>
 							<?php if(($item['type']=="freelink") || ($item['type']=="category")){ ?>
 								<?php if(($item['subtype']=="full_masonry") || ($item['subtype']=="full_image_masonry") || ($item['subtype']=="full_3_level") || ($item['subtype']=="full_3_level_image")){ ?>
@@ -182,10 +182,10 @@
 								<?php } ?>
 							<?php if($item['type']=="html"){ ?>
 							  <div class="dropdown-menu nsmenu-type-html nsmenu-bigblock">
-									<div class="nsmenu-html-block">				
+									<div class="nsmenu-html-block">
 										<?php echo $item['html']; ?>
 									</div>
-							   </div>	
+							   </div>
 							<?php } ?>
 							<?php if($item['type']=="manufacturer"){ ?>
 								<div class="dropdown-menu nsmenu-type-manufacturer nsmenu-bigblock">
@@ -206,7 +206,7 @@
 																<?php } ?>
 															</div>
 														<?php } ?>
-													
+
 													<?php } ?>
 												<?php } ?>
 												</div>
@@ -231,20 +231,20 @@
 													<a class="nsmenu-parent-img" href="<?php echo $child['href']; ?>"><img src="<?php echo $child['thumb']; ?>" alt="<?php echo $child['name']; ?>" title="<?php echo $child['name']; ?>" /></a>
 													<a class="nsmenu-parent-title" href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a>
 												</div>
-												<?php } ?>	
+												<?php } ?>
 											</div>
-											<?php } ?>	
+											<?php } ?>
 										</div>
 										<?php if($item['add_html']){ ?>
 										<div class="col-sm-4 menu-add-html">
 											<?php echo $item['add_html']; ?>
 										</div>
 										<?php } ?>
-									</div> 
-									<?php } ?>	            
+									</div>
+									<?php } ?>
 								</div>
 							<?php } ?>
-							<?php if($item['type']=="information"){ ?>	
+							<?php if($item['type']=="information"){ ?>
 								<div class="dropdown-menu nsmenu-type-information">
 									<ul class="list-unstyled nsmenu-haschild">
 										<?php foreach ($item['children'] as $child) { ?>
@@ -305,14 +305,14 @@
 		<?php if($hmenu_type =='0') { ?>
 			</nav>
 			 <?php if(isset($main_menu_mask) && ($main_menu_mask == 1)) { ?>
-			  <div id="maskMenuHor"></div>	
+			  <div id="maskMenuHor"></div>
 			<?php } ?>
 		<?php } ?>
 	</div>
 	<?php if($hmenu_type =='1') { ?>
 		</nav>
 		 <?php if(isset($main_menu_mask) && ($main_menu_mask == 1)) { ?>
-		  <div id="maskMenuHor"></div>	
+		  <div id="maskMenuHor"></div>
 		<?php } ?>
 	<?php } ?>
  </div>
@@ -330,17 +330,17 @@ $('.nsmenu-type-manufacturer a[data-toggle="tooltip"]').tooltip({
 <script>
 $(document).ready(function() {
 	var header_h = $('header').outerHeight();
-	if (viewhw().width >= 992) {	
+	if (viewhw().width >= 992) {
 	$(window).scroll(function(){
 		if($(this).scrollTop() > header_h + 120) {
 			if($("#top-fixed").length==0) {
 				$('#maskMenuHor').removeClass('open');
 				$('#horizontal-menu').removeClass('active-mask');
 				<?php if($hmenu_type =='1') { ?>
-				$('header').before('<div id="top-fixed" class="hidden-xs hidden-sm"></div>');	
+				$('header').before('<div id="top-fixed" class="hidden-xs hidden-sm"></div>');
 				$('.menu-header-box #horizontal-menu').clone().appendTo('#top-fixed');
 				<?php } else { ?>
-				$('header').before('<div id="top-fixed" class="hidden-xs hidden-sm"><div class="container"></div></div>');	
+				$('header').before('<div id="top-fixed" class="hidden-xs hidden-sm"><div class="container"></div></div>');
 				$('.menu-header-box #horizontal-menu').clone().appendTo('#top-fixed .container');
 				<?php } ?>
 				$('#top-fixed').addClass('fixed-top-header');
@@ -350,7 +350,7 @@ $(document).ready(function() {
 			$('#top-fixed').remove();
 			$('#maskMenuHor').removeClass('open');
 			$('#horizontal-menu').removeClass('active-mask');
-		}		
+		}
 	});
 	}
 });
@@ -372,10 +372,10 @@ function close_mob_menu(){
 $(document).on('click', '[data-toggle="close_mob_menu"]', function () {
 	close_mob_menu();
 });
-$(document).mouseup(function (e){ 
-	var div = $("#menu-mobile-ns.active"); 
-	if (!div.is(e.target) 
-		&& div.has(e.target).length === 0) { 
+$(document).mouseup(function (e){
+	var div = $("#menu-mobile-ns.active");
+	if (!div.is(e.target)
+		&& div.has(e.target).length === 0) {
 		close_mob_menu();
 	}
 });
