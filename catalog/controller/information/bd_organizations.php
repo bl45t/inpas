@@ -27,6 +27,8 @@ class ControllerInformationBdOrganizations extends Controller
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_description'] = $this->language->get('text_description');
 		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
+
+		$this->document->setTitle($this->language->get('text_heading_title'));
 		 
 		$optionQuery = [];
 

@@ -198,9 +198,6 @@
 				url: 'index.php?route=catalog/manufacturer/autocomplete&filter_name=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
-					json.unshift({
-						name: '<?php echo $text_none; ?>'
-					});
 
 					response($.map(json, function(item) {
 						return {
@@ -223,9 +220,6 @@
 				url: 'index.php?route=information/bd_expert/autocompletePost&name_post=' +  encodeURIComponent(request),
 				dataType: 'json',
 				success: function(json) {
-					json.unshift({
-						name: '<?php echo $text_none; ?>'
-					});
 
 					response($.map(json, function(item) {
 						return {

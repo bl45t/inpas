@@ -26,7 +26,8 @@ class ControllerInformationBdExpert extends Controller
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
 		
-
+		$this->document->setTitle($this->language->get('text_heading_title'));
+		
 		$optionQuery = [];
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {

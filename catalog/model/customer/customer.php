@@ -16,7 +16,7 @@ class ModelCustomerCustomer extends Model
 				AND md.language_id = '". (int)$this->config->get('config_language_id') ."' 
 			LEFT JOIN " . DB_PREFIX . "country cntry ON cntry.country_id = m.id_country
 			LEFT JOIN " . DB_PREFIX . "zone z ON z.zone_id = m.id_region
-			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
+			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1 AND c.approved = 1
 		";
 
 		$implode = array();

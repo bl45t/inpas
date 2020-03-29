@@ -5,6 +5,8 @@ class ControllerCommonPublications extends Controller {
 
 		$this->load->language('common/publications');
 
+		$this->document->setTitle($this->language->get('text_publications'));
+
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
 		} else {

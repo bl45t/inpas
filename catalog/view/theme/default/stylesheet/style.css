@@ -8,6 +8,10 @@ body
 	background-color: #F5F7F8;
 }
 
+#filter_param .dropdown-menu {
+	margin-top: 30px !important;
+}
+
 .required:after {
 	color:red;
 	content: "*";
