@@ -686,6 +686,7 @@ class ControllerCustomerCustomer extends Controller {
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
+		$data['entry_middlename'] = $this->language->get('entry_middlename');
 		$data['entry_email'] = $this->language->get('entry_email');
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_fax'] = $this->language->get('entry_fax');
@@ -917,6 +918,22 @@ class ControllerCustomerCustomer extends Controller {
 			$data['eng_lastname'] = $customer_info['eng_lastname'];
 		} else {
 			$data['eng_lastname'] = '';
+		}
+
+		if (isset($this->request->post['middlename'])) {
+			$data['middlename'] = $this->request->post['middlename'];
+		} elseif (!empty($customer_info)) {
+			$data['middlename'] = $customer_info['middlename'];
+		} else {
+			$data['middlename'] = '';
+		}
+
+		if (isset($this->request->post['eng_middlename'])) {
+			$data['eng_middlename'] = $this->request->post['eng_middlename'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_middlename'] = $customer_info['eng_middlename'];
+		} else {
+			$data['eng_middlename'] = '';
 		}
 
 		if (isset($this->request->post['email'])) {

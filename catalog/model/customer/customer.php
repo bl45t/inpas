@@ -4,8 +4,8 @@ class ModelCustomerCustomer extends Model
 	public function getExperts($data = []) {
 		$sql = "
 			SELECT c.customer_id, c.post, c.eng_post, c.telephone, c.email, c.field_of_interest,
-			c.eng_field_of_interest,CONCAT(c.firstname, ' ', c.lastname) AS expert_name, 
-			 CONCAT(c.eng_firstname, ' ', c.eng_lastname) AS eng_expert_name,
+			c.eng_field_of_interest,CONCAT(c.lastname, ' ', c.firstname, ' ', c.middlename) AS expert_name, 
+			 CONCAT(c.eng_lastname, ' ', c.eng_firstname, ' ', c.eng_middlename) AS eng_expert_name,
 			cgd.name AS customer_group, md.name AS org_name, cntry.name as country_name, 
 			cntry.eng_name as country_eng_name, z.name as region_name, z.eng_name as region_eng_name,
 			 md.address as org_address, md.manufacturer_id as id_org, cntry.iso_code_2 as country_iso_code_2, c.avatar

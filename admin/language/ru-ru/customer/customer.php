@@ -28,6 +28,7 @@ $_['column_action']         = 'Действие';
 $_['entry_customer_group']  = 'Группа пользователя';
 $_['entry_firstname']       = 'Имя';
 $_['entry_lastname']        = 'Фамилия';
+$_['entry_middlename']     = 'Отчество';
 $_['entry_email']           = 'E-Mail';
 $_['entry_telephone']       = 'Телефон';
 $_['entry_fax']             = 'Факс';

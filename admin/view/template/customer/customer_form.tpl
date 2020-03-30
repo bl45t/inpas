@@ -99,6 +99,26 @@
                           <?php } ?>
                         </div>
                       </div>
+                    
+                      <div class="form-group ">
+                        <label class="col-sm-2 control-label" for="input-middlename"><?php echo $entry_middlename; ?></label>
+                        <div class="col-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                            <input type="text" name="middlename" value="<?php echo $middlename; ?>" placeholder="<?php echo $entry_middlename; ?>" id="input-middlename" class="form-control" />
+                          </div>
+
+                           <div class="input-group">
+                             <span class="input-group-addon">
+                               <img src="/catalog/language/en-gb/en-gb.png">
+                              </span>
+                              <input type="text" name="eng_middlename" value="<?php echo $eng_middlename; ?>" placeholder="<?php echo $entry_middlename; ?>" class="form-control" />
+                            </div>
+                          </div>
+                      </div>
+
                       <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-email"><?php echo $entry_email; ?></label>
                         <div class="col-sm-10">

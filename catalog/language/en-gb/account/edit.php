@@ -11,6 +11,7 @@ $_['text_success']       = 'Success: Your account has been successfully updated.
 // Entry
 $_['entry_firstname']    = 'First Name';
 $_['entry_lastname']     = 'Last Name';
+$_['entry_middlename']     = 'Middle name';
 $_['entry_email']        = 'E-Mail';
 $_['entry_telephone']    = 'Telephone';
 $_['entry_fax']          = 'Fax';

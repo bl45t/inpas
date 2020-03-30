@@ -19,6 +19,7 @@ $_['text_not_exist_organization'] = 'The organization is not in the list';
 $_['entry_customer_group'] = 'Customer Group';
 $_['entry_firstname']      = 'First Name';
 $_['entry_lastname']       = 'Last Name';
+$_['entry_middlename']     = 'Middle name';
 $_['entry_email']          = 'E-Mail';
 $_['entry_telephone']      = 'Telephone';
 $_['entry_fax']            = 'Fax';

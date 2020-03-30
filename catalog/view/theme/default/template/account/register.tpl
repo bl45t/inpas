@@ -102,6 +102,24 @@
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
           </div>
+          
+        <div class="form-group ">
+              <label for="input-middlename"><?php echo $entry_middlename; ?></label>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <img src="/catalog/language/ru-ru/ru-ru.png">
+              </span>
+              <input type="text" name="middlename" value="<?php echo $middlename; ?>" placeholder="<?php echo $entry_middlename; ?>" id="input-middlename" class="form-control" />
+            </div>
+
+            <div class="input-group">
+              <span class="input-group-addon">
+                <img src="/catalog/language/en-gb/en-gb.png">
+              </span>
+              <input type="text" name="eng_middlename" value="<?php echo $eng_middlename; ?>" placeholder="<?php echo $entry_middlename; ?>" class="form-control" />
+            </div>
+          </div>
+
           <div class="form-group ">
               <label class="required" for="input-email"><?php echo $entry_email; ?></label>
            
@@ -985,12 +1003,14 @@ $('.type_user button').click(function() {
   if (curLang == 'ru') {
     handleInputRusToEng('firstname', 'eng_firstname');
     handleInputRusToEng('lastname', 'eng_lastname');
+    handleInputRusToEng('middlename', 'eng_middlename');
     handleInputRusToEng('post', 'eng_post');
     handleInputRusToEng('workplace', 'eng_workplace');
     handleInputRusToEng('field_of_interest', 'eng_field_of_interest');
   } else if (curLang == 'en') {
     handleInputEngToRus('firstname', 'eng_firstname');
     handleInputEngToRus('lastname', 'eng_lastname');
+    handleInputEngToRus('middlename', 'eng_middlename');
     handleInputEngToRus('post', 'eng_post');
     handleInputEngToRus('workplace', 'eng_workplace');
     handleInputEngToRus('field_of_interest', 'eng_field_of_interest');
