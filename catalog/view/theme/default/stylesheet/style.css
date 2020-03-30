@@ -231,6 +231,7 @@ input[type="search"] {
 	font-style: normal;
 	font-weight: 500;
 	color: #FFFFFF;
+	float: right;
    }
 
    @media(max-width: 992px) {
@@ -243,6 +244,7 @@ input[type="search"] {
 		padding: 5px 15px;
 		height: 31px;
 		line-height: 18px;
+		float: right;
    	}
 	/*.login
 	{
