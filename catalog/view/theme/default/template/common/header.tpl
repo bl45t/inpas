@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.21'; ?>
+  <?php $assets_version = '?v=1.0.23'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@
     <div class="head_all">
     <div class="container navbar-header ">
       <div id="header_logo_block">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
           <img src="catalog/view/theme/default/image/logo.png" width="270" height="auto" alt="lorem">
         </a>
       </div>

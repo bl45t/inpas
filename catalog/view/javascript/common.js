@@ -46,6 +46,12 @@ function translitEngToRus(str) {
     return str;
 }//function translitRusToEng
 
+ function view(n) {
+    style = document.getElementById(n).style;
+    style.display = (style.display == 'block') ? 'none' : 'block';
+}
+
+
 $(document).ready(function() {
 	// Highlight any found errors
 	$('.text-danger').each(function() {

@@ -15,7 +15,9 @@
                 <?=$text_date_end?></span><?=$article['date_end']?>
               </div>
             <?php } ?>
-            <div class="place_event"><span class="sub_grey"> <?=$text_venue?> </span><?=$article['venue']?></div>
+            <div class="bottom_row">
+              <div class="place_event"><span class="sub_grey"> <?=$text_venue?> </span><?=$article['venue']?></div>
+            </div>
          </div>
           <!--  Анонс
           <?php echo $article['preview'];?>

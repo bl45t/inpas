@@ -371,6 +371,10 @@ input[type="search"] {
 		align-items: flex-end;
 	}
 
+	#event_hp .bottom_row {
+		margin-top: 7px;
+	}
+
 	.event_link {
 		display: block;
 	}
