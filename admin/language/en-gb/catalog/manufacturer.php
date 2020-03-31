@@ -45,7 +45,7 @@ $_['help_keyword']      = 'Do not use spaces, instead replace spaces with - and 
 
 // Error
 $_['error_permission']  = 'Warning: You do not have permission to modify manufacturers!';
-$_['error_name']        = 'Manufacturer Name must be between 2 and 64 characters!';
+$_['error_name']        = 'Manufacturer Name must be between 2 and 256 characters!';
 $_['error_phone']       = 'Field phone is empty!';
 $_['error_email']       = 'E-Mail Address does not appear to be valid!';
 $_['error_keyword']     = 'SEO URL already in use!';

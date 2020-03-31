@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.24'; ?>
+  <?php $assets_version = '?v=1.0.25'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -76,7 +76,7 @@
         <div id="btn_account">
           <?php if ($logged) { ?>
             <a href="<?=$logout?>" class="login"><?=$text_logout?></a>
-            <a href="<?=$account?>" class="login"><?=$text_account?></a>
+            <a href="<?=$account_edit?>" class="login"><?=$text_account?></a>
           <?php } else { ?>
             <a href="<?=$register?>" class="login"><?=$text_register?></a>
             <a href="<?=$login?>" class="login"><?=$text_login?></a>

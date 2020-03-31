@@ -985,9 +985,20 @@ $('.type_user button').click(function() {
   $("#form_group_not_exist_org #input-empty-org").change(function() {
     if ($(this).is(':checked') == true) {
         $("#newOrganization").removeClass('hidden');
+        $("#input-id-organization option[value='0']").prop('selected', true);
     } else {
         $("#newOrganization").addClass('hidden');
     }
+  });
+
+  $("#input-id-organization").change(function(){
+    let curVal = $(this).val();
+      
+    if (curVal != 0) {
+      $("#input-empty-org").prop('checked', false);
+      $("#input-empty-org").trigger('change');
+    }
+
   });
  
   let is_checked_new_org = "<?=$is_checked_new_org?>";

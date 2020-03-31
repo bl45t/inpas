@@ -492,7 +492,7 @@ class ControllerCatalogManufacturer extends Controller {
 		}
 
 		foreach ($this->request->post['manufacturer_description'] as $language_id => $value) {
-			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 64)) {
+			if ((utf8_strlen($value['name']) < 2) || (utf8_strlen($value['name']) > 256)) {
 				$this->error['name'][$language_id] = $this->language->get('error_name');
 			}
 

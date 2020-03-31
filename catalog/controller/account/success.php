@@ -39,7 +39,7 @@ class ControllerAccountSuccess extends Controller {
 		if ($this->cart->hasProducts()) {
 			$data['continue'] = $this->url->link('checkout/cart');
 		} else {
-			$data['continue'] = $this->url->link('account/account', '', true);
+			$data['continue'] = $this->url->link('account/edit', '', true);
 		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');

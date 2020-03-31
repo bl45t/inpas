@@ -27,6 +27,7 @@ class ControllerAccountRegister extends Controller {
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 
+
 			//Создаем новую организацию
 			if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
 				$arNewOrg = [];
@@ -617,7 +618,7 @@ class ControllerAccountRegister extends Controller {
 		if (isset($this->request->post['is_exist_org']) &&
 			$this->request->post['is_exist_org'] == 'on' && (
 			(utf8_strlen(trim($this->request->post['new_organization_name'])) < 1) ||
-			(utf8_strlen(trim($this->request->post['new_organization_name'])) > 64))) {
+			(utf8_strlen(trim($this->request->post['new_organization_name'])) > 256))) {
 			$this->error['new_organization_name'] = $this->language->get('error_new_organization_name');
 		}
 

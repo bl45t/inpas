@@ -105,6 +105,11 @@ class ModelAccountCustomer extends Model {
 				WHERE customer_id = '" . (int)$customer_id . "'
 			");
 		}
+
+		if (!empty(trim($data['password']))) {
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+		}
+
 	}
 
 	public function editPassword($email, $password) {

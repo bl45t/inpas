@@ -24,7 +24,7 @@
 
                     <div class="col-md-9">
                       <div class="head_publication"><?=$publication['name']?></div>
-                      <div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div>
+                      <div class="date_publication"><?=date("d.m.y",(int)$publication['updated'])?></div>
                     </div>
 
                   </div>

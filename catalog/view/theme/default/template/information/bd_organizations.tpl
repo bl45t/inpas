@@ -80,16 +80,16 @@
 			        <span class="short_data"><?=$organization['short_data']?></span>
 			       
 			        <div class="org_full">
-			          
-			          <div class="col-sm-12">
-			          	<span class="label_description"><?=$text_educational_program?></span>
-			          	<?=$organization['educational_program']?>
-			          </div>
-					
-						 <div class="col-sm-12">
+			          					
+						<div class="col-sm-12">
 						 	<span class="label_description"><?=$text_description?></span>
 			           		<?=$organization['description']?>
-			           	</div>
+			        	</div>
+
+			          	<div class="col-sm-12">
+			          		<span class="label_description"><?=$text_educational_program?></span>
+			          		<?=$organization['educational_program']?>
+			          	</div>
 
 			        </div>
 			      </div>

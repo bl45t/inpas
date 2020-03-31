@@ -25,6 +25,8 @@ $_['entry_interests'] = 'Field of interest';
 $_['entry_organization'] = 'Organization';
 $_['entry_about_me'] = 'About me';
 $_['entry_profile_image'] = 'Profile photo';
+$_['entry_password']        = 'Password';
+$_['entry_confirm']         = 'Confirm';
 
 // Error
 $_['error_exists']                = 'Warning: E-Mail address is already registered!';
@@ -35,3 +37,6 @@ $_['error_telephone']             = 'Telephone must be between 3 and 32 characte
 $_['error_custom_field']          = '%s required!';
 $_['error_post']          = 'Post must be between 1 and 128 characters!';
 $_['error_city']           = 'City must be between 2 and 128 characters!';
+$_['error_warning']         = 'Warning: Please check the form carefully for errors!';
+$_['error_password']        = 'Password must be between 4 and 20 characters!';
+$_['error_confirm']         = 'Password and password confirmation do not match!';

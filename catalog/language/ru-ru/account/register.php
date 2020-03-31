@@ -16,7 +16,7 @@ $_['text_expert']   = 'Эксперт';
 $_['text_not_exist_organization'] = 'Организация отсутствует в списке';
 
 // Entry
-$_['entry_customer_group'] = 'Группа покупателей';
+$_['entry_customer_group'] = 'Группа пользователей';
 $_['entry_firstname']      = 'Имя';
 $_['entry_lastname']       = 'Фамилия';
 $_['entry_middlename']     = 'Отчество';
@@ -66,7 +66,7 @@ $_['error_custom_field']   = '%s необходим!';
 $_['error_password']       = 'В пароле должно быть от 4 до 20 символов!';
 $_['error_confirm']        = 'Пароли не совпадают!';
 $_['error_agree']          = 'Для регистрации вы должны быть согласны с документом %s!';
-$_['error_new_organization_name']  = 'Название организации должно содержать от 1 до 64 символов!';
+$_['error_new_organization_name']  = 'Название организации должно содержать от 1 до 256 символов!';
 $_['error_new_organization_phone']  = 'Телефон организации должен содержать от 6 до 20 символов!';
 $_['error_new_organization_email']  = 'E-Mail организации введён неправильно!';
 

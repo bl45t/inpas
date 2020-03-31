@@ -61,25 +61,18 @@ class ControllerAccountEdit extends Controller {
 				$this->model_account_activity->addActivity('edit', $activity_data);
 			}
 
-			$this->response->redirect($this->url->link('account/account', '', true));
+			$this->response->redirect($this->url->link('account/edit', '', true));
 		}
 
 		$data['breadcrumbs'] = array();
 
-		$data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_home'),
-			'href'      => $this->url->link('common/home')
-		);
+		if (isset($this->session->data['success'])) {
+			$data['success'] = $this->session->data['success'];
 
-		$data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_account'),
-			'href'      => $this->url->link('account/account', '', true)
-		);
-
-		$data['breadcrumbs'][] = array(
-			'text'      => $this->language->get('text_edit'),
-			'href'      => $this->url->link('account/edit', '', true)
-		);
+			unset($this->session->data['success']);
+		} else {
+			$data['success'] = '';
+		} 
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -101,6 +94,8 @@ class ControllerAccountEdit extends Controller {
 		$data['entry_organization'] = $this->language->get('entry_organization');
 		$data['entry_about_me'] = $this->language->get('entry_about_me');
 		$data['entry_profile_image'] = $this->language->get('entry_profile_image');
+		$data['entry_password'] = $this->language->get('entry_password');
+		$data['entry_confirm'] = $this->language->get('entry_confirm');
 		
 
 		$data['button_continue'] = $this->language->get('button_continue');
@@ -141,6 +136,18 @@ class ControllerAccountEdit extends Controller {
 			$data['error_telephone'] = $this->error['telephone'];
 		} else {
 			$data['error_telephone'] = '';
+		}
+
+		if (isset($this->error['password'])) {
+			$data['error_password'] = $this->error['password'];
+		} else {
+			$data['error_password'] = '';
+		}
+
+		if (isset($this->error['confirm'])) {
+			$data['error_confirm'] = $this->error['confirm'];
+		} else {
+			$data['error_confirm'] = '';
 		}
 
 		if (isset($this->error['custom_field'])) {
@@ -315,6 +322,18 @@ class ControllerAccountEdit extends Controller {
 			$data['is_expert'] = 0;
 		}
 
+		if (isset($this->request->post['password'])) {
+			$data['password'] = $this->request->post['password'];
+		} else {
+			$data['password'] = '';
+		}
+
+		if (isset($this->request->post['confirm'])) {
+			$data['confirm'] = $this->request->post['confirm'];
+		} else {
+			$data['confirm'] = '';
+		}
+
 		$this->load->model('tool/imagecrop');
 
 		if (!empty($customer_info) && is_file(DIR_IMAGE .$customer_info['avatar'])) {
@@ -384,6 +403,20 @@ class ControllerAccountEdit extends Controller {
 
 		if (($this->customer->getEmail() != $this->request->post['email']) && $this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
 			$this->error['warning'] = $this->language->get('error_exists');
+		}
+
+		if (!empty(trim($this->request->post['password']))) {
+			if ((utf8_strlen($this->request->post['password']) < 4) || (utf8_strlen($this->request->post['password']) > 20)) {
+				$this->error['password'] = $this->language->get('error_password');
+			}
+
+			if ($this->request->post['password'] != $this->request->post['confirm']) {
+				$this->error['confirm'] = $this->language->get('error_confirm');
+			}
+		}
+
+		if ($this->error && !isset($this->error['warning'])) {
+			$this->error['warning'] = $this->language->get('error_warning');
 		}
 
 		// Custom field validation

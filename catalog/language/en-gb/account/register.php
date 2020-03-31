@@ -66,6 +66,6 @@ $_['error_custom_field']   = '%s required!';
 $_['error_password']       = 'Password must be between 4 and 20 characters!';
 $_['error_confirm']        = 'Password confirmation does not match password!';
 $_['error_agree']          = 'Warning: You must agree to the %s!';
-$_['error_new_organization_name']  = 'Name organization mast be between 1 and 64 characters!';
+$_['error_new_organization_name']  = 'Name organization mast be between 1 and 256 characters!';
 $_['error_new_organization_phone']  = 'Organization phone mast be between 6 and 20 characters!';
 $_['error_new_organization_email']  = 'Organization Email does not appear to be valid!';
