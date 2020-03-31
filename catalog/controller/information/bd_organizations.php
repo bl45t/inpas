@@ -128,28 +128,12 @@ class ControllerInformationBdOrganizations extends Controller
 
 			$arShotData = [];
 
-			if (!empty($arOrg[$org['manufacturer_id']]['country_name_eng'])) {
-				$arShotData[] = $arOrg[$org['manufacturer_id']]['country_name_eng'];
+			if (!empty($arOrg[$org['manufacturer_id']]['country_name'])) {
+				$arShotData[] = $arOrg[$org['manufacturer_id']]['country_name'];
 			}
 
 			if (!empty($arOrg[$org['manufacturer_id']]['region_name'])) {
 				$arShotData[] = $arOrg[$org['manufacturer_id']]['region_name'];
-			}
-
-			if (!empty($arOrg[$org['manufacturer_id']]['city'])) {
-				$arShotData[] = $arOrg[$org['manufacturer_id']]['city'];
-			}
-
-			if (!empty($arOrg[$org['manufacturer_id']]['phone'])) {
-				$arShotData[] = $arOrg[$org['manufacturer_id']]['phone'];
-			}
-
-			if (!empty($arOrg[$org['manufacturer_id']]['email'])) {
-				$arShotData[] = $arOrg[$org['manufacturer_id']]['email'];
-			}
-
-			if (!empty($arOrg[$org['manufacturer_id']]['site_address'])) {
-				$arShotData[] = $arOrg[$org['manufacturer_id']]['site_address'];
 			}
 
 			$arOrg[$org['manufacturer_id']]['short_data'] = implode(', ', $arShotData);

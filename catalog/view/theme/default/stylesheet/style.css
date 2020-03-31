@@ -25,7 +25,7 @@ body
 	font-size: 16px;
 }
 
-#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page, #successPage, #accountPage, #searchPage{
+#information_page, #publicationPage, #bd_expert_page, #bd_organizations_page, #successPage, #accountPage, #searchPage, #notFoundPage{
 	min-height: 530px;
 }
 
@@ -1599,7 +1599,8 @@ input[type="search"] {
 
 	.org_text p
 	{
-		margin: 0px ;
+		margin: 0px;
+		font-size: 14px;
 	}
 	.org_desc
 	{
@@ -1630,7 +1631,7 @@ input[type="search"] {
 	}
 	.org_full div, .org_full a
 	{
-		font-size: 16px;
+		font-size: 14px;
 	}
 	.org_full .label_description
 	{
@@ -1647,14 +1648,14 @@ input[type="search"] {
 		font-size: 16px;
 		margin-top: 7px !important;
 	}
-	.open .short_data, .open .more_org
+	.open .more_org
 	{
 		display: none;
 	}
 	.open .org_full
 	{
 		display: block;
-		margin-left: 76px;
+		margin-left: 26px;
 	}
 
 

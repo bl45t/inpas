@@ -24,6 +24,8 @@ $(document).ready(function() {
 				['table', ['table']],
 				['insert', ['link', 'image', 'video']],
 				['view', ['fullscreen', 'codeview', 'help']],
+				['undo'],
+        		['redo']
 			],
 			buttons: {
     			image: function() {

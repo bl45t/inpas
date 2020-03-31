@@ -112,7 +112,10 @@
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_email?></span> <?=$expert['email']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_post?>:</span> <?=$expert['post']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
-			          <div class="col-md-12"><span><?=$text_interests?></span><?=$expert['field_of_interest']?></div>
+			          <div class="col-md-12">
+			          	<span class="label_description"><?=$text_interests?></span>
+			          	<?=$expert['field_of_interest']?>
+			          </div>
 
 			        </div>
 			      </div>

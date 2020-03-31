@@ -80,16 +80,62 @@
 			        <span class="short_data"><?=$organization['short_data']?></span>
 			       
 			        <div class="org_full">
-			          					
-						<div class="col-sm-12">
-						 	<span class="label_description"><?=$text_description?></span>
-			           		<?=$organization['description']?>
-			        	</div>
 
-			          	<div class="col-sm-12">
-			          		<span class="label_description"><?=$text_educational_program?></span>
-			          		<?=$organization['educational_program']?>
-			          	</div>
+			        	<?php if (!empty($organization['city'])) { ?> 
+							<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_city?>: </span>
+				           		<?=$organization['city']?>
+				        	</div>
+						<?php } ?>
+
+						<?php if (!empty($organization['phone'])) { ?>
+				        	<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_phone?></span>
+				           		<?=$organization['phone']?>
+				        	</div>
+						<?php } ?>
+
+						<?php if (!empty($organization['post_code'])) { ?>
+				        	<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_post_code?></span>
+				           		<?=$organization['post_code']?>
+				        	</div>	
+				        <?php } ?>
+	
+						<?php if (!empty($organization['fax'])) { ?>
+				        	<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_fax?></span>
+				           		<?=$organization['fax']?>
+				        	</div>
+						<?php } ?>
+	
+						<?php if (!empty($organization['email'])) { ?>
+				        	<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_email?></span>
+				           		<?=$organization['email']?>
+				        	</div>
+						<?php } ?>
+
+						<?php if (!empty($organization['site_address'])) { ?>
+				        	<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_site?></span>
+				           		<?=$organization['site_address']?>
+				        	</div>			        					        	
+						<?php } ?>
+
+						<?php if (!empty($organization['description'])) { ?>						
+							<div class="col-sm-12">
+							 	<span class="label_description"><?=$text_description?></span>
+				           		<?=$organization['description']?>
+				        	</div>
+						<?php } ?>
+
+						<?php if (!empty($organization['educational_program'])) { ?>
+				          	<div class="col-sm-12">
+				          		<span class="label_description"><?=$text_educational_program?></span>
+				          		<?=$organization['educational_program']?>
+				          	</div>
+						<?php } ?>
 
 			        </div>
 			      </div>
