@@ -35,8 +35,8 @@ function translitRusToEng(str) {
 }//function translitRusToEng
 
 function translitEngToRus(str) {
-    arrru = new Array ("Ж" ,"ж","Ф", "ф", "Ч", "ч", "Ш", "ш", "Щ", "щ",  "Ю", "ю", "Я", "я", "А", "а", "Б", "б", "В", "в", "Г", "г", "Д", "д", "Е", "е", "Ё", "ё",  "З", "з", "И", "и", "Й", "й", "К", "к", "Л", "л", "М", "м", "Н", "н", "О", "о", "П", "п", "Р", "р", "С", "с", "Т", "т", "У", "у",  "Х", "х", "Ц", "ц", "Ъ", "ы", "Ь", "ь", "Э", "э");
-    arren = new Array ("Zh","zh", "Ph", "f", "Ch", "ch", "Sh", "sh", "Sh", "sh", "Yu", "yu", "Ya", "ya", "A", "a", "B", "b", "V", "v", "G", "g", "D", "d", "E", "e", "E", "e",   "Z", "z", "I", "i", "Y", "y", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "R", "r", "S", "s", "T", "t", "U", "u",  "H", "h", "C", "c", "I", "i", "'", "'", "E", "e");
+    arrru = new Array ("К", "к", "в", "в", "Ж" ,"ж","Ф", "ф", "Ч", "ч", "Ш", "ш", "Щ", "щ",  "Ю", "ю", "Я", "я", "А", "а", "Б", "б", "В", "в", "Г", "г", "Д", "д", "Е", "е", "Ё", "ё",  "З", "з", "И", "и", "Й", "й", "К", "к", "Л", "л", "М", "м", "Н", "н", "О", "о", "П", "п", "Р", "р", "С", "с", "Т", "т", "У", "у",  "Х", "х", "Ц", "ц", "Ъ", "ы", "Ь", "ь", "Э", "э");
+    arren = new Array ("Q", "q", "W", "w", "Zh","zh", "Ph", "f", "Ch", "ch", "Sh", "sh", "Sh", "sh", "Yu", "yu", "Ya", "ya", "A", "a", "B", "b", "V", "v", "G", "g", "D", "d", "E", "e", "E", "e",   "Z", "z", "I", "i", "Y", "y", "K", "k", "L", "l", "M", "m", "N", "n", "O", "o", "P", "p", "R", "r", "S", "s", "T", "t", "U", "u",  "H", "h", "C", "c", "I", "i", "'", "'", "E", "e");
 
     for(var i=0; i<arren.length; i++){
         var litnow = new RegExp(arren[i], "g");
@@ -45,6 +45,40 @@ function translitEngToRus(str) {
 
     return str;
 }//function translitRusToEng
+
+function handleInputRusToEng(ruAttrName, enAttrName) {
+
+    ruAttrName = ruAttrName.trim();
+    enAttrName = enAttrName.trim();
+
+    if (!ruAttrName || !enAttrName || ruAttrName === '' || enAttrName === '') {
+      console.log('Error handleInputRusToEng');
+      return;
+    }
+
+    $('input[name=\''+ruAttrName+'\']').change(function(){
+      let text = $(this).val();
+      text =  translitRusToEng(text);
+      $('input[name=\''+enAttrName+'\']').val(text);
+    });
+  }
+
+    function handleInputEngToRus(ruAttrName, enAttrName) {
+
+    ruAttrName = ruAttrName.trim();
+    enAttrName = enAttrName.trim();
+
+    if (!ruAttrName || !enAttrName || ruAttrName === '' || enAttrName === '') {
+      console.log('Error handleInputEngToRus');
+      return;
+    }
+
+    $('input[name=\''+enAttrName+'\']').change(function(){
+      let text = $(this).val();
+      text = translitEngToRus(text);
+      $('input[name=\''+ruAttrName+'\']').val(text);
+    });
+  }
 
  function view(n) {
     style = document.getElementById(n).style;

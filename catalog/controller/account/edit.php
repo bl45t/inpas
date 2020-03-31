@@ -20,6 +20,9 @@ class ControllerAccountEdit extends Controller {
 
 		$this->load->model('account/customer');
 
+		$curLang = $this->language->get('code');
+		$data['cur_lang'] = $curLang;
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 
 			if(isset($_FILES) && $_FILES['avatar']['error'] == 0){

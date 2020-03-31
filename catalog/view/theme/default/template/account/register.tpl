@@ -1027,40 +1027,6 @@ $('.type_user button').click(function() {
     handleInputEngToRus('field_of_interest', 'eng_field_of_interest');
   }
 
-  function handleInputRusToEng(ruAttrName, enAttrName) {
-
-    ruAttrName = ruAttrName.trim();
-    enAttrName = enAttrName.trim();
-
-    if (!ruAttrName || !enAttrName || ruAttrName === '' || enAttrName === '') {
-      console.log('Error handleInputRusToEng');
-      return;
-    }
-
-    $('input[name=\''+ruAttrName+'\']').change(function(){
-      let text = $(this).val();
-      text =  translitRusToEng(text);
-      $('input[name=\''+enAttrName+'\']').val(text);
-    });
-  }
-
-    function handleInputEngToRus(ruAttrName, enAttrName) {
-
-    ruAttrName = ruAttrName.trim();
-    enAttrName = enAttrName.trim();
-
-    if (!ruAttrName || !enAttrName || ruAttrName === '' || enAttrName === '') {
-      console.log('Error handleInputEngToRus');
-      return;
-    }
-
-    $('input[name=\''+enAttrName+'\']').change(function(){
-      let text = $(this).val();
-      text = translitEngToRus(text);
-      $('input[name=\''+ruAttrName+'\']').val(text);
-    });
-  }
-
 //--></script>
 <?php echo $content_bottom; ?>
 <?php echo $footer; ?>

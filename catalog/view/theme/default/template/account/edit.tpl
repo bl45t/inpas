@@ -462,6 +462,27 @@ $('button[id^=\'button-custom-field\']').on('click', function() {
 		}
 	}, 500);
 });
+
+//Транслитерация полей в зависимости от текущей локали
+  let curLang = "<?=$cur_lang?>";
+  
+  if (curLang == 'ru') {
+    handleInputRusToEng('firstname', 'eng_firstname');
+    handleInputRusToEng('lastname', 'eng_lastname');
+    handleInputRusToEng('middlename', 'eng_middlename');
+    handleInputRusToEng('post', 'eng_post');
+    handleInputRusToEng('workplace', 'eng_workplace');
+    handleInputRusToEng('field_of_interest', 'eng_field_of_interest');
+  } else if (curLang == 'en') {
+    handleInputEngToRus('firstname', 'eng_firstname');
+    handleInputEngToRus('lastname', 'eng_lastname');
+    handleInputEngToRus('middlename', 'eng_middlename');
+    handleInputEngToRus('post', 'eng_post');
+    handleInputEngToRus('workplace', 'eng_workplace');
+    handleInputEngToRus('field_of_interest', 'eng_field_of_interest');
+  }
+
+
 //--></script>
 <script type="text/javascript"><!--
 $('.date').datetimepicker({
