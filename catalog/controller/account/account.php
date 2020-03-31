@@ -1,6 +1,9 @@
 <?php
 class ControllerAccountAccount extends Controller {
 	public function index() {
+		//hardcode row
+		$this->response->redirect($this->url->link('account/edit', '', true));
+
 		if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/account', '', true);
 
