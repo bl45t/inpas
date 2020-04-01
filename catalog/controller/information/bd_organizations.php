@@ -26,32 +26,33 @@ class ControllerInformationBdOrganizations extends Controller
 		$data['text_city'] = $this->language->get('text_city');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_description'] = $this->language->get('text_description');
+		$data['text_link'] = $this->language->get('text_link');
 		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
 
 		$this->document->setTitle($this->language->get('text_heading_title'));
-		 
+
 		$optionQuery = [];
 
-		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
-			$idCountry = $this->request->post['id_country'];
+		if (($this->request->server['REQUEST_METHOD'] == 'GET')) {
+			$idCountry = $this->request->get['id_country'];
 
 			if (!empty($idCountry)) {
 				$optionQuery['id_country'] = (int)$idCountry;
 			}
 
-			$idRegion = $this->request->post['id_region'];
+			$idRegion = $this->request->get['id_region'];
 
 			if (!empty($idRegion)) {
 				$optionQuery['id_region'] = (int)$idRegion;
 			}
 
-			$nameCity = $this->request->post['name_city'];
+			$nameCity = $this->request->get['name_city'];
 
 			if (!empty($nameCity)) {
 				$optionQuery['name_city'] = $nameCity;
 			}
 
-			$searchField = $this->request->post['search_field'];
+			$searchField = $this->request->get['search_field'];
 
 			if (!empty($searchField)) {
 				$optionQuery['search_field'] = $searchField;
@@ -59,27 +60,27 @@ class ControllerInformationBdOrganizations extends Controller
 
 		}
 
-		if (isset($this->request->post['id_country'])) {
-			$data['id_country'] = $this->request->post['id_country'];
+		if (isset($this->request->get['id_country'])) {
+			$data['id_country'] = $this->request->get['id_country'];
 		} else {
 			$data['id_country'] = '';
 		}
 
-		if (isset($this->request->post['id_region'])) {
-			$data['id_region'] = $this->request->post['id_region'];
+		if (isset($this->request->get['id_region'])) {
+			$data['id_region'] = $this->request->get['id_region'];
 		} else {
 			$data['id_region'] = '';
 		}
 
-		if (isset($this->request->post['name_city'])) {
-			$data['name_city'] = $this->request->post['name_city'];
+		if (isset($this->request->get['name_city'])) {
+			$data['name_city'] = $this->request->get['name_city'];
 		} else {
 			$data['name_city'] = '';
 		}
 
 
-		if (isset($this->request->post['search_field'])) {
-			$data['search_field'] = $this->request->post['search_field'];
+		if (isset($this->request->get['search_field'])) {
+			$data['search_field'] = $this->request->get['search_field'];
 		} else {
 			$data['search_field'] = '';
 		}
@@ -116,6 +117,7 @@ class ControllerInformationBdOrganizations extends Controller
 			$arOrg[$org['manufacturer_id']]['fax'] = $org['org_fax'];
 			$arOrg[$org['manufacturer_id']]['email'] = $org['org_email'];
 			$arOrg[$org['manufacturer_id']]['site_address'] = $org['org_site_address'];
+			$arOrg[$org['manufacturer_id']]['link'] = $this->url->link('information/bd_organizations','&organization='.$org['manufacturer_id']);
 			$arOrg[$org['manufacturer_id']]['educational_program'] = html_entity_decode($org['org_educational_program'], ENT_QUOTES, 'UTF-8');
 
 			$arOrg[$org['manufacturer_id']]['country_name'] = $org['country_name'];
@@ -157,8 +159,8 @@ class ControllerInformationBdOrganizations extends Controller
 			}
 
 		}
-		
-		$data['countries'] = $arCountries; 
+
+		$data['countries'] = $arCountries;
 
 		$pagination = new Pagination();
 		$pagination->total = $org_total;

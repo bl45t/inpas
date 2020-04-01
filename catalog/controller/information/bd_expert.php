@@ -24,84 +24,85 @@ class ControllerInformationBdExpert extends Controller
 		$data['text_country'] = $this->language->get('text_country');
 		$data['text_city'] = $this->language->get('text_city');
 		$data['text_search'] = $this->language->get('text_search');
+		$data['text_link'] = $this->language->get('text_link');
 		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
-		
+
 		$this->document->setTitle($this->language->get('text_heading_title'));
-		
+
 		$optionQuery = [];
 
-		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
-			$idCountry = $this->request->post['id_country'];
+		if (($this->request->server['REQUEST_METHOD'] == 'GET')) {
+			$idCountry = $this->request->get['id_country'];
 
 			if (!empty($idCountry)) {
 				$optionQuery['id_country'] = (int)$idCountry;
 			}
 
-			$idRegion = $this->request->post['id_region'];
+			$idRegion = $this->request->get['id_region'];
 
 			if (!empty($idRegion)) {
 				$optionQuery['id_region'] = (int)$idRegion;
 			}
 
-			$nameCity = $this->request->post['name_city'];
+			$nameCity = $this->request->get['name_city'];
 
 			if (!empty($nameCity)) {
 				$optionQuery['name_city'] = $nameCity;
 			}
 
-			$searchField = $this->request->post['search_field'];
+			$searchField = $this->request->get['search_field'];
 
 			if (!empty($searchField)) {
 				$optionQuery['filter_name'] = $searchField;
 			}
 
-			$nameOrganization = $this->request->post['name_organization'];
+			$nameOrganization = $this->request->get['name_organization'];
 
 			if (!empty($nameOrganization)) {
 				$optionQuery['name_organization'] = $nameOrganization;
 			}
 
-			$namePost = $this->request->post['name_post'];
+			$namePost = $this->request->get['name_post'];
 
 			if (!empty($namePost)) {
 				$optionQuery['name_post'] = $namePost;
 			}
-			
+
 		}
 
-		if (isset($this->request->post['id_country'])) {
-			$data['id_country'] = $this->request->post['id_country'];
+		if (isset($this->request->get['id_country'])) {
+			$data['id_country'] = $this->request->get['id_country'];
 		} else {
 			$data['id_country'] = '';
 		}
 
-		if (isset($this->request->post['id_region'])) {
-			$data['id_region'] = $this->request->post['id_region'];
+		if (isset($this->request->get['id_region'])) {
+			$data['id_region'] = $this->request->get['id_region'];
 		} else {
 			$data['id_region'] = '';
 		}
 
-		if (isset($this->request->post['name_city'])) {
-			$data['name_city'] = $this->request->post['name_city'];
+		if (isset($this->request->get['name_city'])) {
+			$data['name_city'] = $this->request->get['name_city'];
 		} else {
 			$data['name_city'] = '';
 		}
 
 
-		if (isset($this->request->post['search_field'])) {
-			$data['search_field'] = $this->request->post['search_field'];
+		if (isset($this->request->get['search_field'])) {
+			$data['search_field'] = $this->request->get['search_field'];
 		} else {
 			$data['search_field'] = '';
 		}
 
-		if (isset($this->request->post['name_organization'])) {
-			$data['name_organization'] = $this->request->post['name_organization'];
+		if (isset($this->request->get['name_organization'])) {
+			$data['name_organization'] = $this->request->get['name_organization'];
 		} else {
 			$data['name_organization'] = '';
 		}
 
-		if (isset($this->request->post['name_post'])) {
-			$data['name_post'] = $this->request->post['name_post'];
+		if (isset($this->request->get['name_post'])) {
+			$data['name_post'] = $this->request->get['name_post'];
 		} else {
 			$data['name_post'] = '';
 		}
@@ -156,12 +157,13 @@ class ControllerInformationBdExpert extends Controller
 			$arExperts[$e['customer_id']]['region_name'] = ($curLang == 'ru') ? $e['region_name'] : $e['region_eng_name'];
 			$arExperts[$e['customer_id']]['address'] = implode(', ', $addrInfo);
 			$arExperts[$e['customer_id']]['link_to_org'] = $this->url->link('information/bd_organizations','&organization='.$e['id_org']);
+			$arExperts[$e['customer_id']]['link'] = $this->url->link('information/bd_expert','&search_field='.htmlspecialchars($arExperts[$e['customer_id']]['name']));
 			$arExperts[$e['customer_id']]['country_iso_code_2'] = strtolower($e['country_iso_code_2']);
 
 			if (!empty($e['avatar'])) {
 				$arExperts[$e['customer_id']]['avatar'] = $this->model_tool_imagecrop->resize($e['avatar'], 0, 83);
 			}
-			
+
 		}
 
 		$data['experts'] = $arExperts;
@@ -181,8 +183,8 @@ class ControllerInformationBdExpert extends Controller
 			}
 
 		}
-		
-		$data['countries'] = $arCountries; 
+
+		$data['countries'] = $arCountries;
 
 		$pagination = new Pagination();
 		$pagination->total = $exprts_total;

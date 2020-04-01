@@ -725,6 +725,23 @@ input[type="search"] {
   		text-align: right;
 	}
 
+	@media(max-width: 767px){
+		.col_right .footer_text, .col_right .footer_header
+		{
+			margin-left: 0px;
+	  		margin-right: 0em;
+	  		text-align: center;
+		}
+		.footer_text, .footer_text a, .footer_header
+		{
+			max-width: 100%;
+			text-align: center;
+		}
+		.footer_header {
+			padding-top: 10px;
+		}
+	}
+
 	.go_left
 	{
 	    width: 20px;
@@ -1622,6 +1639,9 @@ input[type="search"] {
 	{
 		padding: 0px !important;
 		margin-bottom: 9px;
+	}
+	.org_full div:nth-child(2n+1) {
+	    clear: left;
 	}
 	.org_full
 	{

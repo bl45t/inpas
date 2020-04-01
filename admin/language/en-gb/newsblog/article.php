@@ -7,7 +7,7 @@ $_['text_success'] 			= 'List of records updated!';
 $_['text_list'] 			= 'List of records';
 $_['text_add'] 				= 'Add an entry';
 $_['text_edit'] 			= 'Edit recordings';
-$_['text_default'] 			= 'The main shop';
+$_['text_default'] 			= 'The main site';
 
 // Column
 $_['column_image'] 			= 'Picture';
@@ -37,7 +37,7 @@ $_['entry_keyword'] 		= 'SEO URL:';
 
 $_['entry_main_category'] 	= 'Main category';
 $_['entry_category'] 		= 'Show categories:';
-$_['entry_store'] 			= 'Stores';
+$_['entry_store'] 			= 'Sites';
 $_['entry_related'] 		= 'Related Articles';
 $_['entry_related_products']= 'Related Products';
 

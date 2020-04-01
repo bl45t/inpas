@@ -16,7 +16,7 @@
 	            </div>
 				
 				<div class="search_block">
-		            <form action="<?=$search_link?>" method="post" class="search search_sub">
+		            <form action="<?=$search_link?>" method="get" class="search search_sub">
 		              <input id="search_field_input" type="search search_sub" name="search_field" placeholder="поиск" class="input" value='<?=$search_field?>' />
 		              <button type="submit" id="filter_btn" class="bd_filtr"><?=$text_search?></button>
 			          <div class="select_cat">
@@ -34,27 +34,27 @@
 			                	</select>
 			              	</section>
 		            	</div>
-		            	
+
 		            </form>
 		        </div>
 
 
 	        </div>
-					
+
 				<?php foreach ($publications as $publication) { ?>
-					<div class="col-xs-12 col-md-6 col_main ">  
+					<div class="col-xs-12 col-md-6 col_main ">
 		              <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
 		                  <div class="row publication">
-		                    
+
 		                    <div class="col-md-2 publication_image">
 		                      <img src="/image/<?=$publication['image']?>">
 		                    </div>
-		                    
+
 		                    <div class="col-md-10">
 		                      <div class="head_publication"><?=$publication['name']?></div>
-		                      <div class="date_publication"><?=date("d.m.y", (int)$publication['updated'])?></div> 
+		                      <div class="date_publication"><?=date("d.m.y", (int)$publication['updated'])?></div>
 		                    </div>
-							
+
 							<div class="col-md-12">
 							 <div class="publ_description">﻿<?=$publication['preview']?></div>
 		                    </div>

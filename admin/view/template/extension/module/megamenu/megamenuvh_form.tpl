@@ -83,14 +83,14 @@
 				<div class="form-group required">
 					<label class="col-sm-3 control-label"><?php echo $ns_text_type;?></label>
 					<div class="col-sm-9">
-						<select onChange="sel_type_category()"  name="menuvh[menu_type]" id="input-menu-type" class="form-control">											
+						<select onChange="sel_type_category()"  name="menuvh[menu_type]" id="input-menu-type" class="form-control">
 							<option value="0"><?php echo $text_select; ?></option>
-							<option value="category" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'category')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_category; ?></option>
+							<!--<option value="category" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'category')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_category; ?></option>-->
 							<option value="html" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'html')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_html; ?></option>
-							<option value="manufacturer" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'manufacturer')) {?> selected="selected" <?php } ?>><?php echo $ns_text_type_manufacturer; ?></option>
+							<!--<option value="manufacturer" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'manufacturer')) {?> selected="selected" <?php } ?>><?php echo $ns_text_type_manufacturer; ?></option>-->
 							<option value="information" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'information')) {?> selected="selected" <?php } ?>><?php echo $ns_text_type_information; ?></option>
-							<option value="product" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'product')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_product; ?></option>											
-							<option value="freelink" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'freelink')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_freelink; ?></option>											
+							<!--<option value="product" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'product')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_product; ?></option>											-->
+							<option value="freelink" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'freelink')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_freelink; ?></option>
 							<option value="link" <?php if(isset($menuvh['menu_type']) && ($menuvh['menu_type'] == 'link')) { ?> selected="selected" <?php } ?>><?php echo $ns_text_type_link; ?></option>
 						</select>
 						<?php if (!empty($error_menu_type)) { ?>
@@ -98,8 +98,8 @@
 						<?php } ?>
 					</div>
 				</div>
-				
-				<div class="show_elements show_elements_category">			
+
+				<div class="show_elements show_elements_category">
 					<div class="form-group required">
 						<label class="col-sm-3 control-label" for="input_variant_category"><?php echo $ns_type_dropdown_list; ?></label>
 						<div class="col-sm-9">
@@ -125,13 +125,13 @@
 									<option value="1"><?php echo $text_enabled; ?></option>
 									<option value="0" selected="selected"><?php echo $text_disabled; ?></option>
 								<?php } ?>
-							</select>										
+							</select>
 						</div>
 					</div>
 					<div class="form-group type_full_show">
 						<label class="col-sm-3 control-label"><?php echo $limit_subcategories; ?></label>
 						<div class="col-sm-9">
-							<input type="text" name="menuvh[category_setting][limit_subcat]" value="<?php echo isset($limit_subcat) ? $limit_subcat : 8;?>" class="form-control" />									 
+							<input type="text" name="menuvh[category_setting][limit_subcat]" value="<?php echo isset($limit_subcat) ? $limit_subcat : 8;?>" class="form-control" />
 						</div>
 					</div>
 					<div class="form-group number_column_sc">
@@ -159,17 +159,17 @@
 									<option value="3">4</option>
 									<option value="1-5" selected="selected">5</option>
 								<?php } ?>
-							</select>										
+							</select>
 						</div>
 					</div>
 					<div class="form-group type_full_show_img">
 						<label class="col-sm-3 control-label"><?php echo $ns_text_product_width; ?></label>
 						<div class="col-sm-3">
-							<input type="text" name="menuvh[category_setting][category_img_width]" value="<?php echo isset($category_img_width) ? $category_img_width : 50;?>" placeholder="<?php echo $ns_text_product_width; ?>" class="form-control" />									 
+							<input type="text" name="menuvh[category_setting][category_img_width]" value="<?php echo isset($category_img_width) ? $category_img_width : 50;?>" placeholder="<?php echo $ns_text_product_width; ?>" class="form-control" />
 						</div>
 						<label class="col-sm-3 control-label"><?php echo $ns_text_product_height; ?></label>
 						<div class="col-sm-3">
-							<input type="text" name="menuvh[category_setting][category_img_height]" value="<?php echo isset($category_img_height) ? $category_img_height : 50;?>" placeholder="<?php echo $ns_text_product_height; ?>" class="form-control" />									 
+							<input type="text" name="menuvh[category_setting][category_img_height]" value="<?php echo isset($category_img_height) ? $category_img_height : 50;?>" placeholder="<?php echo $ns_text_product_height; ?>" class="form-control" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -184,11 +184,11 @@
 											<?php echo $category_list['name']; ?>
 											<input type="hidden" name="menuvh[category_setting][category_list][]" value="<?php echo $category_list['category_id']; ?>" />
 										</div>
-									<?php } ?>	
-								<?php } ?>	
+									<?php } ?>
+								<?php } ?>
 							</div>
 						</div>
-					</div>							
+					</div>
 				</div>
 				<div class="show_elements show_elements_html">
 					<label class="col-sm-3 control-label"><?php echo $ns_text_html_description; ?></label>
@@ -206,8 +206,8 @@
 									</div>
 								</div>
 							<?php } ?>
-						</div>	
-					</div>	
+						</div>
+					</div>
 				</div>
 				<div class="show_elements show_elements_manufacturer">
 					<div class="form-group">
@@ -227,18 +227,18 @@
 									<div class="checkbox">
 										<label>
 											<?php if (in_array($manufacturer['manufacturer_id'], $manufacturers_sel_id)) { ?>
-												<input checked="checked" type="checkbox" name="menuvh[manufacturers_setting][manufacturers_list][]" value="<?php echo $manufacturer['manufacturer_id']?>"/> <?php echo $manufacturer['name']?> 
+												<input checked="checked" type="checkbox" name="menuvh[manufacturers_setting][manufacturers_list][]" value="<?php echo $manufacturer['manufacturer_id']?>"/> <?php echo $manufacturer['name']?>
 											<?php } else { ?>
-												<input type="checkbox" name="menuvh[manufacturers_setting][manufacturers_list][]" value="<?php echo $manufacturer['manufacturer_id']?>"/> <?php echo $manufacturer['name']?> 
+												<input type="checkbox" name="menuvh[manufacturers_setting][manufacturers_list][]" value="<?php echo $manufacturer['manufacturer_id']?>"/> <?php echo $manufacturer['name']?>
 											<?php } ?>
 										</label>
 									</div>
 								<?php } ?>
 							</div>
 						</div>
-					</div>	
+					</div>
 				</div>
-				
+
 				<div class="show_elements show_elements_information">
 					<div class="form-group">
 						<label class="col-sm-3 control-label"><?php echo $ns_text_information; ?></label>
@@ -248,13 +248,13 @@
 									<div class="checkbox">
 										<label>
 											<?php if (in_array($information['information_id'], $menuvh['informations_sel_id'])) { ?>
-												<input checked="checked" type="checkbox" name="menuvh[informations_list][]" value="<?php echo $information['information_id'];?>"/> <?php echo $information['title'];?> 
+												<input checked="checked" type="checkbox" name="menuvh[informations_list][]" value="<?php echo $information['information_id'];?>"/> <?php echo $information['title'];?>
 											<?php } else { ?>
-												<input type="checkbox" name="menuvh[informations_list][]" value="<?php echo $information['information_id'];?>"/> <?php echo $information['title'];?> 
+												<input type="checkbox" name="menuvh[informations_list][]" value="<?php echo $information['information_id'];?>"/> <?php echo $information['title'];?>
 											<?php } ?>
 										</label>
 									</div>
-								<?php } ?>                
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -263,15 +263,15 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="input-product_width"><?php echo $ns_text_product_width; ?></label>
 						<div class="col-sm-9">
-							<input type="text" name="menuvh[product][product_width]" value="<?php echo isset($product_width) ? $product_width : 50;?>" placeholder="<?php echo $ns_text_product_width; ?>" id="input-product_width" class="form-control" />									 
+							<input type="text" name="menuvh[product][product_width]" value="<?php echo isset($product_width) ? $product_width : 50;?>" placeholder="<?php echo $ns_text_product_width; ?>" id="input-product_width" class="form-control" />
 						</div>
-					</div>		
+					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="input-product_height"><?php echo $ns_text_product_height; ?></label>
 						<div class="col-sm-9">
-							<input type="text" name="menuvh[product][product_height]" value="<?php echo isset($product_height) ? $product_height : 50;?>" placeholder="<?php echo $ns_text_product_height; ?>" id="input-product_height" class="form-control" />									 
+							<input type="text" name="menuvh[product][product_height]" value="<?php echo isset($product_height) ? $product_height : 50;?>" placeholder="<?php echo $ns_text_product_height; ?>" id="input-product_height" class="form-control" />
 						</div>
-					</div>		
+					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="input-product"><?php echo $ns_text_product; ?></label>
 						<div class="col-sm-9">
@@ -288,7 +288,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="show_elements show_elements_link">
 					<div class="form-group">
 						<label class="col-sm-3 control-label" for="input-product"><?php echo $ns_text_link_options; ?></label>
@@ -319,7 +319,7 @@
 							</select>
 						</div>
 					</div>
-					
+
 					<div class="form-group freelink_number_column_sc">
 						<label class="col-sm-3 control-label"><?php echo $number_of_column_sc; ?></label>
 						<div class="col-sm-9">
@@ -345,21 +345,21 @@
 									<option value="3">4</option>
 									<option value="1-5" selected="selected">5</option>
 								<?php } ?>
-							</select>										
+							</select>
 						</div>
 					</div>
 					<div class="form-group type_full_show_img">
 						<label class="col-sm-3 control-label"><?php echo $ns_text_product_width; ?></label>
 						<div class="col-sm-3">
-							<input type="text" name="menuvh[sfl][freelink_img_width]" value="<?php echo isset($sfl['freelink_img_width'])?$sfl['freelink_img_width']:50?>" placeholder="<?php echo $ns_text_product_width; ?>" class="form-control" />									 
+							<input type="text" name="menuvh[sfl][freelink_img_width]" value="<?php echo isset($sfl['freelink_img_width'])?$sfl['freelink_img_width']:50?>" placeholder="<?php echo $ns_text_product_width; ?>" class="form-control" />
 						</div>
-					
+
 						<label class="col-sm-3 control-label"><?php echo $ns_text_product_height; ?></label>
 						<div class="col-sm-3">
-							<input type="text" name="menuvh[sfl][freelink_img_height]" value="<?php echo isset($sfl['freelink_img_height'])?$sfl['freelink_img_height']:50?>" placeholder="<?php echo $ns_text_product_height; ?>" class="form-control" />									 
+							<input type="text" name="menuvh[sfl][freelink_img_height]" value="<?php echo isset($sfl['freelink_img_height'])?$sfl['freelink_img_height']:50?>" placeholder="<?php echo $ns_text_product_height; ?>" class="form-control" />
 						</div>
 					</div>
-									
+
 					<ul class="nav nav-tabs" id="language-freelink-menu">
 						<?php foreach ($languages as $language) { ?>
 						<li><a href="#language-freelink-<?php echo $language['language_id']; ?>" data-toggle="tab">
@@ -368,7 +368,7 @@
 					</ul>
 					<div class="tab-content">
 					<?php foreach ($languages as $language) { ?>
-						<div class="tab-pane" id="language-freelink-<?php echo $language['language_id']; ?>">	
+						<div class="tab-pane" id="language-freelink-<?php echo $language['language_id']; ?>">
 							<table id="freelinkitems" class="table table-bordered table-hover">
 								<thead>
 									<tr>
@@ -402,16 +402,16 @@
 												<?php foreach($freelink_item['subcat'] as $subcat3level){?>
 													<div id="subcatfreelink-row-<?php echo $freelinkitem_row; ?><?php echo $freelinkitem_row3level; ?>">
 														<div class="input-group">
-															<input class="form-control" type="text" name="menuvh[sfl][freelink_item][<?php echo $language['language_id']; ?>][<?php echo $freelinkitem_row; ?>][subcat][<?php echo $freelinkitem_row3level; ?>][title]" value="<?php echo isset($subcat3level['title']) ? $subcat3level['title'] : ''; ?>" />			
+															<input class="form-control" type="text" name="menuvh[sfl][freelink_item][<?php echo $language['language_id']; ?>][<?php echo $freelinkitem_row; ?>][subcat][<?php echo $freelinkitem_row3level; ?>][title]" value="<?php echo isset($subcat3level['title']) ? $subcat3level['title'] : ''; ?>" />
 															<input class="form-control" type="text" name="menuvh[sfl][freelink_item][<?php echo $language['language_id']; ?>][<?php echo $freelinkitem_row; ?>][subcat][<?php echo $freelinkitem_row3level; ?>][link]" value="<?php echo isset($subcat3level['link']) ? $subcat3level['link'] : ''; ?>" />
 															<span class="input-group-addon"><a class="text-danger" onclick="$('#language-freelink-<?php echo $language['language_id']; ?> #subcatfreelink-row-<?php echo $freelinkitem_row; ?><?php echo $freelinkitem_row3level; ?>').remove();" data-toggle="tooltip" title="<?php echo $text_delete; ?>"><i class="fa fa-trash-o"></i></a></span>
 														</div>
 													<hr>
 													<?php $freelinkitem_row3level++; ?>
-													</div>	
+													</div>
 												<?php } ?>
 												<?php } ?>
-											<input type="hidden" id="subcatfreelink-row-number-<?php echo $freelinkitem_row; ?>" value="<?php echo $freelinkitem_row3level;?>">	
+											<input type="hidden" id="subcatfreelink-row-number-<?php echo $freelinkitem_row; ?>" value="<?php echo $freelinkitem_row3level;?>">
 											</div>
 											<a class="btn btn-success" onclick="addFreelinkItem3level('<?php echo $freelinkitem_row; ?>','<?php echo $language['language_id']; ?>');"><?php echo $text_add; ?></a>
 										</td>
@@ -425,7 +425,7 @@
 								<?php $freelinkitem_row++; ?>
 								<?php } ?>
 								<?php } ?>
-								<input type="hidden" id="freelink-row-number" value="<?php echo $freelinkitem_row;?>">	
+								<input type="hidden" id="freelink-row-number" value="<?php echo $freelinkitem_row;?>">
 								</tbody>
 								<tfoot>
 									<tr>
@@ -438,7 +438,7 @@
 					<?php } ?>
 					</div>
 				</div>
-				
+
 				<div class="show_elements_add_html">
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="input_use_html_category"><?php echo $ns_text_add_html; ?></label>
@@ -453,7 +453,7 @@
 									<option value="1"><?php echo $text_enabled; ?></option>
 									<option value="0" selected="selected"><?php echo $text_disabled; ?></option>
 									<?php } ?>
-								</select>								
+								</select>
 							</div>
 						</div>
 						<ul class="nav nav-tabs" id="language_add_html">
@@ -523,16 +523,16 @@
 					<div class="col-sm-9">
 						<a href="" id="thumb-image-menu" data-toggle="image" class="img-thumbnail"><img src="<?php echo $menuvh['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
 						<input type="hidden" name="menuvh[image]" value="<?php echo $menuvh['image']; ?>" id="input-image-menu" />
-					</div>								
+					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label" for="input-image-hover"><?php echo $ns_text_thumb_hover; ?></label>
 					<div class="col-sm-9">
 						<a href="" id="thumb-image-menu-hover" data-toggle="image" class="img-thumbnail"><img src="<?php echo $menuvh['thumb_hover']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
 						<input type="hidden" name="menuvh[image_hover]" value="<?php echo $menuvh['image_hover']; ?>" id="input-image-menu-hover" />
-					</div>								
+					</div>
 				</div>
-				
+
 			</form>
 		</div>
 	</div>
@@ -540,25 +540,25 @@
 </div>
 
 <script>
-$(document).ready(function() {	
+$(document).ready(function() {
 	sel_type_category();
 	$('#language_add_html a:first').tab('show');
 	$('#language_html a:first').tab('show');
 	$('#language-freelink-menu a:first').tab('show');
 });
 function sel_type_category(){
-	$('.show_elements').hide();	
-	sel_menu_type = $("#input-menu-type :selected").val();		
+	$('.show_elements').hide();
+	sel_menu_type = $("#input-menu-type :selected").val();
 	sel_category_type = $("#input_variant_category :selected").val();
 	sel_freelink_type = $("#input_variant_freelink :selected").val();
-	
+
 	$(".show_elements_"+sel_menu_type).show();
-	
+
 		if((sel_menu_type=="category" && (sel_category_type=="simple" || sel_category_type=="0")) || sel_menu_type=="0" || sel_menu_type=="freelink" || sel_menu_type=="information" || sel_menu_type=="link" || sel_menu_type=="html"){
 			$('.show_elements_add_html').hide();
 		} else {
 			$('.show_elements_add_html').show();
-		}	
+		}
 		if((sel_menu_type=="category" && (sel_category_type=="simple"))){
 			$('.show_elements_category .type_full_show').hide();
 			$('.show_elements_category .type_full_show_img').hide();
@@ -571,7 +571,7 @@ function sel_type_category(){
 		if((sel_menu_type=="category" && (sel_category_type=="full" || sel_category_type=="full_masonry"))){
 			$('.show_elements_category .type_full_show_img').hide();
 		}
-		
+
 		if((sel_menu_type=="category" && (sel_category_type=="full_3_level" || sel_category_type=="full_3_level_image"))){
 			$('.show_elements_category .type_full_show_img').hide();
 			$('.show_elements_category .number_column_sc').hide();
@@ -579,7 +579,7 @@ function sel_type_category(){
 				$('.show_elements_category .type_full_show_img').show();
 			}
 		}
-		
+
 		if(sel_menu_type=="freelink" && (sel_freelink_type=="simple")){
 			$('.show_elements_freelink .freelink_number_column_sc').hide();
 			$('.show_elements_freelink .type_full_show_img').hide();
@@ -601,7 +601,7 @@ $('#input-category').autocomplete({
 		$.ajax({
 			url: 'index.php?route=catalog/category/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
 			dataType: 'json',
-			success: function(json) {				
+			success: function(json) {
 				response($.map(json, function(item) {
 					return {
 						label: item['name'],
@@ -612,14 +612,14 @@ $('#input-category').autocomplete({
 		});
 	},
 	'select': function(item) {
-		$('#input-category').val('');		
-		$('#category-item-' + item['value']).remove();	
+		$('#input-category').val('');
+		$('#category-item-' + item['value']).remove();
 		cathtml1  = '<div class="row-category-menu" id="category-item-' + item['value'] + '">';
 		cathtml1 += '<i class="del-cat fa fa-minus-circle"></i>';
-		cathtml1 += '<span>'+item['label']+'</span>';		
+		cathtml1 += '<span>'+item['label']+'</span>';
 		cathtml1 += '<input type="hidden" name="menuvh[category_setting][category_list][]" value="' + item['value'] + '" /></div>';
-		
-		$('#category-category').append(cathtml1);	
+
+		$('#category-category').append(cathtml1);
 	}
 });
 $('#category-category').delegate('.del-cat', 'click', function() {
@@ -642,9 +642,9 @@ $('#input-product').autocomplete({
 		});
 	},
 	'select': function(item) {
-		$('#input-product').val('');		
-		$('#product-item' + item['value']).remove();		
-		$('#product-product').append('<div id="product-item' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="menuvh[product][products_list][]" value="' + item['value'] + '" /></div>');	
+		$('#input-product').val('');
+		$('#product-item' + item['value']).remove();
+		$('#product-product').append('<div id="product-item' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="menuvh[product][products_list][]" value="' + item['value'] + '" /></div>');
 	}
 });
 $('#product-product').delegate('.fa-minus-circle', 'click', function() {
@@ -664,27 +664,27 @@ function addFreelinkItem(language_id) {
 	html += '<input class="form-control"  type="text" name="menuvh[sfl][freelink_item]['+ language_id +']['+ freelinkitem_row +'][link]" value="" />';
 	html += '<td class="text-left ns-input-group" style="min-width:250px;">';
 	html += '	<div id="subcatfreelink'+ freelinkitem_row +'">';
-	html += '		<input type="hidden" id="subcatfreelink-row-number-'+ freelinkitem_row +'" value="0">';	
+	html += '		<input type="hidden" id="subcatfreelink-row-number-'+ freelinkitem_row +'" value="0">';
 	html += '	</div>';
 	html += '	<a class="btn btn-success" onclick="addFreelinkItem3level('+ freelinkitem_row +',\''+ language_id +'\');"><?php echo $text_add; ?></a>';
 	html += '</td>';
 	html += '</td>';
 	html += '<td class="text-left"><input class="form-control" type="text" name="menuvh[sfl][freelink_item]['+ language_id +']['+ freelinkitem_row +'][sort]" size="1" value="" /></td>';
 	html += '<td class="text-right"><a class="btn btn-danger" onclick="$(\'#freelinkitem-row'+ freelinkitem_row +'\').remove();" data-toggle="tooltip" title="<?php echo $text_delete; ?>"><i class="fa fa-trash-o"></i></a></td>';
-	html += '</tr>'; 
-	
+	html += '</tr>';
+
 	$('#language-freelink-'+ language_id +' #freelinkitems tbody').append(html);
 
 	freelinkitem_row++;
 }
-			
+
 
 function addFreelinkItem3level(freelinkitem_row,language_id) {
 	var freelinkitem_row3level = $('#subcatfreelink-row-number-'+ freelinkitem_row).val();
 	$('#subcatfreelink-row-number-'+ freelinkitem_row).val(parseInt(freelinkitem_row3level) + 1);
 	html  = '<div id="subcatfreelink-row-'+ freelinkitem_row + freelinkitem_row3level+'">';
 	html += '<div class="input-group">';
-	html += '<input class="form-control" type="text" name="menuvh[sfl][freelink_item]['+ language_id +']['+ freelinkitem_row +'][subcat]['+ freelinkitem_row3level +'][title]" value="" />';				
+	html += '<input class="form-control" type="text" name="menuvh[sfl][freelink_item]['+ language_id +']['+ freelinkitem_row +'][subcat]['+ freelinkitem_row3level +'][title]" value="" />';
 	html += '<input class="form-control" type="text" name="menuvh[sfl][freelink_item]['+ language_id +']['+ freelinkitem_row +'][subcat]['+ freelinkitem_row3level +'][link]" value="" />';
 	html += '<span class="input-group-addon"><a class="text-danger" onclick="$(\'#language-freelink-'+ language_id +' #subcatfreelink-row-'+ freelinkitem_row + freelinkitem_row3level+'\').remove();" data-toggle="tooltip" title="<?php echo $text_delete; ?>"><i class="fa fa-trash-o"></i></a></span>';
 	html += '</div><hr>';

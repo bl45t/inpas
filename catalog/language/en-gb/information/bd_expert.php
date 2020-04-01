@@ -1,6 +1,6 @@
 <?php
 $_['text_heading_title'] = 'Data base: Experts';
-$_['text_address'] = 'Address:';
+$_['text_address'] = 'Address of Organization:';
 $_['text_country'] = 'Country';
 $_['text_city'] = 'City';
 $_['text_region'] = 'Region';
@@ -14,3 +14,4 @@ $_['text_open'] = 'Open';
 $_['text_sorry_not_found'] = 'Sorry, data not found!';
 $_['text_filters'] = 'Filters';
 $_['text_search'] = 'Search';
+$_['text_link'] = 'Link to Expert profile:';

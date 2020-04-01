@@ -12,7 +12,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-    	<form action="<?=$search_link?>" method="post" class="search search_sub bd_search">
+    	<form action="<?=$search_link?>" method="get" class="search search_sub bd_search">
 	        <div class="">
 		        <div class="header_of_list ">
 					<div class="title_search_block">
@@ -22,7 +22,7 @@
 		            	<button type="button" id="filter_btn" class="bd_filtr"><?=$text_filters?></button>
 		            	<input id="search_field_input" type="text" name="search_field" placeholder="<?=$text_search?>" class="input" value="<?=$search_field?>"/>
 		            </div>
-		           
+
 		        </div>
 	    	</div>
 
@@ -83,7 +83,7 @@
 
 			</div>
 		 </form>
-							
+
         <div class="row">
 		<?php if (count($experts)) { ?>
 			<?php foreach ($experts as $expert) { ?>
@@ -106,13 +106,14 @@
 			        <p class="expert_name"><?=$expert['name']?></p>
 			        <div class="expert_position"><?=$expert['post']?>: <?=$expert['org_name']?></div>
 			        <div class="org_full exp_full">
-			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_address?></span> <?=$expert['address']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_region?>:</span> <?=$expert['region_name']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_phone?></span> <?=$expert['telephone']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_email?></span> <?=$expert['email']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_post?>:</span> <?=$expert['post']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
-			          <div class="col-md-12">
+					  <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_address?></span> <?=$expert['address']?></div>
+					  <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_link?></span> <a href="<?=$expert['link']?>"><?=$expert['link']?></a></div>
+			          <div class="col-md-6 col-md-12">
 			          	<span class="label_description"><?=$text_interests?></span>
 			          	<?=$expert['field_of_interest']?>
 			          </div>

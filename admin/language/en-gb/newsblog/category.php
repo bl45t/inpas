@@ -7,7 +7,7 @@ $_['text_success'] 			= 'Category list updated!';
 $_['text_list'] 			= 'List Categories';
 $_['text_add'] 				= 'Add Category';
 $_['text_edit'] 			= 'Edit category';
-$_['text_default'] 			= 'The main shop';
+$_['text_default'] 			= 'The main site';
 $_['text_update_success']   = 'Database updated to the newest versions';
 
 // Column
@@ -25,7 +25,7 @@ $_['entry_meta_description']= 'Meta tag Description';
 $_['entry_meta_keyword'] 	= 'Meta tag Keywords';
 
 $_['entry_parent'] 			= 'Parent category';
-$_['entry_store'] 			= 'Stores';
+$_['entry_store'] 			= 'Sites';
 $_['entry_keyword'] 		= 'SEO URL';
 $_['entry_image'] 			= 'Image';
 $_['entry_image_size']     	= 'Image size';

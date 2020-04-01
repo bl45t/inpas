@@ -4,25 +4,32 @@ class ModelCustomerCustomer extends Model
 	public function getExperts($data = []) {
 		$sql = "
 			SELECT c.customer_id, c.post, c.eng_post, c.telephone, c.email, c.field_of_interest,
-			c.eng_field_of_interest,CONCAT(c.lastname, ' ', c.firstname, ' ', c.middlename) AS expert_name, 
+			c.eng_field_of_interest,CONCAT(c.lastname, ' ', c.firstname, ' ', c.middlename) AS expert_name,
 			 CONCAT(c.eng_lastname, ' ', c.eng_firstname, ' ', c.eng_middlename) AS eng_expert_name,
-			cgd.name AS customer_group, md.name AS org_name, cntry.name as country_name, 
+			cgd.name AS customer_group, md.name AS org_name, cntry.name as country_name,
 			cntry.eng_name as country_eng_name, z.name as region_name, z.eng_name as region_eng_name,
 			 md.address as org_address, md.manufacturer_id as id_org, cntry.iso_code_2 as country_iso_code_2, c.avatar
-			FROM " . DB_PREFIX . "customer c 
-			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id) 
+			FROM " . DB_PREFIX . "customer c
+			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id)
 			LEFT JOIN " . DB_PREFIX . "manufacturer m ON m.manufacturer_id = c.id_organization
-			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON md.manufacturer_id = m.manufacturer_id 
-				AND md.language_id = '". (int)$this->config->get('config_language_id') ."' 
+			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON md.manufacturer_id = m.manufacturer_id
+				AND md.language_id = '". (int)$this->config->get('config_language_id') ."'
 			LEFT JOIN " . DB_PREFIX . "country cntry ON cntry.country_id = m.id_country
 			LEFT JOIN " . DB_PREFIX . "zone z ON z.zone_id = m.id_region
-			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1 
+			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
 		";
 
 		$implode = array();
 
 		if (!empty($data['filter_name'])) {
-			$implode[] = "CONCAT(c.firstname, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%'";
+			$implode[] = "(
+				CONCAT(c.lastname, ' ', c.firstname, ' ', c.middlename) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
+				CONCAT(c.firstname, ' ', c.middlename, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
+				CONCAT(c.firstname, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
+				CONCAT(c.eng_lastname, ' ', c.eng_firstname, ' ', c.eng_middlename) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
+				CONCAT(c.eng_firstname, ' ', c.eng_middlename, ' ', c.eng_lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
+				CONCAT(c.firstname, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%'
+			)";
 		}
 
 		if (!empty($data['filter_email'])) {
@@ -119,8 +126,8 @@ class ModelCustomerCustomer extends Model
 	public function getExpertPositions($data = []) {
 		$sql = "
 			SELECT DISTINCT c.post
-			FROM " . DB_PREFIX . "customer c 
-			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id) 
+			FROM " . DB_PREFIX . "customer c
+			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id)
 			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
 		";
 
@@ -151,4 +158,4 @@ class ModelCustomerCustomer extends Model
 		return $query->rows;
 	}//public function getExpertPositions
 
-}//class ModelCustomerCustomer 
+}//class ModelCustomerCustomer

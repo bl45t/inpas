@@ -7,7 +7,7 @@ $_['text_success']          	= 'Список записей обновлен!';
 $_['text_list']          		= 'Список записей';
 $_['text_add']          		= 'Добавление записи';
 $_['text_edit']         	 	= 'Редактирование записи';
-$_['text_default']        		= 'Основной магазин';
+$_['text_default']        		= 'Основной сайт';
 
 // Column
 $_['column_image']          	= 'Изображение';
@@ -40,7 +40,7 @@ $_['entry_keyword']          	= 'SEO URL:';
 
 $_['entry_main_category']       = 'Главная категория:';
 $_['entry_category']          	= 'Показывать в категориях:';
-$_['entry_store']          		= 'Магазины:';
+$_['entry_store']          		= 'Сайты:';
 $_['entry_related']          	= 'Похожие статьи:';
 $_['entry_related_products']	= 'Рекомендуемые продукты:';
 

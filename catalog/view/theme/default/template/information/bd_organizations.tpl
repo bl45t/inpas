@@ -12,7 +12,7 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-    	<form action="<?=$search_link?>" method="post" class="search search_sub bd_search">
+    	<form action="<?=$search_link?>" method="get" class="search search_sub bd_search">
 	        <div class="">
 		        <div class="header_of_list ">
 		        	<div class="title_search_block">
@@ -23,7 +23,7 @@
 		            	<input id="search_field_input" type="text" name="search_field" placeholder="<?=$text_search?>" class="input" value="<?=$search_field?>"/>
 		            </div>
 		        </div>
-	    	
+
 
 	    	<?php
 				$isHiddenFilter = (!empty($id_country) || !empty($id_region) || !empty($name_city) || !empty($search_field)) ? "" : " hidden ";
@@ -66,7 +66,7 @@
 					<button type="submit" class=" bd_search_btn"><?=$text_search?></button>
 				</div>
 
-				
+
 			</div>
 		</div>
 		</form>
@@ -78,10 +78,10 @@
 			        <div class="org_img hidden"><img src="img/logo1.png"></div>
 			        <p class="org_name"><?=$organization['name']?></p>
 			        <span class="short_data"><?=$organization['short_data']?></span>
-			       
+
 			        <div class="org_full">
 
-			        	<?php if (!empty($organization['city'])) { ?> 
+			        	<?php if (!empty($organization['city'])) { ?>
 							<div class="col-sm-6 col-md-6">
 							 	<span class="label_description"><?=$text_city?>: </span>
 				           		<?=$organization['city']?>
@@ -99,16 +99,16 @@
 				        	<div class="col-sm-6 col-md-6">
 							 	<span class="label_description"><?=$text_post_code?></span>
 				           		<?=$organization['post_code']?>
-				        	</div>	
+				        	</div>
 				        <?php } ?>
-	
+
 						<?php if (!empty($organization['fax'])) { ?>
 				        	<div class="col-sm-6 col-md-6">
 							 	<span class="label_description"><?=$text_fax?></span>
 				           		<?=$organization['fax']?>
 				        	</div>
 						<?php } ?>
-	
+
 						<?php if (!empty($organization['email'])) { ?>
 				        	<div class="col-sm-6 col-md-6">
 							 	<span class="label_description"><?=$text_email?></span>
@@ -120,10 +120,15 @@
 				        	<div class="col-sm-6 col-md-6">
 							 	<span class="label_description"><?=$text_site?></span>
 				           		<?=$organization['site_address']?>
-				        	</div>			        					        	
+				        	</div>
 						<?php } ?>
 
-						<?php if (!empty($organization['description'])) { ?>						
+				        	<div class="col-sm-6 col-md-6">
+							 	<span class="label_description"><?=$text_link?></span>
+				           		<a href="<?=$organization['link']?>"><?=$organization['link']?></a>
+				        	</div>
+
+						<?php if (!empty($organization['description'])) { ?>
 							<div class="col-sm-12">
 							 	<span class="label_description"><?=$text_description?></span>
 				           		<?=$organization['description']?>
