@@ -32,7 +32,7 @@ class ControllerAccountEdit extends Controller {
 					unlink(DIR_IMAGE.$customer_info['avatar']);
 					$this->request->post['avatar'] = '';
 				}
-				
+
 				$imageinfo = getimagesize($_FILES['avatar']['tmp_name']);
 
 				if ($imageinfo) {
@@ -45,7 +45,7 @@ class ControllerAccountEdit extends Controller {
 					}
 
 				}
-				
+
 			}
 
 			$this->model_account_customer->editCustomer($this->request->post);
@@ -75,7 +75,7 @@ class ControllerAccountEdit extends Controller {
 			unset($this->session->data['success']);
 		} else {
 			$data['success'] = '';
-		} 
+		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -92,6 +92,7 @@ class ControllerAccountEdit extends Controller {
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_post'] = $this->language->get('entry_post');
 		$data['entry_workplace'] = $this->language->get('entry_workplace');
+		$data['entry_degree'] = $this->language->get('entry_degree');
 		$data['entry_interests'] = $this->language->get('entry_interests');
 		$data['entry_social_link'] = $this->language->get('entry_social_link');
 		$data['entry_organization'] = $this->language->get('entry_organization');
@@ -99,7 +100,7 @@ class ControllerAccountEdit extends Controller {
 		$data['entry_profile_image'] = $this->language->get('entry_profile_image');
 		$data['entry_password'] = $this->language->get('entry_password');
 		$data['entry_confirm'] = $this->language->get('entry_confirm');
-		
+
 
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_back'] = $this->language->get('button_back');
@@ -269,6 +270,22 @@ class ControllerAccountEdit extends Controller {
 			$data['eng_workplace'] = '';
 		}
 
+		if (isset($this->request->post['degree'])) {
+			$data['degree'] = $this->request->post['degree'];
+		} elseif (!empty($customer_info)) {
+			$data['degree'] = $customer_info['degree'];
+		} else {
+			$data['degree'] = '';
+		}
+
+		if (isset($this->request->post['eng_degree'])) {
+			$data['eng_degree'] = $this->request->post['eng_degree'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_degree'] = $customer_info['eng_degree'];
+		} else {
+			$data['eng_degree'] = '';
+		}
+
 		if (isset($this->request->post['social_link'])) {
 			$data['social_link'] = $this->request->post['social_link'];
 		} elseif (!empty($customer_info)) {
@@ -397,9 +414,9 @@ class ControllerAccountEdit extends Controller {
 		}
 
 		if ($this->request->post['is_expert'] == 1 && (
-			(utf8_strlen(trim($this->request->post['post'])) < 1) || 
-			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) || 
-			(utf8_strlen(trim($this->request->post['post'])) > 128) || 
+			(utf8_strlen(trim($this->request->post['post'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['post'])) > 128) ||
 			(utf8_strlen(trim($this->request->post['eng_post'])) > 128))){
 			$this->error['post'] = $this->language->get('error_post');
 		}

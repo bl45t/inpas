@@ -56,6 +56,7 @@ $_['entry_date_added']      = 'Date Added';
 
 $_['entry_post']        = 'Post';
 $_['entry_workplace']        = 'Place of work';
+$_['entry_degree']        = 'Academic degree';
 $_['entry_social_link'] = 'Link to a social network profile';
 $_['entry_interests'] = 'Field of interest';
 $_['entry_organization'] = 'Organization';

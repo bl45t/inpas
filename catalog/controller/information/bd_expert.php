@@ -13,6 +13,7 @@ class ControllerInformationBdExpert extends Controller
 		$data['text_phone'] = $this->language->get('text_phone');
 		$data['text_email'] = $this->language->get('text_email');
 		$data['text_post'] = $this->language->get('text_post');
+		$data['text_degree'] = $this->language->get('text_degree');
 		$data['text_organization'] = $this->language->get('text_organization');
 		$data['text_interests'] = $this->language->get('text_interests');
 		$data['text_hide'] = $this->language->get('text_hide');
@@ -25,7 +26,6 @@ class ControllerInformationBdExpert extends Controller
 		$data['text_city'] = $this->language->get('text_city');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_link'] = $this->language->get('text_link');
-		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
 
 		$this->document->setTitle($this->language->get('text_heading_title'));
 
@@ -68,6 +68,12 @@ class ControllerInformationBdExpert extends Controller
 				$optionQuery['name_post'] = $namePost;
 			}
 
+			$nameDegree = $this->request->get['name_degree'];
+
+			if (!empty($nameDegree)) {
+				$optionQuery['name_degree'] = $nameDegree;
+			}
+
 		}
 
 		if (isset($this->request->get['id_country'])) {
@@ -105,6 +111,12 @@ class ControllerInformationBdExpert extends Controller
 			$data['name_post'] = $this->request->get['name_post'];
 		} else {
 			$data['name_post'] = '';
+		}
+
+		if (isset($this->request->get['name_degree'])) {
+			$data['name_degree'] = $this->request->get['name_degree'];
+		} else {
+			$data['name_degree'] = '';
 		}
 
 		$this->load->model('customer/customer');
@@ -149,8 +161,9 @@ class ControllerInformationBdExpert extends Controller
 
 			$arExperts[$e['customer_id']]['name'] = ($curLang == 'ru') ? $e['expert_name'] : $e['eng_expert_name'];
 			$arExperts[$e['customer_id']]['post'] = ($curLang == 'ru') ? $e['post'] : $e['eng_post'];
-			$arExperts[$e['customer_id']]['telephone'] = $e['telephone'];
-			$arExperts[$e['customer_id']]['email'] = $e['email'];
+			$arExperts[$e['customer_id']]['degree'] = ($curLang == 'ru') ? $e['degree'] : $e['eng_degree'];
+			$arExperts[$e['customer_id']]['telephone'] = $this->customer->isLogged() ? $e['telephone'] : $this->language->get('text_auth');
+			$arExperts[$e['customer_id']]['email'] = $this->customer->isLogged() ? $e['email'] : $this->language->get('text_auth');
 			$arExperts[$e['customer_id']]['field_of_interest'] = ($curLang == 'ru') ? $e['field_of_interest'] : $e['eng_field_of_interest'];
 			$arExperts[$e['customer_id']]['org_name'] = $e['org_name'];
 			$arExperts[$e['customer_id']]['country_name'] = ($curLang == 'ru') ? $e['country_name'] : $e['country_eng_name'];
@@ -208,12 +221,6 @@ class ControllerInformationBdExpert extends Controller
 			$this->document->addLink($this->url->link('information/bd_expert', '&page=' . ($page + 1), true), 'next');
 		}
 
-		if ($this->customer->isLogged()) {
-			$data['is_logged'] = 1;
-		} else {
-			$data['is_logged'] = 0;
-		}
-
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');
@@ -240,7 +247,7 @@ class ControllerInformationBdExpert extends Controller
 
 			foreach ($results as $result) {
 				$json[] = array(
-					'name'            => strip_tags(html_entity_decode($result['post'], ENT_QUOTES, 'UTF-8'))
+					'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8'))
 				);
 			}
 		}
@@ -256,5 +263,38 @@ class ControllerInformationBdExpert extends Controller
 		$this->response->addHeader('Content-Type: application/json');
 		$this->response->setOutput(json_encode($json));
 	}//public function autocompletePost
+
+	public function autocompleteDegree() {
+		$json = array();
+
+		if (isset($this->request->get['name_degree'])) {
+			$this->load->model('customer/customer');
+
+			$filter_data = array(
+				'name_degree' => $this->request->get['name_degree'],
+				'start'       => 0,
+				'limit'       => 5
+			);
+
+			$results = $this->model_customer_customer->getExpertDegree($filter_data);
+
+			foreach ($results as $result) {
+				$json[] = array(
+					'name'            => strip_tags(html_entity_decode($result['name'], ENT_QUOTES, 'UTF-8'))
+				);
+			}
+		}
+
+		$sort_order = array();
+
+		foreach ($json as $key => $value) {
+			$sort_order[$key] = $value['name'];
+		}
+
+		array_multisort($sort_order, SORT_ASC, $json);
+
+		$this->response->addHeader('Content-Type: application/json');
+		$this->response->setOutput(json_encode($json));
+	}//public function autocompleteDegree
 
 }//class ControllerInformationBdExpert

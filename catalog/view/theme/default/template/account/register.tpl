@@ -21,7 +21,7 @@
       <div class="header1"><?php echo $heading_title; ?></div>
 
       <div class="row type_user">
-        <?php 
+        <?php
           $expertActiveClass = '';
           $userActiveClass = '';
 
@@ -30,19 +30,19 @@
           } else if ($is_expert == 0) {
             $userActiveClass = 'activeUser';
           }
-        ?> 
-          <button class="button1 user1 <?=$expertActiveClass?>" data-role="role_expert"><?=$text_expert?></button> 
+        ?>
+          <button class="button1 user1 <?=$expertActiveClass?>" data-role="role_expert"><?=$text_expert?></button>
           <button class="button1 user1 <?=$userActiveClass?>" data-role="role_user"><?=$text_user?></button>
       </div>
-      
+
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
-        <?php 
+        <?php
             $valExpField = isset($is_expert) ? $is_expert : 0;
         ?>
           <input id="is_expert_input" type="hidden" name="is_expert" value="<?=$valExpField?>">
 
         <fieldset id="account">
-      
+
           <div class="form-group hidden" style="display: <?php echo (count($customer_groups) > 1 ? 'block' : 'none'); ?>;">
             <label class="col-sm-2 control-label"><?php echo $entry_customer_group; ?></label>
             <div class="col-sm-10">
@@ -81,7 +81,7 @@
               <div class="text-danger"><?php echo $error_firstname; ?></div>
               <?php } ?>
           </div>
-			
+
 
           <div class="form-group ">
               <label class="required" for="input-lastname"><?php echo $entry_lastname; ?></label>
@@ -102,7 +102,7 @@
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
           </div>
-          
+
         <div class="form-group ">
               <label for="input-middlename"><?php echo $entry_middlename; ?></label>
             <div class="input-group">
@@ -122,23 +122,23 @@
 
           <div class="form-group ">
               <label class="required" for="input-email"><?php echo $entry_email; ?></label>
-           
+
               <input type="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
               <?php if ($error_email) { ?>
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
-           
+
           </div>
           <div class="form-group ">
               <label class="" for="input-telephone"><?php echo $entry_telephone; ?></label>
-            
+
               <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
               <?php if ($error_telephone) { ?>
               <div class="text-danger"><?php echo $error_telephone; ?></div>
               <?php } ?>
-           
+
           </div>
-          
+
           <div id="form_group_post" class="form-group ">
               <label class="" for="input-post"><?php echo $entry_post; ?></label>
               <div class="input-group">
@@ -171,6 +171,22 @@
 	            	<img src="/catalog/language/en-gb/en-gb.png">
 	            </span>
 	            <input type="text" name="eng_workplace" value="<?php echo $eng_workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" class="form-control" />
+           	</div>
+          </div>
+
+          <div id="form_group_degree" class="form-group hidden">
+             <label class="" for="input-degree"><?php echo $entry_degree; ?></label>
+			       <div class="input-group">
+				      <span class="input-group-addon">
+	            	<img src="/catalog/language/ru-ru/ru-ru.png">
+	            </span>
+              	<input type="text" name="degree" value="<?php echo $degree; ?>" placeholder="<?php echo $entry_degree; ?>" id="input-degree" class="form-control" />
+            </div>
+            <div class="input-group">
+				      <span class="input-group-addon">
+	            	<img src="/catalog/language/en-gb/en-gb.png">
+	            </span>
+	            <input type="text" name="eng_degree" value="<?php echo $eng_degree; ?>" placeholder="<?php echo $entry_degree; ?>" class="form-control" />
            	</div>
           </div>
 
@@ -215,7 +231,7 @@
           </div>
 
           <fieldset id="newOrganization" class="hidden">
-            
+
             <div class="form-group">
               <label class="required" for="input-ogr-name"><?php echo $entry_name_org; ?></label>
               <input type="text" name="new_organization_name" value="<?php echo $new_organization_name; ?>" placeholder="<?php echo $entry_name_org; ?>" id="input-ogr-name" class="form-control" />
@@ -228,7 +244,7 @@
               <label class="" for="input-ogr-address"><?php echo $entry_org_address; ?></label>
               <input type="text" name="new_organization_address" value="<?php echo $new_organization_address; ?>" placeholder="<?php echo $entry_org_address; ?>" id="input-ogr-address" class="form-control" />
             </div>
-  
+
             <div class="form-group">
               <label class="" for="input-ogr-post-code"><?php echo $entry_post_code; ?></label>
               <input type="text" name="new_organization_post_code" value="<?php echo $new_organization_post_code; ?>" placeholder="<?php echo $entry_post_code; ?>" id="input-ogr-post-code" class="form-control" />
@@ -286,6 +302,16 @@
               <input type="text" name="new_organization_site" value="<?php echo $new_organization_site; ?>" placeholder="<?php echo $entry_org_site; ?>" id="input-ogr-site" class="form-control" />
             </div>
 
+            <div class="form-group">
+              <label class="" for="input-ogr-description"><?php echo $entry_description_org; ?></label>
+              <textarea name="new_organization_description" placeholder="<?php echo $entry_description_org; ?>" id="input-ogr-description" class="form-control"><?php echo $new_organization_description; ?></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="" for="input-ogr-educational-program"><?php echo $entry_educational_program_org; ?></label>
+              <textarea name="new_organization_educational_program" placeholder="<?php echo $entry_educational_program_org; ?>" id="input-ogr-educational-program" class="form-control"><?php echo $new_organization_educational_program; ?></textarea>
+            </div>
+
           </fieldset>
 
           <div id="form_group_about_me" class="form-group hidden">
@@ -294,13 +320,13 @@
                 <span class="input-group-addon">
                 <img src="/catalog/language/ru-ru/ru-ru.png">
               </span>
-                <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>  
+                <textarea name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>
               </div>
               <div class="input-group">
                 <span class="input-group-addon">
                   <img src="/catalog/language/en-gb/en-gb.png">
                 </span>
-                <textarea type="text" name="eng_about_me"  placeholder="<?php echo $entry_about_me; ?>" class="form-control"><?php echo $eng_about_me; ?></textarea>
+                <textarea name="eng_about_me"  placeholder="<?php echo $entry_about_me; ?>" class="form-control"><?php echo $eng_about_me; ?></textarea>
               </div>
           </div>
 
@@ -692,7 +718,7 @@
         <fieldset>
           <div class="form-group ">
               <label class="required" for="input-password"><?php echo $entry_password; ?></label>
-            
+
               <input type="password" name="password" value="<?php echo $password; ?>" placeholder="<?php echo $entry_password; ?>" id="input-password" class="form-control" />
               <?php if ($error_password) { ?>
               <div class="text-danger"><?php echo $error_password; ?></div>
@@ -701,12 +727,12 @@
           </div>
           <div class="form-group ">
               <label class="required" for="input-confirm"><?php echo $entry_confirm; ?></label>
-         
+
               <input type="password" name="confirm" value="<?php echo $confirm; ?>" placeholder="<?php echo $entry_confirm; ?>" id="input-confirm" class="form-control" />
               <?php if ($error_confirm) { ?>
               <div class="text-danger"><?php echo $error_confirm; ?></div>
               <?php } ?>
-           
+
           </div>
         </fieldset>
         <fieldset class="hidden">
@@ -960,6 +986,7 @@ $('.type_user button').click(function() {
 
   function getExpertRegistrationFormState() {
     $("#form_group_workplace").addClass('hidden');
+    $("#form_group_degree").removeClass('hidden');
     $("#form_group_social_link").removeClass('hidden');
     $("#form_group_interests").removeClass('hidden');
     $("#form_group_organozation").removeClass('hidden');
@@ -971,6 +998,7 @@ $('.type_user button').click(function() {
 
   function getUserRegistrationFormState() {
     $("#form_group_workplace").removeClass('hidden');
+    $("#form_group_degree").addClass('hidden');
     $("#form_group_social_link").addClass('hidden');
     $("#form_group_interests").addClass('hidden');
     $("#form_group_organozation").addClass('hidden');
@@ -993,14 +1021,14 @@ $('.type_user button').click(function() {
 
   $("#input-id-organization").change(function(){
     let curVal = $(this).val();
-      
+
     if (curVal != 0) {
       $("#input-empty-org").prop('checked', false);
       $("#input-empty-org").trigger('change');
     }
 
   });
- 
+
   let is_checked_new_org = "<?=$is_checked_new_org?>";
 
   if (is_checked_new_org == 1) {
@@ -1010,13 +1038,14 @@ $('.type_user button').click(function() {
 
   //Транслитерация полей в зависимости от текущей локали
   let curLang = "<?=$cur_lang?>";
-  
+
   if (curLang == 'ru') {
     handleInputRusToEng('firstname', 'eng_firstname');
     handleInputRusToEng('lastname', 'eng_lastname');
     handleInputRusToEng('middlename', 'eng_middlename');
     handleInputRusToEng('post', 'eng_post');
     handleInputRusToEng('workplace', 'eng_workplace');
+    handleInputRusToEng('degree', 'eng_degree');
     handleInputRusToEng('field_of_interest', 'eng_field_of_interest');
   } else if (curLang == 'en') {
     handleInputEngToRus('firstname', 'eng_firstname');
@@ -1024,6 +1053,7 @@ $('.type_user button').click(function() {
     handleInputEngToRus('middlename', 'eng_middlename');
     handleInputEngToRus('post', 'eng_post');
     handleInputEngToRus('workplace', 'eng_workplace');
+    handleInputEngToRus('degree', 'eng_degree');
     handleInputEngToRus('field_of_interest', 'eng_field_of_interest');
   }
 

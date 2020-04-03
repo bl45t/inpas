@@ -1,8 +1,5 @@
 <?php echo $header; ?>
 <div id="bd_organizations_page" class="container">
-<?php if ($is_logged == '0') {?>
-	<strong><?=$text_access_only_auth?></strong>
-<?php } else { ?>
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
     <?php $class = 'col-sm-6'; ?>
@@ -123,11 +120,6 @@
 				        	</div>
 						<?php } ?>
 
-				        	<div class="col-sm-6 col-md-6">
-							 	<span class="label_description"><?=$text_link?></span>
-				           		<a href="<?=$organization['link']?>"><?=$organization['link']?></a>
-				        	</div>
-
 						<?php if (!empty($organization['description'])) { ?>
 							<div class="col-sm-12">
 							 	<span class="label_description"><?=$text_description?></span>
@@ -141,6 +133,14 @@
 				          		<?=$organization['educational_program']?>
 				          	</div>
 						<?php } ?>
+
+						<div class="col-sm-6 col-md-6">
+							<a href="<?=$organization['link']?>"><?=$text_link?></a>
+						</div>
+
+						<div class="col-sm-6 col-md-6">
+							<a href='<?=$organization['experts']?>'><?=$text_experts_organization?></a>
+						</div>						
 
 			        </div>
 			      </div>
@@ -165,7 +165,7 @@
   	</div>
     <?php echo $column_right; ?>
 	</div>
-	<?php } ?>
+
 </div>
 
 <script>
@@ -205,7 +205,7 @@
 						html += '>' + json['zone'][i]['name'] + '</option>';
 					}
 				} else {
-					html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
+					//html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
 				}
 
 				$('#region_select').html(html);

@@ -27,7 +27,8 @@ class ControllerInformationBdOrganizations extends Controller
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_description'] = $this->language->get('text_description');
 		$data['text_link'] = $this->language->get('text_link');
-		$data['text_access_only_auth'] = $this->language->get('text_access_only_auth');
+		$data['text_experts'] = $this->language->get('text_experts');
+		$data['text_experts_organization'] = $this->language->get('text_experts_organization');
 
 		$this->document->setTitle($this->language->get('text_heading_title'));
 
@@ -110,14 +111,15 @@ class ControllerInformationBdOrganizations extends Controller
 		foreach ($organizations as $org) {
 			$arOrg[$org['manufacturer_id']]['name'] = $org['org_name'];
 			$arOrg[$org['manufacturer_id']]['city'] = $org['org_city'];
-			$arOrg[$org['manufacturer_id']]['phone'] = $org['org_phone'];
+			$arOrg[$org['manufacturer_id']]['phone'] = $this->customer->isLogged() ? $org['org_phone'] : $this->language->get('text_auth');
 			$arOrg[$org['manufacturer_id']]['description'] = html_entity_decode($org['org_description'], ENT_QUOTES, 'UTF-8');
 			$arOrg[$org['manufacturer_id']]['address'] = $org['org_address'];
 			$arOrg[$org['manufacturer_id']]['post_code'] = $org['org_post_code'];
-			$arOrg[$org['manufacturer_id']]['fax'] = $org['org_fax'];
-			$arOrg[$org['manufacturer_id']]['email'] = $org['org_email'];
+			$arOrg[$org['manufacturer_id']]['fax'] = $this->customer->isLogged() ? $org['org_fax'] : $this->language->get('text_auth');
+			$arOrg[$org['manufacturer_id']]['email'] = $this->customer->isLogged() ? $org['org_email'] : $this->language->get('text_auth');
 			$arOrg[$org['manufacturer_id']]['site_address'] = $org['org_site_address'];
 			$arOrg[$org['manufacturer_id']]['link'] = $this->url->link('information/bd_organizations','&organization='.$org['manufacturer_id']);
+			$arOrg[$org['manufacturer_id']]['experts'] = htmlspecialchars($this->url->link('information/bd_expert','&name_organization='.html_entity_decode($org['org_name'], ENT_QUOTES, "UTF-8")), ENT_QUOTES, "UTF-8");
 			$arOrg[$org['manufacturer_id']]['educational_program'] = html_entity_decode($org['org_educational_program'], ENT_QUOTES, 'UTF-8');
 
 			$arOrg[$org['manufacturer_id']]['country_name'] = $org['country_name'];
@@ -182,12 +184,6 @@ class ControllerInformationBdOrganizations extends Controller
 
 		if ($limit && ceil($org_total / $limit) > $page) {
 			$this->document->addLink($this->url->link('information/bd_organizations', '&page=' . ($page + 1), true), 'next');
-		}
-
-		if ($this->customer->isLogged()) {
-			$data['is_logged'] = 1;
-		} else {
-			$data['is_logged'] = 0;
 		}
 
 		$data['column_left'] = $this->load->controller('common/column_left');

@@ -1,7 +1,7 @@
 <?php
 class ModelCustomerCustomer extends Model {
 	public function addCustomer($data) {
-		$this->db->query("INSERT INTO " . DB_PREFIX . "customer SET customer_group_id = '" . (int)$data['customer_group_id'] . "', is_expert = ". $this->db->escape($data['is_expert']) .", firstname = '" . $this->db->escape($data['firstname']) . "', eng_firstname = '". $this->db->escape($data['eng_firstname']) ."', lastname = '" . $this->db->escape($data['lastname']) . "', eng_lastname = '". $this->db->escape($data['eng_lastname']) ."', middlename = '". $this->db->escape($data['middlename']) ."', eng_middlename = '". $this->db->escape($data['eng_middlename']) ."', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', post = '". $this->db->escape($data['post']) ."', eng_post = '". $this->db->escape($data['eng_post']) ."', workplace = '". $this->db->escape($data['workplace']) ."', eng_workplace = '". $this->db->escape($data['eng_workplace']) ."', field_of_interest = '". $this->db->escape($data['field_of_interest']) ."', eng_field_of_interest = '". $this->db->escape($data['eng_field_of_interest']) ."', social_link = '". $this->db->escape($data['social_link']) ."', about_me = '". $this->db->escape($data['about_me']) ."', eng_about_me = '". $this->db->escape($data['eng_about_me']) ."', id_organization = ". $this->db->escape($data['id_organization']) .", fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "', newsletter = '" . (int)$data['newsletter'] . "', salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', status = '" . (int)$data['status'] . "', approved = '" . (int)$data['approved'] . "', safe = '" . (int)$data['safe'] . "', date_added = NOW()");
+		$this->db->query("INSERT INTO " . DB_PREFIX . "customer SET customer_group_id = '" . (int)$data['customer_group_id'] . "', is_expert = ". $this->db->escape($data['is_expert']) .", firstname = '" . $this->db->escape($data['firstname']) . "', eng_firstname = '". $this->db->escape($data['eng_firstname']) ."', lastname = '" . $this->db->escape($data['lastname']) . "', eng_lastname = '". $this->db->escape($data['eng_lastname']) ."', middlename = '". $this->db->escape($data['middlename']) ."', eng_middlename = '". $this->db->escape($data['eng_middlename']) ."', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', post = '". $this->db->escape($data['post']) ."', eng_post = '". $this->db->escape($data['eng_post']) ."', workplace = '". $this->db->escape($data['workplace']) ."', eng_workplace = '". $this->db->escape($data['eng_workplace']) ."', degree = '". $this->db->escape($data['degree']) ."', eng_degree = '". $this->db->escape($data['eng_degree']) ."', field_of_interest = '". $this->db->escape($data['field_of_interest']) ."', eng_field_of_interest = '". $this->db->escape($data['eng_field_of_interest']) ."', social_link = '". $this->db->escape($data['social_link']) ."', about_me = '". $this->db->escape($data['about_me']) ."', eng_about_me = '". $this->db->escape($data['eng_about_me']) ."', id_organization = ". $this->db->escape($data['id_organization']) .", fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "', newsletter = '" . (int)$data['newsletter'] . "', salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', status = '" . (int)$data['status'] . "', approved = '" . (int)$data['approved'] . "', safe = '" . (int)$data['safe'] . "', date_added = NOW()");
 
 		$customer_id = $this->db->getLastId();
 
@@ -16,7 +16,7 @@ class ModelCustomerCustomer extends Model {
 				}
 			}
 		}
-		
+
 		return $customer_id;
 	}
 
@@ -25,7 +25,7 @@ class ModelCustomerCustomer extends Model {
 			$data['custom_field'] = array();
 		}
 
-		$this->db->query("UPDATE " . DB_PREFIX . "customer SET customer_group_id = '" . (int)$data['customer_group_id'] . "', is_expert = ". $this->db->escape($data['is_expert']) .", firstname = '" . $this->db->escape($data['firstname']) . "', eng_firstname = '". $this->db->escape($data['eng_firstname']) ."', lastname = '" . $this->db->escape($data['lastname']) . "', eng_lastname = '". $this->db->escape($data['eng_lastname']) ."', middlename = '". $this->db->escape($data['middlename']) ."', eng_middlename = '". $this->db->escape($data['eng_middlename']) ."', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', post = '". $this->db->escape($data['post']) ."', eng_post = '". $this->db->escape($data['eng_post']) ."', workplace = '". $this->db->escape($data['workplace']) ."', eng_workplace = '". $this->db->escape($data['eng_workplace']) ."', field_of_interest = '". $this->db->escape($data['field_of_interest']) ."', eng_field_of_interest = '". $this->db->escape($data['eng_field_of_interest']) ."', social_link = '". $this->db->escape($data['social_link']) ."', about_me = '". $this->db->escape($data['about_me']) ."', eng_about_me = '". $this->db->escape($data['eng_about_me']) ."', id_organization = ". $this->db->escape($data['id_organization']) .", fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "', newsletter = '" . (int)$data['newsletter'] . "', status = '" . (int)$data['status'] . "', approved = '" . (int)$data['approved'] . "', safe = '" . (int)$data['safe'] . "' WHERE customer_id = '" . (int)$customer_id . "'");
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET customer_group_id = '" . (int)$data['customer_group_id'] . "', is_expert = ". $this->db->escape($data['is_expert']) .", firstname = '" . $this->db->escape($data['firstname']) . "', eng_firstname = '". $this->db->escape($data['eng_firstname']) ."', lastname = '" . $this->db->escape($data['lastname']) . "', eng_lastname = '". $this->db->escape($data['eng_lastname']) ."', middlename = '". $this->db->escape($data['middlename']) ."', eng_middlename = '". $this->db->escape($data['eng_middlename']) ."', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', post = '". $this->db->escape($data['post']) ."', eng_post = '". $this->db->escape($data['eng_post']) ."', workplace = '". $this->db->escape($data['workplace']) ."', eng_workplace = '". $this->db->escape($data['eng_workplace']) ."', degree = '". $this->db->escape($data['degree']) ."', eng_degree = '". $this->db->escape($data['eng_degree']) ."', field_of_interest = '". $this->db->escape($data['field_of_interest']) ."', eng_field_of_interest = '". $this->db->escape($data['eng_field_of_interest']) ."', social_link = '". $this->db->escape($data['social_link']) ."', about_me = '". $this->db->escape($data['about_me']) ."', eng_about_me = '". $this->db->escape($data['eng_about_me']) ."', id_organization = ". $this->db->escape($data['id_organization']) .", fax = '" . $this->db->escape($data['fax']) . "', custom_field = '" . $this->db->escape(isset($data['custom_field']) ? json_encode($data['custom_field']) : '') . "', newsletter = '" . (int)$data['newsletter'] . "', status = '" . (int)$data['status'] . "', approved = '" . (int)$data['approved'] . "', safe = '" . (int)$data['safe'] . "' WHERE customer_id = '" . (int)$customer_id . "'");
 
 		if ($data['password']) {
 			$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "' WHERE customer_id = '" . (int)$customer_id . "'");
@@ -174,7 +174,7 @@ class ModelCustomerCustomer extends Model {
 			}
 
 			$this->load->model('localisation/language');
-			
+
 			$language_info = $this->model_localisation_language->getLanguage($customer_info['language_id']);
 
 			if ($language_info) {
@@ -186,7 +186,7 @@ class ModelCustomerCustomer extends Model {
 			$language = new Language($language_code);
 			$language->load($language_code);
 			$language->load('mail/customer');
-				
+
 			$message  = sprintf($language->get('text_approve_welcome'), html_entity_decode($store_name, ENT_QUOTES, 'UTF-8')) . "\n\n";
 			$message .= $language->get('text_approve_login') . "\n";
 			$message .= $store_url . "\n\n";
@@ -530,7 +530,7 @@ class ModelCustomerCustomer extends Model {
 		}
 
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "customer_ip WHERE customer_id = '" . (int)$customer_id . "' ORDER BY date_added DESC LIMIT " . (int)$start . "," . (int)$limit);
-		
+
 		return $query->rows;
 	}
 

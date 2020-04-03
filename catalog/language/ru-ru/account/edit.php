@@ -20,6 +20,7 @@ $_['entry_country']        = 'Страна';
 $_['entry_zone']           = 'Регион / область';
 $_['entry_post']        = 'Должность';
 $_['entry_workplace']        = 'Место работы';
+$_['entry_degree']        = 'Учёная степень';
 $_['entry_social_link'] = 'Ссылка на профиль соц. сети';
 $_['entry_interests'] = 'Сфера интересов';
 $_['entry_organization'] = 'Организация';

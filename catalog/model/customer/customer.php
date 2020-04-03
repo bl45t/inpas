@@ -4,7 +4,8 @@ class ModelCustomerCustomer extends Model
 	public function getExperts($data = []) {
 		$sql = "
 			SELECT c.customer_id, c.post, c.eng_post, c.telephone, c.email, c.field_of_interest,
-			c.eng_field_of_interest,CONCAT(c.lastname, ' ', c.firstname, ' ', c.middlename) AS expert_name,
+			c.eng_field_of_interest, c.degree, c.eng_degree,
+			CONCAT(c.lastname, ' ', c.firstname, ' ', c.middlename) AS expert_name,
 			 CONCAT(c.eng_lastname, ' ', c.eng_firstname, ' ', c.eng_middlename) AS eng_expert_name,
 			cgd.name AS customer_group, md.name AS org_name, cntry.name as country_name,
 			cntry.eng_name as country_eng_name, z.name as region_name, z.eng_name as region_eng_name,
@@ -28,7 +29,7 @@ class ModelCustomerCustomer extends Model
 				CONCAT(c.firstname, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
 				CONCAT(c.eng_lastname, ' ', c.eng_firstname, ' ', c.eng_middlename) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
 				CONCAT(c.eng_firstname, ' ', c.eng_middlename, ' ', c.eng_lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%' OR
-				CONCAT(c.firstname, ' ', c.lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%'
+				CONCAT(c.eng_firstname, ' ', c.eng_lastname) LIKE '%" . $this->db->escape($data['filter_name']) . "%'
 			)";
 		}
 
@@ -77,7 +78,11 @@ class ModelCustomerCustomer extends Model
 		}
 
 		if (isset($data['name_post'])) {
-			$implode[] = " c.post LIKE '%".$this->db->escape($data['name_post'])."%'";
+			$implode[] = " (c.post LIKE '%".$this->db->escape($data['name_post'])."%' OR c.eng_post LIKE '%".$this->db->escape($data['name_post'])."%')";
+		}
+
+		if (isset($data['name_degree'])) {
+			$implode[] = " (c.degree LIKE '%".$this->db->escape($data['name_degree'])."%' OR c.eng_degree LIKE '%".$this->db->escape($data['name_degree'])."%')";
 		}
 
 		if ($implode) {
@@ -125,7 +130,7 @@ class ModelCustomerCustomer extends Model
 
 	public function getExpertPositions($data = []) {
 		$sql = "
-			SELECT DISTINCT c.post
+			SELECT DISTINCT " . (((int)$this->config->get('config_language_id') == 1) ? 'c.post' : 'c.eng_post') . " as name
 			FROM " . DB_PREFIX . "customer c
 			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id)
 			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
@@ -134,7 +139,7 @@ class ModelCustomerCustomer extends Model
 		$implode = array();
 
 		if (isset($data['name_post'])) {
-			$implode[] = " c.post LIKE '%".$this->db->escape($data['name_post'])."%'";
+			$implode[] = " (c.post LIKE '%".$this->db->escape($data['name_post'])."%' OR c.eng_post LIKE '%".$this->db->escape($data['name_post'])."%')";
 		}
 
 		if ($implode) {
@@ -157,5 +162,40 @@ class ModelCustomerCustomer extends Model
 
 		return $query->rows;
 	}//public function getExpertPositions
+
+	public function getExpertDegree($data = []) {
+		$sql = "
+			SELECT DISTINCT " . (((int)$this->config->get('config_language_id') == 1) ? 'c.degree' : 'c.eng_degree') . " as name
+			FROM " . DB_PREFIX . "customer c
+			LEFT JOIN " . DB_PREFIX . "customer_group_description cgd ON (c.customer_group_id = cgd.customer_group_id)
+			WHERE cgd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND c.is_expert = 1
+		";
+
+		$implode = array();
+
+		if (isset($data['name_degree'])) {
+			$implode[] = " (c.degree LIKE '%".$this->db->escape($data['name_degree'])."%' OR c.eng_degree LIKE '%".$this->db->escape($data['name_degree'])."%')";
+		}
+
+		if ($implode) {
+			$sql .= " AND " . implode(" AND ", $implode);
+		}
+
+		if (isset($data['start']) || isset($data['limit'])) {
+			if ($data['start'] < 0) {
+				$data['start'] = 0;
+			}
+
+			if ($data['limit'] < 1) {
+				$data['limit'] = 20;
+			}
+
+			$sql .= " LIMIT " . (int)$data['start'] . "," . (int)$data['limit'];
+		}
+
+		$query = $this->db->query($sql);
+
+		return $query->rows;
+	}//public function getExpertDegree
 
 }//class ModelCustomerCustomer

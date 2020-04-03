@@ -32,7 +32,7 @@ class ControllerAccountRegister extends Controller {
 			if (isset($this->request->post['is_exist_org']) && $this->request->post['is_exist_org'] == 'on') {
 				$arNewOrg = [];
 				$id_country = (empty(trim($this->request->post['new_organization_country_id']))) ? 0 : $this->request->post['new_organization_country_id'];
-				$id_region = (empty(trim($this->request->post['new_organization_region_id']))) ? 0 : $this->request->post['new_organization_region_id']; 
+				$id_region = (empty(trim($this->request->post['new_organization_region_id']))) ? 0 : $this->request->post['new_organization_region_id'];
 				$arNewOrg['id_country'] = $id_country;
 				$arNewOrg['id_region'] = $id_region;
 
@@ -111,7 +111,7 @@ class ControllerAccountRegister extends Controller {
 		$data['text_user'] = $this->language->get('text_user');
 		$data['text_expert'] = $this->language->get('text_expert');
 		$data['text_not_exist_organization'] = $this->language->get('text_not_exist_organization');
-		
+
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
 		$data['entry_lastname'] = $this->language->get('entry_lastname');
@@ -131,6 +131,7 @@ class ControllerAccountRegister extends Controller {
 		$data['entry_confirm'] = $this->language->get('entry_confirm');
 		$data['entry_post'] = $this->language->get('entry_post');
 		$data['entry_workplace'] = $this->language->get('entry_workplace');
+		$data['entry_degree'] = $this->language->get('entry_degree');
 		$data['entry_social_link'] = $this->language->get('entry_social_link');
 		$data['entry_interests'] = $this->language->get('entry_interests');
 		$data['entry_organization'] = $this->language->get('entry_organization');
@@ -144,8 +145,9 @@ class ControllerAccountRegister extends Controller {
 		$data['entry_org_fax'] = $this->language->get('entry_org_fax');
 		$data['entry_org_site'] = $this->language->get('entry_org_site');
 		$data['entry_org_zone'] = $this->language->get('entry_org_zone');
+		$data['entry_description_org'] = $this->language->get('entry_description_org');
+		$data['entry_educational_program_org'] = $this->language->get('entry_educational_program_org');
 		$data['entry_about_me'] = $this->language->get('entry_about_me');
-
 		$data['button_continue'] = $this->language->get('button_continue');
 		$data['button_upload'] = $this->language->get('button_upload');
 
@@ -267,7 +269,7 @@ class ControllerAccountRegister extends Controller {
 				}
 			}
 		}
-		
+
 		if (isset($this->request->post['new_organization_name'])) {
 			$data['new_organization_name'] = $this->request->post['new_organization_name'];
 		} else {
@@ -297,13 +299,13 @@ class ControllerAccountRegister extends Controller {
 		} else {
 			$data['new_organization_country_id'] = '';
 		}
-		
+
 		if (isset($this->request->post['new_organization_region_id'])) {
 			$data['new_organization_region_id'] = $this->request->post['new_organization_region_id'];
 		} else {
 			$data['new_organization_region_id'] = '';
 		}
-		
+
 		if (isset($this->request->post['new_organization_phone'])) {
 			$data['new_organization_phone'] = $this->request->post['new_organization_phone'];
 		} else {
@@ -315,7 +317,7 @@ class ControllerAccountRegister extends Controller {
 		} else {
 			$data['new_organization_email'] = '';
 		}
-		
+
 		if (isset($this->request->post['new_organization_fax'])) {
 			$data['new_organization_fax'] = $this->request->post['new_organization_fax'];
 		} else {
@@ -326,6 +328,18 @@ class ControllerAccountRegister extends Controller {
 			$data['new_organization_site'] = $this->request->post['new_organization_site'];
 		} else {
 			$data['new_organization_site'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_description'])) {
+			$data['new_organization_description'] = $this->request->post['new_organization_description'];
+		} else {
+			$data['new_organization_description'] = '';
+		}
+
+		if (isset($this->request->post['new_organization_educational_program'])) {
+			$data['new_organization_educational_program'] = $this->request->post['new_organization_educational_program'];
+		} else {
+			$data['new_organization_educational_program'] = '';
 		}
 
 		if (isset($this->request->post['customer_group_id'])) {
@@ -398,6 +412,18 @@ class ControllerAccountRegister extends Controller {
 			$data['eng_workplace'] = $this->request->post['eng_workplace'];
 		} else {
 			$data['eng_workplace'] = '';
+		}
+
+		if (isset($this->request->post['degree'])) {
+			$data['degree'] = $this->request->post['degree'];
+		} else {
+			$data['degree'] = '';
+		}
+
+		if (isset($this->request->post['eng_degree'])) {
+			$data['eng_degree'] = $this->request->post['eng_degree'];
+		} else {
+			$data['eng_degree'] = '';
 		}
 
 		if (isset($this->request->post['post'])) {
@@ -608,9 +634,9 @@ class ControllerAccountRegister extends Controller {
 		}
 
 		if ($this->request->post['is_expert'] == 1 && (
-			(utf8_strlen(trim($this->request->post['post'])) < 1) || 
-			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) || 
-			(utf8_strlen(trim($this->request->post['post'])) > 128) || 
+			(utf8_strlen(trim($this->request->post['post'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['post'])) > 128) ||
 			(utf8_strlen(trim($this->request->post['eng_post'])) > 128))){
 			$this->error['post'] = $this->language->get('error_post');
 		}
@@ -631,12 +657,12 @@ class ControllerAccountRegister extends Controller {
 
 		if (isset($this->request->post['is_exist_org']) &&
 			$this->request->post['is_exist_org'] == 'on' && (
-			(utf8_strlen($this->request->post['new_organization_email']) > 96) || 
+			(utf8_strlen($this->request->post['new_organization_email']) > 96) ||
 			!preg_match($this->config->get('config_mail_regexp'), $this->request->post['new_organization_email']))) {
 			$this->error['new_organization_email'] = $this->language->get('error_new_organization_email');
 		}
 
-		
+
 		if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
 			$this->error['warning'] = $this->language->get('error_exists');
 		}
@@ -744,11 +770,11 @@ class ControllerAccountRegister extends Controller {
 		$result[self::RU]['site_address'] = $arData['new_organization_site'];
 		$result[self::EN]['site_address'] = $arData['new_organization_site'];
 
-		$result[self::RU]['description'] = '';
-		$result[self::EN]['description'] = '';
+		$result[self::RU]['description'] = $arData['new_organization_description'];
+		$result[self::EN]['description'] = $arData['new_organization_description'];
 
-		$result[self::RU]['educational_program'] = '';
-		$result[self::EN]['educational_program'] = '';
+		$result[self::RU]['educational_program'] = $arData['new_organization_educational_program'];
+		$result[self::EN]['educational_program'] = $arData['new_organization_educational_program'];
 
 		$result[self::RU]['meta_title'] = '';
 		$result[self::EN]['meta_title'] = '';
@@ -763,7 +789,7 @@ class ControllerAccountRegister extends Controller {
 		$result[self::EN]['meta_keyword'] = '';
 
 		return $result;
-	} 
+	}
 
 	private function manufacturerDescriptionForEng($arData) {
 		$result = [];
@@ -792,11 +818,11 @@ class ControllerAccountRegister extends Controller {
 		$result[self::RU]['site_address'] = $arData['new_organization_site'];
 		$result[self::EN]['site_address'] = $arData['new_organization_site'];
 
-		$result[self::RU]['description'] = '';
-		$result[self::EN]['description'] = '';
+		$result[self::RU]['description'] = $arData['new_organization_description'];
+		$result[self::EN]['description'] = $arData['new_organization_description'];
 
-		$result[self::RU]['educational_program'] = '';
-		$result[self::EN]['educational_program'] = '';
+		$result[self::RU]['educational_program'] = $arData['new_organization_educational_program'];
+		$result[self::EN]['educational_program'] = $arData['new_organization_educational_program'];
 
 		$result[self::RU]['meta_title'] = '';
 		$result[self::EN]['meta_title'] = '';
@@ -827,7 +853,7 @@ class ControllerAccountRegister extends Controller {
 		  $lat=array(
 		     "Shch","Sh","Ch","C","Yu","Ya","J","A","B","V",
 		     "G","D","E","E","Z","I","y","K","L","M","N",
-		     "O","P","R","S","T","U","F","H","", 
+		     "O","P","R","S","T","U","F","H","",
 		     "Y","" ,"E","E","Yi","I",
 		     "shch","sh","ch","c","Yu","Ya","j","a","b","v",
 		     "g","d","e","e","z","i","y","k","l","m","n",

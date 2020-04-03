@@ -25,7 +25,7 @@
       </div>
       <div class="panel-body">
         <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form-customer" class="form-horizontal">
-          
+
           <input id="is_expert_input" type="hidden" name="is_expert" value="<?=$is_expert?>">
 
           <ul class="nav nav-tabs">
@@ -38,7 +38,7 @@
           <div class="tab-content">
             <div class="tab-pane active" id="tab-general">
               <div class="row">
-                
+
                 <div class="col-sm-12">
                   <div class="tab-content">
                     <div class="tab-pane active" id="tab-customer">
@@ -99,7 +99,7 @@
                           <?php } ?>
                         </div>
                       </div>
-                    
+
                       <div class="form-group ">
                         <label class="col-sm-2 control-label" for="input-middlename"><?php echo $entry_middlename; ?></label>
                         <div class="col-sm-10">
@@ -143,7 +143,7 @@
                           <input type="text" name="fax" value="<?php echo $fax; ?>" placeholder="<?php echo $entry_fax; ?>" id="input-fax" class="form-control" />
                         </div>
                       </div>
-                        
+
                       <div id="form_group_post" class="form-group ">
                         <label class="col-sm-2 control-label" for="input-post"><?php echo $entry_post; ?></label>
                         <div class="col-sm-10">
@@ -179,6 +179,24 @@
                                <img src="/catalog/language/en-gb/en-gb.png">
                               </span>
                               <input type="text" name="eng_workplace" value="<?php echo $eng_workplace; ?>" placeholder="<?php echo $entry_workplace; ?>" class="form-control" />
+                            </div>
+                          </div>
+                      </div>
+
+                      <div id="form_group_degree" class="form-group ">
+                         <label class="col-sm-2 control-label" for="input-degree"><?php echo $entry_degree; ?></label>
+                         <div class="col-sm-10">
+                           <div class="input-group">
+                            <span class="input-group-addon">
+                              <img src="/catalog/language/ru-ru/ru-ru.png">
+                            </span>
+                              <input type="text" name="degree" value="<?php echo $degree; ?>" placeholder="<?php echo $entry_degree; ?>" id="input-degree" class="form-control" />
+                            </div>
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                               <img src="/catalog/language/en-gb/en-gb.png">
+                              </span>
+                              <input type="text" name="eng_degree" value="<?php echo $eng_degree; ?>" placeholder="<?php echo $entry_degree; ?>" class="form-control" />
                             </div>
                           </div>
                       </div>
@@ -231,7 +249,7 @@
                               <span class="input-group-addon">
                               <img src="/catalog/language/ru-ru/ru-ru.png">
                             </span>
-                              <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>  
+                              <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>
                             </div>
                             <div class="input-group">
                               <span class="input-group-addon">
@@ -813,6 +831,7 @@ $('select[name=\'customer_group_id\']').on('change', function() {
 function getExpertStateForm () {
   $('#form_group_workplace').addClass('hidden');
   $('#form_group_post').addClass('required');
+  $('#form_group_degree').removeClass('hidden');
   $('#form_group_interests').removeClass('hidden');
   $('#form_group_social_link').removeClass('hidden');
   $('#form_group_organozation').removeClass('hidden');
@@ -822,6 +841,7 @@ function getExpertStateForm () {
 function getUserStateForm() {
   $('#form_group_workplace').removeClass('hidden');
   $('#form_group_post').removeClass('required');
+  $('#form_group_degree').addClass('hidden');
   $('#form_group_interests').addClass('hidden');
   $('#form_group_social_link').addClass('hidden');
   $('#form_group_organozation').addClass('hidden');

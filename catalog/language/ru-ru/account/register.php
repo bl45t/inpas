@@ -35,6 +35,7 @@ $_['entry_password']       = 'Пароль';
 $_['entry_confirm']        = 'Подтвердить';
 $_['entry_post']        = 'Должность';
 $_['entry_workplace']        = 'Место работы';
+$_['entry_degree']        = 'Учёная степень';
 $_['entry_social_link'] = 'Ссылка на профиль соц. сети';
 $_['entry_interests'] = 'Сфера интересов';
 $_['entry_organization'] = 'Организация';
@@ -48,6 +49,8 @@ $_['entry_org_email'] = 'Email организации';
 $_['entry_org_fax'] = 'Факс организации';
 $_['entry_org_site'] = 'Сайт организации';
 $_['entry_org_zone'] = 'Регион организации';
+$_['entry_description_org'] = 'Описание';
+$_['entry_educational_program_org'] = 'Образовательные программы';
 $_['entry_about_me'] = 'О себе';
 
 // Error
@@ -69,7 +72,3 @@ $_['error_agree']          = 'Для регистрации вы должны б
 $_['error_new_organization_name']  = 'Название организации должно содержать от 1 до 256 символов!';
 $_['error_new_organization_phone']  = 'Телефон организации должен содержать от 6 до 20 символов!';
 $_['error_new_organization_email']  = 'E-Mail организации введён неправильно!';
-
-
-
-

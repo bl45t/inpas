@@ -710,6 +710,7 @@ class ControllerCustomerCustomer extends Controller {
 		$data['entry_points'] = $this->language->get('entry_points');
 		$data['entry_post'] = $this->language->get('entry_post');
 		$data['entry_workplace'] = $this->language->get('entry_workplace');
+		$data['entry_degree'] = $this->language->get('entry_degree');
 		$data['entry_social_link'] = $this->language->get('entry_social_link');
 		$data['entry_interests'] = $this->language->get('entry_interests');
 		$data['entry_organization'] = $this->language->get('entry_organization');
@@ -823,11 +824,11 @@ class ControllerCustomerCustomer extends Controller {
 		if (isset($this->request->get['filter_approved'])) {
 			$url .= '&filter_approved=' . $this->request->get['filter_approved'];
 		}
-		
+
 		if (isset($this->request->get['filter_ip'])) {
 			$url .= '&filter_ip=' . $this->request->get['filter_ip'];
 		}
-		
+
 		if (isset($this->request->get['filter_date_added'])) {
 			$url .= '&filter_date_added=' . $this->request->get['filter_date_added'];
 		}
@@ -982,6 +983,22 @@ class ControllerCustomerCustomer extends Controller {
 			$data['eng_workplace'] = $customer_info['eng_workplace'];
 		} else {
 			$data['eng_workplace'] = '';
+		}
+
+		if (isset($this->request->post['degree'])) {
+			$data['degree'] = $this->request->post['degree'];
+		} elseif (!empty($customer_info)) {
+			$data['degree'] = $customer_info['degree'];
+		} else {
+			$data['degree'] = '';
+		}
+
+		if (isset($this->request->post['eng_degree'])) {
+			$data['eng_degree'] = $this->request->post['eng_degree'];
+		} elseif (!empty($customer_info)) {
+			$data['eng_degree'] = $customer_info['eng_degree'];
+		} else {
+			$data['eng_degree'] = '';
 		}
 
 		if (isset($this->request->post['field_of_interest'])) {
@@ -1176,9 +1193,9 @@ class ControllerCustomerCustomer extends Controller {
 		}
 
 		if ($this->request->post['is_expert'] == 1 && (
-			(utf8_strlen(trim($this->request->post['post'])) < 1) || 
-			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) || 
-			(utf8_strlen(trim($this->request->post['post'])) > 128) || 
+			(utf8_strlen(trim($this->request->post['post'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['eng_post'])) < 1) ||
+			(utf8_strlen(trim($this->request->post['post'])) > 128) ||
 			(utf8_strlen(trim($this->request->post['eng_post'])) > 128))){
 			$this->error['post'] = $this->language->get('error_post');
 		}

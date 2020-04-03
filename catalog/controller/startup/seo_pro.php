@@ -348,7 +348,7 @@ class ControllerStartupSeoPro extends Controller {
 			$exclude = array();
 			}
 
-		return urldecode(http_build_query(array_diff_key($this->request->get, array_flip($exclude))));
+		return html_entity_decode(urldecode(http_build_query(array_diff_key($this->request->get, array_flip($exclude)))), ENT_QUOTES, "UTF-8");
 		}
 	}
 ?>

@@ -58,7 +58,7 @@
               <div class="text-danger"><?php echo $error_lastname; ?></div>
               <?php } ?>
           </div>
-          
+
           <div class="form-group ">
               <label for="input-middlename"><?php echo $entry_middlename; ?></label>
             <div class="input-group">
@@ -78,21 +78,21 @@
 
           <div class="form-group ">
               <label class="required" for="input-email"><?php echo $entry_email; ?></label>
-           
+
               <input type="email" name="email" value="<?php echo $email; ?>" placeholder="<?php echo $entry_email; ?>" id="input-email" class="form-control" />
               <?php if ($error_email) { ?>
               <div class="text-danger"><?php echo $error_email; ?></div>
               <?php } ?>
-           
+
           </div>
          <div class="form-group ">
               <label class="" for="input-telephone"><?php echo $entry_telephone; ?></label>
-            
+
               <input type="tel" name="telephone" value="<?php echo $telephone; ?>" placeholder="<?php echo $entry_telephone; ?>" id="input-telephone" class="form-control" />
               <?php if ($error_telephone) { ?>
               <div class="text-danger"><?php echo $error_telephone; ?></div>
               <?php } ?>
-           
+
           </div>
           <div class="form-group hidden">
             <label class="col-sm-2 control-label" for="input-fax"><?php echo $entry_fax; ?></label>
@@ -137,6 +137,22 @@
             </div>
           </div>
 
+          <div id="form_group_degree" class="form-group ">
+             <label class="" for="input-degree"><?php echo $entry_degree; ?></label>
+             <div class="input-group">
+              <span class="input-group-addon">
+                <img src="/catalog/language/ru-ru/ru-ru.png">
+              </span>
+                <input type="text" name="degree" value="<?php echo $degree; ?>" placeholder="<?php echo $entry_degree; ?>" id="input-degree" class="form-control" />
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <img src="/catalog/language/en-gb/en-gb.png">
+              </span>
+              <input type="text" name="eng_degree" value="<?php echo $eng_degree; ?>" placeholder="<?php echo $entry_degree; ?>" class="form-control" />
+            </div>
+          </div>
+
           <div id="form_group_interests" class="form-group ">
               <label class="" for="input-interests"><?php echo $entry_interests; ?></label>
               <div class="input-group">
@@ -178,7 +194,7 @@
                 <span class="input-group-addon">
                 <img src="/catalog/language/ru-ru/ru-ru.png">
               </span>
-                <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>  
+                <textarea type="text" name="about_me" placeholder="<?php echo $entry_about_me; ?>" id="input-about-me" class="form-control"><?php echo $about_me; ?></textarea>
               </div>
               <div class="input-group">
                 <span class="input-group-addon">
@@ -383,8 +399,9 @@
 
   if (is_expert == 1) {
     $("#form_group_workplace").addClass("hidden");
-    
+
   } else {
+    $("#form_group_degree").addClass("hidden");
     $("#form_group_interests").addClass("hidden");
     $("#form_group_social_link").addClass("hidden");
     $("#form_group_organozation").addClass("hidden");
@@ -465,13 +482,14 @@ $('button[id^=\'button-custom-field\']').on('click', function() {
 
 //Транслитерация полей в зависимости от текущей локали
   let curLang = "<?=$cur_lang?>";
-  
+
   if (curLang == 'ru') {
     handleInputRusToEng('firstname', 'eng_firstname');
     handleInputRusToEng('lastname', 'eng_lastname');
     handleInputRusToEng('middlename', 'eng_middlename');
     handleInputRusToEng('post', 'eng_post');
     handleInputRusToEng('workplace', 'eng_workplace');
+    handleInputRusToEng('degree', 'eng_degree');
     handleInputRusToEng('field_of_interest', 'eng_field_of_interest');
   } else if (curLang == 'en') {
     handleInputEngToRus('firstname', 'eng_firstname');
@@ -479,6 +497,7 @@ $('button[id^=\'button-custom-field\']').on('click', function() {
     handleInputEngToRus('middlename', 'eng_middlename');
     handleInputEngToRus('post', 'eng_post');
     handleInputEngToRus('workplace', 'eng_workplace');
+    handleInputEngToRus('degree', 'eng_degree');
     handleInputEngToRus('field_of_interest', 'eng_field_of_interest');
   }
 
