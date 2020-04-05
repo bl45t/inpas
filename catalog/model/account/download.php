@@ -3,19 +3,19 @@ class ModelAccountDownload extends Model {
 	public function getDownload($download_id) {
 		$implode = array();
 
-		$order_statuses = $this->config->get('config_complete_status');
+		/*$order_statuses = $this->config->get('config_complete_status');
 
 		foreach ($order_statuses as $order_status_id) {
 			$implode[] = "o.order_status_id = '" . (int)$order_status_id . "'";
-		}
+		}*/
 
-		if ($implode) {
-			$query = $this->db->query("SELECT d.filename, d.mask FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_product op ON (o.order_id = op.order_id) LEFT JOIN " . DB_PREFIX . "product_to_download p2d ON (op.product_id = p2d.product_id) LEFT JOIN " . DB_PREFIX . "download d ON (p2d.download_id = d.download_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND (" . implode(" OR ", $implode) . ") AND d.download_id = '" . (int)$download_id . "'");
-
+		//if ($implode) {
+			//$query = $this->db->query("SELECT d.filename, d.mask FROM `" . DB_PREFIX . "order` o LEFT JOIN " . DB_PREFIX . "order_product op ON (o.order_id = op.order_id) LEFT JOIN " . DB_PREFIX . "product_to_download p2d ON (op.product_id = p2d.product_id) LEFT JOIN " . DB_PREFIX . "download d ON (p2d.download_id = d.download_id) WHERE o.customer_id = '" . (int)$this->customer->getId() . "' AND (" . implode(" OR ", $implode) . ") AND d.download_id = '" . (int)$download_id . "'");
+			$query = $this->db->query("SELECT d.filename, d.mask FROM  " . DB_PREFIX . "download d WHERE d.download_id = '" . (int)$download_id . "'");
 			return $query->row;
-		} else {
+		/*} else {
 			return;
-		}
+		}*/
 	}
 
 	public function getDownloads($start = 0, $limit = 20) {

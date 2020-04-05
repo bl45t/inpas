@@ -1,6 +1,7 @@
 <?php
 // Version
 define('VERSION', '2.3.0.2.3');
+setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 // Configuration
 if (is_file('config.php')) {

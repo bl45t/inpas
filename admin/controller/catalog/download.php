@@ -175,6 +175,7 @@ class ControllerCatalogDownload extends Controller {
 			$data['downloads'][] = array(
 				'download_id' => $result['download_id'],
 				'name'        => $result['name'],
+				'link'        => HTTPS_CATALOG . 'files/?download_id=' . $result['download_id'],
 				'date_added'  => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'edit'        => $this->url->link('catalog/download/edit', 'token=' . $this->session->data['token'] . '&download_id=' . $result['download_id'] . $url, true)
 			);
@@ -187,6 +188,7 @@ class ControllerCatalogDownload extends Controller {
 		$data['text_confirm'] = $this->language->get('text_confirm');
 
 		$data['column_name'] = $this->language->get('column_name');
+		$data['column_link'] = $this->language->get('column_link');
 		$data['column_date_added'] = $this->language->get('column_date_added');
 		$data['column_action'] = $this->language->get('column_action');
 
@@ -441,12 +443,12 @@ class ControllerCatalogDownload extends Controller {
 				$filename = basename(html_entity_decode($this->request->files['file']['name'], ENT_QUOTES, 'UTF-8'));
 
 				// Validate the filename length
-				if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 128)) {
+				if ((utf8_strlen($filename) < 3) || (utf8_strlen($filename) > 256)) {
 					$json['error'] = $this->language->get('error_filename');
 				}
 
 				// Allowed file extension types
-				$allowed = array();
+				/*$allowed = array();
 
 				$extension_allowed = preg_replace('~\r?\n~', "\n", $this->config->get('config_file_ext_allowed'));
 
@@ -458,10 +460,10 @@ class ControllerCatalogDownload extends Controller {
 
 				if (!in_array(strtolower(substr(strrchr($filename, '.'), 1)), $allowed)) {
 					$json['error'] = $this->language->get('error_filetype');
-				}
+				}*/
 
 				// Allowed file mime types
-				$allowed = array();
+				/*$allowed = array();
 
 				$mime_allowed = preg_replace('~\r?\n~', "\n", $this->config->get('config_file_mime_allowed'));
 
@@ -473,7 +475,7 @@ class ControllerCatalogDownload extends Controller {
 
 				if (!in_array($this->request->files['file']['type'], $allowed)) {
 					$json['error'] = $this->language->get('error_filetype');
-				}
+				}*/
 
 				// Check to see if any PHP files are trying to be uploaded
 				$content = file_get_contents($this->request->files['file']['tmp_name']);

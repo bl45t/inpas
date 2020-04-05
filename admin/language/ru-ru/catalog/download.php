@@ -11,6 +11,7 @@ $_['text_upload']          		= 'Ваш файл успешно загружен!
 
 // Column
 $_['column_name']          		= 'Название файла';
+$_['column_link']          		= 'Ссылка';
 $_['column_date_added']         = 'Дата добавления';
 $_['column_action']          	= 'Действие';
 

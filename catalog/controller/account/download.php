@@ -110,11 +110,11 @@ class ControllerAccountDownload extends Controller {
 	}
 
 	public function download() {
-		if (!$this->customer->isLogged()) {
+		/*if (!$this->customer->isLogged()) {
 			$this->session->data['redirect'] = $this->url->link('account/download', '', true);
 
 			$this->response->redirect($this->url->link('account/login', '', true));
-		}
+		}*/
 
 		$this->load->model('account/download');
 
@@ -153,7 +153,7 @@ class ControllerAccountDownload extends Controller {
 				exit('Error: Headers already sent out!');
 			}
 		} else {
-			$this->response->redirect($this->url->link('account/download', '', true));
+			$this->response->redirect($this->url->link('error/not_found', '', true));
 		}
 	}
 }
