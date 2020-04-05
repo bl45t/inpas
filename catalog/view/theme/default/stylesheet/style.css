@@ -1,7 +1,7 @@
 *
 {
 	font-size: 18px;
-	font-family: 'Roboto', 'Open Sans', 'Impact', sans-serif;
+	font-family: 'Helvetica', 'Open Sans', 'Impact', sans-serif;
 }
 body
 {
@@ -227,7 +227,7 @@ input[type="search"] {
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    font-family: Roboto;
+    font-family: Helvetica;
 	font-style: normal;
 	font-weight: 500;
 	color: #FFFFFF;
@@ -281,7 +281,7 @@ input[type="search"] {
     li a
    {
    	color: white !important;
-   	font-family: Roboto;
+   	font-family: Helvetica;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 21px;
@@ -343,7 +343,7 @@ input[type="search"] {
 
 .header1
 	{
-	font-family: Roboto;
+	font-family: Helvetica;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 24px;
@@ -401,7 +401,7 @@ input[type="search"] {
 	    padding-bottom: 5%;
 	    display: flex;
 	    align-items: flex-end;
-	    font-family: Roboto Slab;
+	    font-family: Helvetica;
 	}
 
 
@@ -528,7 +528,7 @@ input[type="search"] {
 		font-size: 18px;
 		line-height: 25px;
 		text-align: left;
-		font-family: Roboto Slab;
+		font-family: Helvetica;
 	}
 
 	.news_header a{
@@ -656,7 +656,7 @@ input[type="search"] {
 	}
 	.head_publication
 	{
-		font-family: Roboto Slab;
+		font-family: Helvetica;
 		color: #181818 !important;
 		font-style: normal;
 		font-weight: bold;
@@ -994,7 +994,7 @@ input[type="search"] {
     }
     .header2
     {
-	    font-family: Roboto;
+	    font-family: Helvetica;
 	    font-style: normal;
 	    font-weight: 600;
 	    font-size: 24px;
@@ -1536,7 +1536,7 @@ input[type="search"] {
 	    cursor: pointer;
 	    -webkit-transition-duration: 0.4s;
 	    transition-duration: 0.4s;
-	    font-family: Roboto;
+	    font-family: Helvetica;
 	    font-style: normal;
 	    color: #FFFFFF;
 	}

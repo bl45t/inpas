@@ -6,7 +6,7 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <!--<![endif]-->
 <head>
-  <?php $assets_version = '?v=1.0.27'; ?>
+  <?php $assets_version = '?v=1.0.28'; ?>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,8 +31,6 @@
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" type="text/css">
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://bootstraptema.ru/_sf/7/729.css" type="text/css">
 <?php foreach ($styles as $style) { ?>

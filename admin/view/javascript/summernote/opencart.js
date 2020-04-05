@@ -27,8 +27,8 @@ $(document).ready(function() {
 				['undo'],
         		['redo']
 			],
-			fontNames: ['Roboto', 'Open Sans', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica', 'Times New Roman'],
-			fontNamesIgnoreCheck: ['Roboto', 'Open Sans'],
+			fontNames: ['Helvetica', 'Open Sans', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Times New Roman'],
+			fontNamesIgnoreCheck: ['Open Sans'],
 			popover: {
 				image: [
 					['custom', ['imageAttributes']],
