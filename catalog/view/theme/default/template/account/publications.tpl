@@ -29,21 +29,21 @@
 	              </section>
 	            </div>
 	        </div>
-					
+
 				<?php foreach ($publications as $publication) { ?>
-					<div class="col-xs-12 col-md-6 col_main ">  
+					<div class="col-xs-12 col-md-6 col_main ">
 		              <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
 		                  <div class="row publication">
-		                    
+
 		                    <div class="col-md-2">
 		                      <img src="/catalog/view/theme/default/image/publ.png">
 		                    </div>
-		                    
+
 		                    <div class="col-md-10">
 		                      <div class="head_publication"><?=$publication['name']?></div>
-		                      <div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div> 
-		                    </div>       
-		                    
+		                      <!--<div class="date_publication"><?=date("d.m.y",$publication['updated'])?></div> -->
+		                    </div>
+
 		                  </div>
 		              </a>
 		          	</div>

@@ -10,11 +10,11 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
 		<div class="">
-	        <div class="header_of_list">
+	        <div class="header_of_list col-xs-12">
 	        	<div class="title_search_block">
 	            	<div class="header2"><?=$text_publications?></div>
 	            </div>
-				
+
 				<div class="search_block">
 		            <form action="<?=$search_link?>" method="get" class="search search_sub">
 		              <input id="search_field_input" type="search search_sub" name="search_field" placeholder="поиск" class="input" value='<?=$search_field?>' />
@@ -44,7 +44,7 @@
 				<?php foreach ($publications as $publication) { ?>
 					<div class="col-xs-12 col-md-6 col_main ">
 		              <a href="<?=$publication['link']?>" target="_blank" title="<?=$publication['name']?>">
-		                  <div class="row publication">
+		                  <div class="publication">
 
 		                    <div class="col-md-2 publication_image">
 		                      <img src="/image/<?=$publication['image']?>">
@@ -52,7 +52,7 @@
 
 		                    <div class="col-md-10">
 		                      <div class="head_publication"><?=$publication['name']?></div>
-		                      <div class="date_publication"><?=date("d.m.y", (int)$publication['updated'])?></div>
+		                      <!--<div class="date_publication"><?=date("d.m.y", (int)$publication['updated'])?></div>-->
 		                    </div>
 
 							<div class="col-md-12">

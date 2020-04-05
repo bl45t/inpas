@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Атрибуты у картинок в Summernote</name>
+    <code>summernote-image-attributes</code>
+    <version>1.0.0</version>
+    <author>Blast</author>
+    <link>https://opencartforum.com/profile/8697-blast/</link>
+    <file path="admin/controller/{catalog,newsblog,extension/module}/*.php">
+        <operation error="skip">
+            <search><![CDATA[
+            $this->document->addScript('view/javascript/summernote/lang/summernote-' . $this->language->get('lang') . '.js');
+            ]]></search>
+            <add position="after"><![CDATA[
+                $this->document->addScript('view/javascript/summernote/summernote-image-attributes.js');
+        		$this->document->addScript('view/javascript/summernote/image-attr-ru-RU.js');
+            ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="admin/view/template/catalog/news_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[
+            <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
+            ]]></search>
+            <add position="after"><![CDATA[
+                <script type="text/javascript" src="view/javascript/summernote/lang/summernote-ru-RU.js"></script>
+                <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script>
+                <script type="text/javascript" src="view/javascript/summernote/image-attr-ru-RU.js"></script>                
+            ]]>
+            </add>
+        </operation>
+    </file>
+</modification>

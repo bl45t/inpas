@@ -6,20 +6,20 @@ class ControllerCatalogNews extends Controller {
 		$this->load->language('catalog/news');
 
 		$this->load->model('catalog/news');
-		
+
 		$this->document->setTitle($this->language->get('heading_title'));
-	
+
 		$this->load->model('setting/setting');
-	
+
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && ($this->validate())) {
 			$this->model_setting_setting->editSetting(news, $this->request->post);
 
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$this->response->redirect($this->url->link('catalog/news', 'token=' . $this->session->data['token'], true));
-	
+
 		}
-	
+
 		$this->getList();
 	}
 
@@ -86,7 +86,7 @@ class ControllerCatalogNews extends Controller {
 
 		$this->getForm();
 	}
-	
+
 	public function delete() {
 		$this->load->language('catalog/news');
 
@@ -148,61 +148,61 @@ class ControllerCatalogNews extends Controller {
 		$this->load->model('catalog/news');
 
 		$data['heading_title'] = $this->language->get('heading_title');
-	
+
 		$data['text_list'] = $this->language->get('text_list');
 		$data['text_confirm'] = $this->language->get('text_confirm');
 		$data['text_no_results'] = $this->language->get('text_no_results');
-	
-		$data['column_image'] = $this->language->get('column_image');		
+
+		$data['column_image'] = $this->language->get('column_image');
 		$data['column_title'] = $this->language->get('column_title');
 		$data['column_date_added'] = $this->language->get('column_date_added');
 		$data['column_viewed'] = $this->language->get('column_viewed');
 		$data['column_status'] = $this->language->get('column_status');
-		$data['column_action'] = $this->language->get('column_action');		
-	
+		$data['column_action'] = $this->language->get('column_action');
+
 		$data['button_add'] = $this->language->get('button_add');
 		$data['button_edit'] = $this->language->get('button_edit');
 		$data['button_delete'] = $this->language->get('button_delete');
 		$data['button_setting'] = $this->language->get('button_setting');
-	
+
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
 			$data['error_warning'] = '';
 		}
-	
+
 		if (isset($this->session->data['success'])) {
 			$data['success'] = $this->session->data['success'];
-		
+
 			unset($this->session->data['success']);
 		} else {
 			$data['success'] = '';
 		}
-	
+
 		$data['breadcrumbs'] = array();
-	
+
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('text_home'),
 			'separator' => false
 		);
-	
+
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('heading_title'),
 			'separator' => ' :: '
 		);
-	
+
 		$data['add'] = $this->url->link('catalog/news/add', 'token=' . $this->session->data['token'], true);
 		$data['delete'] = $this->url->link('catalog/news/delete', 'token=' . $this->session->data['token'], true);
 		$data['setting'] = $this->url->link('catalog/news/setting', 'token=' . $this->session->data['token'], true);
-	
+
 		$news_total = $this->model_catalog_news->getTotalNews();
-	
+
 		$this->load->model('tool/image');
-	
+
 		$data['news'] = array();
-	
+
 			$filter_data = array(
 			'sort'  => $sort,
 			'order' => $order,
@@ -211,15 +211,15 @@ class ControllerCatalogNews extends Controller {
 		);
 
 		$results = $this->model_catalog_news->getNewsList($filter_data);
-	
+
     	foreach ($results as $result) {
-		
+
 			if ($result['image'] && file_exists(DIR_IMAGE . $result['image'])) {
 				$image = $this->model_tool_image->resize($result['image'], 40, 40);
 			} else {
 				$image = $this->model_tool_image->resize('placeholder.png', 40, 40);
 			}
-		
+
 			$data['news'][] = array(
 				'news_id'     	=> $result['news_id'],
 				'title'       	=> $result['title'],
@@ -275,25 +275,25 @@ class ControllerCatalogNews extends Controller {
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
-	
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-		
+
 		$this->response->setOutput($this->load->view('catalog/news_list', $data));
 
 	}
 
-	private function getForm() { 
+	private function getForm() {
 
 		$this->load->language('catalog/news');
-	
+
 		$this->load->model('catalog/news');
 
 		$this->document->setTitle($this->language->get('heading_title'));
-		
+
 		$data['heading_title'] = $this->language->get('heading_title');
-	
+
 		$data['text_form'] = !isset($this->request->get['news_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
 		$data['text_default'] = $this->language->get('text_default');
 		$data['text_enabled'] = $this->language->get('text_enabled');
@@ -301,11 +301,11 @@ class ControllerCatalogNews extends Controller {
     	$data['text_image_manager'] = $this->language->get('text_image_manager');
 		$data['text_browse'] = $this->language->get('text_browse');
 		$data['text_clear'] = $this->language->get('text_clear');
-	
+
 		$data['text_select_all'] = $this->language->get('text_select_all');
 		$data['text_unselect_all'] = $this->language->get('text_unselect_all');
 		$data['column_date_added'] = $this->language->get('column_date_added');
-	
+
 		$data['entry_title'] = $this->language->get('entry_title');
 		$data['entry_meta_title'] = $this->language->get('entry_meta_title');
 		$data['entry_meta_h1'] = $this->language->get('entry_meta_h1');
@@ -319,19 +319,19 @@ class ControllerCatalogNews extends Controller {
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_tag'] = $this->language->get('entry_tag');
 		$data['entry_read_time'] = $this->language->get('entry_read_time');
-	
+
 		$data['button_save'] = $this->language->get('button_save');
 		$data['button_cancel'] = $this->language->get('button_cancel');
-	
+
 		$data['tab_general'] = $this->language->get('tab_general');
 		$data['tab_data'] = $this->language->get('tab_data');
 
 		$data['help_keyword'] = $this->language->get('help_keyword');
-		$data['help_tag'] = $this->language->get('help_tag');	
-		$data['help_read_time'] = $this->language->get('help_read_time');	
-	
+		$data['help_tag'] = $this->language->get('help_tag');
+		$data['help_read_time'] = $this->language->get('help_read_time');
+
 		$data['token'] = $this->session->data['token'];
-	
+
 		if (isset($this->error['warning'])) {
 			$data['error_warning'] = $this->error['warning'];
 		} else {
@@ -361,29 +361,29 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['error_keyword'] = '';
 		}
-	
+
 		$data['breadcrumbs'] = array();
-	
+
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('text_home'),
 			'separator' => false
 		);
-	
+
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('heading_title'),
 			'separator' => ' :: '
 		);
-	
+
 		if (!isset($this->request->get['news_id'])) {
 			$data['action'] = $this->url->link('catalog/news/add', 'token=' . $this->session->data['token'], true);
 		} else {
 			$data['action'] = $this->url->link('catalog/news/edit', 'token=' . $this->session->data['token'] . '&news_id=' . $this->request->get['news_id'], true);
 		}
-	
+
 		$data['cancel'] = $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true);
-	
+
 		if ((isset($this->request->get['news_id'])) && ($this->request->server['REQUEST_METHOD'] != 'POST')) {
 			$news_info = $this->model_catalog_news->getNewsStory($this->request->get['news_id']);
 		}
@@ -391,7 +391,7 @@ class ControllerCatalogNews extends Controller {
 		$this->load->model('localisation/language');
 
 		$data['languages'] = $this->model_localisation_language->getLanguages();
-	
+
 		if (isset($this->request->post['news_description'])) {
 			$data['news_description'] = $this->request->post['news_description'];
 		} elseif (isset($this->request->get['news_id'])) {
@@ -399,7 +399,7 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['news_description'] = array();
 		}
-		
+
 		if (isset($this->request->post['meta_keyword'])) {
 			$data['meta_keyword'] = $this->request->post['meta_keyword'];
 		} elseif (isset($this->request->get['news_id'])) {
@@ -415,11 +415,11 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['date_added'] = date('Y-m-d');
 		}
-	
+
 		$this->load->model('setting/store');
-	
+
 		$data['stores'] = $this->model_setting_store->getStores();
-	
+
 		if (isset($this->request->post['news_store'])) {
 			$data['news_store'] = $this->request->post['news_store'];
 		} elseif (isset($news_info)) {
@@ -427,7 +427,7 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['news_store'] = array(0);
 		}
-	
+
 		if (isset($this->request->post['keyword'])) {
 			$data['keyword'] = $this->request->post['keyword'];
 		} elseif (isset($news_info)) {
@@ -435,7 +435,7 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['keyword'] = '';
 		}
-	
+
 		if (isset($this->request->post['status'])) {
 			$data['status'] = $this->request->post['status'];
 		} elseif (isset($news_info)) {
@@ -443,7 +443,7 @@ class ControllerCatalogNews extends Controller {
 		} else {
 			$data['status'] = '';
 		}
-	
+
 		if (isset($this->request->post['image'])) {
 			$data['image'] = $this->request->post['image'];
 		} elseif (!empty($news_info)) {
@@ -464,11 +464,11 @@ class ControllerCatalogNews extends Controller {
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
-	
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-		
+
 		$this->response->setOutput($this->load->view('catalog/news_form', $data));
 
 	}
@@ -484,7 +484,7 @@ class ControllerCatalogNews extends Controller {
 			$this->model_setting_setting->editSetting('news_setting', $this->request->post);
 				if (isset($this->request->post['news_url'])) {
 					$this->model_catalog_news->setNewsListUrl($this->request->post['news_url']);
-				}	
+				}
 			$this->session->data['success'] = $this->language->get('text_success');
 
 			$this->cache->delete('news_setting');
@@ -514,7 +514,7 @@ class ControllerCatalogNews extends Controller {
 			$data['error_limit'] = $this->error['description_limit'];
 		} else {
 			$data['error_limit'] = '';
-		}		
+		}
 
 		$data['heading_title'] = $this->language->get('heading_title');
 
@@ -534,15 +534,15 @@ class ControllerCatalogNews extends Controller {
 
 		$data['action'] = $this->url->link('catalog/news/setting', 'token=' . $this->session->data['token'], true);
 		$data['cancel'] = $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true);
-	
+
 		$data['breadcrumbs'] = array();
-	
+
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('text_home'),
 			'separator' => false
 		);
-	
+
 		$data['breadcrumbs'][] = array(
 			'href'      => $this->url->link('catalog/news', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('heading_title'),
@@ -553,7 +553,7 @@ class ControllerCatalogNews extends Controller {
 			'href'      => $this->url->link('catalog/news/setting', 'token=' . $this->session->data['token'], true),
 			'text'      => $this->language->get('text_news_setting'),
 			'separator' => ' :: '
-		);	
+		);
 
 		if (isset($this->request->post['news_setting'])) {
 			$news_setting = $this->request->post['news_setting'];
@@ -567,25 +567,25 @@ class ControllerCatalogNews extends Controller {
 			$data['news_thumb_width'] = $news_setting['news_thumb_width'];
 		} else {
 			$data['news_thumb_width'] = '';
-		}	
+		}
 
 		if (isset($news_setting['news_thumb_height'])) {
 			$data['news_thumb_height'] = $news_setting['news_thumb_height'];
 		} else {
 			$data['news_thumb_height'] = '';
-		}	
+		}
 
 		if (isset($news_setting['news_popup_width'])) {
 			$data['news_popup_width'] = $news_setting['news_popup_width'];
 		} else {
 			$data['news_popup_width'] = '';
-		}	
+		}
 
 		if (isset($news_setting['news_popup_height'])) {
 			$data['news_popup_height'] = $news_setting['news_popup_height'];
 		} else {
 			$data['news_popup_height'] = '';
-		}	
+		}
 
 		if (isset($news_setting['description_limit'])) {
 			$data['description_limit'] = $news_setting['description_limit'];
@@ -597,7 +597,7 @@ class ControllerCatalogNews extends Controller {
 			$data['news_share'] = $news_setting['news_share'];
 		} else {
 			$data['news_share'] = '';
-		}								
+		}
 
 		$news_url = $this->model_catalog_news->getNewsListUrl('information/news');
 
@@ -610,7 +610,7 @@ class ControllerCatalogNews extends Controller {
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
-		
+
 		$this->response->setOutput($this->load->view('catalog/news_setting', $data));
 	}
 
@@ -618,17 +618,17 @@ class ControllerCatalogNews extends Controller {
 		if (!$this->user->hasPermission('modify', 'catalog/news')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
-	
+
 		foreach ($this->request->post['news_description'] as $language_id => $value) {
-			if ((strlen($value['title']) < 3) || (strlen($value['title']) > 255)) {
+			if ((strlen($value['title']) < 1) || (strlen($value['title']) > 512)) {
 				$this->error['title'][$language_id] = $this->language->get('error_title');
 			}
-		
+
 			if (strlen($value['description']) < 3) {
 				$this->error['description'][$language_id] = $this->language->get('error_description');
 			}
 		}
-	
+
 		return !$this->error;
 	}
 
@@ -636,7 +636,7 @@ class ControllerCatalogNews extends Controller {
 		if (!$this->user->hasPermission('modify', 'catalog/news')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
-	
+
 		return !$this->error;
 	}
 
@@ -644,21 +644,21 @@ class ControllerCatalogNews extends Controller {
 		if (!$this->user->hasPermission('modify', 'catalog/news')) {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
-		
+
 		$news_setting = $this->request->post['news_setting'];
 
 		if (!$news_setting['news_thumb_width'] || !$news_setting['news_thumb_height']) {
 			$this->error['thumb'] = $this->language->get('error_thumb');
 		}
-	
+
 		if (!$news_setting['news_popup_width'] || !$news_setting['news_popup_height']) {
 			$this->error['popup'] = $this->language->get('error_popup');
 		}
 
 		if (!$news_setting['description_limit']) {
 			$this->error['description_limit'] = $this->language->get('error_description_limit');
-		}		
-	
+		}
+
 		return !$this->error;
 	}
 }

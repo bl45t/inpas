@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+  <name>SEO Pro Cache Autodestroy</name>
+  <code>SEOProCacheAutodestroy20170322</code>
+  <version>1.1</version>
+  <author>Serge Tkach</author>
+  <link>http://sergetkach.com/</link>
+	<file path="admin/controller/catalog/product.php">
+		<operation>
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('product.seopath'); // customized for SEO Pro
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/catalog/category.php">
+		<operation>
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('category.seopath'); // customized for SEO Pro
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/catalog/manufacturer.php">
+		<operation>
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/catalog/information.php">
+		<operation>
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('information.seopath'); // customized for SEO Pro
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/newsblog/article.php">
+		<operation error="skip">
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('newsblog.article.seopath'); // customized for SEO Pro
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+	<file path="admin/controller/newsblog/category.php">
+		<operation error="skip">
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('newsblog.category.seopath'); // customized for SEO Pro
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+    <file path="admin/controller/catalog/news.php">
+		<operation>
+			<search><![CDATA[
+				$this->session->data['success'] = $this->language->get('text_success');
+			]]></search>
+			<add position="after"><![CDATA[
+			$this->cache->delete('news.seopath'); // customized for SEO Pro
+			$this->cache->delete('seo_pro'); // customized for SEO Pro]]></add>
+		</operation>
+	</file>
+</modification>

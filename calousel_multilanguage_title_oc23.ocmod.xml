@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Carousel module multilanguage title</name>
+    <code>Multilanguage Title</code>
+    <version>1.0.0</version>
+    <author>Blast</author>
+    <link>https://opencartforum.com/profile/8697-blast/</link>
+    <file path="admin/controller/extension/module/carousel.php">
+        <operation>
+            <search><![CDATA[
+            if (isset($this->request->post['status'])) {
+            ]]></search>
+            <add position="before"><![CDATA[
+        $this->load->model('localisation/language');
+        $data['languages'] = $this->model_localisation_language->getLanguages();
+
+        if (isset($this->request->post['module_title'])) {
+            $data['module_title'] = $this->request->post['module_title'];
+        } elseif (!empty($module_info) && isset($module_info['module_title'])) {
+            $data['module_title'] = $module_info['module_title'];
+        } else {
+            $data['module_title'] = '';
+        }
+
+            ]]>
+            </add>
+        </operation>
+        <operation>
+            <search><![CDATA[
+            $data['entry_name'] = $this->language->get('entry_name');
+            ]]></search>
+            <add position="after"><![CDATA[
+        $data['entry_module_name'] = $this->language->get('entry_module_name');
+            ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="admin/view/template/extension/module/carousel.tpl">
+        <operation>
+            <search index="1"><![CDATA[
+            <div class="form-group">
+            ]]></search>
+            <add position="before"><![CDATA[
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"
+                                   for="input-name"><?php echo $entry_module_name; ?></label>
+                            <div class="col-sm-10">
+                                <?php foreach ($languages as $language) { ?>
+                                    <div class="input-group"><span
+                                            class="input-group-addon"><img src="language/<?php echo $language['code']; ?>/<?php echo $language['code']; ?>.png" title="<?php echo $language['name']; ?>" /></span>
+                                        <input type="text"
+                                               class="form-control"
+                                               name="module_title[<?php echo $language['language_id']; ?>]"
+                                               value="<?php echo $module_title ?
+                                                   $module_title[$language['language_id']] : ''; ?>"/>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+            ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="admin/language/ru-ru/extension/module/carousel.php">
+        <operation>
+            <search><![CDATA[
+            <?php
+            ]]></search>
+            <add position="after"><![CDATA[
+            $_['entry_module_name']   = 'Заголовок:';
+            ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/extension/module/carousel.php">
+        <operation>
+            <search><![CDATA[
+            <?php
+            ]]></search>
+            <add position="after"><![CDATA[
+            $_['entry_module_name']   = 'Module Title:';
+            ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/controller/extension/module/carousel.php">
+        <operation>
+            <search><![CDATA[
+                $data['banners'] = array();
+            ]]></search>
+            <add position="after"><![CDATA[
+                if(isset($setting['module_title'])){
+                    $data['heading_title'] = $setting['module_title'][$this->config->get('config_language_id')];
+                }else{
+                    $data['heading_title'] = $setting['name'];
+                }
+            ]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/extension/module/carousel.tpl">
+        <operation>
+            <search><![CDATA[
+            <div id="carousel<?php echo $module; ?>" class="owl-carousel">
+            ]]></search>
+            <add position="before"><![CDATA[
+                <h2 class="header1"><?php echo $heading_title; ?></h2>
+            ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
