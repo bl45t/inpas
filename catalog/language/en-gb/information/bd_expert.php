@@ -17,4 +17,4 @@ $_['text_filters'] = 'Filters';
 $_['text_search'] = 'Search';
 $_['text_link'] = 'Link to Expert profile';
 $_['text_auth'] = 'auth to view';
-$_['text_about_me'] = 'About expert';
+$_['text_about_me'] = 'About myself';
