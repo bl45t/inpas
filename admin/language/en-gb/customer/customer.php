@@ -61,6 +61,7 @@ $_['entry_social_link'] = 'Link to a social network profile';
 $_['entry_interests'] = 'Field of interest';
 $_['entry_organization'] = 'Organization';
 $_['entry_about_me'] = 'About me';
+$_['entry_avatar'] = 'Avatar';
 
 // Help
 $_['help_safe']             = 'Set to true to avoid this customer from being caught by the anti-fraud system';

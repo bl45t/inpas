@@ -396,7 +396,7 @@ input[type="search"] {
 	{
 		line-height: 25px;
 	    font-weight: 500;
-	    font-size: 21px;
+	    font-size: 18px;
 	    height: 50%;
 	    padding-bottom: 5%;
 	    display: flex;
@@ -470,9 +470,9 @@ input[type="search"] {
 
 	.news_text
 	{
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
-		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.95) 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 )
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
+		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.95) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 );
 		position: relative;
 		height: 100%;
 		/*float: left;*/
@@ -609,8 +609,8 @@ input[type="search"] {
 	}
 
 	.event_text {
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
-		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.95) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, rgba(0,0,0,0.05)), to(rgba(0,0,0,0.95)));
+		background: linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.95) 100%);
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#f2000000', GradientType=0 );
 		position: relative;
 		height: 100%;
@@ -1675,7 +1675,8 @@ input[type="search"] {
 	.open .org_full
 	{
 		display: block;
-		margin-left: 26px;
+		padding-left: 26px;
+		width: 100%;
 	}
 
 
@@ -2100,4 +2101,8 @@ input[type="search"] {
 	.owl-wrapper-outer {
 		border: none;
 		box-shadow: none;
+	}
+	.owl-wrapper .owl-item .item {
+		display: flex;
+		justify-content: center;
 	}

@@ -5,6 +5,10 @@ class ModelCustomerCustomer extends Model {
 
 		$customer_id = $this->db->getLastId();
 
+		if (isset($data['avatar'])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET avatar = '" . $this->db->escape($data['avatar']) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+		}
+
 		if (isset($data['address'])) {
 			foreach ($data['address'] as $address) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "address SET customer_id = '" . (int)$customer_id . "', firstname = '" . $this->db->escape($address['firstname']) . "', lastname = '" . $this->db->escape($address['lastname']) . "', company = '" . $this->db->escape($address['company']) . "', address_1 = '" . $this->db->escape($address['address_1']) . "', address_2 = '" . $this->db->escape($address['address_2']) . "', city = '" . $this->db->escape($address['city']) . "', postcode = '" . $this->db->escape($address['postcode']) . "', country_id = '" . (int)$address['country_id'] . "', zone_id = '" . (int)$address['zone_id'] . "', custom_field = '" . $this->db->escape(isset($address['custom_field']) ? json_encode($address['custom_field']) : '') . "'");
@@ -29,6 +33,10 @@ class ModelCustomerCustomer extends Model {
 
 		if ($data['password']) {
 			$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = token(9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "' WHERE customer_id = '" . (int)$customer_id . "'");
+		}
+
+		if (isset($data['avatar'])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "customer SET avatar = '" . $this->db->escape($data['avatar']) . "' WHERE customer_id = '" . (int)$customer_id . "'");
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "address WHERE customer_id = '" . (int)$customer_id . "'");

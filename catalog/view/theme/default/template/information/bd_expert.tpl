@@ -114,13 +114,26 @@
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_phone?></span> <?=$expert['telephone']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_email?></span> <?=$expert['email']?></div>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_post?>:</span> <?=$expert['post']?></div>
-					  <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_degree?>:</span> <?=$expert['degree']?></div>
+                      <?php
+                          if (utf8_strlen($expert['degree']) > 0) {
+                      ?>
+                          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_degree?>:</span> <?=$expert['degree']?></div>
+                      <?php } ?>
 			          <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_organization?>:</span> <a href="<?=$expert['link_to_org']?>"><?=$expert['org_name']?></a></div>
 					  <div class="col-md-6 col-sm-12"><span class="label_description"><?=$text_address?></span> <?=$expert['address']?></div>
-			          <div class="col-md-6 col-md-12">
-			          	<span class="label_description"><?=$text_interests?></span>
-			          	<?=$expert['field_of_interest']?>
-			          </div>
+                      <?php
+                          if (utf8_strlen($expert['field_of_interest']) > 2) {
+                      ?>
+                          <div class="col-md-6 col-md-12">
+    			          	<span class="label_description"><?=$text_interests?></span>
+    			          	<?=$expert['field_of_interest']?>
+    			          </div>
+                      <?php } ?>
+                      <?php
+                          if (utf8_strlen($expert['about_me']) > 0) {
+                      ?>
+                          <div class="col-xs-12"><span class="label_description"><?=$text_about_me?>:</span> <?=$expert['about_me']?></div>
+                      <?php } ?>
                       <div class="col-md-6 col-sm-12"><a href="<?=$expert['link']?>"><?=$text_link?></a></div>
 
 			        </div>

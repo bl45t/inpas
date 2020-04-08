@@ -260,6 +260,13 @@
                           </div>
                       </div>
 
+                      <div id="form_group_avatar" class="form-group">
+                          <label class="col-sm-2 control-label"><?php echo $entry_avatar; ?></label>
+                          <div class="col-sm-10"><a href="" id="thumb-avatar" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+                          <input type="hidden" name="avatar" value="<?php echo $avatar; ?>" id="input-avatar" />
+                          </div>
+                      </div>
+
                       <?php foreach ($custom_fields as $custom_field) { ?>
                       <?php if ($custom_field['location'] == 'account') { ?>
                       <?php if ($custom_field['type'] == 'select') { ?>
@@ -836,6 +843,7 @@ function getExpertStateForm () {
   $('#form_group_social_link').removeClass('hidden');
   $('#form_group_organozation').removeClass('hidden');
   $('#form_group_about_me').removeClass('hidden');
+  $('#form_group_avatar').removeClass('hidden');
 }
 
 function getUserStateForm() {
@@ -846,6 +854,7 @@ function getUserStateForm() {
   $('#form_group_social_link').addClass('hidden');
   $('#form_group_organozation').addClass('hidden');
   $('#form_group_about_me').addClass('hidden');
+  $('#form_group_avatar').addClass('hidden');
 }
 
 $('select[name=\'customer_group_id\']').on('change', function() {

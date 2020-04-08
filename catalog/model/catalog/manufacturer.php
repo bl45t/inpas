@@ -3,11 +3,11 @@ class ModelCatalogManufacturer extends Model {
 
 	public function addManufacturer($data) {
 		$curCode = $this->language->get('code');
-		
+
     	$front_language_id = $curCode === 'ru' ? 1 : 2;
 
 		$data['name'] = $data['manufacturer_description'][$front_language_id ]['name'];
-		
+
 		$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($data['name']) . "', sort_order = '" . (int)$data['sort_order'] . "', id_country = ". $this->db->escape($data['id_country']) .", id_region = ". $this->db->escape($data['id_region']) .", created = ".time());
 
 		$manufacturer_id = $this->db->getLastId();
@@ -44,11 +44,11 @@ class ModelCatalogManufacturer extends Model {
 	public function getManufacturer($manufacturer_id) {
 		$query = $this->db->query("
 			SELECT md.name as org_name, md.manufacturer_id as manufacturer_id, md.name as name_desc_org, md.city as org_city, md.phone as org_phone, md.email as org_email, md.fax as org_fax, md.address as org_address, md.post_code as org_post_code, md.site_address as org_site_address, md.description as org_description, md.educational_program as org_educational_program, c.name as country_name, z.name as region_name, c.eng_name as country_name_eng, z.eng_name as region_name_eng, m.status
-			FROM " . DB_PREFIX . "manufacturer m 
-			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) 
-			LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) 
-			LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country 
-			LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region 
+			FROM " . DB_PREFIX . "manufacturer m
+			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id)
+			LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id)
+			LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country
+			LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region
 			WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' && m.manufacturer_id = '" . (int)$manufacturer_id . "'");
 
 		return $query->row;
@@ -56,12 +56,12 @@ class ModelCatalogManufacturer extends Model {
 
 	public function getManufacturers($data = array()) {
 			$sql = "
-			SELECT md.name as org_name, md.manufacturer_id as manufacturer_id, md.name as name_desc_org, md.city as org_city, md.phone as org_phone, md.email as org_email, md.fax as org_fax, md.address as org_address, md.post_code as org_post_code, md.site_address as org_site_address, md.description as org_description, md.educational_program as org_educational_program, c.name as country_name, z.name as region_name, c.eng_name as country_name_eng, z.eng_name as region_name_eng 
+			SELECT md.name as org_name, md.manufacturer_id as manufacturer_id, md.name as name_desc_org, md.city as org_city, md.phone as org_phone, md.email as org_email, md.fax as org_fax, md.address as org_address, md.post_code as org_post_code, md.site_address as org_site_address, md.description as org_description, md.educational_program as org_educational_program, c.name as country_name, z.name as region_name, c.eng_name as country_name_eng, z.eng_name as region_name_eng
 			FROM " . DB_PREFIX . "manufacturer m
-			LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id) 
-			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id) 
-			LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country 
-			LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region 
+			LEFT JOIN " . DB_PREFIX . "manufacturer_to_store m2s ON (m.manufacturer_id = m2s.manufacturer_id)
+			LEFT JOIN " . DB_PREFIX . "manufacturer_description md ON (m.manufacturer_id = md.manufacturer_id)
+			LEFT JOIN ". DB_PREFIX ."country c ON c.country_id = m.id_country
+			LEFT JOIN ". DB_PREFIX ."zone z ON z.zone_id = m.id_region
 			WHERE md.language_id = '" . (int)$this->config->get('config_language_id') . "' AND m.status = 1";
 
 			if (isset($data['id_country'])) {
@@ -96,7 +96,7 @@ class ModelCatalogManufacturer extends Model {
 			if (isset($data['sort']) && in_array($data['sort'], $sort_data)) {
 				$sql .= " ORDER BY " . $data['sort'];
 			} else {
-				$sql .= " ORDER BY md.name";
+				$sql .= " ORDER BY m.sort_order";
 			}
 
 			if (isset($data['order']) && ($data['order'] == 'DESC')) {
@@ -119,7 +119,7 @@ class ModelCatalogManufacturer extends Model {
 
 			$query = $this->db->query($sql);
 
-			return $query->rows;	
+			return $query->rows;
 	}//public function getManufacturers
 
 	public function getTotalActiveManufacturers($data = []) {
@@ -132,7 +132,7 @@ class ModelCatalogManufacturer extends Model {
 		if (isset($data['id_region'])) {
 			$sql .= " AND m.id_region = ".$data['id_region'];
 		}
-	
+
 		if (isset($data['name_city'])) {
 			$sql .= " AND md.city LIKE '%".$this->db->escape($data['name_city'])."%'";
 		}

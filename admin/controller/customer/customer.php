@@ -682,6 +682,7 @@ class ControllerCustomerCustomer extends Controller {
 		$data['text_loading'] = $this->language->get('text_loading');
 		$data['text_add_ban_ip'] = $this->language->get('text_add_ban_ip');
 		$data['text_remove_ban_ip'] = $this->language->get('text_remove_ban_ip');
+		$data['text_image_manager'] = $this->language->get('text_image_manager');
 
 		$data['entry_customer_group'] = $this->language->get('entry_customer_group');
 		$data['entry_firstname'] = $this->language->get('entry_firstname');
@@ -715,6 +716,7 @@ class ControllerCustomerCustomer extends Controller {
 		$data['entry_interests'] = $this->language->get('entry_interests');
 		$data['entry_organization'] = $this->language->get('entry_organization');
 		$data['entry_about_me'] = $this->language->get('entry_about_me');
+		$data['entry_avatar'] = $this->language->get('entry_avatar');
 
 		$data['help_safe'] = $this->language->get('help_safe');
 		$data['help_points'] = $this->language->get('help_points');
@@ -1048,6 +1050,26 @@ class ControllerCustomerCustomer extends Controller {
 		} else {
 			$data['eng_about_me'] = '';
 		}
+
+		if (isset($this->request->post['avatar'])) {
+			$data['avatar'] = $this->request->post['avatar'];
+		} elseif (!empty($customer_info)) {
+			$data['avatar'] = $customer_info['avatar'];
+		} else {
+			$data['avatar'] = '';
+		}
+
+		$this->load->model('tool/image');
+
+		if (isset($this->request->post['avatar']) && is_file(DIR_IMAGE . $this->request->post['avatar'])) {
+			$data['thumb'] = $this->model_tool_image->resize($this->request->post['avatar'], 100, 100);
+		} elseif (!empty($customer_info) && is_file(DIR_IMAGE . $customer_info['avatar'])) {
+			$data['thumb'] = $this->model_tool_image->resize($customer_info['avatar'], 100, 100);
+		} else {
+			$data['thumb'] = $this->model_tool_image->resize('user.png', 83, 83);
+		}
+
+		$data['placeholder'] = $this->model_tool_image->resize('user.png', 83, 83);
 
 		if (isset($this->request->post['fax'])) {
 			$data['fax'] = $this->request->post['fax'];

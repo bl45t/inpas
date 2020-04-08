@@ -652,3 +652,7 @@ div.ckeditor {
 #filemanager .fa-folder.fa-5x {
     font-size: 10.5em;
 }
+.note-editor.note-frame .note-editing-area .note-editable, .note-editor.note-airframe .note-editing-area .note-editable {
+	font-family: Helvetica;
+	font-size: 14px;
+}

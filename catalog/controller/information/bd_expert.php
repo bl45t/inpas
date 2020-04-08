@@ -26,6 +26,7 @@ class ControllerInformationBdExpert extends Controller
 		$data['text_city'] = $this->language->get('text_city');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_link'] = $this->language->get('text_link');
+		$data['text_about_me'] = $this->language->get('text_about_me');
 
 		$this->document->setTitle($this->language->get('text_heading_title'));
 
@@ -157,7 +158,7 @@ class ControllerInformationBdExpert extends Controller
 
 			if (!empty($e['org_address'])) {
 				$addrInfo[] = $e['org_address'];
-			}
+			}			
 
 			$arExperts[$e['customer_id']]['name'] = ($curLang == 'ru') ? $e['expert_name'] : $e['eng_expert_name'];
 			$arExperts[$e['customer_id']]['post'] = ($curLang == 'ru') ? $e['post'] : $e['eng_post'];
@@ -171,6 +172,7 @@ class ControllerInformationBdExpert extends Controller
 			$arExperts[$e['customer_id']]['address'] = implode(', ', $addrInfo);
 			$arExperts[$e['customer_id']]['link_to_org'] = $this->url->link('information/bd_organizations','&organization='.$e['id_org']);
 			$arExperts[$e['customer_id']]['link'] = $this->url->link('information/bd_expert','&search_field='.htmlspecialchars($arExperts[$e['customer_id']]['name']));
+			$arExperts[$e['customer_id']]['about_me'] = ($curLang == 'ru') ? $e['about_me'] : $e['eng_about_me'];
 			$arExperts[$e['customer_id']]['country_iso_code_2'] = strtolower($e['country_iso_code_2']);
 
 			if (!empty($e['avatar'])) {
