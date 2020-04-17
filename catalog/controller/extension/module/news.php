@@ -2,13 +2,13 @@
 class ControllerExtensionModuleNews extends Controller {
 
 	public function index($setting) {
-	
+
 		$this->load->language('extension/module/news');
-	
+
 		$this->load->model('localisation/language');
-	
+
 		$languages = $this->model_localisation_language->getLanguages();
-	
+
 		if($setting['show_title']){
       		$data['heading_title'] = $this->language->get('heading_title');
 		}else{
@@ -20,38 +20,38 @@ class ControllerExtensionModuleNews extends Controller {
 		}else{
       		$data['show_icon'] = false;
 		}
-	
+
 		$this->load->model('catalog/news');
-	
+
 		$data['text_more'] = $this->language->get('text_more');
 		$data['text_all_news'] = $this->language->get('text_all_news');
 
 		$data['text_date_added'] = $this->language->get('text_date_added');
 		$data['text_reading_time'] = $this->language->get('text_reading_time');
-			
+
 		$data['button_list'] = $this->language->get('button_list');
-	
+
 		$data['news_list'] = $this->url->link('information/news');
-		
+
 		$data['news'] = array();
 
 		$data['show_title'] = $setting['show_title'];
 		$data['show_icon']  = $setting['show_icon'];
 
 		$results = $this->model_catalog_news->getNewsShorts($setting['limit']);
-		
+
 		$this->load->model('tool/imagecrop');
-	
+
 		foreach ($results as $result) {
 			if ($result['image']) {
- 				$image = $this->model_tool_imagecrop->resize($result['image'], $setting['width'], 0);
+ 				$image = $this->model_tool_imagecrop->resize($result['image'], $setting['width'], $setting['height']);
  			} else {
  				$image = false;
  			}
 
  			$tags = [];
  			$tags = explode(",", $result['tag']);
-			
+
 			$data['news'][] = array(
 				'title'        		=> $result['title'],
 				'thumb' 			=> $image,
@@ -63,7 +63,7 @@ class ControllerExtensionModuleNews extends Controller {
 				'read_time' 		=> $result['read_time']
 			);
 		}
-	
+
 		if ($data['news']) {
 			return $this->load->view('extension/module/news', $data);
 		}

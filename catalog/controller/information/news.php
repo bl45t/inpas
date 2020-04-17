@@ -84,7 +84,7 @@ class ControllerInformationNews extends Controller {
 		$news_list = $this->model_catalog_news->getNews($filter_data);
 
 		$data['news_list'] = array();
-		
+
 		if ($news_list) {
 
 			$this->document->setTitle($this->language->get('heading_title'));
@@ -111,14 +111,14 @@ class ControllerInformationNews extends Controller {
 				$news_setting = $this->config->get('news_setting');
 			}else{
 				$news_setting['description_limit'] = '300';
-				$news_setting['news_thumb_width'] = '220';
-				$news_setting['news_thumb_height'] = '220';
+				$news_setting['news_thumb_width'] = '250';
+				$news_setting['news_thumb_height'] = '250';
 			}
 
 			foreach ($news_list as $result) {
 
 				if($result['image']){
-					$image = $this->model_tool_imagecrop->resize($result['image'], $news_setting['news_thumb_width'], 0);
+					$image = $this->model_tool_imagecrop->resize($result['image'], $news_setting['news_thumb_width'], $news_setting['news_thumb_height']);
 				}else{
 					$image = false;
 				}
@@ -171,7 +171,7 @@ class ControllerInformationNews extends Controller {
 			'text' => $this->language->get('text_date_desc'),
 			'value' => 'n.date_added-DESC',
 			'href' => $this->url->link('information/news', 'sort=n.date_added&order=DESC' . $url)
-		);		
+		);
 
 		$url = '';
 
@@ -182,7 +182,7 @@ class ControllerInformationNews extends Controller {
 		if (isset($this->request->get['order'])) {
 			$url .= '&order=' . $this->request->get['order'];
 		}
-		
+
 		$data['limits'] = array();
 
 		$limits = array_unique(array($this->config->get($this->config->get('config_theme') . '_product_limit'), 25, 50, 75, 100));
@@ -209,7 +209,7 @@ class ControllerInformationNews extends Controller {
 
 		if (isset($this->request->get['limit'])) {
 			$url .= '&limit=' . $this->request->get['limit'];
-		}		
+		}
 
 		$pagination = new Pagination();
 		$pagination->total = $news_total;
@@ -312,10 +312,10 @@ class ControllerInformationNews extends Controller {
 			if ($this->config->get('news_setting')) {
 				$news_setting = $this->config->get('news_setting');
 			}else{
-				$news_setting['news_thumb_width']  = '220';
-				$news_setting['news_thumb_height'] = '220';
-				$news_setting['news_popup_width']  = '560';
-				$news_setting['news_popup_height'] = '560';
+				$news_setting['news_thumb_width']  = '250';
+				$news_setting['news_thumb_height'] = '250';
+				$news_setting['news_popup_width']  = '737';
+				$news_setting['news_popup_height'] = '300';
 			}
 
 			if(isset($news_setting['news_share'])){
@@ -332,8 +332,8 @@ class ControllerInformationNews extends Controller {
 				$data['image'] = false;
 			}
 			if($news_info['image']){
-				$data['thumb'] = $this->model_tool_imagecrop->resize($news_info['image'], $news_setting['news_thumb_width'],0);
-				$data['popup'] = $this->model_tool_imagecrop->resize($news_info['image'], $news_setting['news_popup_width'],0);
+				$data['thumb'] = $this->model_tool_imagecrop->resize($news_info['image'], $news_setting['news_thumb_width'], $news_setting['news_thumb_height']);
+				$data['popup'] = $this->model_tool_imagecrop->resize($news_info['image'], $news_setting['news_popup_width'], $news_setting['news_popup_height']);
 			}else{
 				$data['thumb'] = false;
 				$data['popup'] = false;

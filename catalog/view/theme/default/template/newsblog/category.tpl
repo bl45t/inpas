@@ -51,9 +51,9 @@
       <div class="row">
         <?php foreach ($articles as $article) { ?>
         <div class="event_category" class="col-md-12">
-          
+
             <div class="event_block">
-              <div class="col-md-3"> 
+              <div class="col-md-4 col-sm-5 col-lg-3">
                 <div class=" event_page">
                   <a href="<?=$article['href']?>">
                     <div class="image" style='background-image: url("<?=$article["thumb"]?>")'>
@@ -62,7 +62,7 @@
                 </div>
               </div>
 
-              <div class="col-md-9">
+              <div class="col-md-8 col-sm-7 col-lg-9">
                 <div class="event_full">
                     <div class="event_list_text">
                       <div class="top_block_content">
@@ -80,13 +80,13 @@
                           <div class="date_event">
                               <span class="sub_grey"> <?=$text_date_start?> </span> <?=$article['date_start']?>
                           </div>
-                       
+
                             <?php if (strtotime($article['date_end']) != strtotime('0000-00-00')) { ?>
                                <div class="date_event">
                                 <span class="sub_grey"><?=$text_date_end?> </span> <?=$article['date_end']?>
                                </div>
                             <?php } ?>
-                       
+
                           <div class="bottom_row">
                             <div class="place_event"><span class="sub_grey"><?=$text_venue?></span> <?=$article['venue']?></div>
                             <div class="eventpage_more"><a href="<?=$article['href']?>"><?=$text_read_more?></a></div>

@@ -15,16 +15,16 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <div class=" full_event_page">
-        
-        <div class=" event_block">   
-          <div class="col-md-3"> 
+
+        <div class=" event_block">
+          <div class="col-md-4 col-sm-5 col-lg-3">
                 <div class=" event_page">
                     <div class="image" style='background-image: url("<?=$thumb?>")'>
                     </div>
                 </div>
           </div>
 
-        <div class="col-md-9">
+        <div class="col-md-8 col-sm-7 col-lg-9">
           <div class="event_full">
             <div class="event_list_text ">
               <div class="top_block_content">
@@ -52,25 +52,25 @@
                 </div>
               </div>
             </div>
-          </div> 
-        </div>         
+          </div>
+        </div>
         </div>
 
-  
+
         <div class="">
           	<?php echo $description; ?>
-   
 
-     
+
+
         	<?php if ($images) { ?>
-          
-	         
+
+
 	            <?php if ($images) { ?>
 	            <?php foreach ($images as $image) { ?>
 	           <a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
 	            <?php } ?>
 	            <?php } ?>
-          
+
           	<?php } ?>
 
           	<?php if ($attributes) { ?>
@@ -109,7 +109,7 @@
           <form action="<?=$action?>" method="POST">
             <div class="form-group">
               <label for="exampleInputEmail1">Почта*</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">  <div class="input_icon input_right"></div>             
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">  <div class="input_icon input_right"></div>
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Имя и фамилия*</label>
@@ -132,7 +132,7 @@
           </form>
 
         </div>
-     
+
       </div>
 
   	  <?php if ($articles) { ?>
@@ -271,7 +271,7 @@
       </div>
       <?php } ?>
 
- 
+
       </div>
     <?php echo $column_right; ?></div>
 </div>

@@ -103,18 +103,18 @@ class ModelToolImagecrop extends Model {
 	 
 		}
 		
-		$ratio       = min($x_ratio, $y_ratio);
+		$ratio       = max($x_ratio, $y_ratio);
 		$use_x_ratio = ($x_ratio == $ratio);
 		$new_width   = $use_x_ratio  ? $width  : floor($size[0] * $ratio);
 		$new_height  = !$use_x_ratio ? $height : floor($size[1] * $ratio);
 	 
 		
 		if ($cute_borders === true) {
-			$new_left    = 0;
-			$new_top     = 0;
+			$new_left    = $use_x_ratio  ? 0 : floor(($width - $new_width)   / 2);
+			$new_top     = !$use_x_ratio ? 0 : floor(($height - $new_height) / 2);
 		
 			$isrc  = $icfunc($filePath);
-			$idest = imagecreatetruecolor($new_width, $new_height);
+			$idest = imagecreatetruecolor($width, $height);
 		} else {
 			$new_left    = $use_x_ratio  ? 0 : floor(($width - $new_width)   / 2);
 			$new_top     = !$use_x_ratio ? 0 : floor(($height - $new_height) / 2);
