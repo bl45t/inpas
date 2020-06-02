@@ -164,11 +164,29 @@ class ControllerInformationBdOrganizations extends Controller
 
 		$data['countries'] = $arCountries;
 
+		$url = '';
+
+		if (isset($this->request->get['search_field'])) {
+			$url .= '&search_field=' . urlencode(html_entity_decode($this->request->get['search_field'], ENT_QUOTES, 'UTF-8'));
+		}
+
+		if (isset($this->request->get['id_country'])) {
+			$url .= '&id_country=' . $this->request->get['id_country'];
+		}
+
+		if (isset($this->request->get['id_region'])) {
+			$url .= '&id_region=' . $this->request->get['id_region'];
+		}
+
+		if (isset($this->request->get['name_city'])) {
+			$url .= '&name_city=' . urlencode(html_entity_decode($this->request->get['name_city'], ENT_QUOTES, 'UTF-8'));
+		}
+
 		$pagination = new Pagination();
 		$pagination->total = $org_total;
 		$pagination->page = $page;
 		$pagination->limit = $limit;
-		$pagination->url = $this->url->link('information/bd_organizations','&page={page}');
+		$pagination->url = $this->url->link('information/bd_organizations', $url . '&page={page}');
 
 		$data['pagination'] = $pagination->render();
 		$data['results'] = sprintf($this->language->get('text_pagination'), ($org_total) ? (($page - 1) * $limit) + 1 : 0, ((($page - 1) * $limit) > ($org_total - $limit)) ? $org_total : ((($page - 1) * $limit) + $limit), $org_total, ceil($org_total / $limit));

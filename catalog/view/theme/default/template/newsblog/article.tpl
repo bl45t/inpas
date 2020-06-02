@@ -57,7 +57,7 @@
         </div>
 
 
-        <div class="">
+        <div class="event-description">
           	<?php echo $description; ?>
 
 
@@ -84,7 +84,7 @@
         </div>
 
         <hr class="hr_text_page hidden">
-        <div class="share hidden">
+        <!--<div class="share hidden">
           <div class="share_text">Поделиться</div>
           <div class="social vk">
             <img src="catalog/view/theme/default/image/icons/vk.svg">
@@ -131,7 +131,7 @@
             <button class="login" type="submit">Зарегистрироваться</button>
           </form>
 
-        </div>
+      </div> -->
 
       </div>
 

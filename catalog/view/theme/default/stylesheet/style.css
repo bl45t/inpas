@@ -596,16 +596,20 @@ input[type="search"] {
 	{
 		font-style: normal;
 		font-weight: normal;
-		font-size: 13px;
+		font-size: 14px;
 		line-height: 15px;
 		letter-spacing: 0.005em;
 		margin-top: 9px;
 		margin-bottom: 10px;
 	}
 
+	.news_subheader * {
+		font-size: 14px;
+	}
+
 	.news_subheader p, .news_subheader span {
     	color: #838383;
-    	font-size: 16px;
+    	font-size: 14px;
 		line-height: 19px;
 	}
 
@@ -1405,6 +1409,10 @@ input[type="search"] {
 		color: #242424;
 	}
 
+	.full_event_page .event-description * {
+		font-size: 14px;
+	}
+
 
 	.event_list_text {
 		height: 240px;
@@ -1486,11 +1494,14 @@ input[type="search"] {
 		padding:10px;
 	}
 
-	.event_main_text, .event_main_text i, .event_main_text ins, .event_main_text b
+	/*.event_main_text, .event_main_text i, .event_main_text ins, .event_main_text b
 	{
 		font-size: 16px;
 		line-height: 160%;
 		color: #535353;
+	}*/
+	.event_main_text * {
+		font-size: 14px;
 	}
 	.header_main
 	{
@@ -2229,4 +2240,7 @@ input[type="search"] {
 	.owl-wrapper .owl-item .item {
 		display: flex;
 		justify-content: center;
+	}
+	.information-content * {
+		font-size: 14px;
 	}

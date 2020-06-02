@@ -10,8 +10,10 @@
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
       <h1><?php echo $heading_title; ?></h1>
-      <?php echo $description; ?></div>
-    <?php echo $column_right; ?></div>
+      <div class="information-content"><?php echo $description; ?></div>
+    </div>
+    <?php echo $column_right; ?>
+  </div>
 </div>
 <?php echo $content_bottom; ?>
 <?php echo $footer; ?>
